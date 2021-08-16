@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.effect.Light.Distant?>
+<?import javafx.scene.effect.Lighting?>
+<?import javafx.scene.effect.Shadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane fx:id="pannelRoot" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="700.0" style="-fx-background-color: #c5c5c5;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ManagerController">
+   <center>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label layoutX="186.0" layoutY="32.0" prefHeight="35.0" prefWidth="227.0" text="Welcome manager!">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <MenuButton contentDisplay="RIGHT" layoutX="366.0" layoutY="98.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" popupSide="RIGHT" prefHeight="80.0" prefWidth="100.0" style="-fx-background-color: darkblue; -fx-background-radius: 1; -fx-border-color: grey;" text="System" textFill="WHITE">
+              <items>
+                <MenuItem mnemonicParsing="false" onAction="#goHome" text="home" />
+                  <MenuItem mnemonicParsing="false" onAction="#SaveToSerelizebaleFile" text="save" />
+                <MenuItem mnemonicParsing="false" onAction="#GoLogin" text="log-out" />
+              </items>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </MenuButton>
+            <MenuButton contentDisplay="RIGHT" layoutX="366.0" layoutY="178.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" popupSide="RIGHT" prefHeight="80.0" prefWidth="100.0" style="-fx-background-color: darkblue; -fx-background-radius: 0; -fx-border-color: grey;" text="Add" textFill="WHITE">
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#goAddCustomer" text="add customer" />
+                  <MenuItem mnemonicParsing="false" onAction="#goAddCook" text="add cook" />
+                  <MenuItem mnemonicParsing="false" onAction="#goAddDP" text="add delivery person" />
+                  <MenuItem mnemonicParsing="false" onAction="#goAddComponent" text="add component" />
+                  <MenuItem mnemonicParsing="false" onAction="#goAddDish" text="add dish" />
+                  <MenuItem mnemonicParsing="false" onAction="#goAddOrder" text="add order" />
+                  <MenuItem mnemonicParsing="false" onAction="#goAddDelivery" text="add delivery" />
+                  <MenuItem mnemonicParsing="false" onAction="#goAddDA" text="add delivery area" />
+               </items>
+            </MenuButton>
+            <MenuButton contentDisplay="RIGHT" layoutX="366.0" layoutY="258.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" popupSide="RIGHT" prefHeight="80.0" prefWidth="100.0" style="-fx-background-color: darkblue; -fx-background-radius: 0; -fx-border-color: grey;" text="Remove" textFill="WHITE">
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#goRemoveCustomer" text="remove customer" />
+                  <MenuItem mnemonicParsing="false" onAction="#goRemoveCook" text="remove cook" />
+                  <MenuItem mnemonicParsing="false" onAction="#goRemoveDP" text="remove delivery person" />
+                  <MenuItem mnemonicParsing="false" onAction="#goRemoveComponent" text="remove component" />
+                  <MenuItem mnemonicParsing="false" onAction="#goRemoveDish" text="remove dish" />
+                  <MenuItem mnemonicParsing="false" onAction="#goRemoveOrder" text="remove order" />
+                  <MenuItem mnemonicParsing="false" onAction="#goRemoveDelivery" text="remove delivery" />
+                  <MenuItem mnemonicParsing="false" onAction="#goRemoveDA" text="remove delivery area" />
+               </items>
+            </MenuButton>
+            <MenuButton contentDisplay="RIGHT" layoutX="366.0" layoutY="338.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" popupSide="RIGHT" prefHeight="80.0" prefWidth="100.0" style="-fx-background-color: darkblue; -fx-background-radius: 0; -fx-border-color: grey;" text="Querries" textFill="WHITE">
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#goGRLDList" text="get relevant dish list" />
+                  <MenuItem mnemonicParsing="false" onAction="#goGetCooksByExpertise" text="get cooks by expertise" />
+                  <MenuItem mnemonicParsing="false" onAction="#goGetPopularComponents" text="get popular components" />
+                  <MenuItem mnemonicParsing="false" onAction="#goOrderWaitingTime" text="order waiting time" />
+                  <MenuItem mnemonicParsing="false" onAction="#goDeliver" text="deliver" />
+                  <MenuItem mnemonicParsing="false" onAction="#goCalcOrderRevenue" text="calc order revenue" />
+                  <MenuItem mnemonicParsing="false" onAction="#goGetDeliveriesByPerson" text="get deliveries by person" />
+                  <MenuItem mnemonicParsing="false" onAction="#goGetNumberOfDeliveriesPerType" text="get number of deliveries per type" />
+                  <MenuItem mnemonicParsing="false" onAction="#goRevenueFromExpressDeliveries" text="revenue from express deliveries" />
+                  <MenuItem mnemonicParsing="false" onAction="#goGetProfitRelation" text="get profit relation" />
+                  <MenuItem mnemonicParsing="false" onAction="#goCreateAIMacine" text="create AI macine" />
+                  <MenuItem mnemonicParsing="false" onAction="#goGRLDList" text="get relevant dish list" />
+               </items>
+            </MenuButton>
+            <MenuButton contentDisplay="RIGHT" layoutX="366.0" layoutY="418.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" popupSide="RIGHT" prefHeight="80.0" prefWidth="100.0" style="-fx-background-color: darkblue; -fx-background-radius: 0; -fx-border-color: grey;" text="Exit" textFill="WHITE">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="exit" />
+               </items>
+            </MenuButton>
+         </children>
+         <effect>
+            <Lighting>
+               <bumpInput>
+                  <Shadow />
+               </bumpInput>
+               <light>
+                  <Light.Distant />
+               </light>
+            </Lighting>
+         </effect>
+      </AnchorPane>
+   </center>
+   <left>
+      <AnchorPane fx:id="anchor" style="-fx-background-color: darkblue;" stylesheets="@../application/application.css" BorderPane.alignment="CENTER">
+         <children>
+            <VBox fx:id="vbox" layoutY="50.0" prefHeight="450.0" prefWidth="100.0" style="-fx-background-color: darkblue;">
+               <children>
+                  <Button alignment="TOP_LEFT" mnemonicParsing="false" onAction="#goHome" prefHeight="45.0" prefWidth="100.0" style="-fx-background-radius: 0; -fx-background-color: DARKBLUE;" text="Home" textFill="WHITE">
+                     <graphic>
+                        <ImageView fitHeight="26.0" fitWidth="25.0">
+                           <image>
+                              <Image url="@../../../../../AppData/Local/Temp/icons8_home_48px.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button alignment="TOP_LEFT" mnemonicParsing="false" onAction="#goAdd" prefHeight="45.0" prefWidth="100.0" style="-fx-background-radius: 0; -fx-background-color: DARKBLUE;" text="Add" textFill="WHITE">
+                     <graphic>
+                        <ImageView fitHeight="28.0" fitWidth="29.0">
+                           <image>
+                              <Image url="@../../../../../AppData/Local/Temp/icons8_add_48px.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button alignment="TOP_LEFT" mnemonicParsing="false" onAction="#goRemove" prefHeight="45.0" prefWidth="100.0" style="-fx-background-radius: 0; -fx-background-color: DARKBLUE;" text="Remove" textFill="WHITE">
+                     <graphic>
+                        <ImageView fitHeight="28.0" fitWidth="29.0">
+                           <image>
+                              <Image url="@../../../../../AppData/Local/Temp/icons8_minus_48px.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button alignment="TOP_LEFT" mnemonicParsing="false" prefHeight="45.0" prefWidth="100.0" style="-fx-background-radius: 0; -fx-background-color: DARKBLUE;" text="Edit" textFill="WHITE">
+                     <graphic>
+                        <ImageView fitHeight="28.0" fitWidth="29.0">
+                           <image>
+                              <Image url="@../../../../../AppData/Local/Temp/icons8_edit_48px.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button alignment="TOP_LEFT" mnemonicParsing="false" prefHeight="45.0" prefWidth="100.0" style="-fx-background-radius: 0; -fx-background-color: DARKBLUE;" text="Querries" textFill="WHITE">
+                     <graphic>
+                        <ImageView fitHeight="28.0" fitWidth="29.0">
+                           <image>
+                              <Image url="@../../../../../AppData/Local/Temp/icons8_tasks_100px.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button alignment="TOP_LEFT" mnemonicParsing="false" onAction="#SaveToSerelizebaleFile" prefHeight="45.0" prefWidth="100.0" style="-fx-background-radius: 0; -fx-background-color: DARKBLUE;" text="Save" textFill="WHITE">
+                     <graphic>
+                        <ImageView fitHeight="26.0" fitWidth="25.0">
+                           <image>
+                              <Image url="@../../../../../AppData/Local/Temp/icons8_save_24px_1.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button alignment="TOP_LEFT" mnemonicParsing="false" onAction="#GoLogin" prefHeight="45.0" prefWidth="100.0" style="-fx-background-radius: 0; -fx-background-color: DARKBLUE;" text="Log-out" textFill="WHITE">
+                     <graphic>
+                        <ImageView fitHeight="28.0" fitWidth="28.0">
+                           <image>
+                              <Image url="@../../../../../AppData/Local/Temp/icons8_sign_out_40px.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button alignment="TOP_LEFT" mnemonicParsing="false" prefHeight="45.0" prefWidth="100.0" style="-fx-background-radius: 0; -fx-background-color: DARKBLUE;" text="Exit" textFill="WHITE">
+                     <graphic>
+                        <ImageView fitHeight="28.0" fitWidth="28.0">
+                           <image>
+                              <Image url="@../../../../../AppData/Local/Temp/icons8_shutdown_48px.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+               </children>
+            </VBox>
+            <ImageView fitHeight="67.0" fitWidth="50.0" onMouseClicked="#showMenu" y="-7.0">
+               <image>
+                  <Image url="@../../../../../AppData/Local/Temp/icons8_menu_50px_1.png" />
+               </image>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </ImageView>
+         </children>
+         <effect>
+            <Lighting>
+               <bumpInput>
+                  <Shadow />
+               </bumpInput>
+               <light>
+                  <Light.Distant />
+               </light>
+            </Lighting>
+         </effect>
+      </AnchorPane>
+   </left>
+</BorderPane>

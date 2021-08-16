@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.MakeOrderController">
+   <children>
+      <Separator layoutX="400.0" orientation="VERTICAL" prefHeight="500.0" />
+      <TableView fx:id="dishesTV" layoutX="12.0" layoutY="42.0" prefHeight="407.0" prefWidth="379.0">
+        <columns>
+          <TableColumn fx:id="name" prefWidth="75.0" text="Name" />
+          <TableColumn fx:id="time" prefWidth="84.00003051757812" text="Time to Make" />
+            <TableColumn fx:id="priceLeft" prefWidth="66.6666259765625" text="Price" />
+            <TableColumn fx:id="comps" prefWidth="151.33333333333331" text="Components" />
+        </columns>
+      </TableView>
+      <Button layoutX="12.0" layoutY="456.0" mnemonicParsing="false" onAction="#addDish" prefHeight="25.0" prefWidth="379.0" text="Add Dish" />
+      <ComboBox fx:id="type" layoutX="12.0" layoutY="10.0" onAction="#getDishes" prefHeight="25.0" prefWidth="379.0" />
+      <Label fx:id="priceLabel" alignment="TOP_CENTER" layoutX="431.0" layoutY="328.0" prefHeight="34.0" prefWidth="135.0" />
+      <Button layoutX="406.0" layoutY="287.0" mnemonicParsing="false" onAction="#makeOrder" prefHeight="25.0" prefWidth="188.0" text="Order now!" />
+      <Button layoutX="406.0" layoutY="254.0" mnemonicParsing="false" onAction="#addToCart" prefHeight="25.0" prefWidth="188.0" text="Add to Cart" />
+      <Button layoutX="406.0" layoutY="220.0" mnemonicParsing="false" onAction="#removeDish" prefHeight="25.0" prefWidth="188.0" text="Remove Dish" />
+      <TableView fx:id="selected" layoutX="407.0" layoutY="10.0" prefHeight="200.0" prefWidth="188.0">
+        <columns>
+          <TableColumn fx:id="dishname" prefWidth="124.66668701171875" text="Dish" />
+          <TableColumn fx:id="priceRight" prefWidth="61.33331298828125" text="Price" />
+        </columns>
+      </TableView>
+      <Label fx:id="messageRight" alignment="TOP_CENTER" layoutX="433.0" layoutY="369.0" prefHeight="34.0" prefWidth="135.0" />
+      <ImageView fitHeight="25.0" fitWidth="27.0" layoutX="439.0" layoutY="258.0">
+         <image>
+            <Image url="@../../../../../AppData/Local/Temp/icons8_add_shopping_cart_32px.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="messageLeft" alignment="TOP_CENTER" layoutX="80.0" layoutY="483.0" prefHeight="17.0" prefWidth="263.0" />
+   </children>
+</AnchorPane>

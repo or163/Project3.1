@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/16" fx:controller="application.AddDeliveryController">
+   <children>
+      <Label alignment="CENTER" layoutX="206.0" layoutY="24.0" prefHeight="35.0" prefWidth="166.0" style="-fx-background-color: #ffffff80; -fx-background-radius: 12;" text="Add Delivery">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Label>
+      <Button alignment="TOP_CENTER" layoutX="404.0" layoutY="362.0" mnemonicParsing="false" onAction="#save" prefHeight="29.0" prefWidth="101.0" text="Save">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+      <Label alignment="CENTER" layoutX="244.0" layoutY="108.0" prefHeight="22.0" prefWidth="89.0" style="-fx-background-color: #ffffff80; -fx-background-radius: 12;" text="Date of Delivery:" />
+      <Label alignment="CENTER" layoutX="30.0" layoutY="108.0" prefHeight="22.0" prefWidth="72.0" style="-fx-background-radius: 12; -fx-background-color: #ffffff80;" text="Is Deliverd?:" />
+      <DatePicker fx:id="date" layoutX="342.0" layoutY="104.0" prefHeight="30.0" prefWidth="100.0" />
+      <RadioButton fx:id="isDeliverdYes" layoutX="122.0" layoutY="110.0" mnemonicParsing="false" style="-fx-background-color: #ffffff70; -fx-background-radius: 15;" text="Yes">
+         <toggleGroup>
+            <ToggleGroup fx:id="deliveyTG" />
+         </toggleGroup>
+      </RadioButton>
+      <RadioButton fx:id="isDeliverdNo" layoutX="173.0" layoutY="110.0" mnemonicParsing="false" style="-fx-background-color: #ffffff70; -fx-background-radius: 15;" text="No" toggleGroup="$deliveyTG" />
+      <Label fx:id="lblStatus" layoutX="238.0" layoutY="336.0" style="-fx-background-color: #ffffff80; -fx-background-radius: 12;" text="Please fill up the form" wrapText="true">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="15.0" layoutY="163.0" prefHeight="22.0" prefWidth="50.0" style="-fx-background-radius: 12; -fx-background-color: #ffffff80;" text="Orders :" />
+      <ListView fx:id="orders" layoutX="90.0" layoutY="163.0" prefHeight="113.0" prefWidth="263.0" />
+      <ListView fx:id="selected" layoutX="381.0" layoutY="163.0" prefHeight="113.0" prefWidth="181.0" />
+      <Button layoutX="90.0" layoutY="295.0" mnemonicParsing="false" onAction="#addOrder" prefHeight="25.0" prefWidth="101.0" text="add Order" />
+      <Button layoutX="381.0" layoutY="295.0" mnemonicParsing="false" onAction="#removeOrder" text="remove Order" />
+      <Label alignment="CENTER" layoutX="32.0" layoutY="70.0" prefHeight="22.0" prefWidth="100.0" style="-fx-background-color: #ffffff80; -fx-background-radius: 12;" text="Delivery Person :" />
+      <Label alignment="CENTER" layoutX="244.0" layoutY="70.0" prefHeight="22.0" prefWidth="89.0" style="-fx-background-color: #ffffff80; -fx-background-radius: 12;" text="Delivery Area:" />
+      <ChoiceBox fx:id="deliveryPersons" layoutX="132.0" layoutY="66.0" prefHeight="30.0" prefWidth="100.0" />
+      <ChoiceBox fx:id="deliveryArea" layoutX="342.0" layoutY="66.0" prefHeight="30.0" prefWidth="100.0" />
+      <Label alignment="CENTER" layoutX="17.0" layoutY="134.0" prefHeight="22.0" prefWidth="230.0" style="-fx-background-radius: 12; -fx-background-color: #ffffff80;" text="To add ExpressDelivery chose only 1 order:" />
+   </children>
+</AnchorPane>
