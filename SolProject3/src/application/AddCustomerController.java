@@ -18,6 +18,7 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
+import javafx.scene.paint.Color;
 
 public class AddCustomerController {
 
@@ -92,6 +93,7 @@ public class AddCustomerController {
 			Customer cust = new Customer(txtFName.getText(), txtLName.getText(), bday, gend, neigh, lact, glut,
 					userName.getText(), passw.getText());
 			Main.restaurant.addCustomer(cust);
+			message.setTextFill(Color.GREENYELLOW);
 			message.setText("saved succesfully");
 			lactoseTG.getSelectedToggle().setSelected(false);
 			glutenTG.getSelectedToggle().setSelected(false);

@@ -1,0 +1,7 @@
+/* JavaFX CSS - Leave this comment until you have at least create one rule which uses -fx-Property */
+
+.label{
+     -fx-background-color:  #ffffff80;
+     -fx-background-radius: 12;
+     -fx-max-height: 25;
+     }

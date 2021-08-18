@@ -5,19 +5,17 @@ import java.time.LocalDate;
 
 
 import Model.Cook;
-import Model.Restaurant;
 import javafx.event.ActionEvent;
 import Utils.Expertise;
 import Utils.Gender;
-import application.Main;
 import javafx.fxml.FXML;
 import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.DateCell;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
+import javafx.scene.paint.Color;
 
 public class AddCookController {
 
@@ -60,12 +58,19 @@ public class AddCookController {
 		LocalDate bday = date.getValue();
 		
 		if (txtFName.getText() == null || txtFName.getText().isEmpty() || txtLName.getText() == null || txtLName.getText().isEmpty() ||
-				gend == null || expert == null || bday == null || chefTG.getSelectedToggle() == null) {
+				gend == null || expert == null || chefTG.getSelectedToggle() == null) {
 			message.setText("you have fields that are empty");
-		} else {
+			message.setTextFill(Color.RED);
+		}
+		else if(bday == null){
+			message.setText("Date must be mm/dd/yyyy");
+			message.setTextFill(Color.RED);
+		}
+		else {
 			Cook cook = new Cook(txtFName.getText(), txtLName.getText(), bday, gend, expert, chef);
 			Main.restaurant.addCook(cook);
 			message.setText("saved succesfully");
+			message.setTextFill(Color.GREEN);
 			chefTG.getSelectedToggle().setSelected(false);
 			txtLName.clear();
 			txtFName.clear();

@@ -2,9 +2,11 @@ package application;
 
 import java.time.LocalDate;
 
+import Model.Cook;
 import Model.DeliveryArea;
 import Model.DeliveryPerson;
 import Utils.Gender;
+import Utils.Neighberhood;
 import Utils.Vehicle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -16,7 +18,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.paint.Color;
 
-public class AddDPController {
+public class EditDPController {
 
     @FXML
     private Button save;
@@ -41,6 +43,29 @@ public class AddDPController {
 
     @FXML
     private Label message;
+    
+    @FXML
+    private ComboBox<DeliveryPerson> WhichDP;
+
+    @FXML
+    void DPselected(ActionEvent event) {
+    	gender.getItems().clear();
+    	vehicle.getItems().clear();
+    	da.getItems().clear();
+		for (Gender g : Gender.values())
+			gender.getItems().add(g);
+		for (Vehicle n : Vehicle.values())
+			vehicle.getItems().add(n);
+    	for (DeliveryArea g : Main.restaurant.getAreas().values())
+    		da.getItems().add(g);
+    	DeliveryPerson theSelected = WhichDP.getSelectionModel().getSelectedItem();
+	    txtFName.setText(theSelected.getFirstName());
+	    txtLName.setText(theSelected.getLastName());
+	    date.setValue(theSelected.getBirthDay());
+	    gender.setValue(theSelected.getGender());
+	    vehicle.setValue(theSelected.getVehicle());
+	    da.setValue(theSelected.getArea());
+    }
 
     
     @FXML
@@ -49,34 +74,26 @@ public class AddDPController {
 		Vehicle car = vehicle.getSelectionModel().getSelectedItem();
 		DeliveryArea d = da.getSelectionModel().getSelectedItem();
 		LocalDate bday = date.getValue();
-		
+		DeliveryPerson theSelected = WhichDP.getSelectionModel().getSelectedItem();
 		if (txtFName.getText() == null || txtFName.getText().isEmpty() || txtLName.getText() == null || txtLName.getText().isEmpty() ||
 				gend == null || car == null || d == null || bday == null) {
 			message.setTextFill(Color.RED);
 			message.setText("you have fields that are empty");
 		} else {
-			DeliveryPerson dp = new DeliveryPerson(txtFName.getText(), txtLName.getText(), bday, gend, car, d);
-			Main.restaurant.addDeliveryPerson(dp, d);
-			message.setText("saved succesfully");
+			theSelected.setArea(d);
+			theSelected.setBirthDay(bday);
+			theSelected.setFirstName(txtFName.getText());
+			theSelected.setLastName(txtLName.getText());
+			theSelected.setGender(gend);
+			theSelected.setVehicle(car);
 			message.setTextFill(Color.GREEN);
-			Utils.Utils.initDate(date);
-			txtLName.clear();
-			txtFName.clear();
-			gender.getSelectionModel().clearSelection();
-			vehicle.getSelectionModel().clearSelection();
-			da.getSelectionModel().clearSelection();
+			message.setText("saved succesfully");
 			System.out.println(Main.restaurant.getDeliveryPersons());
 		}
 	}
 
 	public void initData() {
 		// TODO Auto-generated method stub
-		Utils.Utils.initDate(date);
-		for (Gender g : Gender.values())
-			gender.getItems().add(g);
-		for (Vehicle v : Vehicle.values())
-			vehicle.getItems().add(v);
-		for (DeliveryArea d : Main.restaurant.getAreas().values())
-			da.getItems().add(d);
+		WhichDP.getItems().addAll(Main.restaurant.getDeliveryPersons().values());
 	}
 }
