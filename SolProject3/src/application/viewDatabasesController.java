@@ -34,7 +34,7 @@ public class viewDatabasesController {
     		LVdb.getItems().addAll(Main.restaurant.getComponenets().values());
     		break;
     	case "orders":
-    		LVdb.getItems().addAll(Main.restaurant.getCustomers().values());
+    		LVdb.getItems().addAll(Main.restaurant.getOrders().values());
     		break;
     	case "deliveries":
     		LVdb.getItems().addAll(Main.restaurant.getDeliveries().values());

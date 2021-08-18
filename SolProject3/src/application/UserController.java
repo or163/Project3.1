@@ -1,6 +1,7 @@
 package application;
 
 import java.io.IOException;
+import java.util.Optional;
 
 import Model.Customer;
 import Utils.SerializableWiz;
@@ -12,11 +13,14 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 
 public class UserController {
 
@@ -31,6 +35,9 @@ public class UserController {
 	
 	@FXML
 	private AnchorPane anchor;
+	
+	@FXML
+	private Button exitButton;
 	
 	private static int counter = 0;
 
@@ -105,6 +112,36 @@ public class UserController {
 	}
 	
 	@FXML
+	void goShoppingCart (ActionEvent event) throws IOException {
+		FXMLLoader fx = new FXMLLoader(getClass().getResource("/View/ShoppingCart.fxml"));
+		Pane p = fx.load();
+		AnchorPane pp = (AnchorPane) p;
+		ShoppingCartController ctrl = (ShoppingCartController) fx.getController();
+		ctrl.initData();
+		pannelRoot.setCenter(pp);
+	}
+	
+	@FXML
+	void goQuerries (ActionEvent event) throws IOException {
+		FXMLLoader fx = new FXMLLoader(getClass().getResource("/View/UserQuerries.fxml"));
+		Pane p = fx.load();
+		BorderPane bp = (BorderPane) p;
+		UserQuerriesController ctrl = (UserQuerriesController) fx.getController();
+		ctrl.initData();
+		pannelRoot.setCenter(bp);
+	}
+	
+	@FXML
+	void goHistory (ActionEvent event) throws IOException {
+		FXMLLoader fx = new FXMLLoader(getClass().getResource("/View/UserHistory.fxml"));
+		Pane p = fx.load();
+		AnchorPane pp = (AnchorPane) p;
+		UserHistoryController ctrl = (UserHistoryController) fx.getController();
+		ctrl.initData();
+		pannelRoot.setCenter(pp);
+	}
+	
+	@FXML
 	void showMenu(MouseEvent event) {
 		if(UserController.counter % 2 == 0) {
 			vbox.setVisible(false);
@@ -118,15 +155,25 @@ public class UserController {
 	}
 	
 	@FXML
-    private void SaveToSerelizebaleFile(ActionEvent event) {
-    	try {
-			SerializableWiz.save(Main.restaurant);
+	private void exitButtonAction(ActionEvent event){
+	    // get a handle to the stage
+	    Stage stage = (Stage) exitButton.getScene().getWindow();
+	    stage.close();
+	}
+	
+	@FXML
+	void SaveToSerelizebaleFile(ActionEvent event) {
+		try {
 			Alert a = new Alert(AlertType.CONFIRMATION);
 			a.setTitle("Save");
-			a.setContentText("you have saved your file to Rest.Ser");
-			a.show();
+			a.setContentText("Are you sure you want to save?");
+			Optional<ButtonType> result = a.showAndWait();
+			if (result.get() == ButtonType.OK){
+				SerializableWiz.save(Main.restaurant);
+			} else
+			    ;
 		}catch (Exception e) {
 			System.err.println(e.getLocalizedMessage());
 		}
-    }
+	}
 }

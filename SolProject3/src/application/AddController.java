@@ -2,6 +2,7 @@ package application;
 
 import java.io.IOException;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.input.MouseEvent;
@@ -91,6 +92,16 @@ public class AddController {
 		Pane p = fx.load();
 		AnchorPane pp = (AnchorPane) p;
 		AddDeliveryController ctrl = (AddDeliveryController) fx.getController();
+		ctrl.initData();
+		pannelRoot.setCenter(pp);
+	}
+	
+	@FXML
+	void goaddCustomerToBlackList (MouseEvent event) throws IOException {
+		FXMLLoader fx = new FXMLLoader(getClass().getResource("/View/addCustomerToBlackList.fxml"));
+		Pane p = fx.load();
+		AnchorPane pp = (AnchorPane) p;
+		addCustomerToBlackListController ctrl = (addCustomerToBlackListController) fx.getController();
 		ctrl.initData();
 		pannelRoot.setCenter(pp);
 	}

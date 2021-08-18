@@ -1,6 +1,7 @@
 package application;
 
 import java.io.IOException;
+import java.util.Optional;
 
 import Remove.RemoveComponentController;
 import Remove.RemoveCookController;
@@ -18,11 +19,14 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 
 public class ManagerController {
 
@@ -36,6 +40,9 @@ public class ManagerController {
 
 	@FXML
 	private AnchorPane anchor;
+	
+	@FXML
+	private Button exitButton;
 	
 	@FXML
 	void goHome(ActionEvent event) throws IOException {
@@ -374,6 +381,16 @@ public class ManagerController {
 	}
 	
 	@FXML
+	void goQuerries (ActionEvent event) throws IOException {
+		FXMLLoader fx = new FXMLLoader(getClass().getResource("/View/Querries.fxml"));
+		Pane p = fx.load();
+		AnchorPane pp = (AnchorPane) p;
+		QuerriesController ctrl = (QuerriesController) fx.getController();
+		ctrl.setPannelRoot(pannelRoot);
+		pannelRoot.setCenter(pp);
+	}
+	
+	@FXML
 	void goOut(ActionEvent event) throws IOException {
 		FXMLLoader fx = new FXMLLoader(getClass().getResource("/View/Login.fxml"));
 		Pane p = fx.load();
@@ -395,13 +412,23 @@ public class ManagerController {
 	}
 	
 	@FXML
+	private void exitButtonAction(ActionEvent event){
+	    Stage stage = (Stage) exitButton.getScene().getWindow();
+	    // do what you have to do
+	    stage.close();
+	}
+	
+	@FXML
 	void SaveToSerelizebaleFile(ActionEvent event) {
 		try {
-			SerializableWiz.save(Main.restaurant);
 			Alert a = new Alert(AlertType.CONFIRMATION);
 			a.setTitle("Save");
-			a.setContentText("you have saved your file to Rest.Ser");
-			a.show();
+			a.setContentText("Are you sure you want to save?");
+			Optional<ButtonType> result = a.showAndWait();
+			if (result.get() == ButtonType.OK){
+				SerializableWiz.save(Main.restaurant);
+			} else
+			    ;
 		}catch (Exception e) {
 			System.err.println(e.getLocalizedMessage());
 		}

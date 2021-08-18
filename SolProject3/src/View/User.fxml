@@ -35,7 +35,7 @@
                      <graphic>
                         <ImageView fitHeight="26.0" fitWidth="25.0">
                            <image>
-                              <Image url="@../../../../../AppData/Local/Temp/icons8_home_48px.png" />
+                              <Image url="@/Icons/home_48px.png" />
                            </image>
                         </ImageView>
                      </graphic>
@@ -44,28 +44,41 @@
                      <graphic>
                         <ImageView fitHeight="29.0" fitWidth="25.0">
                            <image>
-                              <Image url="@../../../../../AppData/Local/Temp/icons8_Create_Order_24px_5.png" />
+                              <Image url="@/Icons/Create_Order_24px.png" />
                            </image>
                         </ImageView>
                      </graphic>
                   </Button>
                   <Button alignment="TOP_LEFT" mnemonicParsing="false" onAction="#goEdit" prefHeight="45.0" prefWidth="100.0" style="-fx-background-radius: 0; -fx-background-color: #171717;" text="Edit&#10;Details" textFill="WHITE">
                      <graphic>
-                        <ImageView>
+                        <ImageView fitHeight="27.0" fitWidth="24.0">
                            <image>
-                              <Image url="@../../../../../AppData/Local/Temp/icons8_settings_24px.png" />
+                              <Image url="@/Icons/settings_24px.png" />
                            </image>
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Button alignment="TOP_LEFT" mnemonicParsing="false" onAction="#goGetPopularComponents" prefHeight="45.0" prefWidth="100.0" style="-fx-background-radius: 0; -fx-background-color: #171717;" text="Popular&#10;Components" textFill="WHITE" />
-                  <Button alignment="TOP_LEFT" mnemonicParsing="false" onAction="#goGRLDList" prefHeight="45.0" prefWidth="100.0" style="-fx-background-radius: 0; -fx-background-color: #171717;" text="Relevant&#10;Dish List" textFill="WHITE" />
-                  <Button alignment="TOP_LEFT" mnemonicParsing="false" onAction="#goGetCooksByExpertise" prefHeight="45.0" prefWidth="100.0" style="-fx-background-radius: 0; -fx-background-color: #171717;" text="Cooks&#10;by Expertise" textFill="WHITE" />
-                  <Button alignment="TOP_LEFT" mnemonicParsing="false" prefHeight="45.0" prefWidth="100.0" style="-fx-background-radius: 0; -fx-background-color: #171717;" text="Shopping&#10;Cart" textFill="WHITE">
+                  <Button alignment="TOP_LEFT" mnemonicParsing="false" onAction="#goQuerries" prefHeight="45.0" prefWidth="100.0" style="-fx-background-radius: 0; -fx-background-color: #171717;" text="User&#10;Querries" textFill="WHITE">
+                     <graphic>
+                        <ImageView fitHeight="27.0" fitWidth="24.0">
+                           <image>
+                              <Image url="@/Icons/system_task_24px.png" />
+                           </image>
+                        </ImageView>
+                     </graphic></Button>
+                  <Button alignment="TOP_LEFT" mnemonicParsing="false" onAction="#goHistory" prefHeight="45.0" prefWidth="100.0" style="-fx-background-radius: 0; -fx-background-color: #171717;" text="History" textFill="WHITE">
+                     <graphic>
+                        <ImageView fitHeight="27.0" fitWidth="28.0">
+                           <image>
+                              <Image url="@/Icons/order_history_24px.png" />
+                           </image>
+                        </ImageView>
+                     </graphic></Button>
+                  <Button alignment="TOP_LEFT" mnemonicParsing="false" onAction="#goShoppingCart" prefHeight="45.0" prefWidth="100.0" style="-fx-background-radius: 0; -fx-background-color: #171717;" text="Shopping&#10;Cart" textFill="WHITE">
                      <graphic>
                         <ImageView fitHeight="28.0" fitWidth="28.0">
                            <image>
-                              <Image url="@../../../../../AppData/Local/Temp/icons8_shopping_cart_24px.png" />
+                              <Image url="@/Icons/shopping_cart_64px.png" />
                            </image>
                         </ImageView>
                      </graphic>
@@ -74,7 +87,7 @@
                      <graphic>
                         <ImageView fitHeight="28.0" fitWidth="28.0">
                            <image>
-                              <Image url="@../../../../../AppData/Local/Temp/icons8_save_24px.png" />
+                              <Image url="@/Icons/save_48px.png" />
                            </image>
                         </ImageView>
                      </graphic>
@@ -83,16 +96,16 @@
                      <graphic>
                         <ImageView fitHeight="28.0" fitWidth="28.0">
                            <image>
-                              <Image url="@../../../../../AppData/Local/Temp/icons8_sign_out_40px.png" />
+                              <Image url="@/Icons/logout_rounded_left_64px.png" />
                            </image>
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Button alignment="TOP_LEFT" mnemonicParsing="false" prefHeight="45.0" prefWidth="100.0" style="-fx-background-radius: 0; -fx-background-color: #171717;" text="Exit" textFill="WHITE">
+                  <Button fx:id="exitButton" alignment="TOP_LEFT" mnemonicParsing="false" onAction="#exitButtonAction" prefHeight="45.0" prefWidth="100.0" style="-fx-background-radius: 0; -fx-background-color: #171717;" text="Exit" textFill="WHITE">
                      <graphic>
                         <ImageView fitHeight="28.0" fitWidth="28.0">
                            <image>
-                              <Image url="@../../../../../AppData/Local/Temp/icons8_shutdown_48px.png" />
+                              <Image url="@/Icons/shutdown_40px.png" />
                            </image>
                         </ImageView>
                      </graphic>
@@ -101,7 +114,7 @@
             </VBox>
             <ImageView fitHeight="67.0" fitWidth="50.0" onMouseClicked="#showMenu" y="-7.0">
                <image>
-                  <Image url="@../../../../../AppData/Local/Temp/icons8_menu_50px_1.png" />
+                  <Image url="@/Icons/menugr_50px.png" />
                </image>
                <cursor>
                   <Cursor fx:constant="HAND" />

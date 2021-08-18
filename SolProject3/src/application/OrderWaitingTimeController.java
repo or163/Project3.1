@@ -16,44 +16,47 @@ import javafx.scene.control.TextField;
 
 public class OrderWaitingTimeController {
 
-    @FXML
-    private BarChart<String, Integer> timeChart;
+	@FXML
+	private BarChart<String, Integer> timeChart;
 
-    @FXML
-    private ComboBox<Order> orders;
+	@FXML
+	private ComboBox<Order> orders;
 
-    @FXML
-    private ComboBox<DeliveryArea> da;
+	@FXML
+	private ComboBox<DeliveryArea> da;
 
-    @FXML
-    private CategoryAxis x;
+	@FXML
+	private CategoryAxis x;
 
-    @FXML
-    private NumberAxis y;
-    
-    @FXML
-    private TextField time;
+	@FXML
+	private NumberAxis y;
 
-    public void initData() {
-    	orders.getItems().addAll(Main.restaurant.getOrders().values());
-    	da.getItems().addAll(Main.restaurant.getAreas().values());
-    }
-    
-    @FXML
-    private void addGraph() {
-    	Order o = orders.getSelectionModel().getSelectedItem();
-    	DeliveryArea area = da.getSelectionModel().getSelectedItem();
-    	int waitingTime = o.orderWaitingTime(area);
-    	Series<String, Integer> series = new XYChart.Series<>();
-		series.getData().add(new XYChart.Data<>("", waitingTime));
-		series.setName("Order: " + Integer.toString(o.getId()) + "  Area: " + area.getAreaName());
-		timeChart.getData().add(series);
-		time.setText(Integer.toString(waitingTime));
-    }
-    
-    @FXML
-    private void clearGraph() {
-    	timeChart.getData().clear();
-    }
-    
+	@FXML
+	private TextField time;
+
+	public void initData() {
+		orders.getItems().addAll(Main.restaurant.getOrders().values());
+		da.getItems().addAll(Main.restaurant.getAreas().values());
+	}
+
+	@FXML
+	private void addGraph() {
+		if (orders.getSelectionModel().getSelectedItem() != null && da.getSelectionModel().getSelectedItem() != null) {
+			Order o = orders.getSelectionModel().getSelectedItem();
+			DeliveryArea area = da.getSelectionModel().getSelectedItem();
+			int waitingTime = o.orderWaitingTime(area);
+			Series<String, Integer> series = new XYChart.Series<>();
+			series.getData().add(new XYChart.Data<>("", waitingTime));
+			series.setName("Order: " + Integer.toString(o.getId()) + "  Area: " + area.getAreaName());
+			timeChart.getData().add(series);
+			time.setText(Integer.toString(waitingTime));
+		}
+	}
+
+	@FXML
+	private void clearGraph() {
+		timeChart.getData().clear();
+		time.setText("");
+	}
+
 }

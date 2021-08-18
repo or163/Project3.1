@@ -1,18 +1,14 @@
 package application;
 
-import java.time.LocalDate;
+
 import java.util.ArrayList;
 import java.util.List;
-
 import Model.Component;
-import Model.Cook;
 import Model.Dish;
 import Utils.DishType;
-import Utils.Expertise;
-import Utils.Gender;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
@@ -26,7 +22,7 @@ public class AddDishController {
     private TextField name;
 
     @FXML
-    private ChoiceBox<DishType> type;
+    private ComboBox<DishType> type;
 
     @FXML
     private ListView<Component> comps;
@@ -77,7 +73,8 @@ public class AddDishController {
 	
 	@FXML
 	private void addComp(ActionEvent e) {
-		selected.getItems().add(comps.getSelectionModel().getSelectedItem());
+		if(comps.getSelectionModel().getSelectedItem() != null)
+			selected.getItems().add(comps.getSelectionModel().getSelectedItem());
 	}
 	
 	@FXML

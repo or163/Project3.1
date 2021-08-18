@@ -80,6 +80,8 @@ public class CreateAIMacineController {
     		ts.addAll(selected.getItems());
     		tsResult = Main.restaurant.createAIMacine(delPer, delAre, ts);
     		outcome.getItems().addAll(tsResult);
+    		for(Delivery d : tsResult)
+    			Main.restaurant.addDelivery(d);
     		lblStatus.setText("Ai Machine worked successfully");
     		lblStatus.setTextFill(Color.GREEN);
     		deliveryPersons.getSelectionModel().clearSelection();
