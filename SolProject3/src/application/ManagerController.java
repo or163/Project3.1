@@ -369,7 +369,7 @@ public class ManagerController {
 		Pane p = fx.load();
 		AnchorPane pp = (AnchorPane) p;
 		EditController ctrl = (EditController) fx.getController();
-		//ctrl.setPannelRoot(pannelRoot);
+		ctrl.setPannelRoot(pannelRoot);
 		pannelRoot.setCenter(pp);
 	}
 	

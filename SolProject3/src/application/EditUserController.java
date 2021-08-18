@@ -3,6 +3,7 @@ package application;
 import Model.Customer;
 import Utils.Gender;
 import Utils.Neighberhood;
+import Utils.Utils;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -64,9 +65,11 @@ public class EditUserController {
 	private ComboBox<Neighberhood> neighborhood;
 
 	LoginController ctrl = new LoginController();
-	Customer cust = ctrl.getCustomer();
+	Customer cust = LoginController.getCustomer();
 
 	public void initData() {
+		gender.getItems().clear();
+		neighborhood.getItems().clear();
 		for (Gender g : Gender.values())
 			gender.getItems().add(g);
 		for (Neighberhood n : Neighberhood.values())
@@ -94,9 +97,10 @@ public class EditUserController {
 				|| txtFName.getText().isEmpty() || txtLName.getText() == null || txtLName.getText().isEmpty()
 				|| lactoseTG.getSelectedToggle() == null || glutenTG.getSelectedToggle() == null) {
 			message.setText("you have fields that are empty");
+			message.setTextFill(Color.RED);
 		}
-		else if(passw.getText().length() < 6)
-			message.setText("Password is too short, type at least 6 characters");
+		else if(Utils.isValidPassword(passw.getText(),message)==false)
+			;
 		else {
 			cust.setUserName(userName.getText());
 			cust.setPassword(passw.getText());

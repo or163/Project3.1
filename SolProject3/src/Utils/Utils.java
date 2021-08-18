@@ -16,6 +16,7 @@ import application.Main;
 import javafx.scene.control.DateCell;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
+import javafx.scene.paint.Color;
 
 public class Utils {
 
@@ -41,9 +42,28 @@ public class Utils {
         return true;
     }
 	
+	public static boolean isDouble(String str) {
+		int dotCounter = 0;
+        for (int i = 0; i < str.length(); i++) {
+        	if(str.charAt(i) =='.')
+        		dotCounter++;
+        	if(dotCounter>1)
+        		return false;
+        	if ((str.charAt(i) < '0' || str.charAt(i) > '9' )&& str.charAt(i)!='.')
+                return false;
+        }
+        if(dotCounter>0 && str.length()==1)
+        	return false;
+        return true;
+        	
+    }
+	
+	
+	
     public static boolean isValidPassword(String password, Label message)
     {
             boolean isValid = true;
+            message.setTextFill(Color.RED);
             if (password.length() > 15 || password.length() < 6)
             {
                     message.setText("Password must be less than 15 and more than 6 characters in length.");

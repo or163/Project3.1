@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.EditDishController">
+   <children>
+      <Label alignment="TOP_CENTER" layoutX="108.0" layoutY="21.0" prefHeight="17.0" prefWidth="385.0" stylesheets="@../application/background.css" text="edit dish">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Button alignment="TOP_CENTER" layoutX="397.0" layoutY="404.0" mnemonicParsing="false" onAction="#save" prefHeight="29.0" prefWidth="101.0" text="save">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+      <Label layoutX="25.0" layoutY="109.0" prefHeight="25.0" prefWidth="90.0" stylesheets="@../application/background.css" text="Name :" />
+      <Label layoutX="25.0" layoutY="149.0" prefHeight="25.0" prefWidth="90.0" stylesheets="@../application/background.css" text="Type :" />
+      <Label layoutX="25.0" layoutY="189.0" prefHeight="25.0" prefWidth="90.0" stylesheets="@../application/background.css" text="Time to make :" />
+      <Label layoutX="25.0" layoutY="224.0" prefHeight="25.0" prefWidth="90.0" stylesheets="@../application/background.css" text="Components :" />
+      <Label fx:id="message" layoutX="25.0" layoutY="402.0" prefHeight="22.0" prefWidth="181.0" textFill="#d22828" />
+      <TextField fx:id="name" layoutX="115.0" layoutY="106.0" prefHeight="30.0" prefWidth="100.0" />
+      <ChoiceBox fx:id="type" layoutX="115.0" layoutY="146.0" prefHeight="30.0" prefWidth="100.0" />
+      <ListView fx:id="comps" layoutX="115.0" layoutY="224.0" prefHeight="113.0" prefWidth="263.0" />
+      <TextField fx:id="time" layoutX="115.0" layoutY="186.0" prefHeight="30.0" prefWidth="100.0" />
+      <ListView fx:id="selected" layoutX="394.0" layoutY="224.0" prefHeight="113.0" prefWidth="181.0" />
+      <Button layoutX="115.0" layoutY="352.0" mnemonicParsing="false" onAction="#addComp" prefHeight="25.0" prefWidth="101.0" text="add component" />
+      <Button layoutX="394.0" layoutY="352.0" mnemonicParsing="false" onAction="#removeComp" text="remove component" />
+      <Label layoutX="25.0" layoutY="63.0" prefHeight="25.0" prefWidth="90.0" style="-fx-background-color: #ffffff80; -fx-background-radius: 12;" text="Choose Dish:" />
+      <ComboBox fx:id="WhichDish" layoutX="115.0" layoutY="63.0" onAction="#DishSelected" prefHeight="25.0" prefWidth="481.0" />
+   </children>
+</AnchorPane>

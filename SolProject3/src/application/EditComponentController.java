@@ -1,15 +1,17 @@
 package application;
 
 import Model.Component;
+import Model.Cook;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.paint.Color;
 
-public class AddComponentController {
+public class EditComponentController {
 
 	@FXML
 	private TextField name;
@@ -37,7 +39,25 @@ public class AddComponentController {
 
 	@FXML
 	private Label message;
+	
+	@FXML
+    private ComboBox<Component> WhichComponent;
 
+	@FXML
+    void ComponentSelected(ActionEvent event) {
+		Component theSelected = WhichComponent.getSelectionModel().getSelectedItem();
+		name.setText(theSelected.getComponentName());
+		price.setText(theSelected.getPrice()+"");
+		if (theSelected.isHasGluten())
+			glutenTG.selectToggle(glutenYes);
+		else
+			glutenTG.selectToggle(glutenNo);
+		if (theSelected.isHasLactose())
+			lactoseTG.selectToggle(lactoseYes);
+		else
+			lactoseTG.selectToggle(lactoseNo);
+    }
+	
 	@FXML
 	void save(ActionEvent event) {
 		boolean lact = false;
@@ -54,14 +74,13 @@ public class AddComponentController {
 		} else {
 			if (!(price.getText().isEmpty()) && Utils.Utils.isDouble(price.getText())) {
 				cost = Double.parseDouble(price.getText());
-				Component comp = new Component(name.getText(), lact, glut, cost);
-				Main.restaurant.addComponent(comp);
+				Component theSelected = WhichComponent.getSelectionModel().getSelectedItem();
+				theSelected.setComponentName(name.getText());
+				theSelected.setHasGluten(glut);
+				theSelected.setHasLactose(lact);
+				theSelected.setPrice(cost);
 				message.setText("saved succesfully");
 				message.setTextFill(Color.GREEN);
-				lactoseTG.getSelectedToggle().setSelected(false);
-				glutenTG.getSelectedToggle().setSelected(false);
-				name.clear();
-				price.clear();
 				System.out.println(Main.restaurant.getComponenets());
 			}
 			else {
@@ -71,4 +90,15 @@ public class AddComponentController {
 		}
 	}
 
+	
+	
+	public void initData() {
+		// TODO Auto-generated method stub
+		WhichComponent.getItems().addAll(Main.restaurant.getComponenets().values());
+		
+	}
+
 }
+
+
+
