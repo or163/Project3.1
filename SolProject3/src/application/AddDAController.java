@@ -104,7 +104,7 @@ public class AddDAController {
 			}
 		}
 		else {
-			lblStatus.setText("Please fill all fields (time as positive number)");
+			lblStatus.setText("Please enter time as positive integer number)");
 			lblStatus.setTextFill(Color.RED);
 		}
 		}

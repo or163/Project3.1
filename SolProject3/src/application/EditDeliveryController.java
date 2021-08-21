@@ -2,6 +2,7 @@ package application;
 
 import java.time.LocalDate;
 import java.util.HashSet;
+import java.util.SortedSet;
 import java.util.TreeSet;
 import Model.Customer;
 import Model.Delivery;
@@ -58,7 +59,14 @@ public class EditDeliveryController {
 
     @FXML
     void DelSelected(ActionEvent event) {
+		deliveryPersons.getSelectionModel().clearSelection();
+		deliveryArea.getSelectionModel().clearSelection();
+		orders.getSelectionModel().clearSelection();
+		
+		selected.getItems().clear();
     	Delivery del = WhichDel.getSelectionModel().getSelectedItem();
+    	System.out.println(del);
+    	System.out.println(del.getDeliveredDate());
     	date.setValue(del.getDeliveredDate());
     	if (del.isDelivered())
     		deliveyTG.selectToggle(isDeliverdYes);
@@ -109,32 +117,64 @@ public class EditDeliveryController {
 			isDel = false;
     	DeliveryPerson delPer = deliveryPersons.getSelectionModel().getSelectedItem();
     	DeliveryArea delAre = deliveryArea.getSelectionModel().getSelectedItem();
+    	Delivery del = WhichDel.getSelectionModel().getSelectedItem();
     	if(delPer == null || delAre == null || selected.getItems().isEmpty()|| selected.getItems() == null 
     		|| datte == null || deliveyTG.getSelectedToggle() == null)
 		{
 			lblStatus.setText("Please fill all fields");//maybe we should put all as execptions?
 			lblStatus.setTextFill(Color.RED);
 		}
-    	else if(selected.getItems().size() == 1) {
-    		Order o = selected.getItems().get(0);
-    		Delivery d = new ExpressDelivery(delPer,delAre,isDel,o,100,datte);
-    		Main.restaurant.addDelivery(d);
-    	}
     	else {
-    	TreeSet<Order> ts = new TreeSet<Order>();
-		ts.addAll(selected.getItems());
-		Delivery d = new RegularDelivery(ts,delPer,delAre,isDel,datte);
-		Main.restaurant.addDelivery(d);
+	    	if(selected.getItems().size() == 1 && del instanceof ExpressDelivery) {
+	    		del.setArea(delAre);
+	    		del.setDelivered(isDel);
+	    		del.setDeliveredDate(datte);
+	    		del.setDeliveryPerson(delPer);
+	    		((ExpressDelivery) del).setOrder(selected.getItems().get(0));
+	    	}
+	    	else if(selected.getItems().size() == 1 && del instanceof RegularDelivery) {
+	    		int id = del.getId();
+	    		Main.restaurant.getDeliveries().values().remove(del);
+	    		Delivery d = new ExpressDelivery(delPer, delAre, isDel, null, datte);
+	    		((ExpressDelivery) d).setOrder(selected.getItems().get(0));
+	    		d.setId(id);
+	    		Main.restaurant.addDelivery(d);
+	    		Delivery.setIdCounter(Delivery.getIdCounter() - 1);
+	    	}
+	    	else if(selected.getItems().size() > 1 && del instanceof ExpressDelivery) {
+	    		int id = del.getId();
+	    		Main.restaurant.getDeliveries().values().remove(del);
+	    		TreeSet<Order> ts = new TreeSet<Order>();
+	    		ts.addAll(selected.getItems());
+	    		Delivery d = new RegularDelivery(ts,delPer,delAre,isDel,datte);
+	    		d.setId(id);
+	    		Main.restaurant.addDelivery(d);
+	    		Delivery.setIdCounter(Delivery.getIdCounter() - 1);
+	    		
+	    	}
+	    	else {//RegularDelivery
+		    	SortedSet<Order> ss = ((RegularDelivery)del).getOrders();
+		    	del.setArea(delAre);
+	    		del.setDelivered(isDel);
+	    		del.setDeliveredDate(datte);
+	    		del.setDeliveryPerson(delPer);
+	    		while(!ss.isEmpty())
+	    			((RegularDelivery)del).removeOrder(ss.first());
+	    		for(Order o: selected.getItems())
+	    			((RegularDelivery)del).addOrder(o);
     	}
 		lblStatus.setText("Delivery was added successfully");
 		lblStatus.setTextFill(Color.GREEN);
-		deliveryPersons.getSelectionModel().clearSelection();
-		deliveryArea.getSelectionModel().clearSelection();
-		orders.getSelectionModel().clearSelection();
-		selected.getItems().clear();
-		deliveyTG.getSelectedToggle().setSelected(false);
-		Utils.Utils.initDate(date);
+//		WhichDel.getItems().clear();
+//		WhichDel.getItems().addAll(Main.restaurant.getDeliveries().values());
+//		deliveryPersons.getSelectionModel().clearSelection();
+//		deliveryArea.getSelectionModel().clearSelection();
+//		orders.getSelectionModel().clearSelection();
+//		selected.getItems().clear();
+//		deliveyTG.getSelectedToggle().setSelected(false);
+//		Utils.Utils.initDate(date);
 		System.out.println(Main.restaurant.getDeliveries());
+    	}
     }
 	
 

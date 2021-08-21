@@ -82,7 +82,8 @@ public class ShoppingCartController {
 				message.setTextFill(Color.GREEN);
 				message.setText("Ordered successfully");
 				priceField.setText("");
-				dishesTV.getItems().clear();		
+				dishesTV.getItems().clear();
+				dishList.clear();
 			} else
 			    ;
 		}
