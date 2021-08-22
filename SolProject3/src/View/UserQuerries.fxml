@@ -6,13 +6,12 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.Pane?>
 
-
 <BorderPane fx:id="border" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.UserQuerriesController">
    <top>
       <Pane prefHeight="35.0" prefWidth="600.0" BorderPane.alignment="CENTER">
          <children>
             <ComboBox fx:id="querries" layoutX="254.0" layoutY="2.0" onAction="#getPage" prefHeight="25.0" prefWidth="317.0" />
-            <Separator layoutY="27.0" prefWidth="600.0" />
+            <Separator layoutY="30.0" prefWidth="600.0" />
             <Label layoutX="67.0" layoutY="6.0" prefHeight="17.0" prefWidth="210.0" text="Please choose a querry to display:" />
          </children>
       </Pane>

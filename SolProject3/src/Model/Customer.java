@@ -7,12 +7,17 @@ import Utils.Neighberhood;
 
 public class Customer extends Person {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1770437019887479743L;
 	private static int idCounter = 1;
 	private Neighberhood neighberhood;
 	private boolean isSensitiveToLactose;
 	private boolean isSensitiveToGluten;
 	private String userName;
 	private String password;
+	private String profilePicturePath;
 
 	public Customer(String firstName, String lastName, LocalDate birthDay, Gender gender,
 			Neighberhood neighberhood,	boolean isSensitiveToLactose, boolean isSensitiveToGluten,
@@ -77,6 +82,14 @@ public class Customer extends Person {
 		this.password = password;
 	}
 
+	public String getProfilePicturePath() {
+		return profilePicturePath;
+	}
+
+	public void setProfilePicturePath(String profilePicturePath) {
+		this.profilePicturePath = profilePicturePath;
+	}
+	
 	@Override
 	public String toString() {
 		return super.toString() + " Customer [isSensitiveToLactose=" + isSensitiveToLactose + ", isSensitiveToGluten="

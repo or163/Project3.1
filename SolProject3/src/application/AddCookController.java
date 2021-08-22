@@ -1,9 +1,8 @@
 package application;
 
-
 import java.time.LocalDate;
 
-
+import Exceptions.CantAddObjectException;
 import Model.Cook;
 import javafx.event.ActionEvent;
 import Utils.Expertise;
@@ -46,7 +45,17 @@ public class AddCookController {
 	@FXML
 	private Label message;
 
-	@FXML
+	//Initiate the page with current date and fill the combo-boxes with proper options
+	public void initData() {
+		// TODO Auto-generated method stub
+		Utils.Utils.initDate(date);
+		for (Gender g : Gender.values())
+			gender.getItems().add(g);
+		for (Expertise e : Expertise.values())
+			expertise.getItems().add(e);
+	}
+	
+	@FXML     //save cook to the restaurant
 	public void save(ActionEvent e) {
 		Gender gend = gender.getSelectionModel().getSelectedItem();
 		Expertise expert = expertise.getSelectionModel().getSelectedItem();
@@ -56,38 +65,34 @@ public class AddCookController {
 		else if (isChefNo.isSelected())
 			chef = false;
 		LocalDate bday = date.getValue();
-		
-		if (txtFName.getText() == null || txtFName.getText().isEmpty() || txtLName.getText() == null || txtLName.getText().isEmpty() ||
-				gend == null || expert == null || chefTG.getSelectedToggle() == null) {
-			message.setText("you have fields that are empty");
-			message.setTextFill(Color.RED);
-		}
-		else if(bday == null){
-			message.setText("Date must be mm/dd/yyyy");
-			message.setTextFill(Color.RED);
-		}
-		else {
-			Cook cook = new Cook(txtFName.getText(), txtLName.getText(), bday, gend, expert, chef);
-			Main.restaurant.addCook(cook);
-			message.setText("saved succesfully");
-			message.setTextFill(Color.GREEN);
-			chefTG.getSelectedToggle().setSelected(false);
-			txtLName.clear();
-			txtFName.clear();
-			gender.getSelectionModel().clearSelection();
-			expertise.getSelectionModel().clearSelection();
-			Utils.Utils.initDate(date);
-			System.out.println(Main.restaurant.getCooks());
-		}
-	}
 
-	public void initData() {
-		// TODO Auto-generated method stub
-		Utils.Utils.initDate(date);
-		for (Gender g : Gender.values())
-			gender.getItems().add(g);
-		for (Expertise e : Expertise.values())
-			expertise.getItems().add(e);
+		try {      			//validates the are no empty fields
+			if (txtFName.getText() == null || txtFName.getText().isEmpty() || txtLName.getText() == null
+					|| txtLName.getText().isEmpty() || gend == null || expert == null
+					|| chefTG.getSelectedToggle() == null) {
+				message.setText("you have fields that are empty");
+				message.setTextFill(Color.RED);
+			} else if (bday == null) {
+				message.setText("Date must be mm/dd/yyyy");
+				message.setTextFill(Color.RED);
+			} else {  //if add succeeds than clear all fields for further adding
+				Cook cook = new Cook(txtFName.getText(), txtLName.getText(), bday, gend, expert, chef);
+				if (Main.restaurant.addCook(cook)) {
+					message.setText("saved succesfully");
+					message.setTextFill(Color.GREEN);
+					chefTG.getSelectedToggle().setSelected(false);
+					txtLName.clear();
+					txtFName.clear();
+					gender.getSelectionModel().clearSelection();
+					expertise.getSelectionModel().clearSelection();
+					Utils.Utils.initDate(date);
+				} else
+					throw new CantAddObjectException("Cook " + cook.getFirstName() + " " + cook.getLastName());
+			}
+		} catch (CantAddObjectException ex) {
+			ex.alertMessage();
+		}
+
 	}
 
 }

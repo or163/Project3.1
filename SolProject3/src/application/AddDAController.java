@@ -10,6 +10,7 @@ import java.util.HashSet;
 import java.util.ResourceBundle;
 import java.util.TimeZone;
 
+import Exceptions.CantAddObjectException;
 import Model.Cook;
 import Model.DeliveryArea;
 import Model.Restaurant;
@@ -39,22 +40,27 @@ import javafx.stage.Stage;
 public class AddDAController {
 
 	@FXML
-    private TextField txtAreaName;
+	private TextField txtAreaName;
 
-    @FXML
-    private TextField intDelTime;
+	@FXML
+	private TextField intDelTime;
 
-    @FXML
-    private Label lblStatus;
+	@FXML
+	private Label lblStatus;
 
-    @FXML
-    private ListView<Neighberhood> listNeigh;
-    
-    @FXML
-    private ListView<Neighberhood> selected;
-    
-    
+	@FXML
+	private ListView<Neighberhood> listNeigh;
 
+	@FXML
+	private ListView<Neighberhood> selected;
+
+	public void initData() {
+		txtAreaName.clear();
+		intDelTime.clear();
+		listNeigh.getSelectionModel().clearSelection();
+		listNeigh.getItems().addAll(Neighberhood.values());
+		selected.getItems().clear();
+	}
 
 //	 public void save(ActionEvent e) {
 //			Gender gend = (Gender) gender.getSelectionModel().getSelectedItem();
@@ -83,65 +89,59 @@ public class AddDAController {
 //				chefTG.getSelectedToggle().setSelected(false);
 //			initDate();
 
-	 
 	public void save(ActionEvent e) {
-		if(Utils.Utils.isOnlyDigits(intDelTime.getText())) {
-			int intDelTime2= Integer.parseInt(intDelTime.getText());
-			if(txtAreaName.getText().isEmpty() || intDelTime.getText().isEmpty() || txtAreaName.getText()== null || selected.getItems().isEmpty()|| selected.getItems() == null) 
-			{
-				lblStatus.setText("Please fill all fields");//maybe we should put all as execptions?
-				lblStatus.setTextFill(Color.RED);
+		if (Utils.Utils.isOnlyDigits(intDelTime.getText())) {
+			int intDelTime2 = Integer.parseInt(intDelTime.getText());
+			try {
+				if (txtAreaName.getText().isEmpty() || intDelTime.getText().isEmpty() || txtAreaName.getText() == null
+						|| selected.getItems().isEmpty() || selected.getItems() == null) {
+					lblStatus.setText("Please fill all fields");// maybe we should put all as execptions?
+					lblStatus.setTextFill(Color.RED);
+				} else {
+					HashSet<Neighberhood> hs = new HashSet<Neighberhood>();
+					hs.addAll(selected.getItems());
+					DeliveryArea da = new DeliveryArea(txtAreaName.getText(), hs, intDelTime2);
+					lblStatus.setText("Delivery Area was added successfully");
+					lblStatus.setTextFill(Color.GREEN);
+					if (Main.restaurant.addDeliveryArea(da)) {
+						initData();
+						System.out.println(Main.restaurant.getAreas());
+					} else
+						throw new CantAddObjectException("Delivery Area " + da.getAreaName());
+				}
+			} catch (CantAddObjectException ex) {
+				ex.alertMessage();
 			}
-			else {
-				HashSet<Neighberhood> hs = new HashSet<Neighberhood>();
-				hs.addAll(selected.getItems());
-				DeliveryArea da = new DeliveryArea(txtAreaName.getText(),hs, intDelTime2);
-				lblStatus.setText("Delivery Area was added successfully");
-				lblStatus.setTextFill(Color.GREEN);
-				Main.restaurant.addDeliveryArea(da);
-				initData();
-				System.out.println(Main.restaurant.getAreas());
-			}
-		}
-		else {
+
+		} else {
 			lblStatus.setText("Please fill all fields (time as positive number)");
 			lblStatus.setTextFill(Color.RED);
 		}
-		}
 
-	public void initData() {
-		txtAreaName.clear();
-		intDelTime.clear();
-		listNeigh.getSelectionModel().clearSelection();
-		listNeigh.getItems().addAll(Neighberhood.values());
-		selected.getItems().clear();
 	}
-	
+
 	public void listviewButtonPushed() {
-		if(selected.getItems().contains(listNeigh.getSelectionModel().getSelectedItem())) {
+		if (selected.getItems().contains(listNeigh.getSelectionModel().getSelectedItem())) {
 			lblStatus.setText("Can't contain duplications");
 			lblStatus.setTextFill(Color.RED);
-		}
-		else if(listNeigh.getSelectionModel().getSelectedItem()==null)
-		{
+		} else if (listNeigh.getSelectionModel().getSelectedItem() == null) {
 			lblStatus.setText("Please select at list 1 neighborhood");
 			lblStatus.setTextFill(Color.RED);
-		}
-		else {
+		} else {
 			selected.getItems().add(listNeigh.getSelectionModel().getSelectedItem());
 			lblStatus.setText("Neighborhood added to the delivery area list");
 			lblStatus.setTextFill(Color.BLACK);
 		}
-		
+
 	}
-	
+
 	public void listviewButtonPull() {
 		selected.getItems().remove(selected.getSelectionModel().getSelectedItem());
 		lblStatus.setText("Neighborhood removed from the delivery area list");
 		lblStatus.setTextFill(Color.BLACK);
-		
+
 	}
-	
+
 //	@FXML
 //	private void addComp(ActionEvent e) {
 //		selected.getItems().add(comps.getSelectionModel().getSelectedItem());
@@ -167,4 +167,3 @@ public class AddDAController {
 //	}
 
 }
-

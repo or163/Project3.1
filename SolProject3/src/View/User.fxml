@@ -27,7 +27,7 @@
       </AnchorPane>
    </center>
    <left>
-      <AnchorPane fx:id="anchor" style="-fx-background-color: #171717;" stylesheets="@../application/application.css" BorderPane.alignment="CENTER">
+      <AnchorPane fx:id="anchor" prefWidth="100.0" style="-fx-background-color: #171717;" stylesheets="@../application/application.css" BorderPane.alignment="CENTER">
          <children>
             <VBox fx:id="vbox" layoutY="50.0" prefHeight="450.0" prefWidth="100.0" style="-fx-background-color: #171717;">
                <children>
@@ -112,7 +112,7 @@
                   </Button>
                </children>
             </VBox>
-            <ImageView fitHeight="67.0" fitWidth="50.0" onMouseClicked="#showMenu" y="-7.0">
+            <ImageView fitHeight="65.0" fitWidth="37.0" onMouseClicked="#showMenu" y="-7.0">
                <image>
                   <Image url="@/Icons/menugr_50px.png" />
                </image>
@@ -123,6 +123,7 @@
                   <Glow level="1.0" />
                </effect>
             </ImageView>
+            <ImageView fx:id="profilePic" fitHeight="50.0" fitWidth="62.0" layoutX="38.0" pickOnBounds="true" preserveRatio="true" />
          </children>
          <effect>
             <Lighting>
