@@ -54,14 +54,6 @@ public class AddDAController {
 	@FXML
 	private ListView<Neighberhood> selected;
 
-	public void initData() {
-		txtAreaName.clear();
-		intDelTime.clear();
-		listNeigh.getSelectionModel().clearSelection();
-		listNeigh.getItems().addAll(Neighberhood.values());
-		selected.getItems().clear();
-	}
-
 //	 public void save(ActionEvent e) {
 //			Gender gend = (Gender) gender.getSelectionModel().getSelectedItem();
 //			Expertise expert = (Expertise) expertise.getSelectionModel().getSelectedItem();
@@ -89,13 +81,21 @@ public class AddDAController {
 //				chefTG.getSelectedToggle().setSelected(false);
 //			initDate();
 
+	public void initData() {
+		txtAreaName.clear();
+		intDelTime.clear();
+		listNeigh.getSelectionModel().clearSelection();
+		listNeigh.getItems().addAll(Neighberhood.values());
+		selected.getItems().clear();
+	}
+	
 	public void save(ActionEvent e) {
 		if (Utils.Utils.isOnlyDigits(intDelTime.getText())) {
 			int intDelTime2 = Integer.parseInt(intDelTime.getText());
 			try {
 				if (txtAreaName.getText().isEmpty() || intDelTime.getText().isEmpty() || txtAreaName.getText() == null
 						|| selected.getItems().isEmpty() || selected.getItems() == null) {
-					lblStatus.setText("Please fill all fields");// maybe we should put all as execptions?
+					lblStatus.setText("Please fill all fields");
 					lblStatus.setTextFill(Color.RED);
 				} else {
 					HashSet<Neighberhood> hs = new HashSet<Neighberhood>();
@@ -105,20 +105,18 @@ public class AddDAController {
 					lblStatus.setTextFill(Color.GREEN);
 					if (Main.restaurant.addDeliveryArea(da)) {
 						initData();
-						System.out.println(Main.restaurant.getAreas());
 					} else
 						throw new CantAddObjectException("Delivery Area " + da.getAreaName());
 				}
 			} catch (CantAddObjectException ex) {
 				ex.alertMessage();
 			}
-
 		} else {
-			lblStatus.setText("Please fill all fields (time as positive number)");
+			lblStatus.setText("Please enter time as positive integer number)");
 			lblStatus.setTextFill(Color.RED);
 		}
-
 	}
+
 
 	public void listviewButtonPushed() {
 		if (selected.getItems().contains(listNeigh.getSelectionModel().getSelectedItem())) {

@@ -14,9 +14,9 @@
 
 <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="626.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.EditCustomerController">
    <children>
-      <Label alignment="TOP_CENTER" layoutX="180.0" layoutY="14.0" prefHeight="35.0" prefWidth="239.0" style="-fx-background-color: #ffffff80; -fx-background-radius: 12;" text="edit customer">
+      <Label alignment="TOP_CENTER" layoutX="180.0" layoutY="14.0" prefHeight="35.0" prefWidth="239.0" style="-fx-background-color: #ffffff80; -fx-background-radius: 12;" text="Edit Customer">
          <font>
-            <Font size="24.0" />
+            <Font name="System Bold" size="24.0" />
          </font>
       </Label>
       <RadioButton fx:id="lactoseYes" layoutX="283.0" layoutY="355.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="54.0" style="-fx-background-color: #ffffff80; -fx-background-radius: 12;" text="Yes">

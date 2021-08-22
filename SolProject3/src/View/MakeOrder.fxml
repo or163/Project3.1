@@ -24,9 +24,9 @@
         </columns>
       </TableView>
       <Button layoutX="12.0" layoutY="456.0" mnemonicParsing="false" onAction="#addDish" prefHeight="25.0" prefWidth="379.0" text="Add Dish" />
-      <ComboBox fx:id="type" layoutX="12.0" layoutY="10.0" onAction="#getDishes" prefHeight="25.0" prefWidth="379.0" />
+      <ComboBox fx:id="type" layoutX="12.0" layoutY="10.0" onAction="#getDishes" prefHeight="25.0" prefWidth="379.0" promptText="Dish Type" />
       <Label fx:id="priceLabel" alignment="TOP_CENTER" layoutX="431.0" layoutY="328.0" prefHeight="34.0" prefWidth="135.0" />
-      <Button layoutX="407.0" layoutY="290.0" mnemonicParsing="false" onAction="#makeOrder" prefHeight="25.0" prefWidth="188.0" style="-fx-background-color: blue;" text="Order now!">
+      <Button layoutX="407.0" layoutY="290.0" mnemonicParsing="false" onAction="#makeOrder" prefHeight="25.0" prefWidth="188.0" style="-fx-background-color: #2e66e8;" text="Order now!">
          <effect>
             <Blend mode="HARD_LIGHT" />
          </effect></Button>

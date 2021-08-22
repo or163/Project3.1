@@ -27,6 +27,7 @@ public class addCustomerToBlackListController {
     	for (Customer c : Main.restaurant.getCustomers().values()) {
     		customerLV.getItems().add(c);
     	}
+    	customerLV.getItems().removeAll(Main.restaurant.getBlackList());
     }
     
     @FXML
