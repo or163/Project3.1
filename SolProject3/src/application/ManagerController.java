@@ -13,6 +13,8 @@ import Remove.RemoveDeliveryController;
 import Remove.RemoveDishController;
 import Remove.RemoveOrderController;
 import Utils.SerializableWiz;
+import javafx.animation.Animation;
+import javafx.animation.Transition;
 import javafx.event.ActionEvent;
 
 import javafx.fxml.FXML;
@@ -23,6 +25,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
+import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
@@ -30,6 +33,7 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.media.AudioClip;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
 public class ManagerController {
 
@@ -40,6 +44,9 @@ public class ManagerController {
 	
 	@FXML
 	private VBox vbox;
+	
+	@FXML
+    private Label Exitlabel;
 
 	@FXML
 	private AnchorPane anchor;
@@ -425,6 +432,7 @@ public class ManagerController {
 	
 	@FXML
 	private void exitButtonAction(ActionEvent event){
+		AnimateText(Exitlabel,"Thank you and Bye Bye");
 		sounds.flashBackSound();
 		try
 		{
@@ -437,6 +445,23 @@ public class ManagerController {
 	    Stage stage = (Stage) exitButton.getScene().getWindow();
 	    // do what you have to do
 	    stage.close();
+	}
+	
+	public void AnimateText(Label lbl, String descImp) {
+	    String content = descImp;
+	    final Animation animation = new Transition() {
+	        {
+	            setCycleDuration(Duration.millis(2000));
+	        }
+
+	        protected void interpolate(double frac) {
+	            final int length = content.length();
+	            final int n = Math.round(length * (float) frac);
+	            lbl.setText(content.substring(0, n));
+	        }
+	    };
+	    animation.play();
+
 	}
 	
 	@FXML
