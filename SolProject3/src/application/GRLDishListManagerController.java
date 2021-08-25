@@ -53,6 +53,7 @@ public class GRLDishListManagerController {
 	@FXML
 	private Label message;
 
+	// Initiate table view with all customers in restaurant for selection
 	public void initData() {
 		dishesLV.setVisible(false);
 		id.setCellValueFactory(new PropertyValueFactory<>("id"));
@@ -67,7 +68,7 @@ public class GRLDishListManagerController {
 			customersTV.getItems().add(c);
 	}
 
-	@FXML
+	@FXML  // get relevant dish list according to customer selection from the table view
 	private void getDishList(ActionEvent event) {
 		dishesLV.getItems().clear();
 		Customer c = customersTV.getSelectionModel().getSelectedItem();

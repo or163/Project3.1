@@ -59,6 +59,8 @@ public class LoginController {
 				try {
 					FXMLLoader fx = new FXMLLoader(getClass().getResource("/View/Manager.fxml"));
 					Parent p = fx.load();
+					ManagerController ctrl = (ManagerController) fx.getController();
+					ctrl.initData();
 					Scene s = new Scene(p, 700, 500);
 					Main.stage.setScene(s);
 
@@ -93,13 +95,13 @@ public class LoginController {
 						passwLine.setStroke(Color.RED);
 						userLine.setStroke(Color.LIGHTBLUE);
 						message.setText("Incorrect Password");
+						return;
 					}
 				}
-				if (!c.getUserName().equals(un) && !un.equals("manager")) {
-					userLine.setStroke(Color.RED);
-					message.setText("User does not exist"); // no exist user
-				}
 			}
+			userLine.setStroke(Color.RED);
+			passwLine.setStroke(Color.LIGHTBLUE);
+			message.setText("User does not exist"); // user doesn't exist
 		}
 	}
 

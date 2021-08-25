@@ -1,8 +1,17 @@
 package application;
 
 import java.io.IOException;
+import java.time.LocalDate;
 import java.util.Optional;
+import java.util.TreeSet;
 
+import Model.Cook;
+import Model.Customer;
+import Model.Delivery;
+import Model.DeliveryArea;
+import Model.DeliveryPerson;
+import Model.Dish;
+import Model.Order;
 import Remove.RemoveComponentController;
 import Remove.RemoveCookController;
 import Remove.RemoveCustomerController;
@@ -11,7 +20,10 @@ import Remove.RemoveDPController;
 import Remove.RemoveDeliveryController;
 import Remove.RemoveDishController;
 import Remove.RemoveOrderController;
+import Utils.Expertise;
+import Utils.Gender;
 import Utils.SerializableWiz;
+import javafx.beans.property.SimpleStringProperty;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -19,8 +31,12 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
+import javafx.scene.control.ListView;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
@@ -45,9 +61,75 @@ public class ManagerController {
 	private Button exitButton;
 	
 	@FXML
+	private TableView<Delivery> deliveriesTV;
+	
+	@FXML
+	private TableColumn<Delivery, Integer> delId;
+
+	@FXML
+	private TableColumn<Delivery, String> dp;
+
+	@FXML
+	private TableColumn<Delivery, String> da;
+
+	@FXML
+	private TableColumn<Delivery, LocalDate> date;
+	
+	@FXML
+	private TableView<Order> ordersTV;
+
+	@FXML
+	private TableColumn<Order, Integer> ordId;
+
+	@FXML
+	private TableColumn<Order, String> cust;
+
+	@FXML
+	private TableColumn<Order, Dish> dishes;
+
+	@FXML
+	private TableColumn<Order, String> delivery;
+	
+	@FXML
+    private Pane pane;
+
+	@FXML
+    private ListView<DeliveryArea> daLV;
+
+    @FXML
+    private ListView<DeliveryPerson> dpLV;
+
+	// Initiate table views of uncompleted deliveries and orders that not added yet to deliveries 
+	public void initData() {
+		pane.setVisible(false); //hide the pane that would pop if we press on make deliveries button
+		//prepare table view to delivery fields
+		delId.setCellValueFactory(new PropertyValueFactory<>("id"));  
+		dp.setCellValueFactory(c-> new SimpleStringProperty(String.valueOf(
+				c.getValue().getDeliveryPerson().getFirstName() +  " " + c.getValue().getDeliveryPerson().getLastName())));
+		da.setCellValueFactory(c-> new SimpleStringProperty(String.valueOf(c.getValue().getArea().getAreaName())));
+		date.setCellValueFactory(new PropertyValueFactory<>("deliveredDate"));
+		for (Delivery d : Main.restaurant.getDeliveries().values()) {  //Populate deliveries TV with uncompleted deliveries
+			if (!d.isDelivered())
+				deliveriesTV.getItems().add(d);
+		}
+		//prepare tavle view to order fields
+		ordId.setCellValueFactory(new PropertyValueFactory<>("id"));  
+		cust.setCellValueFactory(c-> new SimpleStringProperty(String.valueOf(
+				c.getValue().getCustomer().getFirstName() +  " " + c.getValue().getCustomer().getLastName())));
+		dishes.setCellValueFactory(new PropertyValueFactory<>("dishes"));
+		delivery.setCellValueFactory(c-> new SimpleStringProperty(String.valueOf(c.getValue().getDelivery())));
+		for (Order o : Main.restaurant.getOrders().values()) {  //Populate orders TV with orders that has no delivery
+			if (o.getDelivery() == null)
+				ordersTV.getItems().add(o);
+		}
+	}
+	
+	@FXML
 	void goHome(ActionEvent event) throws IOException {
 		FXMLLoader fx = new FXMLLoader(getClass().getResource("/View/Manager.fxml"));
 		Parent p = fx.load();
+		ManagerController ctrl = (ManagerController) fx.getController();
+		ctrl.initData();
 		Scene s = new Scene(p, 700, 500);
 		Main.stage.setScene(s);
 	}
@@ -432,5 +514,22 @@ public class ManagerController {
 		}catch (Exception e) {
 			System.err.println(e.getLocalizedMessage());
 		}
+	}
+	
+	@FXML
+	void makeDeliveries(ActionEvent event) {
+		TreeSet<Order> ts = new TreeSet<Order>();
+    	TreeSet<Delivery> tsResult = new TreeSet<Delivery>();
+		ts.addAll(ordersTV.getSelectionModel().getSelectedItems());
+		pane.setVisible(true); // show pane with selection of da and dp
+		daLV.getItems().addAll(Main.restaurant.getAreas().values());
+		DeliveryArea delArea = daLV.getSelectionModel().getSelectedItem();
+		dpLV.getItems().addAll(delArea.getDelPersons());
+		DeliveryPerson delPer = dpLV.getSelectionModel().getSelectedItem();
+		if(delArea != null && delPer != null)
+			tsResult = Main.restaurant.createAIMacine(delPer, delArea, ts);
+		for(Delivery d : tsResult)
+			Main.restaurant.addDelivery(d);
+		initData();
 	}
 }

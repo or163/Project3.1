@@ -216,7 +216,7 @@ public class MakeOrderController {
 		double sum = 0;
 		for (Dish d : dishes)
 			sum += d.getPrice();
-		s += sum + "â‚ª";
+		s += sum + "¤";
 		return s;
 	}
 }

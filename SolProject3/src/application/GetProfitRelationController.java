@@ -21,7 +21,7 @@ public class GetProfitRelationController {
     @FXML
     private TableColumn<Dish, String> name;
 
-    @FXML
+    @FXML  // show profit relation using restaurant.getProfitRelation() method
     void profitRelation(ActionEvent event) {
     	dishesTV.getItems().clear();
     	name.setCellValueFactory(new PropertyValueFactory<>("dishName"));

@@ -18,10 +18,12 @@ public class UserQuerriesController {
     @FXML
     private BorderPane border;
 
+    // Initiate combo box with querries names
     public void initData() {
     	querries.getItems().addAll("Get Cook By Expert", "Get Relevant Dish List", "Get Popular Component");
     }
     
+    // this method determines which page would display according to user's choice
     @FXML
     void getPage(ActionEvent event) throws IOException {
     	Pane p;

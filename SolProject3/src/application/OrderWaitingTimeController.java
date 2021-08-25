@@ -34,12 +34,13 @@ public class OrderWaitingTimeController {
 	@FXML
 	private TextField time;
 
+	// Initiate combo-boxes with orders and delivery areas values
 	public void initData() {
 		orders.getItems().addAll(Main.restaurant.getOrders().values());
 		da.getItems().addAll(Main.restaurant.getAreas().values());
 	}
 
-	@FXML
+	@FXML  // add graph to view according to selected order and delivery area indicates order waiting time
 	private void addGraph() {
 		if (orders.getSelectionModel().getSelectedItem() != null && da.getSelectionModel().getSelectedItem() != null) {
 			Order o = orders.getSelectionModel().getSelectedItem();
@@ -53,7 +54,7 @@ public class OrderWaitingTimeController {
 		}
 	}
 
-	@FXML
+	@FXML  // clear the graph when relevant button pressed
 	private void clearGraph() {
 		timeChart.getData().clear();
 		time.setText("");

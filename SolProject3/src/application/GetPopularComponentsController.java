@@ -40,7 +40,7 @@ public class GetPopularComponentsController {
 	@FXML
 	private TableColumn<Component, Double> price;
 
-	@FXML
+	// Initiate table view with popular components in ascending order, the first is the most popular
 	public void initData() {
 		LinkedList<Component> list = Main.restaurant.getPopularComponents();
 		id.setCellValueFactory(new PropertyValueFactory<>("id"));
@@ -48,7 +48,7 @@ public class GetPopularComponentsController {
 		lactose.setCellValueFactory(new PropertyValueFactory<>("hasLactose"));
 		gluten.setCellValueFactory(new PropertyValueFactory<>("hasGluten"));
 		price.setCellValueFactory(new PropertyValueFactory<>("price"));
-		pop.setCellFactory(col -> {
+		pop.setCellFactory(col -> {  // Indicates ranking among popular components
 		      TableCell<Component, Integer> indexCell = new TableCell<>();
 		      ReadOnlyObjectProperty<TableRow<Component>> rowProperty = indexCell.tableRowProperty();
 		      ObjectBinding<String> rowBinding = Bindings.createObjectBinding(() -> {
@@ -64,7 +64,7 @@ public class GetPopularComponentsController {
 		      indexCell.textProperty().bind(rowBinding);
 		      return indexCell;
 		    });
-		for (Component c : list) {
+		for (Component c : list) {  // add components to table view from restaurant.getPopularComponents method
 			compsTV.getItems().add(c);
 		}
 	}

@@ -1,7 +1,11 @@
 package application;
 
+import java.awt.image.BufferedImage;
+import java.io.File;
 import java.io.IOException;
 import java.util.Optional;
+
+import javax.imageio.ImageIO;
 
 import Model.Customer;
 import Utils.SerializableWiz;
@@ -27,7 +31,7 @@ import javafx.stage.Stage;
 public class UserController {
 
 	@FXML
-	private BorderPane pannelRoot;
+	private BorderPane pannelRoot; // pannelRoot is the main pannel of user ui and all other screens in user ui would display via pannelRoot
 
 	@FXML
 	private Label welcome;
@@ -44,7 +48,7 @@ public class UserController {
 	@FXML
     private ImageView profilePic;
 	
-	private static int counter = 0;
+	private static int counter = 0; // counter for show menu method, if even hide menu, else show
 	
 	public ImageView getProfilePic() {
 		return profilePic;
@@ -54,6 +58,7 @@ public class UserController {
 		this.profilePic = profilePic;
 	}
 
+	// Initiate page with welcome to current user and sets profile pic at top of the screen for the user, if picture exists
 	public void initData() {
 		Customer c = LoginController.getCustomer();
 		welcome.setText("Welcome " + c.getFirstName());
@@ -65,7 +70,7 @@ public class UserController {
 			profilePic.setImage(new Image("/Icons/male_user_60px.png"));
 	}
 	
-	@FXML
+	@FXML  // go to main user ui screen
 	void goHome(ActionEvent event) throws IOException {
 		FXMLLoader fx = new FXMLLoader(getClass().getResource("/View/User.fxml"));
 		Parent p = fx.load();
@@ -75,7 +80,7 @@ public class UserController {
 		Main.stage.setScene(s);
 	}
 	
-	@FXML
+	@FXML // log out and go to login page
     void GoLogin(ActionEvent event) throws IOException {
 		FXMLLoader fx = new FXMLLoader(getClass().getResource("/View/Login.fxml"));
 		Parent p = fx.load();
@@ -83,7 +88,7 @@ public class UserController {
 		Main.stage.setScene(s);
     }
 	
-	@FXML
+	@FXML  // go to menu & make order page
 	void goMakeOrder(ActionEvent event) throws IOException {
 		FXMLLoader fx = new FXMLLoader(getClass().getResource("/View/MakeOrder.fxml"));
 		Pane p = fx.load();
@@ -93,7 +98,7 @@ public class UserController {
 		pannelRoot.setCenter(pp);
 	}
 	
-	@FXML
+	@FXML  // go to edit personal details page
 	private void goEdit(ActionEvent event) throws IOException {
 		FXMLLoader fx = new FXMLLoader(getClass().getResource("/View/EditUser.fxml"));
 		Pane p = fx.load();
@@ -105,37 +110,7 @@ public class UserController {
 		pannelRoot.setCenter(pp);
 	}
 	
-	@FXML
-	void goGRLDList(ActionEvent event) throws IOException {
-		FXMLLoader fx = new FXMLLoader(getClass().getResource("/View/GRLDishListUser.fxml"));
-		Pane p = fx.load();
-		AnchorPane pp = (AnchorPane) p;
-		GRLDishListUserController ctrl = (GRLDishListUserController) fx.getController();
-		ctrl.initData();
-		pannelRoot.setCenter(pp);
-	}
-	
-	@FXML
-	void goGetCooksByExpertise (ActionEvent event) throws IOException {
-		FXMLLoader fx = new FXMLLoader(getClass().getResource("/View/GetCookByExpertise.fxml"));
-		Pane p = fx.load();
-		AnchorPane pp = (AnchorPane) p;
-		GetCookByExpertiseController ctrl = (GetCookByExpertiseController) fx.getController();
-		ctrl.initData();
-		pannelRoot.setCenter(pp);
-	}
-	
-	@FXML
-	void goGetPopularComponents (ActionEvent event) throws IOException {
-		FXMLLoader fx = new FXMLLoader(getClass().getResource("/View/GetPopularComponents.fxml"));
-		Pane p = fx.load();
-		AnchorPane pp = (AnchorPane) p;
-		GetPopularComponentsController ctrl = (GetPopularComponentsController) fx.getController();
-		ctrl.initData();
-		pannelRoot.setCenter(pp);
-	}
-	
-	@FXML
+	@FXML  // go to shopping cart page
 	void goShoppingCart (ActionEvent event) throws IOException {
 		FXMLLoader fx = new FXMLLoader(getClass().getResource("/View/ShoppingCart.fxml"));
 		Pane p = fx.load();
@@ -145,7 +120,7 @@ public class UserController {
 		pannelRoot.setCenter(pp);
 	}
 	
-	@FXML
+	@FXML  // go to querries page
 	void goQuerries (ActionEvent event) throws IOException {
 		FXMLLoader fx = new FXMLLoader(getClass().getResource("/View/UserQuerries.fxml"));
 		Pane p = fx.load();
@@ -155,7 +130,7 @@ public class UserController {
 		pannelRoot.setCenter(bp);
 	}
 	
-	@FXML
+	@FXML  // go user's order history page
 	void goHistory (ActionEvent event) throws IOException {
 		FXMLLoader fx = new FXMLLoader(getClass().getResource("/View/UserHistory.fxml"));
 		Pane p = fx.load();
@@ -166,7 +141,7 @@ public class UserController {
 		pannelRoot.setCenter(pp);
 	}
 	
-	@FXML
+	@FXML  // show or hide menu according to counter, if even hide, else show
 	void showMenu(MouseEvent event) {
 		if(UserController.counter % 2 == 0) {
 			vbox.setVisible(false);
@@ -179,14 +154,14 @@ public class UserController {
 		UserController.counter++;
 	}
 	
-	@FXML
+	@FXML  // exit program
 	private void exitButtonAction(ActionEvent event){
 	    // get a handle to the stage
 	    Stage stage = (Stage) exitButton.getScene().getWindow();
 	    stage.close();
 	}
 	
-	@FXML
+	@FXML  // save all current data and serialize it
 	void SaveToSerelizebaleFile(ActionEvent event) {
 		try {
 			Alert a = new Alert(AlertType.CONFIRMATION);

@@ -15,7 +15,7 @@ public class RevenueFromExpressDeliveriesController {
     @FXML
     private TextField rev;
 
-	@FXML
+	@FXML  // if button pressed on program, add graph indicates restaurant's revenue from express deliveries
     private void addGraph() {
 		chart.getData().clear();
     	double revenue = Main.restaurant.revenueFromExpressDeliveries();
@@ -23,6 +23,6 @@ public class RevenueFromExpressDeliveriesController {
 		series.getData().add(new XYChart.Data<>("", revenue));
 		series.setName("Revenue");
 		chart.getData().add(series);
-		rev.setText(Double.toString(revenue));
+		rev.setText(Double.toString(revenue)); //sets the revenue value at textField underneath the graph
     }
 }

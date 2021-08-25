@@ -16,12 +16,13 @@ import javafx.scene.paint.Color;
 public class RemoveDishController {
 
 	@FXML
-    private ListView<Dish> dishLV;
+	private ListView<Dish> dishLV;
 
-    @FXML
-    private Label message;
+	@FXML
+	private Label message;
 
-    public void initData(){
+	// Initiate List View with all dishes inside
+	public void initData() {
 
 		dishLV.getItems().clear();
 		for (Dish d : Main.restaurant.getDishes().values()) {
@@ -29,34 +30,30 @@ public class RemoveDishController {
 		}
 	}
 
-
-	//this Method Initialize the input fields of the class//
+	// this Method removes the selected dish from the restaurant
 	@FXML
 	private void remove(ActionEvent event) {
 		Dish d = null;
 		d = dishLV.getSelectionModel().getSelectedItem();
-		
-		if(dishLV==null)
+
+		if (dishLV.getItems().size() == 0) //in case there are no dishes in the list
 			message.setText("There are no dishes to remove");
-		else if(dishLV.getSelectionModel().getSelectedItem() == null)
+		else if (dishLV.getSelectionModel().getSelectedItem() == null) //no dish selected
 			message.setText("Please Select a dish to Remove");
-		else if (d!= null){
-			
-			Alert alert = new Alert(AlertType.CONFIRMATION);
+		else if (d != null) {
+
+			Alert alert = new Alert(AlertType.CONFIRMATION); //if returned ok from alert remove dish
 			alert.setTitle("Confirmation");
 			alert.setHeaderText(dishLV.getSelectionModel().getSelectedItem() + " has been chosen");
 			alert.setContentText("Are you sure you want to delete this one?");
 			Optional<ButtonType> result = alert.showAndWait();
-			if (result.get() == ButtonType.OK){
+			if (result.get() == ButtonType.OK) {
 				Main.restaurant.removeDish(d);
 				initData();
 				message.setTextFill(Color.GREEN);
 				message.setText("Removed successfully");
-				
-			}// else { // user chose CANCEL or closed the dialog
-				//initData();
-			   
-			//}
+
+			} // else { // user chose CANCEL or closed the dialog
 		}
 
 	}
