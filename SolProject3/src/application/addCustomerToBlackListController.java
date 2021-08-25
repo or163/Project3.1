@@ -21,6 +21,15 @@ public class addCustomerToBlackListController {
     @FXML
     private Label message;
 
+    public void initData(){
+    	
+    	customerLV.getItems().clear();
+    	for (Customer c : Main.restaurant.getCustomers().values()) {
+    		customerLV.getItems().add(c);
+    	}
+    	customerLV.getItems().removeAll(Main.restaurant.getBlackList());
+    }
+    
     @FXML
     void AddToBList(ActionEvent event) {
     	Customer c = null;
@@ -48,13 +57,5 @@ public class addCustomerToBlackListController {
 		}
     }
     
-    public void initData(){
-
-		customerLV.getItems().clear();
-		for (Customer c : Main.restaurant.getCustomers().values()) {
-			customerLV.getItems().add(c);
-		}
-		customerLV.getItems().removeAll(Main.restaurant.getBlackList());
-	}
 
 }

@@ -97,7 +97,7 @@ public class LoginController {
 							FXMLLoader fx = new FXMLLoader(getClass().getResource("/View/User.fxml"));
 							Parent p = fx.load();
 							UserController ctrl = (UserController) fx.getController();
-							ctrl.initData(c);
+							ctrl.initData();
 
 							Scene s = new Scene(p, 700, 500);
 							Main.stage.setScene(s);

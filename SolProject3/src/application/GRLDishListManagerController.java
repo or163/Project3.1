@@ -79,8 +79,8 @@ public class GRLDishListManagerController {
 			Collection<Dish> list = Main.restaurant.getReleventDishList(c);
 			for (Dish d : list) {
 				Label l = new Label(d.getDishName());
-				l.setFont(new Font("Ariel", 16));
-				l.setTextFill(Color.CORNFLOWERBLUE);
+				l.setFont(new Font("Ariel", 14));
+				l.setTextFill(Color.BLUE);
 				dishesLV.getItems().add(l);
 			}
 		}

@@ -1,5 +1,6 @@
 package application;
 
+import Exceptions.CantAddObjectException;
 import Model.Component;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -38,7 +39,7 @@ public class AddComponentController {
 	@FXML
 	private Label message;
 
-	@FXML
+	@FXML    //save component to the restaurant
 	void save(ActionEvent event) {
 		boolean lact = false;
 		boolean glut = false;
@@ -47,27 +48,32 @@ public class AddComponentController {
 		if (glutenYes.isSelected())
 			glut = true;
 		double cost = 0;
-		if (name.getText() == null || name.getText().isEmpty() || price.getText() == null || price.getText().isEmpty()
-				|| lactoseTG.getSelectedToggle() == null || glutenTG.getSelectedToggle() == null) {
-			message.setText("you have fields that are empty");
-			message.setTextFill(Color.RED);
-		} else {
-			if (!(price.getText().isEmpty()) && Utils.Utils.isDouble(price.getText())) {
-				cost = Double.parseDouble(price.getText());
-				Component comp = new Component(name.getText(), lact, glut, cost);
-				Main.restaurant.addComponent(comp);
-				message.setText("saved succesfully");
-				message.setTextFill(Color.GREEN);
-				lactoseTG.getSelectedToggle().setSelected(false);
-				glutenTG.getSelectedToggle().setSelected(false);
-				name.clear();
-				price.clear();
-				System.out.println(Main.restaurant.getComponenets());
-			}
-			else {
-				message.setText("the price is incorrect");
+		try {				//validates the are no empty fields
+			if (name.getText() == null || name.getText().isEmpty() || price.getText() == null
+					|| price.getText().isEmpty() || lactoseTG.getSelectedToggle() == null
+					|| glutenTG.getSelectedToggle() == null) {
+				message.setText("you have fields that are empty");
 				message.setTextFill(Color.RED);
+			} else {
+				if (!(price.getText().isEmpty()) && Utils.Utils.isDouble(price.getText())) {
+					cost = Double.parseDouble(price.getText());
+					Component comp = new Component(name.getText(), lact, glut, cost);
+					if (Main.restaurant.addComponent(comp)) { //if add succeeds than clear all fields for further adding
+						message.setText("saved succesfully");
+						message.setTextFill(Color.GREEN);
+						lactoseTG.getSelectedToggle().setSelected(false);
+						glutenTG.getSelectedToggle().setSelected(false);
+						name.clear();
+						price.clear();
+					} else
+						throw new CantAddObjectException("Component " + comp.getComponentName());
+				} else {
+					message.setText("the price is incorrect");
+					message.setTextFill(Color.RED);
+				}
 			}
+		} catch (CantAddObjectException ex) {
+			ex.alertMessage();
 		}
 	}
 

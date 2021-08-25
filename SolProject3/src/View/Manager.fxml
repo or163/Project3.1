@@ -15,7 +15,7 @@
 
 <BorderPane fx:id="pannelRoot" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="700.0" style="-fx-background-color: #c5c5c5;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ManagerController">
    <center>
-      <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" styleClass="bodybg" stylesheets="@../application/mainBackground.css" BorderPane.alignment="CENTER">
          <children>
             <Label layoutX="186.0" layoutY="32.0" prefHeight="35.0" prefWidth="227.0" text="Welcome manager!">
                <font>

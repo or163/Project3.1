@@ -1,11 +1,17 @@
 package application;
 
+import java.io.File;
+import java.io.IOException;
+
 import Model.Customer;
 import Utils.Gender;
 import Utils.Neighberhood;
 import Utils.Utils;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.ComboBox;
@@ -15,7 +21,13 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
+import javafx.stage.FileChooser;
 
 public class EditUserController {
 
@@ -64,7 +76,13 @@ public class EditUserController {
 	@FXML
 	private ComboBox<Neighberhood> neighborhood;
 
-	LoginController ctrl = new LoginController();
+	@FXML
+	private ImageView profilePic;
+
+	private BorderPane pannel;
+	private String imageUrl;
+	private ImageView image;
+
 	Customer cust = LoginController.getCustomer();
 
 	public void initData() {
@@ -89,6 +107,8 @@ public class EditUserController {
 			glutenTG.selectToggle(glutenYes);
 		else
 			glutenTG.selectToggle(glutenNo);
+		if (cust.getProfilePicturePath() != null)
+			profilePic.setImage(new Image(cust.getProfilePicturePath()));
 	}
 
 	@FXML
@@ -98,8 +118,7 @@ public class EditUserController {
 				|| lactoseTG.getSelectedToggle() == null || glutenTG.getSelectedToggle() == null) {
 			message.setText("you have fields that are empty");
 			message.setTextFill(Color.RED);
-		}
-		else if(Utils.isValidPassword(passw.getText(),message)==false)
+		} else if (Utils.isValidPassword(passw.getText(), message) == false)
 			;
 		else {
 			cust.setUserName(userName.getText());
@@ -117,9 +136,41 @@ public class EditUserController {
 				cust.setSensitiveToGluten(true);
 			else
 				cust.setSensitiveToGluten(false);
-			message.setTextFill(Color.GREENYELLOW);
+			if (imageUrl != null) {
+				cust.setProfilePicturePath(imageUrl);
+				image.setImage(new Image(imageUrl));
+				image.setPreserveRatio(false);
+			}
+			message.setTextFill(Color.GREEN);
 			message.setText("saved succefully");
 		}
+	}
+
+	@FXML
+	public void chooseFile() throws IOException {
+		FileChooser fc = new FileChooser();
+		File tmp = fc.showOpenDialog(Main.stage);
+		if (tmp != null) {
+			Image img = new Image("file:///" + tmp.getAbsolutePath());
+			imageUrl = "file:///" + tmp.getAbsolutePath();
+			profilePic.setImage(img);
+		}
+	}
+
+	public BorderPane getPannel() {
+		return pannel;
+	}
+
+	public void setPannel(BorderPane pannel) {
+		this.pannel = pannel;
+	}
+
+	public ImageView getImage() {
+		return image;
+	}
+
+	public void setImage(ImageView image) {
+		this.image = image;
 	}
 
 }

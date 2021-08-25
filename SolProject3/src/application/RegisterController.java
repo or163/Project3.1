@@ -1,5 +1,6 @@
 package application;
 
+import java.io.File;
 import java.io.IOException;
 import java.time.LocalDate;
 
@@ -23,66 +24,82 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.stage.FileChooser;
 import javafx.scene.control.Alert.AlertType;
 
 public class RegisterController {
 
-    @FXML
-    private Button saveButton;
+	@FXML
+	private Button saveButton;
 
-    @FXML
-    private RadioButton lactoseYes;
+	@FXML
+	private RadioButton lactoseYes;
 
-    @FXML
-    private ToggleGroup lactoseTG;
+	@FXML
+	private ToggleGroup lactoseTG;
 
-    @FXML
-    private RadioButton lactoseNo;
+	@FXML
+	private RadioButton lactoseNo;
 
-    @FXML
-    private RadioButton glutenYes;
+	@FXML
+	private RadioButton glutenYes;
 
-    @FXML
-    private ToggleGroup glutenTG;
+	@FXML
+	private ToggleGroup glutenTG;
 
-    @FXML
-    private RadioButton glutenNo;
+	@FXML
+	private RadioButton glutenNo;
 
-    @FXML
-    private TextField userName;
+	@FXML
+	private TextField userName;
 
-    @FXML
-    private TextField txtFName;
+	@FXML
+	private TextField txtFName;
 
-    @FXML
-    private TextField txtLName;
+	@FXML
+	private TextField txtLName;
 
-    @FXML
-    private DatePicker date;
+	@FXML
+	private DatePicker date;
 
-    @FXML
-    private ChoiceBox<Gender> gender;
+	@FXML
+	private ChoiceBox<Gender> gender;
 
-    @FXML
-    private PasswordField passw;
+	@FXML
+	private PasswordField passw;
 
-    @FXML
-    private Label message;
+	@FXML
+	private Label message;
 
-    @FXML
-    private ComboBox<Neighberhood> neighborhood;
+	@FXML
+	private ImageView profileImage;
 
-    public void initData() {
-    	Utils.initDate(date);
-		for(Gender g : Gender.values())
+	@FXML
+	private ComboBox<Neighberhood> neighborhood;
+
+	private String profilePath;
+
+	public String getProfilePath() {
+		return profilePath;
+	}
+
+	public void setProfilePath(String profilePath) {
+		this.profilePath = profilePath;
+	}
+
+	public void initData() {
+		Utils.initDate(date);
+		for (Gender g : Gender.values())
 			gender.getItems().add(g);
-		for(Neighberhood n : Neighberhood.values())
+		for (Neighberhood n : Neighberhood.values())
 			neighborhood.getItems().add(n);
-    }
-    
-    @FXML
-    private void save(ActionEvent event) {
-    	Gender gend = gender.getSelectionModel().getSelectedItem();
+	}
+
+	@FXML
+	private void save(ActionEvent event) {
+		Gender gend = gender.getSelectionModel().getSelectedItem();
 		Neighberhood neigh = neighborhood.getSelectionModel().getSelectedItem();
 		boolean lact = false;
 		boolean glut = false;
@@ -91,32 +108,33 @@ public class RegisterController {
 		if (glutenYes.isSelected())
 			glut = true;
 		LocalDate bday = date.getValue();
-		
-		if (userName.getText() == null || userName.getText().isEmpty()
-				||  txtFName.getText() == null || txtFName.getText().isEmpty()
-				|| txtLName.getText() == null || txtLName.getText().isEmpty() || gend == null || neigh == null ||
-				bday == null || lactoseTG.getSelectedToggle() == null || glutenTG.getSelectedToggle() == null) {
+
+		if (userName.getText() == null || userName.getText().isEmpty() || txtFName.getText() == null
+				|| txtFName.getText().isEmpty() || txtLName.getText() == null || txtLName.getText().isEmpty()
+				|| gend == null || neigh == null || bday == null || lactoseTG.getSelectedToggle() == null
+				|| glutenTG.getSelectedToggle() == null) {
 			message.setText("you have fields that are empty");
-		}
-		else if(Utils.isValidPassword(passw.getText(),message)==false)
+		} else if (Utils.isValidPassword(passw.getText(), message) == false)
 			;
-		else if(Utils.userNameExists(userName.getText()))
+		else if (Utils.userNameExists(userName.getText()))
 			message.setText("User already exists, choose different user name");
 		else {
 			Customer cust = new Customer(txtFName.getText(), txtLName.getText(), bday, gend, neigh, lact, glut,
 					userName.getText(), passw.getText());
+			if (profilePath != null)
+				cust.setProfilePicturePath(profilePath);
 			Main.restaurant.addCustomer(cust);
 			try {
 				SerializableWiz.save(Main.restaurant);
-			}catch (Exception e) {
+			} catch (Exception e) {
 				System.err.println(e.getLocalizedMessage());
 			}
 			message.setText("saved succesfully");
 			lactoseTG.getSelectedToggle().setSelected(false);
 			glutenTG.getSelectedToggle().setSelected(false);
 			userName.clear();
-	    	passw.clear();
-	    	txtLName.clear();
+			passw.clear();
+			txtLName.clear();
 			txtFName.clear();
 			gender.getSelectionModel().clearSelection();
 			neighborhood.getSelectionModel().clearSelection();
@@ -127,28 +145,40 @@ public class RegisterController {
 				p = fx.load();
 				UserController ctrl = (UserController) fx.getController();
 				LoginController.setCustomer(cust);
-				ctrl.initData(cust);
+				ctrl.initData();
 				Scene s = new Scene(p, 700, 500);
 				Main.stage.setScene(s);
-				} catch (IOException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			System.out.println(Main.restaurant.getCustomers());
 		}
-    }
-    
-    @FXML
-    private void goHome(ActionEvent event) {
-    	try {
-    	FXMLLoader fx = new FXMLLoader(getClass().getResource("/View/Login.fxml"));
-		Parent p = fx.load();
-		Scene s = new Scene(p, 700, 500);
-		Main.stage.setScene(s);
-    	} catch (IOException e) {
-    		// TODO Auto-generated catch block
-    		e.printStackTrace();
-    	}
-    }
+	}
+
+	@FXML
+	private void goHome(ActionEvent event) {
+		try {
+			FXMLLoader fx = new FXMLLoader(getClass().getResource("/View/Login.fxml"));
+			Parent p = fx.load();
+			Scene s = new Scene(p, 700, 500);
+			Main.stage.setScene(s);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+	@FXML
+	public void chooseFile() {
+		FileChooser fc = new FileChooser();
+		File tmp = fc.showOpenDialog(Main.stage);
+		if (tmp != null) {
+			Image img = new Image("file:///" + tmp.getAbsolutePath());
+			String imageUrl = "file:///" + tmp.getAbsolutePath();
+			profileImage.setImage(img);
+			this.profilePath = imageUrl;
+		}
+	}
 
 }

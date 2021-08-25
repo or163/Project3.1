@@ -13,6 +13,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
@@ -40,10 +42,28 @@ public class UserController {
 	@FXML
 	private Button exitButton;
 	
+	@FXML
+    private ImageView profilePic;
+	
 	private static int counter = 0;
+	
+	public ImageView getProfilePic() {
+		return profilePic;
+	}
 
-	public void initData(Customer c) {
+	public void setProfilePic(ImageView profilePic) {
+		this.profilePic = profilePic;
+	}
+
+	public void initData() {
+		Customer c = LoginController.getCustomer();
 		welcome.setText("Welcome " + c.getFirstName());
+		if(c.getProfilePicturePath() != null) {
+			profilePic.setImage(new Image(c.getProfilePicturePath()));
+			profilePic.setPreserveRatio(false);
+		}
+		else
+			profilePic.setImage(new Image("/Icons/male_user_60px.png"));
 	}
 	
 	@FXML
@@ -51,6 +71,8 @@ public class UserController {
 		sounds.clickSound();
 		FXMLLoader fx = new FXMLLoader(getClass().getResource("/View/User.fxml"));
 		Parent p = fx.load();
+		UserController ctrl = (UserController) fx.getController();
+		ctrl.initData();
 		Scene s = new Scene(p, 700, 500);
 		Main.stage.setScene(s);
 	}
@@ -83,6 +105,8 @@ public class UserController {
 		AnchorPane pp = (AnchorPane) p;
 		EditUserController ctrl = (EditUserController) fx.getController();
 		ctrl.initData();
+		ctrl.setPannel(pannelRoot);
+		ctrl.setImage(profilePic);
 		pannelRoot.setCenter(pp);
 	}
 	
@@ -149,6 +173,7 @@ public class UserController {
 		AnchorPane pp = (AnchorPane) p;
 		UserHistoryController ctrl = (UserHistoryController) fx.getController();
 		ctrl.initData();
+		UserHistoryController.setBorder(pannelRoot);
 		pannelRoot.setCenter(pp);
 	}
 	
@@ -198,4 +223,5 @@ public class UserController {
 			System.err.println(e.getLocalizedMessage());
 		}
 	}
+
 }

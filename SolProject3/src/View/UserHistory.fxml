@@ -21,7 +21,8 @@
             <TableColumn fx:id="delivery" prefWidth="277.3333740234375" text="Delivery" />
         </columns>
       </TableView>
-      <Button layoutX="5.0" layoutY="445.0" mnemonicParsing="false" onAction="#remove" prefHeight="25.0" prefWidth="174.0" text="Remove From History" />
+      <Button layoutX="5.0" layoutY="445.0" mnemonicParsing="false" onAction="#goMakeOrder" prefHeight="25.0" prefWidth="174.0" text="Add Order" />
+      <Button layoutX="419.0" layoutY="445.0" mnemonicParsing="false" onAction="#remove" prefHeight="25.0" prefWidth="174.0" text="Remove From History" />
       <Label layoutX="8.0" layoutY="49.0" prefHeight="17.0" prefWidth="159.0" text="Orders:">
          <font>
             <Font size="16.0" />
