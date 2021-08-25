@@ -71,20 +71,20 @@ public class LoginController {
 					ctrl.initData();
 					Scene s = new Scene(p, 700, 500);
 					Main.stage.setScene(s);
-					try
-					{
-					    Thread.sleep(1000);
-					}
-					catch(InterruptedException ex)
-					{
-					    Thread.currentThread().interrupt();
-					}
-					sounds.welcomeMSound();
-
+					
 				} catch (IOException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
+				try
+				{
+				    Thread.sleep(1000);
+				}
+				catch(InterruptedException ex)
+				{
+				    Thread.currentThread().interrupt();
+				}
+				sounds.welcomeMSound();
 			} else {
 				passwLine.setStroke(Color.RED);
 				message.setText("Incorrect Password");
