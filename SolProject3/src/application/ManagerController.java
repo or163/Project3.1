@@ -5,6 +5,7 @@ import java.time.LocalDate;
 import java.util.Optional;
 import java.util.TreeSet;
 
+import Audio.sounds;
 import Model.Cook;
 import Model.Customer;
 import Model.Delivery;
@@ -126,6 +127,7 @@ public class ManagerController {
 	
 	@FXML
 	void goHome(ActionEvent event) throws IOException {
+		sounds.clickSound();
 		FXMLLoader fx = new FXMLLoader(getClass().getResource("/View/Manager.fxml"));
 		Parent p = fx.load();
 		ManagerController ctrl = (ManagerController) fx.getController();
@@ -136,6 +138,7 @@ public class ManagerController {
 	
 	@FXML
     void GoLogin(ActionEvent event) throws IOException {
+		sounds.flashBackSound();
 		FXMLLoader fx = new FXMLLoader(getClass().getResource("/View/Login.fxml"));
 		Parent p = fx.load();
 		Scene s = new Scene(p, 700, 500);
@@ -423,6 +426,7 @@ public class ManagerController {
 	
 	@FXML
 	void goDatabases (ActionEvent event) throws IOException {
+		sounds.clickSound();
 		FXMLLoader fx = new FXMLLoader(getClass().getResource("/View/viewDatabases.fxml"));
 		Pane p = fx.load();
 		AnchorPane pp = (AnchorPane) p;
@@ -434,6 +438,7 @@ public class ManagerController {
 	
 	@FXML
 	void goAdd (ActionEvent event) throws IOException {
+		sounds.clickSound();
 		FXMLLoader fx = new FXMLLoader(getClass().getResource("/View/Add.fxml"));
 		Pane p = fx.load();
 		AnchorPane pp = (AnchorPane) p;
@@ -444,6 +449,7 @@ public class ManagerController {
 
 	@FXML
 	void goRemove (ActionEvent event) throws IOException {
+		sounds.clickSound();
 		FXMLLoader fx = new FXMLLoader(getClass().getResource("/View/Remove.fxml"));
 		Pane p = fx.load();
 		AnchorPane pp = (AnchorPane) p;
@@ -454,6 +460,7 @@ public class ManagerController {
 	
 	@FXML
 	void goEdit (ActionEvent event) throws IOException {
+		sounds.clickSound();
 		FXMLLoader fx = new FXMLLoader(getClass().getResource("/View/Edit.fxml"));
 		Pane p = fx.load();
 		AnchorPane pp = (AnchorPane) p;
@@ -464,6 +471,7 @@ public class ManagerController {
 	
 	@FXML
 	void goQuerries (ActionEvent event) throws IOException {
+		sounds.clickSound();
 		FXMLLoader fx = new FXMLLoader(getClass().getResource("/View/Querries.fxml"));
 		Pane p = fx.load();
 		AnchorPane pp = (AnchorPane) p;
@@ -474,6 +482,7 @@ public class ManagerController {
 	
 	@FXML
 	void goOut(ActionEvent event) throws IOException {
+		sounds.flashBackSound();
 		FXMLLoader fx = new FXMLLoader(getClass().getResource("/View/Login.fxml"));
 		Pane p = fx.load();
 		AnchorPane pp = (AnchorPane) p;
@@ -482,6 +491,7 @@ public class ManagerController {
 	
 	@FXML
 	void showMenu(MouseEvent event) {
+		sounds.clickSound();
 		if(ManagerController.counter % 2 == 0) {
 			vbox.setVisible(false);
 			anchor.setStyle("-fx-background-color: transparent");
@@ -495,7 +505,16 @@ public class ManagerController {
 	
 	@FXML
 	private void exitButtonAction(ActionEvent event){
-	    Stage stage = (Stage) exitButton.getScene().getWindow();
+		sounds.flashBackSound();
+		try
+		{
+		    Thread.sleep(3000);
+		}
+		catch(InterruptedException ex)
+		{
+		    Thread.currentThread().interrupt();
+		}
+		Stage stage = (Stage) exitButton.getScene().getWindow();
 	    // do what you have to do
 	    stage.close();
 	}

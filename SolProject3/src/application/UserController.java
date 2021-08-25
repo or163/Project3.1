@@ -5,8 +5,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.Optional;
 
-import javax.imageio.ImageIO;
-
+import Audio.sounds;
 import Model.Customer;
 import Utils.SerializableWiz;
 import javafx.event.ActionEvent;
@@ -72,6 +71,7 @@ public class UserController {
 	
 	@FXML  // go to main user ui screen
 	void goHome(ActionEvent event) throws IOException {
+		sounds.clickSound();
 		FXMLLoader fx = new FXMLLoader(getClass().getResource("/View/User.fxml"));
 		Parent p = fx.load();
 		UserController ctrl = (UserController) fx.getController();
@@ -82,6 +82,7 @@ public class UserController {
 	
 	@FXML // log out and go to login page
     void GoLogin(ActionEvent event) throws IOException {
+		sounds.flashBackSound();
 		FXMLLoader fx = new FXMLLoader(getClass().getResource("/View/Login.fxml"));
 		Parent p = fx.load();
 		Scene s = new Scene(p, 700, 500);
@@ -90,6 +91,7 @@ public class UserController {
 	
 	@FXML  // go to menu & make order page
 	void goMakeOrder(ActionEvent event) throws IOException {
+		sounds.clickSound();
 		FXMLLoader fx = new FXMLLoader(getClass().getResource("/View/MakeOrder.fxml"));
 		Pane p = fx.load();
 		AnchorPane pp = (AnchorPane) p;
@@ -100,6 +102,7 @@ public class UserController {
 	
 	@FXML  // go to edit personal details page
 	private void goEdit(ActionEvent event) throws IOException {
+		sounds.clickSound();
 		FXMLLoader fx = new FXMLLoader(getClass().getResource("/View/EditUser.fxml"));
 		Pane p = fx.load();
 		AnchorPane pp = (AnchorPane) p;
@@ -110,8 +113,43 @@ public class UserController {
 		pannelRoot.setCenter(pp);
 	}
 	
-	@FXML  // go to shopping cart page
+
+	@FXML  //go to get relevant dish list for specific user
+	void goGRLDList(ActionEvent event) throws IOException {
+		sounds.clickSound();
+		FXMLLoader fx = new FXMLLoader(getClass().getResource("/View/GRLDishListUser.fxml"));
+		Pane p = fx.load();
+		AnchorPane pp = (AnchorPane) p;
+		GRLDishListUserController ctrl = (GRLDishListUserController) fx.getController();
+		ctrl.initData();
+		pannelRoot.setCenter(pp);
+	}
+	
+	@FXML  // go to get cook by expertise page
+	void goGetCooksByExpertise (ActionEvent event) throws IOException {
+		sounds.clickSound();
+		FXMLLoader fx = new FXMLLoader(getClass().getResource("/View/GetCookByExpertise.fxml"));
+		Pane p = fx.load();
+		AnchorPane pp = (AnchorPane) p;
+		GetCookByExpertiseController ctrl = (GetCookByExpertiseController) fx.getController();
+		ctrl.initData();
+		pannelRoot.setCenter(pp);
+	}
+	
+	@FXML  // go to get popular components page
+	void goGetPopularComponents (ActionEvent event) throws IOException {
+		sounds.clickSound();
+		FXMLLoader fx = new FXMLLoader(getClass().getResource("/View/GetPopularComponents.fxml"));
+		Pane p = fx.load();
+		AnchorPane pp = (AnchorPane) p;
+		GetPopularComponentsController ctrl = (GetPopularComponentsController) fx.getController();
+		ctrl.initData();
+		pannelRoot.setCenter(pp);
+	}
+	
+	@FXML   // go to shopping cart page
 	void goShoppingCart (ActionEvent event) throws IOException {
+		sounds.clickSound();
 		FXMLLoader fx = new FXMLLoader(getClass().getResource("/View/ShoppingCart.fxml"));
 		Pane p = fx.load();
 		AnchorPane pp = (AnchorPane) p;
@@ -122,6 +160,7 @@ public class UserController {
 	
 	@FXML  // go to querries page
 	void goQuerries (ActionEvent event) throws IOException {
+		sounds.clickSound();
 		FXMLLoader fx = new FXMLLoader(getClass().getResource("/View/UserQuerries.fxml"));
 		Pane p = fx.load();
 		BorderPane bp = (BorderPane) p;
@@ -132,6 +171,7 @@ public class UserController {
 	
 	@FXML  // go user's order history page
 	void goHistory (ActionEvent event) throws IOException {
+		sounds.clickSound();
 		FXMLLoader fx = new FXMLLoader(getClass().getResource("/View/UserHistory.fxml"));
 		Pane p = fx.load();
 		AnchorPane pp = (AnchorPane) p;
@@ -143,6 +183,7 @@ public class UserController {
 	
 	@FXML  // show or hide menu according to counter, if even hide, else show
 	void showMenu(MouseEvent event) {
+		sounds.clickSound();
 		if(UserController.counter % 2 == 0) {
 			vbox.setVisible(false);
 			anchor.setStyle("-fx-background-color: transparent");
@@ -157,12 +198,22 @@ public class UserController {
 	@FXML  // exit program
 	private void exitButtonAction(ActionEvent event){
 	    // get a handle to the stage
+		sounds.flashBackSound();
+		try
+		{
+		    Thread.sleep(3000);
+		}
+		catch(InterruptedException ex)
+		{
+		    Thread.currentThread().interrupt();
+		}
 	    Stage stage = (Stage) exitButton.getScene().getWindow();
 	    stage.close();
 	}
 	
 	@FXML  // save all current data and serialize it
 	void SaveToSerelizebaleFile(ActionEvent event) {
+		sounds.clickSound();
 		try {
 			Alert a = new Alert(AlertType.CONFIRMATION);
 			a.setTitle("Save");

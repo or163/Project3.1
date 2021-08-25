@@ -113,6 +113,9 @@
                            </image>
                         </ImageView>
                      </graphic>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                   </Button>
                   <Button alignment="TOP_LEFT" mnemonicParsing="false" onAction="#goDatabases" prefHeight="45.0" prefWidth="100.0" style="-fx-background-radius: 0; -fx-background-color: DARKBLUE;" text="Data&#10;Bases" textFill="WHITE">
                      <graphic>
@@ -122,6 +125,9 @@
                            </image>
                         </ImageView>
                      </graphic>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                   </Button>
                   <Button alignment="TOP_LEFT" mnemonicParsing="false" onAction="#goAdd" prefHeight="45.0" prefWidth="100.0" style="-fx-background-radius: 0; -fx-background-color: DARKBLUE;" text="Add" textFill="WHITE">
                      <graphic>
@@ -131,6 +137,9 @@
                            </image>
                         </ImageView>
                      </graphic>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                   </Button>
                   <Button alignment="TOP_LEFT" mnemonicParsing="false" onAction="#goRemove" prefHeight="45.0" prefWidth="100.0" style="-fx-background-radius: 0; -fx-background-color: DARKBLUE;" text="Remove" textFill="WHITE">
                      <graphic>
@@ -140,6 +149,9 @@
                            </image>
                         </ImageView>
                      </graphic>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                   </Button>
                   <Button alignment="TOP_LEFT" mnemonicParsing="false" onAction="#goEdit" prefHeight="45.0" prefWidth="100.0" style="-fx-background-radius: 0; -fx-background-color: DARKBLUE;" text="Edit" textFill="WHITE">
                      <graphic>
@@ -149,6 +161,9 @@
                            </image>
                         </ImageView>
                      </graphic>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                   </Button>
                   <Button alignment="TOP_LEFT" mnemonicParsing="false" onAction="#goQuerries" prefHeight="45.0" prefWidth="100.0" style="-fx-background-radius: 0; -fx-background-color: DARKBLUE;" text="Querries" textFill="WHITE">
                      <graphic>
@@ -158,6 +173,9 @@
                            </image>
                         </ImageView>
                      </graphic>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                   </Button>
                   <Button alignment="TOP_LEFT" mnemonicParsing="false" onAction="#SaveToSerelizebaleFile" prefHeight="45.0" prefWidth="100.0" style="-fx-background-radius: 0; -fx-background-color: DARKBLUE;" text="Save" textFill="WHITE">
                      <graphic>
@@ -167,6 +185,9 @@
                            </image>
                         </ImageView>
                      </graphic>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                   </Button>
                   <Button alignment="TOP_LEFT" mnemonicParsing="false" onAction="#GoLogin" prefHeight="45.0" prefWidth="100.0" style="-fx-background-radius: 0; -fx-background-color: DARKBLUE;" text="Log-out" textFill="WHITE">
                      <graphic>
@@ -176,6 +197,9 @@
                            </image>
                         </ImageView>
                      </graphic>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                   </Button>
                   <Button fx:id="exitButton" alignment="TOP_LEFT" mnemonicParsing="false" onAction="#exitButtonAction" prefHeight="45.0" prefWidth="100.0" style="-fx-background-radius: 0; -fx-background-color: DARKBLUE;" text="Exit" textFill="WHITE">
                      <graphic>
@@ -185,6 +209,9 @@
                            </image>
                         </ImageView>
                      </graphic>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                   </Button>
                </children>
             </VBox>
