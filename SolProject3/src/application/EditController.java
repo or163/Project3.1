@@ -2,6 +2,7 @@ package application;
 
 import java.io.IOException;
 
+import Audio.sounds;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.input.MouseEvent;
@@ -18,6 +19,7 @@ public class EditController {
 	}
 	@FXML
 	void goEditCook(MouseEvent event) throws IOException {
+		sounds.clickSound();
 		FXMLLoader fx = new FXMLLoader(getClass().getResource("/View/EditCook.fxml"));
 		Pane p = fx.load();
 		AnchorPane pp = (AnchorPane) p;
@@ -28,6 +30,7 @@ public class EditController {
 
 	@FXML
 	void goEditCustomer(MouseEvent event) throws IOException {
+		sounds.clickSound();
 		FXMLLoader fx = new FXMLLoader(getClass().getResource("/View/EditCustomer.fxml"));
 		Pane p = fx.load();
 		AnchorPane pp = (AnchorPane) p;
@@ -38,6 +41,7 @@ public class EditController {
 
 	@FXML
 	void goEditDP(MouseEvent event) throws IOException {
+		sounds.clickSound();
 		FXMLLoader fx = new FXMLLoader(getClass().getResource("/View/EditDeliveryPerson.fxml"));
 		Pane p = fx.load();
 		AnchorPane pp = (AnchorPane) p;
@@ -48,6 +52,7 @@ public class EditController {
 
 	@FXML
 	void goEditComponent(MouseEvent event) throws IOException {
+		sounds.clickSound();
 		FXMLLoader fx = new FXMLLoader(getClass().getResource("/View/EditComponent.fxml"));
 		Pane p = fx.load();
 		AnchorPane pp = (AnchorPane) p;
@@ -58,6 +63,7 @@ public class EditController {
 	
 	@FXML
 	void goEditDish(MouseEvent event) throws IOException {
+		sounds.clickSound();
 		FXMLLoader fx = new FXMLLoader(getClass().getResource("/View/EditDish.fxml"));
 		Pane p = fx.load();
 		AnchorPane pp = (AnchorPane) p;
@@ -68,6 +74,7 @@ public class EditController {
 	
 	@FXML
 	void goEditOrder(MouseEvent event) throws IOException {
+		sounds.clickSound();
 		FXMLLoader fx = new FXMLLoader(getClass().getResource("/View/EditOrder.fxml"));
 		Pane p = fx.load();
 		AnchorPane pp = (AnchorPane) p;
@@ -78,6 +85,7 @@ public class EditController {
 	
 	@FXML
 	void goEditDA(MouseEvent event) throws IOException {
+		sounds.clickSound();
 		FXMLLoader fx = new FXMLLoader(getClass().getResource("/View/EditDA.fxml"));
 		Pane p = fx.load();
 		AnchorPane pp = (AnchorPane) p;
@@ -88,6 +96,7 @@ public class EditController {
 	
 	@FXML
 	void goEditDelivery(MouseEvent event) throws IOException {
+		sounds.clickSound();
 		FXMLLoader fx = new FXMLLoader(getClass().getResource("/View/EditDelivery.fxml"));
 		Pane p = fx.load();
 		AnchorPane pp = (AnchorPane) p;

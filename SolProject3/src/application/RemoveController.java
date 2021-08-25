@@ -2,6 +2,7 @@ package application;
 
 import java.io.IOException;
 
+import Audio.sounds;
 import Remove.RemoveComponentController;
 import Remove.RemoveCookController;
 import Remove.RemoveCustomerController;
@@ -27,6 +28,7 @@ public class RemoveController {
 
 	@FXML
 	void goRemoveCook(MouseEvent event) throws IOException {
+		sounds.clickSound();
 		FXMLLoader fx = new FXMLLoader(getClass().getResource("/View/RemoveCook.fxml"));
 		Pane p = fx.load();
 		AnchorPane pp = (AnchorPane) p;
@@ -37,6 +39,7 @@ public class RemoveController {
 
 	@FXML
 	void goRemoveCustomer(MouseEvent event) throws IOException {
+		sounds.clickSound();
 		FXMLLoader fx = new FXMLLoader(getClass().getResource("/View/RemoveCustomer.fxml"));
 		Pane p = fx.load();
 		AnchorPane pp = (AnchorPane) p;
@@ -47,6 +50,7 @@ public class RemoveController {
 
 	@FXML
 	void goRemoveDP(MouseEvent event) throws IOException {
+		sounds.clickSound();
 		FXMLLoader fx = new FXMLLoader(getClass().getResource("/View/RemoveDeliveryPerson.fxml"));
 		Pane p = fx.load();
 		AnchorPane pp = (AnchorPane) p;
@@ -57,6 +61,7 @@ public class RemoveController {
 	
 	@FXML
 	void goRemoveComponent(MouseEvent event) throws IOException {
+		sounds.clickSound();
 		FXMLLoader fx = new FXMLLoader(getClass().getResource("/View/RemoveComponent.fxml"));
 		Pane p = fx.load();
 		AnchorPane pp = (AnchorPane) p;
@@ -67,6 +72,7 @@ public class RemoveController {
 	
 	@FXML
 	void goRemoveDish(MouseEvent event) throws IOException {
+		sounds.clickSound();
 		FXMLLoader fx = new FXMLLoader(getClass().getResource("/View/RemoveDish.fxml"));
 		Pane p = fx.load();
 		AnchorPane pp = (AnchorPane) p;
@@ -77,6 +83,7 @@ public class RemoveController {
 	
 	@FXML
 	void goRemoveOrder(MouseEvent event) throws IOException {
+		sounds.clickSound();
 		FXMLLoader fx = new FXMLLoader(getClass().getResource("/View/RemoveOrder.fxml"));
 		Pane p = fx.load();
 		AnchorPane pp = (AnchorPane) p;
@@ -87,6 +94,7 @@ public class RemoveController {
 	
 	@FXML
 	void goRemoveDA(MouseEvent event) throws IOException{
+		sounds.clickSound();
 		FXMLLoader fx = new FXMLLoader(getClass().getResource("/View/RemoveDA.fxml"));
 		Pane p = fx.load();
 		AnchorPane pp = (AnchorPane) p;
@@ -97,6 +105,7 @@ public class RemoveController {
 	
 	@FXML
 	void goRemoveDelivery(MouseEvent event) throws IOException{
+		sounds.clickSound();
 		FXMLLoader fx = new FXMLLoader(getClass().getResource("/View/RemoveDelivery.fxml"));
 		Pane p = fx.load();
 		AnchorPane pp = (AnchorPane) p;

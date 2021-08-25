@@ -2,6 +2,7 @@ package application;
 
 import java.io.IOException;
 
+import Audio.sounds;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -20,6 +21,7 @@ public class QuerriesController {
 
 	@FXML
 	void goGRLDList(MouseEvent event) throws IOException {
+		sounds.clickSound();
 		FXMLLoader fx = new FXMLLoader(getClass().getResource("/View/GRLDishListManager.fxml"));
 		Pane p = fx.load();
 		AnchorPane pp = (AnchorPane) p;
@@ -30,6 +32,7 @@ public class QuerriesController {
 	
 	@FXML
 	void goGetCooksByExpertise (MouseEvent event) throws IOException {
+		sounds.clickSound();
 		FXMLLoader fx = new FXMLLoader(getClass().getResource("/View/GetCookByExpertise.fxml"));
 		Pane p = fx.load();
 		AnchorPane pp = (AnchorPane) p;
@@ -40,6 +43,7 @@ public class QuerriesController {
 	
 	@FXML
 	void goGetPopularComponents (MouseEvent event) throws IOException {
+		sounds.clickSound();
 		FXMLLoader fx = new FXMLLoader(getClass().getResource("/View/GetPopularComponents.fxml"));
 		Pane p = fx.load();
 		AnchorPane pp = (AnchorPane) p;
@@ -50,6 +54,7 @@ public class QuerriesController {
 	
 	@FXML
 	void goOrderWaitingTime (MouseEvent event) throws IOException {
+		sounds.clickSound();
 		FXMLLoader fx = new FXMLLoader(getClass().getResource("/View/OrderWaitingTime.fxml"));
 		Pane p = fx.load();
 		AnchorPane pp = (AnchorPane) p;
@@ -60,6 +65,7 @@ public class QuerriesController {
 	
 	@FXML
 	void goDeliver (MouseEvent event) throws IOException {
+		sounds.clickSound();
 		FXMLLoader fx = new FXMLLoader(getClass().getResource("/View/Deliver.fxml"));
 		Pane p = fx.load();
 		AnchorPane pp = (AnchorPane) p;
@@ -70,6 +76,7 @@ public class QuerriesController {
 	
 	@FXML
 	void goCalcOrderRevenue (MouseEvent event) throws IOException {
+		sounds.clickSound();
 		FXMLLoader fx = new FXMLLoader(getClass().getResource("/View/CalcOrderRevenue.fxml"));
 		Pane p = fx.load();
 		AnchorPane pp = (AnchorPane) p;
@@ -80,6 +87,7 @@ public class QuerriesController {
 	
 	@FXML
 	void goGetDeliveriesByPerson (MouseEvent event) throws IOException {
+		sounds.clickSound();
 		FXMLLoader fx = new FXMLLoader(getClass().getResource("/View/GetDeliveriesByPerson.fxml"));
 		Pane p = fx.load();
 		AnchorPane pp = (AnchorPane) p;
@@ -90,6 +98,7 @@ public class QuerriesController {
 	
 	@FXML
 	void goGetNumberOfDeliveriesPerType (MouseEvent event) throws IOException {
+		sounds.clickSound();
 		FXMLLoader fx = new FXMLLoader(getClass().getResource("/View/GetNumberOfDeliveriesPerType.fxml"));
 		Pane p = fx.load();
 		AnchorPane pp = (AnchorPane) p;
@@ -100,6 +109,7 @@ public class QuerriesController {
 	
 	@FXML
 	void goRevenueFromExpressDeliveries (MouseEvent event) throws IOException {
+		sounds.clickSound();
 		FXMLLoader fx = new FXMLLoader(getClass().getResource("/View/RevenueFromExpressDeliveries.fxml"));
 		Pane p = fx.load();
 		AnchorPane pp = (AnchorPane) p;
@@ -110,6 +120,7 @@ public class QuerriesController {
 	
 	@FXML
 	void goGetProfitRelation (MouseEvent event) throws IOException {
+		sounds.clickSound();
 		FXMLLoader fx = new FXMLLoader(getClass().getResource("/View/GetProfitRelation.fxml"));
 		Pane p = fx.load();
 		AnchorPane pp = (AnchorPane) p;
@@ -120,6 +131,7 @@ public class QuerriesController {
 	
 	@FXML
 	void goCreateAIMacine (MouseEvent event) throws IOException {
+		sounds.clickSound();
 		FXMLLoader fx = new FXMLLoader(getClass().getResource("/View/CreateAIMacine.fxml"));
 		Pane p = fx.load();
 		AnchorPane pp = (AnchorPane) p;

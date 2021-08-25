@@ -2,6 +2,7 @@ package application;
 
 import java.io.IOException;
 
+import Audio.sounds;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -20,6 +21,7 @@ public class AddController {
 
 	@FXML
 	void goAddCook(MouseEvent event) throws IOException {
+		sounds.clickSound();
 		FXMLLoader fx = new FXMLLoader(getClass().getResource("/View/AddCook.fxml"));
 		Pane p = fx.load();
 		AnchorPane pp = (AnchorPane) p;
@@ -30,6 +32,7 @@ public class AddController {
 
 	@FXML
 	void goAddCustomer(MouseEvent event) throws IOException {
+		sounds.clickSound();
 		FXMLLoader fx = new FXMLLoader(getClass().getResource("/View/AddCustomer.fxml"));
 		Pane p = fx.load();
 		AnchorPane pp = (AnchorPane) p;
@@ -40,6 +43,7 @@ public class AddController {
 
 	@FXML
 	void goAddDP(MouseEvent event) throws IOException {
+		sounds.clickSound();
 		FXMLLoader fx = new FXMLLoader(getClass().getResource("/View/AddDeliveryPerson.fxml"));
 		Pane p = fx.load();
 		AnchorPane pp = (AnchorPane) p;
@@ -50,6 +54,7 @@ public class AddController {
 
 	@FXML
 	void goAddComponent(MouseEvent event) throws IOException {
+		sounds.clickSound();
 		FXMLLoader fx = new FXMLLoader(getClass().getResource("/View/AddComponent.fxml"));
 		Pane p = fx.load();
 		AnchorPane pp = (AnchorPane) p;
@@ -58,6 +63,7 @@ public class AddController {
 	
 	@FXML
 	void goAddDish(MouseEvent event) throws IOException {
+		sounds.clickSound();
 		FXMLLoader fx = new FXMLLoader(getClass().getResource("/View/AddDish.fxml"));
 		Pane p = fx.load();
 		AnchorPane pp = (AnchorPane) p;
@@ -68,6 +74,7 @@ public class AddController {
 	
 	@FXML
 	void goAddOrder(MouseEvent event) throws IOException {
+		sounds.clickSound();
 		FXMLLoader fx = new FXMLLoader(getClass().getResource("/View/AddOrder.fxml"));
 		Pane p = fx.load();
 		AnchorPane pp = (AnchorPane) p;
@@ -78,6 +85,7 @@ public class AddController {
 	
 	@FXML
 	void goAddDA(MouseEvent event) throws IOException {
+		sounds.clickSound();
 		FXMLLoader fx = new FXMLLoader(getClass().getResource("/View/AddDA.fxml"));
 		Pane p = fx.load();
 		AnchorPane pp = (AnchorPane) p;
@@ -88,6 +96,7 @@ public class AddController {
 	
 	@FXML
 	void goAddDelivery(MouseEvent event) throws IOException {
+		sounds.clickSound();
 		FXMLLoader fx = new FXMLLoader(getClass().getResource("/View/AddDelivery.fxml"));
 		Pane p = fx.load();
 		AnchorPane pp = (AnchorPane) p;
@@ -98,6 +107,7 @@ public class AddController {
 	
 	@FXML
 	void goaddCustomerToBlackList (MouseEvent event) throws IOException {
+		sounds.clickSound();
 		FXMLLoader fx = new FXMLLoader(getClass().getResource("/View/addCustomerToBlackList.fxml"));
 		Pane p = fx.load();
 		AnchorPane pp = (AnchorPane) p;

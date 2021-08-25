@@ -1,7 +1,9 @@
 package application;
 
+import java.io.File;
 import java.io.IOException;
 
+import Audio.sounds;
 import Model.Customer;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -13,6 +15,7 @@ import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.media.AudioClip;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Line;
 
@@ -44,7 +47,12 @@ public class LoginController {
 
 	@FXML
 	void login(ActionEvent event) {
-
+//		String path = new File("src/sounds/MouseClick.mp3").getAbsolutePath();
+//		AudioClip click = new AudioClip(new File(path).toURI().toString());
+//		click.play();
+		sounds.clickSound();
+		
+		//sounds.sounds.clickSound();
 		String un = user.getText();
 		String pass = passw.getText();
 		if (un == null || un.isEmpty())
@@ -61,6 +69,15 @@ public class LoginController {
 					Parent p = fx.load();
 					Scene s = new Scene(p, 700, 500);
 					Main.stage.setScene(s);
+					try
+					{
+					    Thread.sleep(1000);
+					}
+					catch(InterruptedException ex)
+					{
+					    Thread.currentThread().interrupt();
+					}
+					sounds.welcomeMSound();
 
 				} catch (IOException e) {
 					// TODO Auto-generated catch block
@@ -84,6 +101,7 @@ public class LoginController {
 
 							Scene s = new Scene(p, 700, 500);
 							Main.stage.setScene(s);
+							
 
 						} catch (IOException ex) {
 							// TODO Auto-generated catch block
@@ -105,6 +123,7 @@ public class LoginController {
 
 	@FXML
 	public void signup(ActionEvent e) {
+		sounds.clickSound();
 		try {
 			FXMLLoader fx = new FXMLLoader(getClass().getResource("/View/Register.fxml"));
 			Parent p = fx.load();
