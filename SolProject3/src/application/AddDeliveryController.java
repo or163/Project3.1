@@ -56,7 +56,6 @@ public class AddDeliveryController {
 
 	public void initData() {
 		// TODO Auto-generated method stub
-		Utils.Utils.initDate(date);
 		deliveryPersons.getItems().addAll(Main.restaurant.getDeliveryPersons().values());
 		deliveryArea.getItems().addAll(Main.restaurant.getAreas().values());
 		orders.getItems().addAll(Main.restaurant.getOrders().values());
@@ -81,11 +80,18 @@ public class AddDeliveryController {
 	}
 
 	@FXML
-	void removeOrder(ActionEvent event) {
-		selected.getItems().remove(selected.getSelectionModel().getSelectedItem());
-		lblStatus.setText("Order removed from the chosen order list");
-		lblStatus.setTextFill(Color.BLACK);
-	}
+    void removeOrder(ActionEvent event) {
+    	sounds.clickSound();
+    	if(orders.getSelectionModel().getSelectedItem()!=null) {
+    		lblStatus.setText("Order removed from the chosen order list");
+			lblStatus.setTextFill(Color.BLACK);
+    	}
+    	else {
+    		lblStatus.setText("Please select at list 1 order");
+			lblStatus.setTextFill(Color.RED);
+    	}
+    	selected.getItems().remove(selected.getSelectionModel().getSelectedItem());
+    }
 
 	@FXML
 	void save(ActionEvent event) {
@@ -101,8 +107,16 @@ public class AddDeliveryController {
 		try {
 			if (delPer == null || delAre == null || selected.getItems().isEmpty() || selected.getItems() == null
 					|| datte == null || deliveyTG.getSelectedToggle() == null) {
-				lblStatus.setText("Please fill all fields");// maybe we should put all as execptions?
+				lblStatus.setText("Please fill up all fields");
+				if(datte == null)
+					lblStatus.setText("Please choose a date ");
+				if(delPer == null)
+					lblStatus.setText("Please choose a delivery person ");
+				if(delPer == null)
+					lblStatus.setText("Please choose a delivery area ");
 				lblStatus.setTextFill(Color.RED);
+				if(datte == null)
+					lblStatus.setText("Please choose a date ");
 			} else if (selected.getItems().size() == 1) {
 				Order o = selected.getItems().get(0);
 				Delivery d = new ExpressDelivery(delPer, delAre, isDel, o, 100, datte);

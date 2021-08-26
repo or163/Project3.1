@@ -85,14 +85,30 @@ public class EditOrderController {
 	@FXML
 	private void addDish(ActionEvent e) {
 		sounds.clickSound();
-		if(dishV.getSelectionModel().getSelectedItem() != null)
+		if (dishV.getSelectionModel().getSelectedItem() != null) {
 			selected.getItems().add(dishV.getSelectionModel().getSelectedItem());
+			message.setText("Dish added to the chosen dishes list");
+			message.setTextFill(Color.BLACK);
+		}
+		else {
+			message.setText("Please select at list 1 dish");
+			message.setTextFill(Color.RED);
+		}
 	}
 
-	@FXML
+	@FXML  //remove dish from selected dishes for order list view
 	private void removeDish(ActionEvent e) {
 		sounds.clickSound();
-		selected.getItems().remove(selected.getSelectionModel().getSelectedItem());
+		if(selected.getSelectionModel().getSelectedItem()!=null) {
+			message.setText("Dish removed from the chosen dishes list");
+			message.setTextFill(Color.BLACK);
+			selected.getItems().remove(selected.getSelectionModel().getSelectedItem());
+		}
+		else {
+			message.setText("Please select at list 1 dish");
+			message.setTextFill(Color.RED);
+		}
+		
 	}
 
 }

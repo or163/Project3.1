@@ -75,7 +75,7 @@ public class GRLDishListManagerController {
 		dishesLV.getItems().clear();
 		Customer c = customersTV.getSelectionModel().getSelectedItem();
 		if (c == null)
-			message.setText("Please select a custoemr!");
+			message.setText("Please select a customer!");
 		else {
 			message.setText("");
 			dishesLV.setVisible(true);

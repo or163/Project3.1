@@ -98,7 +98,7 @@ public class EditDeliveryController {
 		}
 		else {
 			selected.getItems().add(orders.getSelectionModel().getSelectedItem());
-			lblStatus.setText("Order added to the chosen order list");
+			lblStatus.setText("Order added to the chosen orders list");
 			lblStatus.setTextFill(Color.BLACK);
 		}
     }
@@ -106,9 +106,15 @@ public class EditDeliveryController {
     @FXML
     void removeOrder(ActionEvent event) {
     	sounds.clickSound();
+    	if(orders.getSelectionModel().getSelectedItem()!=null) {
+    		lblStatus.setText("Order removed from the chosen order list");
+			lblStatus.setTextFill(Color.BLACK);
+    	}
+    	else {
+    		lblStatus.setText("Please select at list 1 order");
+			lblStatus.setTextFill(Color.RED);
+    	}
     	selected.getItems().remove(selected.getSelectionModel().getSelectedItem());
-		lblStatus.setText("Order removed from the chosen order list");
-		lblStatus.setTextFill(Color.BLACK);
     }
 
     @FXML
@@ -126,7 +132,13 @@ public class EditDeliveryController {
     	if(delPer == null || delAre == null || selected.getItems().isEmpty()|| selected.getItems() == null 
     		|| datte == null || deliveyTG.getSelectedToggle() == null)
 		{
-			lblStatus.setText("Please fill all fields");//maybe we should put all as execptions?
+			lblStatus.setText("Please fill up all fields");
+			if(datte == null)
+				lblStatus.setText("Please choose a date ");
+			if(delPer == null)
+				lblStatus.setText("Please choose a delivery person ");
+			if(delPer == null)
+				lblStatus.setText("Please choose a delivery area ");
 			lblStatus.setTextFill(Color.RED);
 		}
     	else {
