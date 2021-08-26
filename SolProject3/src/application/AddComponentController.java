@@ -58,7 +58,7 @@ public class AddComponentController {
 				if (!(price.getText().isEmpty()) && Utils.Utils.isDouble(price.getText())) {
 					cost = Double.parseDouble(price.getText());
 					Component comp = new Component(name.getText(), lact, glut, cost);
-					if (Main.restaurant.addComponent(comp)) { //if add succeeds than clear all fields for further adding
+					if (Main.restaurant.addComponent(comp)) { //if add succeeds ,clear all fields for further adding
 						message.setText("saved succesfully");
 						message.setTextFill(Color.GREEN);
 						lactoseTG.getSelectedToggle().setSelected(false);

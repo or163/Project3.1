@@ -19,7 +19,7 @@ public class AddController {
 		this.pannelRoot = pannelRoot;
 	}
 
-	@FXML
+	@FXML  // go to add cook page
 	void goAddCook(MouseEvent event) throws IOException {
 		sounds.clickSound();
 		FXMLLoader fx = new FXMLLoader(getClass().getResource("/View/AddCook.fxml"));
@@ -30,7 +30,7 @@ public class AddController {
 		pannelRoot.setCenter(pp);
 	}
 
-	@FXML
+	@FXML  // go to add customer page
 	void goAddCustomer(MouseEvent event) throws IOException {
 		sounds.clickSound();
 		FXMLLoader fx = new FXMLLoader(getClass().getResource("/View/AddCustomer.fxml"));
@@ -41,7 +41,7 @@ public class AddController {
 		pannelRoot.setCenter(pp);
 	}
 
-	@FXML
+	@FXML  // go to add delivery person page
 	void goAddDP(MouseEvent event) throws IOException {
 		sounds.clickSound();
 		FXMLLoader fx = new FXMLLoader(getClass().getResource("/View/AddDeliveryPerson.fxml"));
@@ -52,7 +52,7 @@ public class AddController {
 		pannelRoot.setCenter(pp);
 	}
 
-	@FXML
+	@FXML  // go to add component page
 	void goAddComponent(MouseEvent event) throws IOException {
 		sounds.clickSound();
 		FXMLLoader fx = new FXMLLoader(getClass().getResource("/View/AddComponent.fxml"));
@@ -61,7 +61,7 @@ public class AddController {
 		pannelRoot.setCenter(pp);
 	}
 	
-	@FXML
+	@FXML  // go to add dish page
 	void goAddDish(MouseEvent event) throws IOException {
 		sounds.clickSound();
 		FXMLLoader fx = new FXMLLoader(getClass().getResource("/View/AddDish.fxml"));
@@ -72,7 +72,7 @@ public class AddController {
 		pannelRoot.setCenter(pp);
 	}
 	
-	@FXML
+	@FXML  // go to add order page
 	void goAddOrder(MouseEvent event) throws IOException {
 		sounds.clickSound();
 		FXMLLoader fx = new FXMLLoader(getClass().getResource("/View/AddOrder.fxml"));
@@ -83,7 +83,7 @@ public class AddController {
 		pannelRoot.setCenter(pp);
 	}
 	
-	@FXML
+	@FXML  // go to add delivery area page
 	void goAddDA(MouseEvent event) throws IOException {
 		sounds.clickSound();
 		FXMLLoader fx = new FXMLLoader(getClass().getResource("/View/AddDA.fxml"));
@@ -94,7 +94,7 @@ public class AddController {
 		pannelRoot.setCenter(pp);
 	}
 	
-	@FXML
+	@FXML  // go to add delivery page
 	void goAddDelivery(MouseEvent event) throws IOException {
 		sounds.clickSound();
 		FXMLLoader fx = new FXMLLoader(getClass().getResource("/View/AddDelivery.fxml"));
@@ -105,7 +105,7 @@ public class AddController {
 		pannelRoot.setCenter(pp);
 	}
 	
-	@FXML
+	@FXML  // go to add customer to black list page
 	void goaddCustomerToBlackList (MouseEvent event) throws IOException {
 		sounds.clickSound();
 		FXMLLoader fx = new FXMLLoader(getClass().getResource("/View/addCustomerToBlackList.fxml"));

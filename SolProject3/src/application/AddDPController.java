@@ -67,7 +67,7 @@ public class AddDPController {
 					|| txtLName.getText().isEmpty() || gend == null || car == null || d == null || bday == null) {
 				message.setTextFill(Color.RED);
 				message.setText("you have fields that are empty");
-			} else {  //if add succeeds than clear all fields for further adding
+			} else {  //if add succeeds ,clear all fields for further adding
 				DeliveryPerson dp = new DeliveryPerson(txtFName.getText(), txtLName.getText(), bday, gend, car, d);
 				if (Main.restaurant.addDeliveryPerson(dp, d)) {
 					message.setText("saved succesfully");

@@ -9,17 +9,16 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="626.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.RevenueFromExpressDeliveriesController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="600.0" styleClass="label" stylesheets="@../application/background.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.RevenueFromExpressDeliveriesController">
    <children>
-      <Label alignment="TOP_CENTER" layoutX="133.0" layoutY="14.0" prefHeight="35.0" prefWidth="341.0" text="revenue from express deliveries">
+      <Label alignment="TOP_CENTER" layoutX="133.0" layoutY="14.0" prefHeight="35.0" prefWidth="363.0" text="Revenue from Express Deliveries">
          <font>
             <Font size="24.0" />
          </font>
       </Label>
-      <Button layoutX="101.0" layoutY="65.0" mnemonicParsing="false" onAction="#addGraph" prefHeight="25.0" prefWidth="448.0" text="get revenue from express deliveries" />
+      <Button layoutX="88.0" layoutY="65.0" mnemonicParsing="false" onAction="#addGraph" prefHeight="25.0" prefWidth="448.0" text="get revenue from express deliveries" />
       <TextField fx:id="rev" editable="false" layoutX="250.0" layoutY="451.0" prefHeight="25.0" prefWidth="126.0" />
-      <BarChart fx:id="chart" layoutX="63.0" layoutY="91.0" prefHeight="360.0" prefWidth="500.0">
+      <BarChart fx:id="chart" layoutX="50.0" layoutY="91.0" prefHeight="360.0" prefWidth="500.0">
         <xAxis>
           <CategoryAxis side="BOTTOM" />
         </xAxis>

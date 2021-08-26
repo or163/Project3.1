@@ -7,10 +7,9 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.EditComponentController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="600.0" styleClass="label" stylesheets="@../application/background.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.EditComponentController">
    <children>
       <Label alignment="TOP_CENTER" layoutX="188.0" layoutY="14.0" prefHeight="35.0" prefWidth="224.0" style="-fx-background-radius: 12; -fx-background-color: #ffffff80;" text="Edit Component">
          <font>
@@ -22,26 +21,34 @@
             <Font size="14.0" />
          </font>
       </Button>
-      <Label layoutX="172.0" layoutY="120.0" prefHeight="25.0" prefWidth="90.0" style="-fx-background-color: #ffffff80; -fx-background-radius: 12;" text="Name :" />
-      <Label layoutX="172.0" layoutY="167.0" prefHeight="25.0" prefWidth="90.0" style="-fx-background-color: #ffffff80; -fx-background-radius: 12;" text="with lactose?" />
-      <Label layoutX="172.0" layoutY="217.0" prefHeight="25.0" prefWidth="90.0" style="-fx-background-color: #ffffff80; -fx-background-radius: 12;" text="with gluten?" />
-      <Label layoutX="172.0" layoutY="262.0" prefHeight="25.0" prefWidth="90.0" style="-fx-background-color: #ffffff80; -fx-background-radius: 12;" text="Price :" />
-      <TextField fx:id="name" layoutX="255.0" layoutY="118.0" prefHeight="30.0" prefWidth="201.0" promptText="Name" style="-fx-background-color: transparent;" />
-      <RadioButton fx:id="lactoseYes" layoutX="266.0" layoutY="171.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="69.0" style="-fx-background-color: #ffffff80; -fx-background-radius: 12;" text="Yes">
+      <Label fx:id="message" alignment="TOP_CENTER" layoutX="167.0" layoutY="460.0" prefHeight="17.0" prefWidth="272.0" stylesheets="@../application/background.css" textFill="#e22424" />
+      <Label layoutX="20.0" layoutY="76.0" prefHeight="25.0" prefWidth="113.0" style="-fx-background-color: #ffffff80; -fx-background-radius: 12;" text="Choose Component:" />
+      <ComboBox fx:id="WhichComponent" layoutX="139.0" layoutY="76.0" onAction="#ComponentSelected" prefHeight="25.0" prefWidth="439.0" />
+      <Label layoutX="21.0" layoutY="132.0" prefHeight="25.0" prefWidth="57.0" text="Name :" />
+      <Label layoutX="21.0" layoutY="184.0" prefHeight="25.0" prefWidth="73.0" text="with lactose?" />
+      <Label layoutX="21.0" layoutY="234.0" prefHeight="25.0" prefWidth="73.0" text="with gluten?" />
+      <Label layoutX="21.0" layoutY="274.0" prefHeight="25.0" prefWidth="57.0" text="Price :" />
+      <TextField fx:id="name" layoutX="104.0" layoutY="130.0" prefHeight="30.0" prefWidth="101.0" />
+      <RadioButton fx:id="lactoseYes" layoutX="105.0" layoutY="188.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="57.0" text="Yes">
          <toggleGroup>
             <ToggleGroup fx:id="lactoseTG" />
-         </toggleGroup></RadioButton>
-      <RadioButton fx:id="lactoseNo" layoutX="346.0" layoutY="171.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="69.0" style="-fx-background-color: #ffffff80; -fx-background-radius: 12;" text="No" toggleGroup="$lactoseTG" />
-      <RadioButton fx:id="glutenYes" layoutX="265.0" layoutY="221.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="69.0" style="-fx-background-color: #ffffff80; -fx-background-radius: 12;" text="Yes">
+         </toggleGroup>
+      </RadioButton>
+      <RadioButton fx:id="lactoseNo" layoutX="168.0" layoutY="188.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="57.0" text="No">
+         <toggleGroup>
+            <ToggleGroup fx:id="lactoseTG" />
+         </toggleGroup>
+      </RadioButton>
+      <RadioButton fx:id="glutenYes" layoutX="104.0" layoutY="238.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="57.0" text="Yes">
          <toggleGroup>
             <ToggleGroup fx:id="glutenTG" />
-         </toggleGroup></RadioButton>
-      <RadioButton fx:id="glutenNo" layoutX="345.0" layoutY="221.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="69.0" style="-fx-background-color: #ffffff80; -fx-background-radius: 12;" text="No" toggleGroup="$glutenTG" />
-      <TextField fx:id="price" layoutX="255.0" layoutY="260.0" prefHeight="30.0" prefWidth="201.0" promptText="Price" style="-fx-background-color: transparent;" />
-      <Label fx:id="message" alignment="TOP_CENTER" layoutX="208.0" layoutY="460.0" prefHeight="17.0" prefWidth="183.0" textFill="#e22424" />
-      <Line endX="100.0" layoutX="356.0" layoutY="148.0" startX="-100.0" />
-      <Line endX="100.0" layoutX="356.0" layoutY="290.0" startX="-100.0" />
-      <Label layoutX="21.0" layoutY="92.0" prefHeight="25.0" prefWidth="113.0" style="-fx-background-color: #ffffff80; -fx-background-radius: 12;" text="Choose Component:" />
-      <ComboBox fx:id="WhichComponent" layoutX="140.0" layoutY="92.0" onAction="#ComponentSelected" prefHeight="25.0" prefWidth="439.0" />
+         </toggleGroup>
+      </RadioButton>
+      <RadioButton fx:id="glutenNo" layoutX="167.0" layoutY="238.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="57.0" text="No">
+         <toggleGroup>
+            <ToggleGroup fx:id="glutenTG" />
+         </toggleGroup>
+      </RadioButton>
+      <TextField fx:id="price" layoutX="104.0" layoutY="272.0" prefHeight="30.0" prefWidth="101.0" promptText="Enter a number'" />
    </children>
 </AnchorPane>

@@ -15,6 +15,7 @@ public class DeliverController {
 	@FXML
 	private Label message;
 	
+	// Initiate list view with all deliveries that didn't completed yet
 	public void initData() {
 		// TODO Auto-generated method stub
 		for (Delivery d : Main.restaurant.getDeliveries().values()) {
@@ -23,7 +24,7 @@ public class DeliverController {
 		}
 	}
 
-	@FXML
+	@FXML  //  mark this delivery as delivered
 	void deliver(ActionEvent event) {
 		if (!deliveries.getItems().isEmpty()) {
 			Delivery d = deliveries.getSelectionModel().getSelectedItem();

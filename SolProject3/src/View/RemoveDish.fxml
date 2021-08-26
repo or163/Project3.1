@@ -6,16 +6,16 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Remove.RemoveDishController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="600.0" styleClass="label" stylesheets="@../application/background.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Remove.RemoveDishController">
    <children>
-      <Label alignment="TOP_CENTER" layoutX="96.0" layoutY="14.0" prefHeight="17.0" prefWidth="385.0" text="remove dish">
+      <Label alignment="TOP_CENTER" layoutX="96.0" layoutY="14.0" prefHeight="17.0" prefWidth="385.0" text="Remove Dish">
          <font>
             <Font size="24.0" />
          </font>
       </Label>
-      <ListView fx:id="dishLV" layoutX="16.0" layoutY="70.0" prefHeight="279.0" prefWidth="568.0" />
-      <Button layoutX="263.0" layoutY="360.0" mnemonicParsing="false" onAction="#remove" text="remove" />
-      <Label layoutX="35.0" layoutY="49.0" prefHeight="17.0" prefWidth="500.0" text="Please select which dish to remove :" />
-      <Label fx:id="message" layoutX="410.0" layoutY="364.0" prefHeight="17.0" prefWidth="155.0" textFill="#ce2020" />
+      <ListView fx:id="dishLV" layoutX="16.0" layoutY="81.0" prefHeight="317.0" prefWidth="568.0" />
+      <Button layoutX="261.0" layoutY="403.0" mnemonicParsing="false" onAction="#remove" text="remove" />
+      <Label layoutX="16.0" layoutY="60.0" prefHeight="17.0" prefWidth="201.0" text="Please select which dish to remove :" />
+      <Label fx:id="message" alignment="CENTER" layoutX="153.0" layoutY="436.0" prefHeight="17.0" prefWidth="283.0" textFill="#ce2020" />
    </children>
 </AnchorPane>

@@ -79,8 +79,7 @@ public class EditUserController {
 	@FXML
 	private ImageView profilePic;
 
-	private BorderPane pannel;
-	private String imageUrl;
+	private String imageUrl; //holds the url given in choose file, in order to finally set as user picture path in save method
 	private ImageView image;
 
 	Customer cust = LoginController.getCustomer();
@@ -107,8 +106,10 @@ public class EditUserController {
 			glutenTG.selectToggle(glutenYes);
 		else
 			glutenTG.selectToggle(glutenNo);
-		if (cust.getProfilePicturePath() != null)
+		if (cust.getProfilePicturePath() != null) {
 			profilePic.setImage(new Image(cust.getProfilePicturePath()));
+			profilePic.setPreserveRatio(false);
+		}
 	}
 
 	@FXML
@@ -154,15 +155,8 @@ public class EditUserController {
 			Image img = new Image("file:///" + tmp.getAbsolutePath());
 			imageUrl = "file:///" + tmp.getAbsolutePath();
 			profilePic.setImage(img);
+			profilePic.setPreserveRatio(false);
 		}
-	}
-
-	public BorderPane getPannel() {
-		return pannel;
-	}
-
-	public void setPannel(BorderPane pannel) {
-		this.pannel = pannel;
 	}
 
 	public ImageView getImage() {

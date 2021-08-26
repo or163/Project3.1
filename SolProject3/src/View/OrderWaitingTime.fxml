@@ -10,9 +10,9 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="626.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.OrderWaitingTimeController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="600.0" styleClass="label" stylesheets="@../application/background.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.OrderWaitingTimeController">
    <children>
-      <Label alignment="TOP_CENTER" layoutX="96.0" layoutY="14.0" prefHeight="17.0" prefWidth="385.0" text="order waiting time">
+      <Label alignment="TOP_CENTER" layoutX="96.0" layoutY="14.0" prefHeight="17.0" prefWidth="385.0" text="Order Waiting Time">
          <font>
             <Font size="24.0" />
          </font>
@@ -31,7 +31,7 @@
       <Label layoutX="313.0" layoutY="75.0" prefHeight="17.0" prefWidth="83.0" text="Delivery area:" />
       <Button layoutX="81.0" layoutY="461.0" mnemonicParsing="false" onAction="#addGraph" prefHeight="25.0" prefWidth="115.0" text="Add to graph" />
       <Button layoutX="440.0" layoutY="461.0" mnemonicParsing="false" onAction="#clearGraph" prefHeight="25.0" prefWidth="115.0" text="Clear graph" />
-      <Label layoutX="223.0" layoutY="465.0" prefHeight="17.0" prefWidth="41.0" text="Time:" />
+      <Label layoutX="223.0" layoutY="465.0" prefHeight="17.0" prefWidth="35.0" text="Time:" />
       <TextField fx:id="time" editable="false" layoutX="265.0" layoutY="461.0" prefHeight="25.0" prefWidth="99.0" />
    </children>
 </AnchorPane>

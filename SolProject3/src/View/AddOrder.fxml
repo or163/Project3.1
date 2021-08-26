@@ -6,9 +6,9 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.AddOrderController">
+<AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="600.0" styleClass="label" stylesheets="@../application/background.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.AddOrderController">
    <children>
-      <Label alignment="TOP_CENTER" layoutX="107.0" layoutY="14.0" prefHeight="17.0" prefWidth="385.0" text="add order">
+      <Label alignment="TOP_CENTER" layoutX="107.0" layoutY="14.0" prefHeight="17.0" prefWidth="385.0" text="Add Order">
          <font>
             <Font size="24.0" />
          </font>
@@ -18,9 +18,9 @@
             <Font size="14.0" />
          </font>
       </Button>
-      <Label layoutX="22.0" layoutY="49.0" prefHeight="40.0" prefWidth="90.0" text="Customer :" />
-      <Label layoutX="22.0" layoutY="225.0" prefHeight="40.0" prefWidth="90.0" text="Dishes : " />
-      <Label fx:id="message" alignment="TOP_CENTER" layoutX="184.0" layoutY="475.0" prefHeight="22.0" prefWidth="233.0" textFill="#d22828" />
+      <Label layoutX="22.0" layoutY="55.0" prefHeight="25.0" prefWidth="68.0" text="Customer :" />
+      <Label layoutX="22.0" layoutY="250.0" prefHeight="25.0" prefWidth="68.0" text="Dishes : " />
+      <Label fx:id="message" alignment="TOP_CENTER" layoutX="170.0" layoutY="475.0" prefHeight="22.0" prefWidth="261.0" textFill="#d22828" />
       <ListView fx:id="selected" layoutX="366.0" layoutY="240.0" prefHeight="160.0" prefWidth="219.0" />
       <Button layoutX="92.0" layoutY="406.0" mnemonicParsing="false" onAction="#addDish" prefHeight="25.0" prefWidth="101.0" text="add dish" />
       <Button layoutX="366.0" layoutY="406.0" mnemonicParsing="false" onAction="#removeDish" text="remove dish" />

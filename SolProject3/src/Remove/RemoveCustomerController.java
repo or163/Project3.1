@@ -11,6 +11,8 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.paint.Color;
 
 public class RemoveCustomerController {
@@ -20,6 +22,9 @@ public class RemoveCustomerController {
 
 	@FXML
 	private Label message;
+
+	@FXML
+	private ImageView custPicture;
 
 	// Initiate List View with all customers inside
 	public void initData() {
@@ -36,13 +41,13 @@ public class RemoveCustomerController {
 		Customer c = null;
 		c = customerLV.getSelectionModel().getSelectedItem();
 
-		if (customerLV.getItems().size() == 0) //in case there are no customers in the list
+		if (customerLV.getItems().size() == 0) // in case there are no customers in the list
 			message.setText("There are no customers to remove");
-		else if (customerLV.getSelectionModel().getSelectedItem() == null) //no customer selected
+		else if (customerLV.getSelectionModel().getSelectedItem() == null) // no customer selected
 			message.setText("Please Select a customer to Remove");
 		else if (c != null) {
 
-			Alert alert = new Alert(AlertType.CONFIRMATION); //if returned ok from alert remove customer
+			Alert alert = new Alert(AlertType.CONFIRMATION); // if returned ok from alert remove customer
 			alert.setTitle("Confirmation");
 			alert.setHeaderText(customerLV.getSelectionModel().getSelectedItem() + " has been chosen");
 			alert.setContentText("Are you sure you want to delete this one?");
@@ -54,6 +59,19 @@ public class RemoveCustomerController {
 				message.setText("Removed successfully");
 
 			} // else { // user chose CANCEL or closed the dialog
+		}
+
+	}
+
+	@FXML  // show customer profile picture (if exists)
+	private void showCustomerImage() {
+		if (customerLV.getSelectionModel().getSelectedItem() != null) {
+			Customer c = (Customer) customerLV.getSelectionModel().getSelectedItem();
+			custPicture.setPreserveRatio(false);
+			if (c.getProfilePicturePath() != null) {  // check if picture exists
+				custPicture.setImage(new Image(c.getProfilePicturePath()));
+			} else
+				custPicture.setImage(new Image("/Icons/no_image_64px.png"));
 		}
 
 	}

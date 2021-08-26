@@ -13,6 +13,7 @@ public class GetNumberOfDeliveriesPerTypeController {
 	@FXML
     private Label resultt;
 	
+	// Initiate combo-box with type of delivery
 	public void initData() {
 		ChosenType.getItems().addAll("Regular delivery","Express delivery");
 		
@@ -20,7 +21,7 @@ public class GetNumberOfDeliveriesPerTypeController {
 		
 	}
 	
-	@FXML
+	@FXML   // show number of deliveries according to selected type
 	private void GetNumberOfDeliveriesPerType(ActionEvent event) {
 		String chosen = ChosenType.getSelectionModel().getSelectedItem();
 		int num= Main.restaurant.getNumberOfDeliveriesPerType().get(chosen);

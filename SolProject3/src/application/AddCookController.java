@@ -75,7 +75,7 @@ public class AddCookController {
 			} else if (bday == null) {
 				message.setText("Date must be mm/dd/yyyy");
 				message.setTextFill(Color.RED);
-			} else {  //if add succeeds than clear all fields for further adding
+			} else {  //if add succeeds ,clear all fields for further adding
 				Cook cook = new Cook(txtFName.getText(), txtLName.getText(), bday, gend, expert, chef);
 				if (Main.restaurant.addCook(cook)) {
 					message.setText("saved succesfully");

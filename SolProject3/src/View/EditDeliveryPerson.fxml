@@ -6,12 +6,11 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.EditDPController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="600.0" styleClass="label" stylesheets="@../application/background.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.EditDPController">
    <children>
-      <Label alignment="TOP_CENTER" layoutX="107.0" layoutY="14.0" prefHeight="17.0" prefWidth="385.0" style="-fx-background-color: #ffffff80; -fx-background-radius: 12;" text="edit delivery person">
+      <Label alignment="TOP_CENTER" layoutX="107.0" layoutY="14.0" prefHeight="17.0" prefWidth="385.0" style="-fx-background-color: #ffffff80; -fx-background-radius: 12;" text="Edit Delivery Person">
          <font>
             <Font size="24.0" />
          </font>
@@ -21,22 +20,20 @@
             <Font size="14.0" />
          </font>
       </Button>
-      <TextField fx:id="txtFName" layoutX="258.0" layoutY="121.0" prefHeight="30.0" prefWidth="199.0" promptText="First Name" style="-fx-background-color: transparent;" />
-      <TextField fx:id="txtLName" layoutX="258.0" layoutY="156.0" prefHeight="30.0" prefWidth="201.0" promptText="Last Name" style="-fx-background-color: transparent;" />
-      <DatePicker fx:id="date" layoutX="258.0" layoutY="196.0" prefHeight="30.0" prefWidth="201.0" promptText="Choose Value" style="-fx-background-color: transparent;" />
-      <Label layoutX="156.0" layoutY="116.0" prefHeight="25.0" prefWidth="90.0" style="-fx-background-color: #ffffff80; -fx-background-radius: 12;" text="First Name :" />
-      <Label layoutX="156.0" layoutY="151.0" prefHeight="25.0" prefWidth="90.0" style="-fx-background-color: #ffffff80; -fx-background-radius: 12;" text="Last Name :" />
-      <Label layoutX="156.0" layoutY="191.0" prefHeight="25.0" prefWidth="90.0" style="-fx-background-color: #ffffff80; -fx-background-radius: 12;" text="Date of Birth :" />
-      <Label layoutX="156.0" layoutY="231.0" prefHeight="25.0" prefWidth="90.0" style="-fx-background-color: #ffffff80; -fx-background-radius: 12;" text="Gender :" />
-      <Label layoutX="156.0" layoutY="271.0" prefHeight="25.0" prefWidth="90.0" style="-fx-background-color: #ffffff80; -fx-background-radius: 12;" text="Vehicle :" />
-      <Label layoutX="156.0" layoutY="311.0" prefHeight="25.0" prefWidth="90.0" style="-fx-background-color: #ffffff80; -fx-background-radius: 12;" text="Delivery Area :" />
-      <Line endX="100.0" layoutX="359.0" layoutY="151.0" startX="-100.0" />
-      <Line endX="100.33331298828125" endY="1.52587890625E-5" layoutX="359.0" layoutY="186.0" startX="-100.0" />
-      <Label fx:id="message" alignment="TOP_CENTER" layoutX="192.0" layoutY="460.0" prefHeight="17.0" prefWidth="199.0" />
-      <ComboBox fx:id="gender" layoutX="258.0" layoutY="238.0" prefHeight="25.0" prefWidth="202.0" />
-      <ComboBox fx:id="da" layoutX="258.0" layoutY="318.0" prefHeight="25.0" prefWidth="202.0" />
-      <ComboBox fx:id="vehicle" layoutX="258.0" layoutY="278.0" prefHeight="25.0" prefWidth="201.0" />
+      <Label fx:id="message" alignment="TOP_CENTER" layoutX="179.0" layoutY="460.0" prefHeight="17.0" prefWidth="232.0" />
       <Label layoutX="14.0" layoutY="66.0" prefHeight="25.0" prefWidth="134.0" style="-fx-background-color: #ffffff80; -fx-background-radius: 12;" text="Choose Delivery Person:" />
-      <ComboBox fx:id="WhichDP" layoutX="156.0" layoutY="66.0" onAction="#DPselected" prefHeight="25.0" prefWidth="429.0" />
+      <ComboBox fx:id="WhichDP" layoutX="148.0" layoutY="66.0" onAction="#DPselected" prefHeight="25.0" prefWidth="429.0" />
+      <TextField fx:id="txtFName" layoutX="148.0" layoutY="103.0" prefHeight="30.0" prefWidth="165.0" />
+      <TextField fx:id="txtLName" layoutX="148.0" layoutY="138.0" prefHeight="30.0" prefWidth="165.0" />
+      <DatePicker fx:id="date" layoutX="148.0" layoutY="178.0" prefHeight="30.0" prefWidth="165.0" />
+      <Label layoutX="33.0" layoutY="103.0" prefHeight="40.0" prefWidth="90.0" text="First Name :" />
+      <Label layoutX="33.0" layoutY="138.0" prefHeight="40.0" prefWidth="90.0" text="Last Name :" />
+      <Label layoutX="33.0" layoutY="178.0" prefHeight="40.0" prefWidth="90.0" text="Date of Birth :" />
+      <Label layoutX="33.0" layoutY="218.0" prefHeight="40.0" prefWidth="90.0" text="Gender :" />
+      <Label layoutX="33.0" layoutY="258.0" prefHeight="40.0" prefWidth="90.0" text="Vehicle :" />
+      <Label layoutX="33.0" layoutY="298.0" prefHeight="40.0" prefWidth="90.0" stylesheets="@../application/background.css" text="Delivery Area :" />
+      <ComboBox fx:id="gender" layoutX="148.0" layoutY="220.0" prefHeight="25.0" prefWidth="165.0" />
+      <ComboBox fx:id="da" layoutX="148.0" layoutY="300.0" prefHeight="25.0" prefWidth="165.0" />
+      <ComboBox fx:id="vehicle" layoutX="148.0" layoutY="260.0" prefHeight="25.0" prefWidth="165.0" />
    </children>
 </AnchorPane>

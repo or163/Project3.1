@@ -8,9 +8,9 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.AddDishController">
+<AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="600.0" styleClass="label" stylesheets="@../application/background.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.AddDishController">
    <children>
-      <Label alignment="TOP_CENTER" layoutX="96.0" layoutY="14.0" prefHeight="17.0" prefWidth="385.0" text="add dish">
+      <Label alignment="TOP_CENTER" layoutX="96.0" layoutY="14.0" prefHeight="17.0" prefWidth="385.0" text="Add Dish">
          <font>
             <Font size="24.0" />
          </font>
@@ -20,11 +20,11 @@
             <Font size="14.0" />
          </font>
       </Button>
-      <Label layoutX="24.0" layoutY="68.0" prefHeight="40.0" prefWidth="90.0" text="Name :" />
-      <Label layoutX="24.0" layoutY="108.0" prefHeight="40.0" prefWidth="90.0" text="Type :" />
-      <Label layoutX="24.0" layoutY="148.0" prefHeight="40.0" prefWidth="90.0" text="Time to make :" />
-      <Label layoutX="24.0" layoutY="188.0" prefHeight="40.0" prefWidth="90.0" text="Components :" />
-      <Label fx:id="message" alignment="TOP_CENTER" layoutX="187.0" layoutY="457.0" prefHeight="22.0" prefWidth="225.0" textFill="#d22828" />
+      <Label layoutX="23.0" layoutY="75.0" prefHeight="25.0" prefWidth="84.0" text="Name :" />
+      <Label layoutX="23.0" layoutY="115.0" prefHeight="25.0" prefWidth="84.0" text="Type :" />
+      <Label layoutX="23.0" layoutY="155.0" prefHeight="25.0" prefWidth="84.0" text="Time to make :" />
+      <Label layoutX="23.0" layoutY="192.0" prefHeight="25.0" prefWidth="84.0" text="Components :" />
+      <Label fx:id="message" alignment="TOP_CENTER" layoutX="167.0" layoutY="457.0" prefHeight="22.0" prefWidth="263.0" textFill="#d22828" />
       <TextField fx:id="name" layoutX="114.0" layoutY="73.0" prefHeight="30.0" prefWidth="113.0" />
       <ListView fx:id="comps" layoutX="114.0" layoutY="191.0" prefHeight="163.0" prefWidth="263.0" />
       <TextField fx:id="time" layoutX="114.0" layoutY="153.0" prefHeight="30.0" prefWidth="113.0" promptText="Enter a number" />

@@ -108,8 +108,7 @@ public class UserController {
 		AnchorPane pp = (AnchorPane) p;
 		EditUserController ctrl = (EditUserController) fx.getController();
 		ctrl.initData();
-		ctrl.setPannel(pannelRoot);
-		ctrl.setImage(profilePic);
+		ctrl.setImage(profilePic);  //make profilePic pointer at Edit page so when changing picture it will be update also in the side-bar
 		pannelRoot.setCenter(pp);
 	}
 	

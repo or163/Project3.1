@@ -58,7 +58,7 @@ public class AddDishController {
 				message.setText("you have fields that are empty");
 			} else {  
 				Dish dish = new Dish(name.getText(), dt, comp, timeToMake);
-				if (Main.restaurant.addDish(dish)) {  //if add succeeds than clear all fields for further adding
+				if (Main.restaurant.addDish(dish)) {  //if add succeeds ,clear all fields for further adding
 					message.setTextFill(Color.GREEN);
 					message.setText("saved succesfully");
 					name.clear();

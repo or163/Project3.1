@@ -49,7 +49,7 @@ public class AddOrderController {
 				message.setText("you have fields that are empty");
 			} else {
 				Order order = new Order(cust, dishes, null);
-				if (Main.restaurant.addOrder(order)) { //if add succeeds than clear all fields for further adding
+				if (Main.restaurant.addOrder(order)) { //if add succeeds ,clear all fields for further adding
 					message.setTextFill(Color.GREEN);
 					message.setText("saved succesfully");
 					custV.getSelectionModel().clearSelection();

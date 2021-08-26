@@ -91,18 +91,9 @@ public class ManagerController {
 	@FXML
 	private TableColumn<Order, String> delivery;
 	
-	@FXML
-    private Pane pane;
-
-	@FXML
-    private ListView<DeliveryArea> daLV;
-
-    @FXML
-    private ListView<DeliveryPerson> dpLV;
 
 	// Initiate table views of uncompleted deliveries and orders that not added yet to deliveries 
 	public void initData() {
-		pane.setVisible(false); //hide the pane that would pop if we press on make deliveries button
 		//prepare table view to delivery fields
 		delId.setCellValueFactory(new PropertyValueFactory<>("id"));  
 		dp.setCellValueFactory(c-> new SimpleStringProperty(String.valueOf(
@@ -533,22 +524,5 @@ public class ManagerController {
 		}catch (Exception e) {
 			System.err.println(e.getLocalizedMessage());
 		}
-	}
-	
-	@FXML
-	void makeDeliveries(ActionEvent event) {
-		TreeSet<Order> ts = new TreeSet<Order>();
-    	TreeSet<Delivery> tsResult = new TreeSet<Delivery>();
-		ts.addAll(ordersTV.getSelectionModel().getSelectedItems());
-		pane.setVisible(true); // show pane with selection of da and dp
-		daLV.getItems().addAll(Main.restaurant.getAreas().values());
-		DeliveryArea delArea = daLV.getSelectionModel().getSelectedItem();
-		dpLV.getItems().addAll(delArea.getDelPersons());
-		DeliveryPerson delPer = dpLV.getSelectionModel().getSelectedItem();
-		if(delArea != null && delPer != null)
-			tsResult = Main.restaurant.createAIMacine(delPer, delArea, ts);
-		for(Delivery d : tsResult)
-			Main.restaurant.addDelivery(d);
-		initData();
 	}
 }

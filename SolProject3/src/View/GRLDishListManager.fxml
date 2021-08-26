@@ -8,23 +8,23 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="626.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.GRLDishListManagerController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="600.0" styleClass="label" stylesheets="@../application/background.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.GRLDishListManagerController">
    <children>
-      <TableView fx:id="customersTV" layoutX="29.0" layoutY="59.0" prefHeight="149.0" prefWidth="559.0">
+      <TableView fx:id="customersTV" layoutY="59.0" prefHeight="149.0" prefWidth="599.0">
         <columns>
-          <TableColumn fx:id="id" prefWidth="30.0" text="Id" />
-          <TableColumn fx:id="fname" prefWidth="70.0" text="First Name" />
-            <TableColumn fx:id="lname" prefWidth="70.0" text="Last Name" />
-            <TableColumn fx:id="bday" text="Date Of Birth" />
-            <TableColumn fx:id="gender" prefWidth="50.0" text="Gender" />
+          <TableColumn fx:id="id" minWidth="0.0" prefWidth="20.0" text="Id" />
+          <TableColumn fx:id="fname" prefWidth="72.66665649414062" text="First Name" />
+            <TableColumn fx:id="lname" prefWidth="64.6666259765625" text="Last Name" />
+            <TableColumn fx:id="bday" prefWidth="80.6666259765625" text="Date Of Birth" />
+            <TableColumn fx:id="gender" prefWidth="48.6666259765625" text="Gender" />
             <TableColumn fx:id="neigh" prefWidth="90.0" text="Neighborhood" />
-            <TableColumn fx:id="lactose" prefWidth="110.0" text="Lactose Sensitivity" />
-            <TableColumn fx:id="gluten" prefWidth="105.0" text="Gluten Sensitivity" />
+            <TableColumn fx:id="lactose" minWidth="0.0" prefWidth="107.3333740234375" text="Lactose Sensitivity" />
+            <TableColumn fx:id="gluten" prefWidth="124.6666259765625" text="Gluten Sensitivity" />
         </columns>
       </TableView>
       <Button layoutX="37.0" layoutY="433.0" mnemonicParsing="false" onAction="#getDishList" prefHeight="25.0" prefWidth="123.0" text="relevant dish list" />
       <ListView fx:id="dishesLV" layoutX="213.0" layoutY="209.0" prefHeight="290.0" prefWidth="200.0" style="-fx-border-color: red;" />
-      <Label alignment="TOP_CENTER" layoutX="96.0" layoutY="14.0" prefHeight="17.0" prefWidth="385.0" text="get relevant dish list">
+      <Label alignment="TOP_CENTER" layoutX="96.0" layoutY="14.0" prefHeight="17.0" prefWidth="385.0" text="Get Relevant Dish List">
          <font>
             <Font size="24.0" />
          </font>

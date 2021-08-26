@@ -17,11 +17,13 @@ import Utils.Neighberhood;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.ToggleGroup;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 
 public class AddDeliveryController {
@@ -48,23 +50,31 @@ public class AddDeliveryController {
 	private ListView<Order> selected;
 
 	@FXML
-	private ChoiceBox<DeliveryPerson> deliveryPersons;
+	private ComboBox<DeliveryPerson> deliveryPersons;
 
 	@FXML
-	private ChoiceBox<DeliveryArea> deliveryArea;
+	private ComboBox<DeliveryArea> deliveryArea;
 
+	//Initiate the page and fill the delivery area combo-box with proper options
 	public void initData() {
 		// TODO Auto-generated method stub
 		Utils.Utils.initDate(date);
-		deliveryPersons.getItems().addAll(Main.restaurant.getDeliveryPersons().values());
 		deliveryArea.getItems().addAll(Main.restaurant.getAreas().values());
-		orders.getItems().addAll(Main.restaurant.getOrders().values());
-		// orders.getSelectionModel().clearSelection();
-//		deliveyTG.getSelectedToggle().setSelected(false);
+		for (Order o : Main.restaurant.getOrders().values()) {  //Populate orders list view with orders that has no delivery
+			if (o.getDelivery() == null)
+				orders.getItems().add(o);
+		}
 		selected.getItems().clear();
 	}
 
-	@FXML
+	@FXML   // after choosing delivery area ,deliveryperson combo-box filled with delivery persons from the selected area
+	void getDPS(ActionEvent event) {
+		deliveryPersons.getItems().clear();
+		if(deliveryArea.getSelectionModel().getSelectedItem() != null) 
+			deliveryPersons.getItems().addAll(deliveryArea.getSelectionModel().getSelectedItem().getDelPersons());
+	}
+	
+	@FXML   // add orders to the selected orders list view
 	void addOrder(ActionEvent event) {
 		if (selected.getItems().contains(orders.getSelectionModel().getSelectedItem())) {
 			lblStatus.setText("Can't contain duplications");
@@ -79,14 +89,14 @@ public class AddDeliveryController {
 		}
 	}
 
-	@FXML
+	@FXML  // remove orders from the selected orders list view
 	void removeOrder(ActionEvent event) {
 		selected.getItems().remove(selected.getSelectionModel().getSelectedItem());
 		lblStatus.setText("Order removed from the chosen order list");
 		lblStatus.setTextFill(Color.BLACK);
 	}
 
-	@FXML
+	@FXML  //save delivery to the restaurant
 	void save(ActionEvent event) {
 		LocalDate datte = date.getValue();
 		boolean isDel = false;
@@ -99,12 +109,12 @@ public class AddDeliveryController {
 		try {
 			if (delPer == null || delAre == null || selected.getItems().isEmpty() || selected.getItems() == null
 					|| datte == null || deliveyTG.getSelectedToggle() == null) {
-				lblStatus.setText("Please fill all fields");// maybe we should put all as execptions?
+				lblStatus.setText("Please fill all fields");
 				lblStatus.setTextFill(Color.RED);
 			} else if (selected.getItems().size() == 1) {
 				Order o = selected.getItems().get(0);
 				Delivery d = new ExpressDelivery(delPer, delAre, isDel, o, 100, datte);
-				if (Main.restaurant.addDelivery(d)) {
+				if (Main.restaurant.addDelivery(d)) {  //if add succeeds ,clear all fields for further adding
 					lblStatus.setText("Delivery was added successfully");
 					lblStatus.setTextFill(Color.GREEN);
 					deliveryPersons.getSelectionModel().clearSelection();
@@ -113,14 +123,13 @@ public class AddDeliveryController {
 					selected.getItems().clear();
 					deliveyTG.getSelectedToggle().setSelected(false);
 					Utils.Utils.initDate(date);
-					System.out.println(Main.restaurant.getDeliveries());
 				} else
 					throw new CantAddObjectException("Delivery " + d.getId());
 			} else {
 				TreeSet<Order> ts = new TreeSet<Order>();
 				ts.addAll(selected.getItems());
 				Delivery d = new RegularDelivery(ts, delPer, delAre, isDel, datte);
-				if (Main.restaurant.addDelivery(d)) {
+				if (Main.restaurant.addDelivery(d)) {  //if add succeeds ,clear all fields for further adding
 					lblStatus.setText("Delivery was added successfully");
 					lblStatus.setTextFill(Color.GREEN);
 					deliveryPersons.getSelectionModel().clearSelection();
@@ -129,7 +138,6 @@ public class AddDeliveryController {
 					selected.getItems().clear();
 					deliveyTG.getSelectedToggle().setSelected(false);
 					Utils.Utils.initDate(date);
-					System.out.println(Main.restaurant.getDeliveries());
 				} else
 					throw new CantAddObjectException("Delivery " + d.getId());
 			}

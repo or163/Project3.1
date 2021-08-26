@@ -7,15 +7,14 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="626.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.GetProfitRelationController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="600.0" styleClass="label" stylesheets="@../application/background.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.GetProfitRelationController">
    <children>
-      <Label alignment="TOP_CENTER" layoutX="96.0" layoutY="14.0" prefHeight="17.0" prefWidth="385.0" text="get profit relation">
+      <Label alignment="TOP_CENTER" layoutX="112.0" layoutY="14.0" prefHeight="17.0" prefWidth="385.0" text="Get Profit Relation">
          <font>
             <Font size="24.0" />
          </font>
       </Label>
-      <TableView fx:id="dishesTV" layoutX="47.0" layoutY="84.0" prefHeight="324.0" prefWidth="535.0">
+      <TableView fx:id="dishesTV" layoutX="32.0" layoutY="82.0" prefHeight="324.0" prefWidth="535.0">
         <columns>
           <TableColumn fx:id="name" prefWidth="178.0" text="Name" />
             <TableColumn fx:id="price" prefWidth="178.0" text="Price" />

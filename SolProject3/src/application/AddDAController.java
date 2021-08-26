@@ -54,33 +54,6 @@ public class AddDAController {
 	@FXML
 	private ListView<Neighberhood> selected;
 
-//	 public void save(ActionEvent e) {
-//			Gender gend = (Gender) gender.getSelectionModel().getSelectedItem();
-//			Expertise expert = (Expertise) expertise.getSelectionModel().getSelectedItem();
-//			boolean chef = false;
-//			if(isChefYes.isSelected())
-//				chef = true;
-//			else if(isChefNo.isSelected())
-//				chef = false;
-//			LocalDate bday = date.getValue();
-//			Cook cook = new Cook(txtFName.getText(), txtLName.getText(), bday, gend, expert, chef);
-//			
-//			if(txtFName.getText() == null || txtFName.getText().isEmpty() || gend == null || expert ==null || bday == null ||
-//					chefTG.getSelectedToggle()== null) {
-//				message.setText("you have fields that are empty");
-//			}
-//			
-//			Main.restaurant.addCook(cook);
-//			txtLName.setText("");
-//			txtFName.setText("");
-//			if (gender.getSelectionModel() != null)
-//				gender.getSelectionModel().clearSelection();
-//			if(expertise.getSelectionModel()!= null)
-//				expertise.getSelectionModel().clearSelection();
-//			if (chefTG.getSelectedToggle() != null)
-//				chefTG.getSelectedToggle().setSelected(false);
-//			initDate();
-
 	public void initData() {
 		txtAreaName.clear();
 		intDelTime.clear();
@@ -90,7 +63,7 @@ public class AddDAController {
 	}
 	
 	public void save(ActionEvent e) {
-		if (Utils.Utils.isOnlyDigits(intDelTime.getText())) {
+		if (Utils.Utils.isOnlyDigits(intDelTime.getText())) { //if input is in correct format - digits
 			int intDelTime2 = Integer.parseInt(intDelTime.getText());
 			try {
 				if (txtAreaName.getText().isEmpty() || intDelTime.getText().isEmpty() || txtAreaName.getText() == null
@@ -103,7 +76,7 @@ public class AddDAController {
 					DeliveryArea da = new DeliveryArea(txtAreaName.getText(), hs, intDelTime2);
 					lblStatus.setText("Delivery Area was added successfully");
 					lblStatus.setTextFill(Color.GREEN);
-					if (Main.restaurant.addDeliveryArea(da)) {
+					if (Main.restaurant.addDeliveryArea(da)) {  //if add succeeds ,clear all fields for further adding
 						initData();
 					} else
 						throw new CantAddObjectException("Delivery Area " + da.getAreaName());
@@ -117,7 +90,7 @@ public class AddDAController {
 		}
 	}
 
-
+	// add neighborhood to selected neighborhood list view
 	public void listviewButtonPushed() {
 		if (selected.getItems().contains(listNeigh.getSelectionModel().getSelectedItem())) {
 			lblStatus.setText("Can't contain duplications");
@@ -133,35 +106,11 @@ public class AddDAController {
 
 	}
 
+	// remove neighborhood from selected neighborhoods list view
 	public void listviewButtonPull() {
 		selected.getItems().remove(selected.getSelectionModel().getSelectedItem());
 		lblStatus.setText("Neighborhood removed from the delivery area list");
 		lblStatus.setTextFill(Color.BLACK);
 
 	}
-
-//	@FXML
-//	private void addComp(ActionEvent e) {
-//		selected.getItems().add(comps.getSelectionModel().getSelectedItem());
-//	}
-//	
-//	@FXML
-//	private void removeComp(ActionEvent e) {
-//		selected.getItems().remove(selected.getSelectionModel().getSelectedItem());
-//	}
-//	
-//	private void initDate() {
-//		Calendar c = Calendar.getInstance();
-//		TimeZone tz = c.getTimeZone();
-//		ZoneId id = tz == null ? ZoneId.systemDefault() : tz.toZoneId();
-//		LocalDate ld = LocalDateTime.ofInstant(c.toInstant(), id).toLocalDate();
-//		date.setDayCellFactory(d -> new DateCell() {
-//			public void updateItem(LocalDate locd, boolean empty) {
-//				super.updateItem(locd, empty);
-//				setDisable(locd.isAfter(ld));
-//			};
-//		});
-////		date.setValue(ld);
-//	}
-
 }

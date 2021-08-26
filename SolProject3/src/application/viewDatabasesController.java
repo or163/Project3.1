@@ -13,6 +13,8 @@ import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 
 public class viewDatabasesController {
 
@@ -25,16 +27,20 @@ public class viewDatabasesController {
 	@FXML
 	private TextField id;
 
+	@FXML
+	private ImageView custPicture;
+
+	// Initiate combo box with all object options
 	public void initData() {
 		// TODO Auto-generated method stub
 		ChosenData.getItems().addAll("cooks", "deliveryPersons", "customers", "dishes", "componenets", "orders",
 				"deliveries", "areas", "orderByCustomer", "orderByDeliveryArea", "blackList");
 	}
 
-	@FXML
+	@FXML // fill the list view with relevant objects according to user selection
 	void GetData(ActionEvent event) {
 		String chosen = ChosenData.getSelectionModel().getSelectedItem();
-		LVdb.getItems().clear();
+		LVdb.getItems().clear(); // clean former objects from list every selection
 		switch (chosen) {
 		case "cooks":
 			LVdb.getItems().addAll(Main.restaurant.getCooks().values());
@@ -72,7 +78,7 @@ public class viewDatabasesController {
 		}
 	}
 
-	@FXML
+	@FXML // filter Objects and get relevant object by Id
 	private void getObject(ActionEvent event) {
 		if (!Utils.Utils.isOnlyDigits(id.getText()))
 			return;
@@ -86,9 +92,16 @@ public class viewDatabasesController {
 			DeliveryPerson dp = Main.restaurant.getRealDeliveryPerson(Integer.parseInt(id.getText()));
 			LVdb.getSelectionModel().select(dp);
 			break;
-		case "customers":
+		case "customers": // also show customer picture (if exists)
 			Customer cust = Main.restaurant.getRealCustomer(Integer.parseInt(id.getText()));
 			LVdb.getSelectionModel().select(cust);
+			custPicture.setPreserveRatio(false);
+			if (cust != null) {
+				if (cust.getProfilePicturePath() != null) { // check if picture exists
+					custPicture.setImage(new Image(cust.getProfilePicturePath()));
+				} else
+					custPicture.setImage(new Image("/Icons/no_image_64px.png"));
+			}
 			break;
 		case "dishes":
 			Dish dish = Main.restaurant.getRealDish(Integer.parseInt(id.getText()));
@@ -113,4 +126,20 @@ public class viewDatabasesController {
 		}
 	}
 
+	@FXML // show customer profile picture (if exists)
+	private void showCustomerImage() {
+		if (ChosenData.getSelectionModel().getSelectedItem() == "customers") { // validates we are on right property,
+																				// customers
+			if (LVdb.getSelectionModel().getSelectedItem() != null) {
+				Customer c = (Customer) LVdb.getSelectionModel().getSelectedItem();
+				custPicture.setPreserveRatio(false);
+				if (c.getProfilePicturePath() != null) { // check if picture exists
+					custPicture.setImage(new Image(c.getProfilePicturePath()));
+				} else
+					custPicture.setImage(new Image("/Icons/no_image_64px.png"));
+			}
+		} else
+			custPicture.setImage(null); // in case we are not in customers property, reset picture
+
+	}
 }

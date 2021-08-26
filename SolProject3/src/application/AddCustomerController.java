@@ -113,7 +113,7 @@ public class AddCustomerController {
 						userName.getText(), passw.getText());
 				if (imageUrl != null)  //set customer profile picture through url, imageUrl get it's value if we choose an image to upload
 					cust.setProfilePicturePath(imageUrl);
-				if (Main.restaurant.addCustomer(cust)) {
+				if (Main.restaurant.addCustomer(cust)) {  //if add succeeds ,clear all fields for further adding
 					message.setTextFill(Color.GREEN);
 					message.setText("saved succesfully");
 					lactoseTG.getSelectedToggle().setSelected(false);

@@ -14,48 +14,47 @@ import javafx.scene.paint.Color;
 
 public class addCustomerToBlackListController {
 
+	@FXML
+	private ListView<Customer> customerLV;
 
-    @FXML
-    private ListView<Customer> customerLV;
-    	
-    @FXML
-    private Label message;
+	@FXML
+	private Label message;
 
-    public void initData(){
-    	
-    	customerLV.getItems().clear();
-    	for (Customer c : Main.restaurant.getCustomers().values()) {
-    		customerLV.getItems().add(c);
-    	}
-    	customerLV.getItems().removeAll(Main.restaurant.getBlackList());
-    }
-    
-    @FXML
-    void AddToBList(ActionEvent event) {
-    	Customer c = null;
+	// Initiate the page and fill list view in all customers
+	public void initData() {
+
+		customerLV.getItems().clear();
+		for (Customer c : Main.restaurant.getCustomers().values()) {
+			customerLV.getItems().add(c);
+		}
+		customerLV.getItems().removeAll(Main.restaurant.getBlackList()); //remove irrelevant customers such as customers already in the blacklist
+	}
+
+	@FXML  // add selected customer to blacklist
+	void AddToBList(ActionEvent event) {
+		Customer c = null;
 		c = customerLV.getSelectionModel().getSelectedItem();
-		
-		if(customerLV==null)
+
+		if (customerLV == null)
 			message.setText("There are no customers to add");
-		else if(customerLV.getSelectionModel().getSelectedItem() == null)
+		else if (customerLV.getSelectionModel().getSelectedItem() == null)
 			message.setText("Please Select a customer to add");
-		else if (c!= null){
-			
-			Alert alert = new Alert(AlertType.CONFIRMATION);
+		else if (c != null) {
+
+			Alert alert = new Alert(AlertType.CONFIRMATION);  //make sure you want to add customer to blacklist
 			alert.setTitle("Confirmation");
 			alert.setHeaderText(customerLV.getSelectionModel().getSelectedItem() + " has been chosen");
 			alert.setContentText("Are you sure you want to add this one?");
 			Optional<ButtonType> result = alert.showAndWait();
-			if (result.get() == ButtonType.OK){
+			if (result.get() == ButtonType.OK) {
 				Main.restaurant.addCustomerToBlackList(c);
 				initData();
 				message.setTextFill(Color.GREEN);
 				message.setText("Added successfully");
 				System.out.println(Main.restaurant.getBlackList());
-				
+
 			}
 		}
-    }
-    
+	}
 
 }

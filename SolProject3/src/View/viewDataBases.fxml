@@ -5,6 +5,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
@@ -17,9 +18,10 @@
 		</Label>
 		<ComboBox fx:id="ChosenData" layoutX="181.0" layoutY="86.0" onAction="#GetData" prefWidth="150.0" />
 		<Label alignment="CENTER" layoutX="25.0" layoutY="86.0" prefHeight="25.0" prefWidth="150.0" style="-fx-background-color: #ffffff80; -fx-background-radius: 12;" text="chose which data to view" />
-		<ListView fx:id="LVdb" layoutX="25.0" layoutY="133.0" prefHeight="325.0" prefWidth="550.0" />
+		<ListView fx:id="LVdb" layoutX="25.0" layoutY="133.0" onMouseClicked="#showCustomerImage" prefHeight="325.0" prefWidth="550.0" />
       <TextField fx:id="id" layoutX="459.0" layoutY="108.0" prefHeight="25.0" prefWidth="63.0" />
       <Button layoutX="529.0" layoutY="108.0" mnemonicParsing="false" onAction="#getObject" prefHeight="25.0" prefWidth="45.0" text="Get" />
       <Label alignment="CENTER" layoutX="367.0" layoutY="108.0" prefHeight="25.0" prefWidth="91.0" style="-fx-background-color: #ffffff80; -fx-background-radius: 12;" text="get by id:" />
+      <ImageView fx:id="custPicture" fitHeight="84.0" fitWidth="115.0" layoutX="458.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
 	</children>
 </AnchorPane>

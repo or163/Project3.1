@@ -7,19 +7,19 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="626.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Remove.RemoveComponentController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="600.0" styleClass="label" stylesheets="@../application/background.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Remove.RemoveComponentController">
    <children>
-      <Label alignment="TOP_CENTER" layoutX="96.0" layoutY="14.0" prefHeight="17.0" prefWidth="385.0" text="remove component">
+      <Label alignment="TOP_CENTER" layoutX="96.0" layoutY="14.0" prefHeight="17.0" prefWidth="385.0" text="Remove Component">
          <font>
             <Font size="24.0" />
          </font>
       </Label>
-      <ListView fx:id="compLV" layoutX="29.0" layoutY="106.0" prefHeight="320.0" prefWidth="568.0" />
+      <ListView fx:id="compLV" layoutX="16.0" layoutY="103.0" prefHeight="320.0" prefWidth="568.0" />
       <Button layoutX="270.0" layoutY="450.0" mnemonicParsing="false" onAction="#remove" text="remove" />
-      <Label layoutX="29.0" layoutY="85.0" prefHeight="17.0" prefWidth="247.0" text="Please select which component to remove :" />
-      <Label fx:id="message" layoutX="418.0" layoutY="466.0" prefHeight="17.0" prefWidth="155.0" textFill="#ce2020" />
-      <Label layoutX="425.0" layoutY="85.0" prefHeight="17.0" prefWidth="56.0" text="get by id:" />
-      <TextField fx:id="id" layoutX="481.0" layoutY="81.0" prefHeight="25.0" prefWidth="63.0" />
-      <Button layoutX="551.0" layoutY="81.0" mnemonicParsing="false" onAction="#getComponent" prefHeight="25.0" prefWidth="45.0" text="Get" />
+      <Label layoutX="16.0" layoutY="82.0" prefHeight="17.0" prefWidth="238.0" text="Please select which component to remove :" />
+      <Label fx:id="message" alignment="CENTER" layoutX="167.0" layoutY="477.0" prefHeight="17.0" prefWidth="282.0" textFill="#ce2020" />
+      <Label layoutX="408.0" layoutY="82.0" prefHeight="17.0" prefWidth="56.0" text="get by id:" />
+      <TextField fx:id="id" layoutX="468.0" layoutY="78.0" prefHeight="25.0" prefWidth="63.0" />
+      <Button layoutX="538.0" layoutY="78.0" mnemonicParsing="false" onAction="#getComponent" prefHeight="25.0" prefWidth="45.0" text="Get" />
    </children>
 </AnchorPane>
