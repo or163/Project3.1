@@ -11,9 +11,9 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="600.0" styleClass="label" stylesheets="@../application/background.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.RevenueFromExpressDeliveriesController">
    <children>
-      <Label alignment="TOP_CENTER" layoutX="133.0" layoutY="14.0" prefHeight="35.0" prefWidth="363.0" text="Revenue from Express Deliveries">
+      <Label alignment="TOP_CENTER" layoutX="133.0" layoutY="14.0" maxHeight="35.0" prefHeight="35.0" prefWidth="375.0" text="Revenue from Express Deliveries">
          <font>
-            <Font size="24.0" />
+            <Font name="System Bold" size="24.0" />
          </font>
       </Label>
       <Button layoutX="88.0" layoutY="65.0" mnemonicParsing="false" onAction="#addGraph" prefHeight="25.0" prefWidth="448.0" text="get revenue from express deliveries" />

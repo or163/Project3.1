@@ -152,6 +152,8 @@ public class RegisterController {
 				ctrl.initData();
 				Scene s = new Scene(p, 700, 500);
 				Main.stage.setScene(s);
+				sounds.welcomeSound();
+				sounds.backgroundMusic();
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();

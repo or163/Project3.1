@@ -5,3 +5,9 @@
      -fx-background-radius: 12;
      -fx-max-height: 25;
      }
+
+.bodybgrest{
+ -fx-background-image: url('/Icons/restaurant-management.jpg');
+ -fx-background-size: stretch;	
+}
+

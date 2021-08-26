@@ -12,9 +12,9 @@
 
 <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="600.0" styleClass="label" stylesheets="@../application/background.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.AddCookController">
    <children>
-      <Label alignment="TOP_CENTER" layoutX="107.0" layoutY="14.0" prefHeight="17.0" prefWidth="385.0" text="Add Cook">
+      <Label alignment="TOP_CENTER" layoutX="180.0" layoutY="14.0" maxHeight="35.0" prefHeight="35.0" prefWidth="241.0" text="Add Cook">
          <font>
-            <Font size="24.0" />
+            <Font name="System Bold" size="24.0" />
          </font>
       </Label>
       <Button alignment="TOP_CENTER" layoutX="250.0" layoutY="421.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#save" prefHeight="29.0" prefWidth="100.0" text="save">
@@ -33,11 +33,11 @@
       <DatePicker fx:id="date" layoutX="112.0" layoutY="134.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="30.0" prefWidth="100.0" />
       <ChoiceBox fx:id="gender" layoutX="112.0" layoutY="174.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="30.0" prefWidth="100.0" />
       <ChoiceBox fx:id="expertise" layoutX="112.0" layoutY="214.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="30.0" prefWidth="100.0" />
-      <RadioButton fx:id="isChefYes" layoutX="112.0" layoutY="263.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Yes">
+      <RadioButton fx:id="isChefYes" layoutX="112.0" layoutY="263.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" styleClass="label" text="Yes">
          <toggleGroup>
             <ToggleGroup fx:id="chefTG" />
          </toggleGroup></RadioButton>
-      <RadioButton fx:id="isChefNo" layoutX="162.0" layoutY="263.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="No" toggleGroup="$chefTG" />
+      <RadioButton fx:id="isChefNo" layoutX="162.0" layoutY="263.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" styleClass="label" text="No" toggleGroup="$chefTG" />
       <Label fx:id="message" alignment="TOP_CENTER" layoutX="167.0" layoutY="456.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="29.0" prefWidth="266.0" textFill="#d22828" />
    </children>
 </AnchorPane>

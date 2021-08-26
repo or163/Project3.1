@@ -137,6 +137,7 @@ public class AddCustomerController {
 
 	@FXML  //upload an image to be customer profile picture
 	public void chooseFile() throws IOException {
+		sounds.clickSound();
 		FileChooser fc = new FileChooser();
 		File tmp = fc.showOpenDialog(Main.stage);
 		if (tmp != null) {

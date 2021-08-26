@@ -22,9 +22,9 @@
       <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="200.0" prefWidth="200.0" styleClass="bodybg" stylesheets="@../application/mainBackground.css" BorderPane.alignment="CENTER">
          <children>
             <MediaView fx:id="mv" fitHeight="200.0" fitWidth="200.0" layoutX="-59.0" layoutY="58.0" />
-            <Label layoutX="186.0" layoutY="14.0" prefHeight="35.0" prefWidth="227.0" text="Welcome manager!">
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="179.0" layoutY="14.0" maxHeight="35.0" prefHeight="35.0" prefWidth="224.0" stylesheets="@../application/background.css" text="Welcome manager!" textAlignment="CENTER">
                <font>
-                  <Font size="24.0" />
+                  <Font name="System Bold" size="24.0" />
                </font>
             </Label>
             <TableView fx:id="deliveriesTV" layoutX="56.0" layoutY="88.0" prefHeight="167.0" prefWidth="471.0">
@@ -71,16 +71,6 @@
             <Label layoutX="251.0" layoutY="270.0" prefHeight="17.0" prefWidth="107.0" text="Pending Orders" textFill="WHITE" />
             <Label alignment="CENTER" layoutX="84.0" layoutY="474.0" prefHeight="17.0" prefWidth="327.0" />
          </children>
-         <effect>
-            <Lighting>
-               <bumpInput>
-                  <Shadow />
-               </bumpInput>
-               <light>
-                  <Light.Distant />
-               </light>
-            </Lighting>
-         </effect>
       </AnchorPane>
    </center>
    <left>
@@ -99,6 +89,9 @@
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>
+                     <font>
+                        <Font name="Berlin Sans FB" size="12.0" />
+                     </font>
                   </Button>
                   <Button alignment="TOP_LEFT" mnemonicParsing="false" onAction="#goDatabases" prefHeight="45.0" prefWidth="100.0" style="-fx-background-radius: 0; -fx-background-color: DARKBLUE;" text="Data&#10;Bases" textFill="WHITE">
                      <graphic>
@@ -111,6 +104,9 @@
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>
+                     <font>
+                        <Font name="Berlin Sans FB" size="12.0" />
+                     </font>
                   </Button>
                   <Button alignment="TOP_LEFT" mnemonicParsing="false" onAction="#goAdd" prefHeight="45.0" prefWidth="100.0" style="-fx-background-radius: 0; -fx-background-color: DARKBLUE;" text="Add" textFill="WHITE">
                      <graphic>
@@ -123,6 +119,9 @@
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>
+                     <font>
+                        <Font name="Berlin Sans FB" size="12.0" />
+                     </font>
                   </Button>
                   <Button alignment="TOP_LEFT" mnemonicParsing="false" onAction="#goRemove" prefHeight="45.0" prefWidth="100.0" style="-fx-background-radius: 0; -fx-background-color: DARKBLUE;" text="Remove" textFill="WHITE">
                      <graphic>
@@ -135,6 +134,9 @@
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>
+                     <font>
+                        <Font name="Berlin Sans FB" size="12.0" />
+                     </font>
                   </Button>
                   <Button alignment="TOP_LEFT" mnemonicParsing="false" onAction="#goEdit" prefHeight="45.0" prefWidth="100.0" style="-fx-background-radius: 0; -fx-background-color: DARKBLUE;" text="Edit" textFill="WHITE">
                      <graphic>
@@ -147,6 +149,9 @@
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>
+                     <font>
+                        <Font name="Berlin Sans FB" size="12.0" />
+                     </font>
                   </Button>
                   <Button alignment="TOP_LEFT" mnemonicParsing="false" onAction="#goQuerries" prefHeight="45.0" prefWidth="100.0" style="-fx-background-radius: 0; -fx-background-color: DARKBLUE;" text="Querries" textFill="WHITE">
                      <graphic>
@@ -159,6 +164,9 @@
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>
+                     <font>
+                        <Font name="Berlin Sans FB" size="12.0" />
+                     </font>
                   </Button>
                   <Button alignment="TOP_LEFT" mnemonicParsing="false" onAction="#SaveToSerelizebaleFile" prefHeight="45.0" prefWidth="100.0" style="-fx-background-radius: 0; -fx-background-color: DARKBLUE;" text="Save" textFill="WHITE">
                      <graphic>
@@ -171,6 +179,9 @@
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>
+                     <font>
+                        <Font name="Berlin Sans FB" size="12.0" />
+                     </font>
                   </Button>
                   <Button alignment="TOP_LEFT" mnemonicParsing="false" onAction="#GoLogin" prefHeight="45.0" prefWidth="100.0" style="-fx-background-radius: 0; -fx-background-color: DARKBLUE;" text="Log-out" textFill="WHITE">
                      <graphic>
@@ -183,6 +194,9 @@
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>
+                     <font>
+                        <Font name="Berlin Sans FB" size="12.0" />
+                     </font>
                   </Button>
                   <Button fx:id="exitButton" alignment="TOP_LEFT" mnemonicParsing="false" onAction="#exitButtonAction" prefHeight="45.0" prefWidth="100.0" style="-fx-background-radius: 0; -fx-background-color: DARKBLUE;" text="Exit" textFill="WHITE">
                      <graphic>
@@ -195,6 +209,9 @@
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>
+                     <font>
+                        <Font name="Berlin Sans FB" size="12.0" />
+                     </font>
                   </Button>
                   <ImageView fx:id="Audio" fitHeight="32.0" fitWidth="36.0" onMouseClicked="#MuteOnOff">
                      <image>

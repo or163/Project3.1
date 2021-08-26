@@ -11,9 +11,9 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="600.0" styleClass="label" stylesheets="@../application/background.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.EditDishController">
    <children>
-      <Label alignment="TOP_CENTER" layoutX="108.0" layoutY="14.0" prefHeight="17.0" prefWidth="385.0" stylesheets="@../application/background.css" text="Edit Dish">
+      <Label alignment="TOP_CENTER" layoutX="183.0" layoutY="14.0" maxHeight="35.0" prefHeight="35.0" prefWidth="270.0" stylesheets="@../application/background.css" text="Edit Dish">
          <font>
-            <Font size="24.0" />
+            <Font name="System Bold" size="24.0" />
          </font>
       </Label>
       <Button alignment="TOP_CENTER" layoutX="397.0" layoutY="404.0" mnemonicParsing="false" onAction="#save" prefHeight="29.0" prefWidth="101.0" text="save">

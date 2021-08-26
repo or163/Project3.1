@@ -49,6 +49,6 @@
             <ToggleGroup fx:id="glutenTG" />
          </toggleGroup>
       </RadioButton>
-      <TextField fx:id="price" layoutX="104.0" layoutY="272.0" prefHeight="30.0" prefWidth="101.0" promptText="Enter a number'" />
+      <TextField fx:id="price" layoutX="104.0" layoutY="272.0" prefHeight="30.0" prefWidth="101.0" promptText="Enter a number" />
    </children>
 </AnchorPane>

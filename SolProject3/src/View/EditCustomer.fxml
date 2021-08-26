@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="626.0" styleClass="label" stylesheets="@../application/background.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.EditCustomerController">
+<AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="626.0" styleClass="label" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.EditCustomerController">
    <children>
       <Label alignment="TOP_CENTER" layoutX="180.0" layoutY="14.0" prefHeight="35.0" prefWidth="239.0" style="-fx-background-color: #ffffff80; -fx-background-radius: 12;" text="Edit Customer">
          <font>
@@ -21,27 +21,27 @@
       </Label>
       <Label layoutX="30.0" layoutY="49.0" prefHeight="25.0" prefWidth="100.0" style="-fx-background-color: #ffffff80; -fx-background-radius: 12;" text="Choose Customer:" />
       <ComboBox fx:id="WhichCustomer" layoutX="129.0" layoutY="49.0" onAction="#CustomerSelected" prefHeight="25.0" prefWidth="460.0" />
-      <RadioButton fx:id="lactoseYes" layoutX="153.0" layoutY="359.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="54.0" text="Yes">
+      <RadioButton fx:id="lactoseYes" layoutX="153.0" layoutY="359.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="54.0" styleClass="label" stylesheets="@../application/background.css" text="Yes">
          <toggleGroup>
             <ToggleGroup fx:id="lactoseTG" />
          </toggleGroup>
       </RadioButton>
-      <RadioButton fx:id="lactoseNo" layoutX="210.0" layoutY="359.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="54.0" text="No" toggleGroup="$lactoseTG" />
-      <RadioButton fx:id="glutenYes" layoutX="153.0" layoutY="396.0" mnemonicParsing="false" text="Yes">
+      <RadioButton fx:id="lactoseNo" layoutX="210.0" layoutY="359.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="54.0" styleClass="label" stylesheets="@../application/background.css" text="No" toggleGroup="$lactoseTG" />
+      <RadioButton fx:id="glutenYes" layoutX="153.0" layoutY="396.0" mnemonicParsing="false" styleClass="label" stylesheets="@../application/background.css" text="Yes">
          <toggleGroup>
             <ToggleGroup fx:id="glutenTG" />
          </toggleGroup>
       </RadioButton>
-      <RadioButton fx:id="glutenNo" layoutX="210.0" layoutY="396.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="54.0" text="No" toggleGroup="$glutenTG" />
-      <Label layoutX="30.0" layoutY="126.0" prefHeight="40.0" prefWidth="90.0" text="Password :" />
-      <Label layoutX="30.0" layoutY="86.0" prefHeight="40.0" prefWidth="90.0" text="User Name :" />
-      <Label layoutX="30.0" layoutY="166.0" prefHeight="40.0" prefWidth="90.0" text="First Name :" />
-      <Label layoutX="30.0" layoutY="203.0" prefHeight="40.0" prefWidth="90.0" text="Last Name :" />
-      <Label layoutX="30.0" layoutY="242.0" prefHeight="40.0" prefWidth="90.0" text="Date of Birth :" />
-      <Label layoutX="30.0" layoutY="281.0" prefHeight="40.0" prefWidth="90.0" text="Gender :" />
-      <Label layoutX="30.0" layoutY="320.0" prefHeight="40.0" prefWidth="90.0" text="Neighborhood :" />
-      <Label layoutX="30.0" layoutY="355.0" prefHeight="37.0" prefWidth="119.0" text="Senstitive to Lactose?" />
-      <Label layoutX="31.0" layoutY="393.0" prefHeight="37.0" prefWidth="118.0" text="Sensitive to Gluten?" />
+      <RadioButton fx:id="glutenNo" layoutX="210.0" layoutY="396.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="54.0" styleClass="label" stylesheets="@../application/background.css" text="No" toggleGroup="$glutenTG" />
+      <Label layoutX="30.0" layoutY="126.0" prefHeight="40.0" prefWidth="90.0" stylesheets="@../application/background.css" text="Password :" />
+      <Label layoutX="30.0" layoutY="86.0" prefHeight="40.0" prefWidth="90.0" stylesheets="@../application/background.css" text="User Name :" />
+      <Label layoutX="30.0" layoutY="166.0" prefHeight="40.0" prefWidth="90.0" stylesheets="@../application/background.css" text="First Name :" />
+      <Label layoutX="30.0" layoutY="203.0" prefHeight="40.0" prefWidth="90.0" stylesheets="@../application/background.css" text="Last Name :" />
+      <Label layoutX="30.0" layoutY="242.0" prefHeight="40.0" prefWidth="90.0" stylesheets="@../application/background.css" text="Date of Birth :" />
+      <Label layoutX="30.0" layoutY="281.0" prefHeight="40.0" prefWidth="90.0" stylesheets="@../application/background.css" text="Gender :" />
+      <Label layoutX="30.0" layoutY="320.0" prefHeight="40.0" prefWidth="90.0" stylesheets="@../application/background.css" text="Neighborhood :" />
+      <Label layoutX="30.0" layoutY="355.0" prefHeight="37.0" prefWidth="119.0" stylesheets="@../application/background.css" text="Senstitive to Lactose?" />
+      <Label layoutX="31.0" layoutY="393.0" prefHeight="37.0" prefWidth="118.0" stylesheets="@../application/background.css" text="Sensitive to Gluten?" />
       <TextField fx:id="userName" layoutX="128.0" layoutY="85.0" prefHeight="30.0" prefWidth="153.0" />
       <TextField fx:id="txtFName" layoutX="128.0" layoutY="164.0" prefHeight="30.0" prefWidth="153.0" />
       <TextField fx:id="txtLName" layoutX="128.0" layoutY="202.0" prefHeight="30.0" prefWidth="153.0" />

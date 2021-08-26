@@ -102,13 +102,11 @@ public class ManagerController {
 	
 	@FXML
     private MediaView mv;
-    private MediaPlayer mp;
-	private Media me;
 	
 
 	// Initiate table views of uncompleted deliveries and orders that not added yet to deliveries 
 	public void initData() {
-		sounds.clickSound();
+		//sounds.clickSound();
 		//prepare table view to delivery fields
 		delId.setCellValueFactory(new PropertyValueFactory<>("id"));  
 		dp.setCellValueFactory(c-> new SimpleStringProperty(String.valueOf(
@@ -144,7 +142,8 @@ public class ManagerController {
 	
 	@FXML
     void GoLogin(ActionEvent event) throws IOException {
-		sounds.flashBackSound();
+		sounds.backgroundMusicMute();
+		sounds.bellSound();
 		FXMLLoader fx = new FXMLLoader(getClass().getResource("/View/Login.fxml"));
 		Parent p = fx.load();
 		Scene s = new Scene(p, 700, 500);
@@ -488,6 +487,7 @@ public class ManagerController {
 	
 	@FXML
 	void goOut(ActionEvent event) throws IOException {
+		sounds.backgroundMusicMute();
 		sounds.flashBackSound();
 		FXMLLoader fx = new FXMLLoader(getClass().getResource("/View/Login.fxml"));
 		Pane p = fx.load();

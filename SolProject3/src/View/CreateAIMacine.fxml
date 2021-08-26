@@ -16,7 +16,7 @@
       </Label>
       <Label alignment="CENTER" layoutX="21.0" layoutY="113.0" prefHeight="22.0" prefWidth="100.0" style="-fx-background-color: #ffffff80; -fx-background-radius: 12;" text="Delivery Person :" />
       <Label alignment="CENTER" layoutX="19.0" layoutY="81.0" prefHeight="22.0" prefWidth="89.0" style="-fx-background-color: #ffffff80; -fx-background-radius: 12;" text="Delivery Area:" />
-      <Label layoutX="28.0" layoutY="146.0" prefHeight="22.0" prefWidth="50.0" style="-fx-background-radius: 12; -fx-background-color: #ffffff80;" text="Orders :" />
+      <Label layoutX="25.0" layoutY="146.0" prefHeight="22.0" prefWidth="50.0" style="-fx-background-radius: 12; -fx-background-color: #ffffff80;" text="Orders :" />
       <ListView fx:id="orders" layoutX="101.0" layoutY="146.0" prefHeight="113.0" prefWidth="263.0" />
       <ListView fx:id="selected" layoutX="392.0" layoutY="146.0" prefHeight="113.0" prefWidth="181.0" />
       <Button layoutX="100.0" layoutY="260.0" mnemonicParsing="false" onAction="#addOrder" prefHeight="25.0" prefWidth="101.0" text="add Order" />
@@ -26,7 +26,7 @@
             <Font name="System Bold" size="12.0" />
          </font>
       </Label>
-      <Button alignment="TOP_CENTER" layoutX="489.0" layoutY="294.0" mnemonicParsing="false" onAction="#save" prefHeight="29.0" prefWidth="101.0" text="Save">
+      <Button alignment="TOP_CENTER" layoutX="489.0" layoutY="294.0" mnemonicParsing="false" onAction="#save" prefHeight="29.0" prefWidth="101.0" text="run">
          <font>
             <Font size="14.0" />
          </font>

@@ -11,7 +11,7 @@
    <children>
       <Label alignment="TOP_CENTER" layoutX="96.0" layoutY="14.0" prefHeight="17.0" prefWidth="385.0" text="Remove Customer">
          <font>
-            <Font size="24.0" />
+            <Font name="System Bold" size="24.0" />
          </font>
       </Label>
       <ListView fx:id="customerLV" layoutX="16.0" layoutY="105.0" onMouseClicked="#showCustomerImage" prefHeight="320.0" prefWidth="568.0" />

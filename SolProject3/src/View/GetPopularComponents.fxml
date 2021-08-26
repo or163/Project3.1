@@ -10,7 +10,7 @@
    <children>
       <Label alignment="TOP_CENTER" layoutX="96.0" layoutY="14.0" prefHeight="17.0" prefWidth="385.0" text="Get Popular Components">
          <font>
-            <Font size="24.0" />
+            <Font name="System Bold" size="24.0" />
          </font>
       </Label>
       <TableView fx:id="compsTV" layoutX="20.0" layoutY="87.0" prefHeight="373.0" prefWidth="559.0">

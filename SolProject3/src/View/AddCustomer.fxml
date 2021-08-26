@@ -17,7 +17,7 @@
    <children>
       <Label alignment="TOP_CENTER" layoutX="117.0" layoutY="14.0" prefHeight="17.0" prefWidth="385.0" text="Add Customer">
          <font>
-            <Font size="24.0" />
+            <Font name="System Bold" size="24.0" />
          </font>
       </Label>
       <RadioButton fx:id="lactoseYes" layoutX="152.0" layoutY="354.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="54.0" text="Yes">

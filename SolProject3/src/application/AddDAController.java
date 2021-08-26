@@ -85,6 +85,7 @@ public class AddDAController {
 
 	// add neighborhood to selected neighborhood list view
 	public void listviewButtonPushed() {
+		sounds.clickSound();
 		if (selected.getItems().contains(listNeigh.getSelectionModel().getSelectedItem())) {
 			lblStatus.setText("Can't contain duplications");
 			lblStatus.setTextFill(Color.RED);
@@ -101,6 +102,7 @@ public class AddDAController {
 
 	// remove neighborhood from selected neighborhoods list view
 	public void listviewButtonPull() {
+		sounds.clickSound();
 		selected.getItems().remove(selected.getSelectionModel().getSelectedItem());
 		lblStatus.setText("Neighborhood removed from the delivery area list");
 		lblStatus.setTextFill(Color.BLACK);

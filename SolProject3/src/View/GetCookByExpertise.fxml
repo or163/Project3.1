@@ -11,7 +11,7 @@
    <children>
       <Label alignment="TOP_CENTER" layoutX="96.0" layoutY="14.0" prefHeight="17.0" prefWidth="385.0" text="Get Cook by Expertise">
          <font>
-            <Font size="24.0" />
+            <Font name="System Bold" size="24.0" />
          </font>
       </Label>
       <TableView fx:id="cooksTV" layoutX="20.0" layoutY="110.0" prefHeight="347.0" prefWidth="559.0">

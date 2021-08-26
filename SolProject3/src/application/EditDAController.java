@@ -92,10 +92,16 @@ public class EditDAController {
 	
 	public void listviewButtonPull() {
 		sounds.clickSound();
-		selected.getItems().remove(selected.getSelectionModel().getSelectedItem());
+		if(selected.getSelectionModel().getSelectedItem()!=null) {
+			selected.getItems().remove(selected.getSelectionModel().getSelectedItem());
 		listNeigh.getItems().add(selected.getSelectionModel().getSelectedItem());
 		lblStatus.setText("Neighborhood removed from the delivery area list");
 		lblStatus.setTextFill(Color.BLACK);
+		}
+		else {
+			lblStatus.setText("Please select a neighborhood");
+			lblStatus.setTextFill(Color.RED);
+		}
 		
 	}
 }

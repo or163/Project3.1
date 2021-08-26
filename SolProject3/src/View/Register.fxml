@@ -19,7 +19,7 @@
    <children>
       <Label alignment="TOP_CENTER" layoutX="96.0" layoutY="14.0" prefHeight="17.0" prefWidth="385.0" text="Register">
          <font>
-            <Font size="24.0" />
+            <Font name="System Bold" size="24.0" />
          </font>
       </Label>
       <Button fx:id="saveButton" alignment="TOP_CENTER" layoutX="464.0" layoutY="441.0" mnemonicParsing="false" onAction="#save" prefHeight="29.0" prefWidth="101.0" text="Register">

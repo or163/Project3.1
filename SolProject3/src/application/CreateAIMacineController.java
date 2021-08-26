@@ -75,9 +75,16 @@ public class CreateAIMacineController {
 
 	@FXML // remove order from selected orders list view
 	void removeOrder(ActionEvent event) {
-		selected.getItems().remove(selected.getSelectionModel().getSelectedItem());
-		lblStatus.setText("Order removed from the chosen order list");
-		lblStatus.setTextFill(Color.BLACK);
+		if(selected.getSelectionModel().getSelectedItem() != null) {
+			selected.getItems().remove(selected.getSelectionModel().getSelectedItem());
+			lblStatus.setText("Order removed from the chosen order list");
+			lblStatus.setTextFill(Color.BLACK);
+		}
+		else
+		{
+			lblStatus.setText("Please select at list 1 order");
+			lblStatus.setTextFill(Color.RED);
+		}
 	}
 
 	@FXML // creates deliveries from given orders using restaurant.createAIMachine method

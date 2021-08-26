@@ -152,6 +152,7 @@ public class EditCustomerController {
 
 	@FXML
 	public void chooseFile() throws IOException {
+		sounds.clickSound();
 		if (WhichCustomer.getSelectionModel().getSelectedItem() != null) {
 			FileChooser fc = new FileChooser();
 			File tmp = fc.showOpenDialog(Main.stage);

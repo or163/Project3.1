@@ -14,7 +14,7 @@
    <children>
       <Label alignment="TOP_CENTER" layoutX="96.0" layoutY="14.0" prefHeight="17.0" prefWidth="385.0" text="Order Waiting Time">
          <font>
-            <Font size="24.0" />
+            <Font name="System Bold" size="24.0" />
          </font>
       </Label>
       <BarChart fx:id="timeChart" barGap="15.0" layoutX="41.0" layoutY="104.0" prefHeight="355.0" prefWidth="522.0">

@@ -69,6 +69,7 @@ public class AddDeliveryController {
 
 	@FXML   // after choosing delivery area ,deliveryperson combo-box filled with delivery persons from the selected area
 	void getDPS(ActionEvent event) {
+		sounds.clickSound();
 		deliveryPersons.getItems().clear();
 		if(deliveryArea.getSelectionModel().getSelectedItem() != null) 
 			deliveryPersons.getItems().addAll(deliveryArea.getSelectionModel().getSelectedItem().getDelPersons());
@@ -76,6 +77,7 @@ public class AddDeliveryController {
 	
 	@FXML   // add orders to the selected orders list view
 	void addOrder(ActionEvent event) {
+		sounds.clickSound();
 		if (selected.getItems().contains(orders.getSelectionModel().getSelectedItem())) {
 			lblStatus.setText("Can't contain duplications");
 			lblStatus.setTextFill(Color.RED);

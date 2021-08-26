@@ -11,7 +11,7 @@
    <children>
       <Label alignment="CENTER" layoutX="209.0" layoutY="14.0" prefHeight="35.0" prefWidth="181.0" text="Order History">
          <font>
-            <Font size="24.0" />
+            <Font name="System Bold" size="24.0" />
          </font>
       </Label>
       <TableView fx:id="ordersTV" layoutX="5.0" layoutY="75.0" prefHeight="363.0" prefWidth="588.0">

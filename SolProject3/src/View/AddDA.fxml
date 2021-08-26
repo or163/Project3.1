@@ -26,7 +26,7 @@
       </Label>
       <ListView fx:id="listNeigh" layoutX="131.0" layoutY="126.0" prefHeight="209.0" prefWidth="157.0" />
       <Button layoutX="305.0" layoutY="169.0" mnemonicParsing="false" onAction="#listviewButtonPushed" text="Add Selected-&gt;" />
-      <Button alignment="TOP_CENTER" layoutX="250.0" layoutY="420.0" mnemonicParsing="false" onAction="#save" prefHeight="29.0" prefWidth="101.0" text="Save">
+      <Button alignment="TOP_CENTER" layoutX="250.0" layoutY="420.0" mnemonicParsing="false" onAction="#save" prefHeight="29.0" prefWidth="101.0" text="save">
          <font>
             <Font size="14.0" />
          </font>

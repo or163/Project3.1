@@ -9,9 +9,9 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="600.0" styleClass="label" stylesheets="@../application/background.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.EditOrderController">
    <children>
-      <Label alignment="TOP_CENTER" layoutX="96.0" layoutY="14.0" prefHeight="17.0" prefWidth="385.0" text="Edit Order">
+      <Label alignment="TOP_CENTER" layoutX="182.0" layoutY="14.0" maxHeight="35.0" prefHeight="35.0" prefWidth="247.0" text="Edit Order">
          <font>
-            <Font size="24.0" />
+            <Font name="System Bold" size="24.0" />
          </font>
       </Label>
       <Button alignment="TOP_CENTER" layoutX="255.0" layoutY="441.0" mnemonicParsing="false" onAction="#save" prefHeight="29.0" prefWidth="101.0" text="save">
