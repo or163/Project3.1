@@ -15,55 +15,51 @@ import javafx.scene.paint.Color;
 
 public class RemoveDAController {
 
-    @FXML
-    private ListView<DeliveryArea> DALV;
-    
-    @FXML
-    private ListView<DeliveryArea> DALV2;
+	@FXML
+	private ListView<DeliveryArea> DALV;
 
-    @FXML
-    private Label message;
+	@FXML
+	private ListView<DeliveryArea> DALV2;
 
-    @FXML
-    void remove(ActionEvent event) {
-    	DeliveryArea da = null;
-    	DeliveryArea da2 = null;
+	@FXML
+	private Label message;
+
+	// this Method removes the selected delivery area from the restaurant
+	public void initData() {
+		DALV.getItems().clear();
+		DALV2.getItems().clear();
+		DALV.getSelectionModel().clearSelection();
+		DALV.getItems().addAll(Main.restaurant.getAreas().values());
+		DALV2.getSelectionModel().clearSelection();
+		DALV2.getItems().addAll(Main.restaurant.getAreas().values());
+	}
+
+	@FXML
+	void remove(ActionEvent event) {
+		DeliveryArea da = null;
+		DeliveryArea da2 = null;
 		da = DALV.getSelectionModel().getSelectedItem();
 		da2 = DALV2.getSelectionModel().getSelectedItem();
-		
-		if(DALV==null)
+
+		if (DALV.getItems().size() == 0) //in case there are no delivery areas in the list
 			message.setText("There are no areas to remove");
-		else if(DALV.getSelectionModel().getSelectedItem() == null || DALV2.getSelectionModel().getSelectedItem()== null) 
+		else if (DALV.getSelectionModel().getSelectedItem() == null
+				|| DALV2.getSelectionModel().getSelectedItem() == null) //no delivery areas selected
 			message.setText("Please Select areas");
-		else { // (da!= null && da2!= null){
-			
-			Alert alert = new Alert(AlertType.CONFIRMATION);
+		else {
+			Alert alert = new Alert(AlertType.CONFIRMATION); //if returned ok from alert remove delivery area
 			alert.setTitle("Confirmation");
 			alert.setHeaderText(DALV.getSelectionModel().getSelectedItem() + " has been chosen");
 			alert.setContentText("Are you sure you want to delete this one?");
 			Optional<ButtonType> result = alert.showAndWait();
-			if (result.get() == ButtonType.OK){
-				Main.restaurant.removeDeliveryArea(da,da2);
+			if (result.get() == ButtonType.OK) {
+				Main.restaurant.removeDeliveryArea(da, da2);
 				initData();
 				message.setTextFill(Color.GREEN);
 				message.setText("Removed successfully");
-				
-			}// else { // user chose CANCEL or closed the dialog
-				//initData();
-			   
-			//}
+
+			} // else { // user chose CANCEL or closed the dialog
 		}
 		initData();
-
-    }
-    
-    public void initData(){
-    	DALV.getItems().clear();
-    	DALV2.getItems().clear();
-    	DALV.getSelectionModel().clearSelection();
-    	DALV.getItems().addAll(Main.restaurant.getAreas().values());
-    	DALV2.getSelectionModel().clearSelection();
-    	DALV2.getItems().addAll(Main.restaurant.getAreas().values());
 	}
-
 }

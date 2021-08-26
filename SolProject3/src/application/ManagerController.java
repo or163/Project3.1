@@ -1,9 +1,18 @@
 package application;
 
 import java.io.IOException;
+import java.time.LocalDate;
 import java.util.Optional;
+import java.util.TreeSet;
 
 import Audio.sounds;
+import Model.Cook;
+import Model.Customer;
+import Model.Delivery;
+import Model.DeliveryArea;
+import Model.DeliveryPerson;
+import Model.Dish;
+import Model.Order;
 import Remove.RemoveComponentController;
 import Remove.RemoveCookController;
 import Remove.RemoveCustomerController;
@@ -12,41 +21,46 @@ import Remove.RemoveDPController;
 import Remove.RemoveDeliveryController;
 import Remove.RemoveDishController;
 import Remove.RemoveOrderController;
+import Utils.Expertise;
+import Utils.Gender;
 import Utils.SerializableWiz;
-import javafx.animation.Animation;
-import javafx.animation.Transition;
+import javafx.beans.property.SimpleStringProperty;
 import javafx.event.ActionEvent;
-
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
-import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
-import javafx.scene.media.AudioClip;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
+import javafx.scene.media.MediaView;
 import javafx.stage.Stage;
-import javafx.util.Duration;
 
 public class ManagerController {
 
 	private static int counter = 0;
+
+	private static int counter2 = 0;
 	
 	@FXML
 	BorderPane pannelRoot;
 	
 	@FXML
 	private VBox vbox;
-	
-	@FXML
-    private Label Exitlabel;
 
 	@FXML
 	private AnchorPane anchor;
@@ -55,17 +69,106 @@ public class ManagerController {
 	private Button exitButton;
 	
 	@FXML
-	void goHome(ActionEvent event) throws IOException {
+	private TableView<Delivery> deliveriesTV;
+	
+	@FXML
+	private TableColumn<Delivery, Integer> delId;
+
+	@FXML
+	private TableColumn<Delivery, String> dp;
+
+	@FXML
+	private TableColumn<Delivery, String> da;
+
+	@FXML
+	private TableColumn<Delivery, LocalDate> date;
+	
+	@FXML
+	private TableView<Order> ordersTV;
+
+	@FXML
+	private TableColumn<Order, Integer> ordId;
+
+	@FXML
+	private TableColumn<Order, String> cust;
+
+	@FXML
+	private TableColumn<Order, Dish> dishes;
+
+	@FXML
+	private TableColumn<Order, String> delivery;
+	
+	@FXML
+    private Pane pane;
+
+	@FXML
+    private ListView<DeliveryArea> daLV;
+	
+	@FXML
+    private ImageView Audio;
+
+    @FXML
+    private ListView<DeliveryPerson> dpLV;
+
+    @FXML
+    private MediaView mv;
+    private MediaPlayer mp;
+	private Media me;
+    
+	// Initiate table views of uncompleted deliveries and orders that not added yet to deliveries 
+	public void initData() {
+//		MuteOnOff(null);
+//		sounds.backgroundMusic();
+//		counter2++;
 		sounds.clickSound();
+		pane.setVisible(false); //hide the pane that would pop if we press on make deliveries button
+		//prepare table view to delivery fields
+		delId.setCellValueFactory(new PropertyValueFactory<>("id"));  
+		dp.setCellValueFactory(c-> new SimpleStringProperty(String.valueOf(
+				c.getValue().getDeliveryPerson().getFirstName() +  " " + c.getValue().getDeliveryPerson().getLastName())));
+		da.setCellValueFactory(c-> new SimpleStringProperty(String.valueOf(c.getValue().getArea().getAreaName())));
+		date.setCellValueFactory(new PropertyValueFactory<>("deliveredDate"));
+		for (Delivery d : Main.restaurant.getDeliveries().values()) {  //Populate deliveries TV with uncompleted deliveries
+			if (!d.isDelivered())
+				deliveriesTV.getItems().add(d);
+		}
+		//prepare table view to order fields
+		ordId.setCellValueFactory(new PropertyValueFactory<>("id"));  
+		cust.setCellValueFactory(c-> new SimpleStringProperty(String.valueOf(
+				c.getValue().getCustomer().getFirstName() +  " " + c.getValue().getCustomer().getLastName())));
+		dishes.setCellValueFactory(new PropertyValueFactory<>("dishes"));
+		delivery.setCellValueFactory(c-> new SimpleStringProperty(String.valueOf(c.getValue().getDelivery())));
+		for (Order o : Main.restaurant.getOrders().values()) {  //Populate orders TV with orders that has no delivery
+			if (o.getDelivery() == null)
+				ordersTV.getItems().add(o);
+		}
+	}
+	
+	@FXML
+    void MuteOnOff(MouseEvent event) {
+		sounds.clickSound();
+		if(ManagerController.counter2  % 2 == 1)
+			Audio.setImage(new Image("Icons/audio_64px.png"));
+		else
+			Audio.setImage(new Image("Icons/no_audio_64px.png"));
+		counter2++;
+		sounds.backgroundMusic();
+    }
+	
+	@FXML
+	void goHome(ActionEvent event) throws IOException {
 		FXMLLoader fx = new FXMLLoader(getClass().getResource("/View/Manager.fxml"));
 		Parent p = fx.load();
+		ManagerController ctrl = (ManagerController) fx.getController();
+		ctrl.initData();
 		Scene s = new Scene(p, 700, 500);
 		Main.stage.setScene(s);
 	}
 	
 	@FXML
     void GoLogin(ActionEvent event) throws IOException {
-		sounds.flashBackSound();
+		sounds.bellSound();
+		sounds.backgroundMusicMute();
 		FXMLLoader fx = new FXMLLoader(getClass().getResource("/View/Login.fxml"));
 		Parent p = fx.load();
 		Scene s = new Scene(p, 700, 500);
@@ -408,15 +511,6 @@ public class ManagerController {
 	}
 	
 	@FXML
-	void goOut(ActionEvent event) throws IOException {
-		sounds.flashBackSound();
-		FXMLLoader fx = new FXMLLoader(getClass().getResource("/View/Login.fxml"));
-		Pane p = fx.load();
-		AnchorPane pp = (AnchorPane) p;
-		pannelRoot.setCenter(pp);
-	}
-	
-	@FXML
 	void showMenu(MouseEvent event) {
 		sounds.clickSound();
 		if(ManagerController.counter % 2 == 0) {
@@ -432,41 +526,23 @@ public class ManagerController {
 	
 	@FXML
 	private void exitButtonAction(ActionEvent event){
-		AnimateText(Exitlabel,"Thank you and Bye Bye");
+		sounds.backgroundMusicMute();
 		sounds.flashBackSound();
 		try
 		{
-		    Thread.sleep(3000);
+		    Thread.sleep(2600);
 		}
 		catch(InterruptedException ex)
 		{
 		    Thread.currentThread().interrupt();
 		}
-	    Stage stage = (Stage) exitButton.getScene().getWindow();
+		Stage stage = (Stage) exitButton.getScene().getWindow();
 	    // do what you have to do
 	    stage.close();
 	}
 	
-	public void AnimateText(Label lbl, String descImp) {
-	    String content = descImp;
-	    final Animation animation = new Transition() {
-	        {
-	            setCycleDuration(Duration.millis(2000));
-	        }
-
-	        protected void interpolate(double frac) {
-	            final int length = content.length();
-	            final int n = Math.round(length * (float) frac);
-	            lbl.setText(content.substring(0, n));
-	        }
-	    };
-	    animation.play();
-
-	}
-	
 	@FXML
 	void SaveToSerelizebaleFile(ActionEvent event) {
-		sounds.clickSound();
 		try {
 			Alert a = new Alert(AlertType.CONFIRMATION);
 			a.setTitle("Save");
@@ -479,5 +555,22 @@ public class ManagerController {
 		}catch (Exception e) {
 			System.err.println(e.getLocalizedMessage());
 		}
+	}
+	
+	@FXML
+	void makeDeliveries(ActionEvent event) {
+		TreeSet<Order> ts = new TreeSet<Order>();
+    	TreeSet<Delivery> tsResult = new TreeSet<Delivery>();
+		ts.addAll(ordersTV.getSelectionModel().getSelectedItems());
+		pane.setVisible(true); // show pane with selection of da and dp
+		daLV.getItems().addAll(Main.restaurant.getAreas().values());
+		DeliveryArea delArea = daLV.getSelectionModel().getSelectedItem();
+		dpLV.getItems().addAll(delArea.getDelPersons());
+		DeliveryPerson delPer = dpLV.getSelectionModel().getSelectedItem();
+		if(delArea != null && delPer != null)
+			tsResult = Main.restaurant.createAIMacine(delPer, delArea, ts);
+		for(Delivery d : tsResult)
+			Main.restaurant.addDelivery(d);
+		initData();
 	}
 }

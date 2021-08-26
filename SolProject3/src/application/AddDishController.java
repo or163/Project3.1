@@ -3,6 +3,7 @@ package application;
 import java.util.ArrayList;
 import java.util.List;
 
+import Audio.sounds;
 import Exceptions.CantAddObjectException;
 import Model.Component;
 import Model.Dish;
@@ -46,6 +47,7 @@ public class AddDishController {
 
 	@FXML    //save dish to the restaurant
 	public void save(ActionEvent e) {
+		sounds.clickSound();
 		DishType dt = (DishType) type.getSelectionModel().getSelectedItem();
 		List<Component> list = selected.getItems();
 		ArrayList<Component> comp = new ArrayList<>(list);
@@ -76,12 +78,14 @@ public class AddDishController {
 
 	@FXML  //add component to selected components for dish list view
 	private void addComp(ActionEvent e) {
+		sounds.clickSound();
 		if (comps.getSelectionModel().getSelectedItem() != null)
 			selected.getItems().add(comps.getSelectionModel().getSelectedItem());
 	}
 
 	@FXML  //remove component from selected components for dish list view
 	private void removeComp(ActionEvent e) {
+		sounds.clickSound();
 		selected.getItems().remove(selected.getSelectionModel().getSelectedItem());
 	}
 

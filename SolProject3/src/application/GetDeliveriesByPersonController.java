@@ -21,13 +21,14 @@ public class GetDeliveriesByPersonController {
 	@FXML
 	private Label message;
 
+	// Initiate combo-boxes with values
 	public void initData() {
 		dp.getItems().addAll(Main.restaurant.getDeliveryPersons().values());
 		for (int i = 1; i <= 12; i++)
 			months.getItems().add(i);
 	}
 
-	@FXML
+	@FXML // get all deliveries made by selected delivery person in selected month
 	private void go() {
 		if (dp.getSelectionModel().getSelectedItem() == null)
 			message.setText("You must choose a delivery person");
@@ -39,6 +40,8 @@ public class GetDeliveriesByPersonController {
 			DeliveryPerson d = dp.getSelectionModel().getSelectedItem();
 			int month = months.getSelectionModel().getSelectedItem();
 			deliveries.getItems().addAll(Main.restaurant.getDeliveriesByPerson(d, month));
+			if(deliveries.getItems().size() == 0)
+				message.setText("There are no deliveries to display");
 		}
 	}
 

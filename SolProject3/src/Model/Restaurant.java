@@ -67,6 +67,8 @@ public class Restaurant implements Serializable {
 		blackList = new HashSet<>();
 	}
 
+	
+	// get all current counters from objects, in order to maintain counting right where it stopped after re-entering the project
 	public void SaveAllCounters() {
 
 		setComponentCounter(Component.getIdCounter());
@@ -76,9 +78,10 @@ public class Restaurant implements Serializable {
 		setDeliveryAreaCounter(DeliveryArea.getIdCounter());
 		setDeliveryPersonCounter(DeliveryPerson.getIdCounter());
 		setDishCounter(Dish.getIdCounter());
-		setOrderCounter(Order.getIdCounter());		
+		setOrderCounter(Order.getIdCounter());
 	}
 
+	// when entering the project set all counters to continue just where we stopped last serialization
 	public void SetAllCounters() {
 
 		Component.setIdCounter(componentCounter);
@@ -91,67 +94,67 @@ public class Restaurant implements Serializable {
 		Order.setIdCounter(orderCounter);
 
 	}
-	
+
 	public int getComponentCounter() {
 		return componentCounter;
 	}
-	
+
 	public void setComponentCounter(int componentCounter) {
 		this.componentCounter = componentCounter;
 	}
-	
+
 	public int getCookCounter() {
 		return cookCounter;
 	}
-	
+
 	public void setCookCounter(int cookCounter) {
 		this.cookCounter = cookCounter;
 	}
-	
+
 	public int getCustomerCounter() {
 		return customerCounter;
 	}
-	
+
 	public void setCustomerCounter(int customerCounter) {
 		this.customerCounter = customerCounter;
 	}
-	
+
 	public int getDeliveryCounter() {
 		return deliveryCounter;
 	}
-	
+
 	public void setDeliveryCounter(int deliveryCounter) {
 		this.deliveryCounter = deliveryCounter;
 	}
-	
+
 	public int getDeliveryAreaCounter() {
 		return deliveryAreaCounter;
 	}
-	
+
 	public void setDeliveryAreaCounter(int deliveryAreaCounter) {
 		this.deliveryAreaCounter = deliveryAreaCounter;
 	}
-	
+
 	public int getDeliveryPersonCounter() {
 		return deliveryPersonCounter;
 	}
-	
+
 	public void setDeliveryPersonCounter(int deliveryPersonCounter) {
 		this.deliveryPersonCounter = deliveryPersonCounter;
 	}
-	
+
 	public int getDishCounter() {
 		return dishCounter;
 	}
-	
+
 	public void setDishCounter(int dishCounter) {
 		this.dishCounter = dishCounter;
 	}
-	
+
 	public int getOrderCounter() {
 		return orderCounter;
 	}
-	
+
 	public void setOrderCounter(int orderCounter) {
 		this.orderCounter = orderCounter;
 	}
@@ -393,8 +396,10 @@ public class Restaurant implements Serializable {
 		if (dp == null || !getDeliveryPersons().containsKey(dp.getId()))
 			return false;
 		for (Delivery d : getDeliveries().values()) {
-			if (d.getDeliveryPerson().equals(dp)) {
-				d.setDeliveryPerson(null);
+			if (d.getDeliveryPerson() != null) {
+				if (d.getDeliveryPerson().equals(dp)) {
+					d.setDeliveryPerson(null);
+				}
 			}
 		}
 		return getDeliveryPersons().remove(dp.getId()) != null && dp.getArea().removeDelPerson(dp);

@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.TreeSet;
 
+import Audio.sounds;
 import Model.Customer;
 import Model.Dish;
 import Model.Order;
@@ -44,6 +45,7 @@ public class EditOrderController {
 	
     @FXML
     void OrderSelected(ActionEvent event) {
+    	sounds.clickSound();
     	Order theSelected = WhichOrder.getSelectionModel().getSelectedItem();
     	WhichCust.setValue(theSelected.getCustomer());
     	selected.getItems().clear();
@@ -52,6 +54,7 @@ public class EditOrderController {
 
 	@FXML
     void save(ActionEvent event) {
+		sounds.clickSound();
     	List<Dish> list = selected.getItems();
 		ArrayList<Dish> dishes = new ArrayList<>(list);
 		if (list == null ||list.isEmpty()) {
@@ -81,12 +84,14 @@ public class EditOrderController {
 
 	@FXML
 	private void addDish(ActionEvent e) {
+		sounds.clickSound();
 		if(dishV.getSelectionModel().getSelectedItem() != null)
 			selected.getItems().add(dishV.getSelectionModel().getSelectedItem());
 	}
 
 	@FXML
 	private void removeDish(ActionEvent e) {
+		sounds.clickSound();
 		selected.getItems().remove(selected.getSelectionModel().getSelectedItem());
 	}
 

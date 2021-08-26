@@ -1,5 +1,7 @@
 package application;
 
+import java.awt.image.BufferedImage;
+import java.io.File;
 import java.io.IOException;
 import java.util.Optional;
 
@@ -28,7 +30,7 @@ import javafx.stage.Stage;
 public class UserController {
 
 	@FXML
-	private BorderPane pannelRoot;
+	private BorderPane pannelRoot; // pannelRoot is the main pannel of user ui and all other screens in user ui would display via pannelRoot
 
 	@FXML
 	private Label welcome;
@@ -40,12 +42,17 @@ public class UserController {
 	private AnchorPane anchor;
 	
 	@FXML
+	private ImageView Audio;
+	
+	@FXML
 	private Button exitButton;
 	
 	@FXML
     private ImageView profilePic;
 	
-	private static int counter = 0;
+	private static int counter = 0; // counter for show menu method, if even hide menu, else show
+	
+	private static int counter2 = 0;
 	
 	public ImageView getProfilePic() {
 		return profilePic;
@@ -55,6 +62,7 @@ public class UserController {
 		this.profilePic = profilePic;
 	}
 
+	// Initiate page with welcome to current user and sets profile pic at top of the screen for the user, if picture exists
 	public void initData() {
 		Customer c = LoginController.getCustomer();
 		welcome.setText("Welcome " + c.getFirstName());
@@ -67,6 +75,23 @@ public class UserController {
 	}
 	
 	@FXML
+    void MuteOnOff(MouseEvent event) {
+		System.out.println("1");
+		sounds.clickSound();
+		if(UserController.counter2  % 2 == 1) {
+			Audio.setImage(new Image("Icons/audio_64px.png"));
+			System.out.println("2");
+		}
+		else
+		{
+			Audio.setImage(new Image("Icons/no_audio_64px.png"));
+			System.out.println("3");
+		}
+		counter2++;
+		sounds.backgroundMusic();
+    }
+	
+	@FXML  // go to main user ui screen
 	void goHome(ActionEvent event) throws IOException {
 		sounds.clickSound();
 		FXMLLoader fx = new FXMLLoader(getClass().getResource("/View/User.fxml"));
@@ -77,16 +102,17 @@ public class UserController {
 		Main.stage.setScene(s);
 	}
 	
-	@FXML
+	@FXML // log out and go to login page
     void GoLogin(ActionEvent event) throws IOException {
-		sounds.flashBackSound();
+		sounds.backgroundMusicMute();
+		sounds.bellSound();
 		FXMLLoader fx = new FXMLLoader(getClass().getResource("/View/Login.fxml"));
 		Parent p = fx.load();
 		Scene s = new Scene(p, 700, 500);
 		Main.stage.setScene(s);
     }
 	
-	@FXML
+	@FXML  // go to menu & make order page
 	void goMakeOrder(ActionEvent event) throws IOException {
 		sounds.clickSound();
 		FXMLLoader fx = new FXMLLoader(getClass().getResource("/View/MakeOrder.fxml"));
@@ -97,7 +123,7 @@ public class UserController {
 		pannelRoot.setCenter(pp);
 	}
 	
-	@FXML
+	@FXML  // go to edit personal details page
 	private void goEdit(ActionEvent event) throws IOException {
 		sounds.clickSound();
 		FXMLLoader fx = new FXMLLoader(getClass().getResource("/View/EditUser.fxml"));
@@ -110,7 +136,8 @@ public class UserController {
 		pannelRoot.setCenter(pp);
 	}
 	
-	@FXML
+
+	@FXML  //go to get relevant dish list for specific user
 	void goGRLDList(ActionEvent event) throws IOException {
 		sounds.clickSound();
 		FXMLLoader fx = new FXMLLoader(getClass().getResource("/View/GRLDishListUser.fxml"));
@@ -121,7 +148,7 @@ public class UserController {
 		pannelRoot.setCenter(pp);
 	}
 	
-	@FXML
+	@FXML  // go to get cook by expertise page
 	void goGetCooksByExpertise (ActionEvent event) throws IOException {
 		sounds.clickSound();
 		FXMLLoader fx = new FXMLLoader(getClass().getResource("/View/GetCookByExpertise.fxml"));
@@ -132,7 +159,7 @@ public class UserController {
 		pannelRoot.setCenter(pp);
 	}
 	
-	@FXML
+	@FXML  // go to get popular components page
 	void goGetPopularComponents (ActionEvent event) throws IOException {
 		sounds.clickSound();
 		FXMLLoader fx = new FXMLLoader(getClass().getResource("/View/GetPopularComponents.fxml"));
@@ -143,7 +170,7 @@ public class UserController {
 		pannelRoot.setCenter(pp);
 	}
 	
-	@FXML
+	@FXML   // go to shopping cart page
 	void goShoppingCart (ActionEvent event) throws IOException {
 		sounds.clickSound();
 		FXMLLoader fx = new FXMLLoader(getClass().getResource("/View/ShoppingCart.fxml"));
@@ -154,7 +181,7 @@ public class UserController {
 		pannelRoot.setCenter(pp);
 	}
 	
-	@FXML
+	@FXML  // go to querries page
 	void goQuerries (ActionEvent event) throws IOException {
 		sounds.clickSound();
 		FXMLLoader fx = new FXMLLoader(getClass().getResource("/View/UserQuerries.fxml"));
@@ -165,7 +192,7 @@ public class UserController {
 		pannelRoot.setCenter(bp);
 	}
 	
-	@FXML
+	@FXML  // go user's order history page
 	void goHistory (ActionEvent event) throws IOException {
 		sounds.clickSound();
 		FXMLLoader fx = new FXMLLoader(getClass().getResource("/View/UserHistory.fxml"));
@@ -177,7 +204,7 @@ public class UserController {
 		pannelRoot.setCenter(pp);
 	}
 	
-	@FXML
+	@FXML  // show or hide menu according to counter, if even hide, else show
 	void showMenu(MouseEvent event) {
 		sounds.clickSound();
 		if(UserController.counter % 2 == 0) {
@@ -191,13 +218,14 @@ public class UserController {
 		UserController.counter++;
 	}
 	
-	@FXML
+	@FXML  // exit program
 	private void exitButtonAction(ActionEvent event){
 	    // get a handle to the stage
+		sounds.backgroundMusicMute();
 		sounds.flashBackSound();
 		try
 		{
-		    Thread.sleep(3000);
+		    Thread.sleep(2600);
 		}
 		catch(InterruptedException ex)
 		{
@@ -207,7 +235,7 @@ public class UserController {
 	    stage.close();
 	}
 	
-	@FXML
+	@FXML  // save all current data and serialize it
 	void SaveToSerelizebaleFile(ActionEvent event) {
 		sounds.clickSound();
 		try {

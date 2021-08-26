@@ -16,12 +16,13 @@ import javafx.scene.paint.Color;
 public class RemoveOrderController {
 
 	@FXML
-    private ListView<Order> orderLV;
+	private ListView<Order> orderLV;
 
-    @FXML
-    private Label message;
+	@FXML
+	private Label message;
 
-    public void initData(){
+	// Initiate List View with all orders inside
+	public void initData() {
 
 		orderLV.getItems().clear();
 		for (Order o : Main.restaurant.getOrders().values()) {
@@ -29,34 +30,31 @@ public class RemoveOrderController {
 		}
 	}
 
-
-	//this Method Initialize the input fields of the class//
+	// this Method removes the selected order from the restaurant
 	@FXML
 	private void remove(ActionEvent event) {
 		Order o = null;
 		o = orderLV.getSelectionModel().getSelectedItem();
-		
-		if(orderLV==null)
+
+		if (orderLV.getItems().size() == 0) //in case there are no orders in the list
 			message.setText("There are no orders to remove");
-		else if(orderLV.getSelectionModel().getSelectedItem() == null)
+		else if (orderLV.getSelectionModel().getSelectedItem() == null) //no order selected
 			message.setText("Please Select a order to Remove");
-		else if (o!= null){
-			
-			Alert alert = new Alert(AlertType.CONFIRMATION);
+		else if (o != null) {
+
+			Alert alert = new Alert(AlertType.CONFIRMATION); //if returned ok from alert remove order
 			alert.setTitle("Confirmation");
 			alert.setHeaderText(orderLV.getSelectionModel().getSelectedItem() + " has been chosen");
 			alert.setContentText("Are you sure you want to delete this one?");
 			Optional<ButtonType> result = alert.showAndWait();
-			if (result.get() == ButtonType.OK){
+			if (result.get() == ButtonType.OK) {
 				Main.restaurant.removeOrder(o);
 				initData();
 				message.setTextFill(Color.GREEN);
 				message.setText("Removed successfully");
-				
-			}// else { // user chose CANCEL or closed the dialog
-				//initData();
-			   
-			//}
+
+			} // else { // user chose CANCEL or closed the dialog
+
 		}
 
 	}

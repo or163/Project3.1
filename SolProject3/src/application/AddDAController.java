@@ -10,6 +10,7 @@ import java.util.HashSet;
 import java.util.ResourceBundle;
 import java.util.TimeZone;
 
+import Audio.sounds;
 import Exceptions.CantAddObjectException;
 import Model.Cook;
 import Model.DeliveryArea;
@@ -90,6 +91,7 @@ public class AddDAController {
 	}
 	
 	public void save(ActionEvent e) {
+		sounds.clickSound();
 		if (Utils.Utils.isOnlyDigits(intDelTime.getText())) {
 			int intDelTime2 = Integer.parseInt(intDelTime.getText());
 			try {

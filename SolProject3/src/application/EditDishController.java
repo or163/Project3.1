@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
+import Audio.sounds;
 import Model.Component;
 import Model.Cook;
 import Model.DeliveryPerson;
@@ -45,6 +46,7 @@ public class EditDishController {
 
     @FXML
     void DishSelected(ActionEvent event) {
+    	sounds.clickSound();
 		name.clear();
 		time.clear();
 		type.getSelectionModel().clearSelection();
@@ -62,6 +64,7 @@ public class EditDishController {
     
     @FXML
 	public void save(ActionEvent e) {
+    	sounds.clickSound();
 		DishType dt = (DishType) type.getSelectionModel().getSelectedItem();
 		List<Component> list = selected.getItems();
 		int timeToMake = 0;
@@ -102,11 +105,13 @@ public class EditDishController {
 	
 	@FXML
 	private void addComp(ActionEvent e) {
+		sounds.clickSound();
 		selected.getItems().add(comps.getSelectionModel().getSelectedItem());
 	}
 	
 	@FXML
 	private void removeComp(ActionEvent e) {
+		sounds.clickSound();
 		selected.getItems().remove(selected.getSelectionModel().getSelectedItem());
 	}
 

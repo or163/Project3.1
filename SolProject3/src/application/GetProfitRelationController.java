@@ -1,5 +1,6 @@
 package application;
 
+import Audio.sounds;
 import Model.Dish;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -21,13 +22,15 @@ public class GetProfitRelationController {
     @FXML
     private TableColumn<Dish, String> name;
 
-    @FXML
+    @FXML  // show profit relation using restaurant.getProfitRelation() method
     void profitRelation(ActionEvent event) {
+    	sounds.clickSound();
     	dishesTV.getItems().clear();
     	name.setCellValueFactory(new PropertyValueFactory<>("dishName"));
     	price.setCellValueFactory(new PropertyValueFactory<>("price"));
 		time.setCellValueFactory(new PropertyValueFactory<>("timeToMake"));
 		dishesTV.getItems().addAll(Main.restaurant.getProfitRelation());
+		sounds.cashSound();
     }
     
 

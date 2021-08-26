@@ -1,5 +1,6 @@
 package application;
 
+import Audio.sounds;
 import Model.Component;
 import Model.Cook;
 import javafx.event.ActionEvent;
@@ -60,6 +61,7 @@ public class EditComponentController {
 	
 	@FXML
 	void save(ActionEvent event) {
+		sounds.clickSound();
 		boolean lact = false;
 		boolean glut = false;
 		if (lactoseYes.isSelected())

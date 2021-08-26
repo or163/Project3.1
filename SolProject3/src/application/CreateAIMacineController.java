@@ -2,6 +2,7 @@ package application;
 
 import java.util.TreeSet;
 
+import Audio.sounds;
 import Model.Delivery;
 import Model.DeliveryArea;
 import Model.DeliveryPerson;
@@ -62,6 +63,7 @@ public class CreateAIMacineController {
 
     @FXML
     void save(ActionEvent event) {
+    	sounds.clickSound();
     	DeliveryPerson delPer = deliveryPersons.getSelectionModel().getSelectedItem();
     	DeliveryArea delAre = deliveryArea.getSelectionModel().getSelectedItem();
     	if(delPer == null || delAre == null || selected.getItems().isEmpty()|| selected.getItems() == null)

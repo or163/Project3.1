@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.util.HashSet;
 import java.util.TreeSet;
 
+import Audio.sounds;
 import Exceptions.CantAddObjectException;
 import Model.Delivery;
 import Model.DeliveryArea;
@@ -88,6 +89,7 @@ public class AddDeliveryController {
 
 	@FXML
 	void save(ActionEvent event) {
+		sounds.clickSound();
 		LocalDate datte = date.getValue();
 		boolean isDel = false;
 		if (isDeliverdYes.isSelected())

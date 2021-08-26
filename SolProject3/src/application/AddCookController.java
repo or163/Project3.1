@@ -2,6 +2,7 @@ package application;
 
 import java.time.LocalDate;
 
+import Audio.sounds;
 import Exceptions.CantAddObjectException;
 import Model.Cook;
 import javafx.event.ActionEvent;
@@ -57,6 +58,7 @@ public class AddCookController {
 	
 	@FXML     //save cook to the restaurant
 	public void save(ActionEvent e) {
+		sounds.clickSound();
 		Gender gend = gender.getSelectionModel().getSelectedItem();
 		Expertise expert = expertise.getSelectionModel().getSelectedItem();
 		boolean chef = false;

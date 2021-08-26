@@ -26,7 +26,7 @@ public class RemoveController {
 		this.pannelRoot = pannelRoot;
 	}
 
-	@FXML
+	@FXML  // go to remove cook page
 	void goRemoveCook(MouseEvent event) throws IOException {
 		sounds.clickSound();
 		FXMLLoader fx = new FXMLLoader(getClass().getResource("/View/RemoveCook.fxml"));
@@ -37,7 +37,7 @@ public class RemoveController {
 		pannelRoot.setCenter(pp);
 	}
 
-	@FXML
+	@FXML  // go to remove customer page
 	void goRemoveCustomer(MouseEvent event) throws IOException {
 		sounds.clickSound();
 		FXMLLoader fx = new FXMLLoader(getClass().getResource("/View/RemoveCustomer.fxml"));
@@ -48,7 +48,7 @@ public class RemoveController {
 		pannelRoot.setCenter(pp);
 	}
 
-	@FXML
+	@FXML  // go to remove delivery person page
 	void goRemoveDP(MouseEvent event) throws IOException {
 		sounds.clickSound();
 		FXMLLoader fx = new FXMLLoader(getClass().getResource("/View/RemoveDeliveryPerson.fxml"));
@@ -59,7 +59,7 @@ public class RemoveController {
 		pannelRoot.setCenter(pp);
 	}
 	
-	@FXML
+	@FXML  // go to remove component page
 	void goRemoveComponent(MouseEvent event) throws IOException {
 		sounds.clickSound();
 		FXMLLoader fx = new FXMLLoader(getClass().getResource("/View/RemoveComponent.fxml"));
@@ -70,7 +70,7 @@ public class RemoveController {
 		pannelRoot.setCenter(pp);
 	}
 	
-	@FXML
+	@FXML  //  go to remove dish page
 	void goRemoveDish(MouseEvent event) throws IOException {
 		sounds.clickSound();
 		FXMLLoader fx = new FXMLLoader(getClass().getResource("/View/RemoveDish.fxml"));
@@ -81,7 +81,7 @@ public class RemoveController {
 		pannelRoot.setCenter(pp);
 	}
 	
-	@FXML
+	@FXML  // go to remove order page
 	void goRemoveOrder(MouseEvent event) throws IOException {
 		sounds.clickSound();
 		FXMLLoader fx = new FXMLLoader(getClass().getResource("/View/RemoveOrder.fxml"));
@@ -92,7 +92,7 @@ public class RemoveController {
 		pannelRoot.setCenter(pp);
 	}
 	
-	@FXML
+	@FXML  // go to remove delivery area page
 	void goRemoveDA(MouseEvent event) throws IOException{
 		sounds.clickSound();
 		FXMLLoader fx = new FXMLLoader(getClass().getResource("/View/RemoveDA.fxml"));
@@ -103,7 +103,7 @@ public class RemoveController {
 		pannelRoot.setCenter(pp);
 	}
 	
-	@FXML
+	@FXML  // go to remove delivery page
 	void goRemoveDelivery(MouseEvent event) throws IOException{
 		sounds.clickSound();
 		FXMLLoader fx = new FXMLLoader(getClass().getResource("/View/RemoveDelivery.fxml"));

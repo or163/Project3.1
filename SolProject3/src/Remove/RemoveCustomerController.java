@@ -15,13 +15,14 @@ import javafx.scene.paint.Color;
 
 public class RemoveCustomerController {
 
-    @FXML
-    private ListView<Customer> customerLV;
+	@FXML
+	private ListView<Customer> customerLV;
 
-    @FXML
-    private Label message;
+	@FXML
+	private Label message;
 
-    public void initData(){
+	// Initiate List View with all customers inside
+	public void initData() {
 
 		customerLV.getItems().clear();
 		for (Customer c : Main.restaurant.getCustomers().values()) {
@@ -29,34 +30,30 @@ public class RemoveCustomerController {
 		}
 	}
 
-
-	//this Method Initialize the input fields of the class//
+	// this Method removes the selected customer from the restaurant
 	@FXML
 	private void remove(ActionEvent event) {
 		Customer c = null;
 		c = customerLV.getSelectionModel().getSelectedItem();
-		
-		if(customerLV==null)
+
+		if (customerLV.getItems().size() == 0) //in case there are no customers in the list
 			message.setText("There are no customers to remove");
-		else if(customerLV.getSelectionModel().getSelectedItem() == null)
+		else if (customerLV.getSelectionModel().getSelectedItem() == null) //no customer selected
 			message.setText("Please Select a customer to Remove");
-		else if (c!= null){
-			
-			Alert alert = new Alert(AlertType.CONFIRMATION);
+		else if (c != null) {
+
+			Alert alert = new Alert(AlertType.CONFIRMATION); //if returned ok from alert remove customer
 			alert.setTitle("Confirmation");
 			alert.setHeaderText(customerLV.getSelectionModel().getSelectedItem() + " has been chosen");
 			alert.setContentText("Are you sure you want to delete this one?");
 			Optional<ButtonType> result = alert.showAndWait();
-			if (result.get() == ButtonType.OK){
+			if (result.get() == ButtonType.OK) {
 				Main.restaurant.removeCustomer(c);
 				initData();
 				message.setTextFill(Color.GREEN);
 				message.setText("Removed successfully");
-				
-			}// else { // user chose CANCEL or closed the dialog
-				//initData();
-			   
-			//}
+
+			} // else { // user chose CANCEL or closed the dialog
 		}
 
 	}

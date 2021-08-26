@@ -2,6 +2,7 @@ package application;
 
 import java.util.Optional;
 
+import Audio.sounds;
 import Model.Customer;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -32,6 +33,7 @@ public class addCustomerToBlackListController {
     
     @FXML
     void AddToBList(ActionEvent event) {
+    	sounds.clickSound();
     	Customer c = null;
 		c = customerLV.getSelectionModel().getSelectedItem();
 		

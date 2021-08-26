@@ -2,6 +2,7 @@ package application;
 
 import java.time.LocalDate;
 
+import Audio.sounds;
 import Model.Cook;
 import Utils.Expertise;
 import Utils.Gender;
@@ -53,6 +54,7 @@ public class EditCookController {
     
     @FXML
     void save(ActionEvent event) {
+    	sounds.clickSound();
     	Gender gend = gender.getSelectionModel().getSelectedItem();
 		Expertise expert = expertise.getSelectionModel().getSelectedItem();
 		boolean chef = false;

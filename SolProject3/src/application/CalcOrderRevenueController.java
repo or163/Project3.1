@@ -16,12 +16,13 @@ public class CalcOrderRevenueController {
     @FXML
     private TextField rev;
 
+    // Initiate list view with all orders from restaurant within
 	public void initData() {
 		// TODO Auto-generated method stub
 		orders.getItems().addAll(Main.restaurant.getOrders().values());
 	}
 	
-	@FXML
+	@FXML  // calculate selected order revenue
 	private void calcOrderRevenue(ActionEvent event) {
 		double revenue = orders.getSelectionModel().getSelectedItem().calcOrderRevenue();
 		rev.setText(Double.toString(revenue));

@@ -110,6 +110,14 @@
                         </ImageView>
                      </graphic>
                   </Button>
+                  <ImageView fx:id="Audio" fitHeight="34.0" fitWidth="36.0" onMouseClicked="#MuteOnOff">
+                     <image>
+                        <Image url="@/Icons/audio_64px.png" />
+                     </image>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </ImageView>
                </children>
             </VBox>
             <ImageView fitHeight="65.0" fitWidth="37.0" onMouseClicked="#showMenu" y="-7.0">

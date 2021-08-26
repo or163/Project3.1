@@ -3,6 +3,7 @@ package application;
 import java.util.ArrayList;
 import java.util.List;
 
+import Audio.sounds;
 import Exceptions.CantAddObjectException;
 import Model.Component;
 import Model.Customer;
@@ -41,6 +42,7 @@ public class AddOrderController {
 
 	@FXML   //save order to the restaurant
 	void save(ActionEvent event) {
+		sounds.clickSound();
 		Customer cust = custV.getSelectionModel().getSelectedItem();
 		List<Dish> list = selected.getItems();
 		ArrayList<Dish> dishes = new ArrayList<>(list);

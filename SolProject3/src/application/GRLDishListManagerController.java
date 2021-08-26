@@ -3,6 +3,7 @@ package application;
 import java.time.LocalDate;
 import java.util.Collection;
 
+import Audio.sounds;
 import Model.Customer;
 import Model.Dish;
 import Utils.Gender;
@@ -53,6 +54,7 @@ public class GRLDishListManagerController {
 	@FXML
 	private Label message;
 
+	// Initiate table view with all customers in restaurant for selection
 	public void initData() {
 		dishesLV.setVisible(false);
 		id.setCellValueFactory(new PropertyValueFactory<>("id"));
@@ -67,8 +69,9 @@ public class GRLDishListManagerController {
 			customersTV.getItems().add(c);
 	}
 
-	@FXML
+	@FXML  // get relevant dish list according to customer selection from the table view
 	private void getDishList(ActionEvent event) {
+		sounds.clickSound();
 		dishesLV.getItems().clear();
 		Customer c = customersTV.getSelectionModel().getSelectedItem();
 		if (c == null)

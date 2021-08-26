@@ -1,5 +1,6 @@
 package application;
 
+import Audio.sounds;
 import Model.Customer;
 import Utils.Gender;
 import Utils.Neighberhood;
@@ -68,6 +69,7 @@ public class EditCustomerController {
 
     @FXML
     void save(ActionEvent event) {
+    	sounds.clickSound();
     	Customer cust = WhichCustomer.getSelectionModel().getSelectedItem();
     	if (userName.getText() == null || userName.getText().isEmpty() || txtFName.getText() == null
 				|| txtFName.getText().isEmpty() || txtLName.getText() == null || txtLName.getText().isEmpty()

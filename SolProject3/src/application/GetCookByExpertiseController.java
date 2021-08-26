@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Collection;
 
+import Audio.sounds;
 import Model.Cook;
 import Utils.Expertise;
 import Utils.Gender;
@@ -47,6 +48,7 @@ public class GetCookByExpertiseController {
 	@FXML
 	private ComboBox<Expertise> expChoice;
 
+	// Initiate combo-box with dishType values, prepare table view as cook table view for further adding
 	public void initData() {
 		for (Expertise e : Expertise.values())
 			expChoice.getItems().add(e);
@@ -59,8 +61,9 @@ public class GetCookByExpertiseController {
 		chef.setCellValueFactory(c-> new SimpleStringProperty(String.valueOf(c.getValue().isChef())));
 	}
 
-	@FXML
+	@FXML // Populate the table view with relevant cook according to expertise selected
 	private void getCooksByExpertise(ActionEvent event) {
+		sounds.clickSound();
 		cooksTV.getItems().clear();
 		Expertise e = expChoice.getSelectionModel().getSelectedItem();
 		ArrayList<Cook> list = Main.restaurant.GetCooksByExpertise(e);

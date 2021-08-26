@@ -4,6 +4,8 @@ import java.time.LocalDate;
 import java.util.HashSet;
 import java.util.SortedSet;
 import java.util.TreeSet;
+
+import Audio.sounds;
 import Model.Customer;
 import Model.Delivery;
 import Model.DeliveryArea;
@@ -84,6 +86,7 @@ public class EditDeliveryController {
 
     @FXML
     void addOrder(ActionEvent event) {
+    	sounds.clickSound();
     	if(selected.getItems().contains(orders.getSelectionModel().getSelectedItem())) {
     		lblStatus.setText("Can't contain duplications");
 			lblStatus.setTextFill(Color.RED);
@@ -102,6 +105,7 @@ public class EditDeliveryController {
 
     @FXML
     void removeOrder(ActionEvent event) {
+    	sounds.clickSound();
     	selected.getItems().remove(selected.getSelectionModel().getSelectedItem());
 		lblStatus.setText("Order removed from the chosen order list");
 		lblStatus.setTextFill(Color.BLACK);
@@ -109,6 +113,7 @@ public class EditDeliveryController {
 
     @FXML
     void save(ActionEvent event) {
+    	sounds.clickSound();
     	LocalDate datte = date.getValue();
     	boolean isDel = false;
 		if (isDeliverdYes.isSelected())

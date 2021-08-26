@@ -33,6 +33,8 @@ public class GRLDishListUserController {
     @FXML
     private TableColumn<Dish, Component> comps;
 
+    // Initiate table view with relevant dish list for current user on system according to his sensitivities
+    // LoginController.getCustomer() reffers to current user in system
     public void initData() {
     	id.setCellValueFactory(new PropertyValueFactory<>("id"));
     	name.setCellValueFactory(new PropertyValueFactory<>("dishName"));
@@ -40,7 +42,7 @@ public class GRLDishListUserController {
     	price.setCellValueFactory(new PropertyValueFactory<>("price"));
     	time.setCellValueFactory(new PropertyValueFactory<>("timeToMake"));
     	comps.setCellValueFactory(new PropertyValueFactory<>("componenets"));
-    	Collection<Dish> list = Main.restaurant.getReleventDishList(LoginController.getCustomer());
+    	Collection<Dish> list = Main.restaurant.getReleventDishList(LoginController.getCustomer());  
     	for(Dish d : list)
     		dishesTV.getItems().add(d);
     }
