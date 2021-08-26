@@ -3,6 +3,7 @@ package application;
 import java.util.ArrayList;
 import java.util.List;
 
+import Audio.sounds;
 import Exceptions.CantAddObjectException;
 import Model.Component;
 import Model.Customer;
@@ -41,6 +42,7 @@ public class AddOrderController {
 
 	@FXML   //save order to the restaurant
 	void save(ActionEvent event) {
+		sounds.clickSound();
 		Customer cust = custV.getSelectionModel().getSelectedItem();
 		List<Dish> list = selected.getItems();
 		ArrayList<Dish> dishes = new ArrayList<>(list);
@@ -65,13 +67,32 @@ public class AddOrderController {
 
 	@FXML  //add dish to selected dishes for order list view
 	private void addDish(ActionEvent e) {
-		if (dishV.getSelectionModel().getSelectedItem() != null)
+		sounds.clickSound();
+		if (dishV.getSelectionModel().getSelectedItem() != null) {
 			selected.getItems().add(dishV.getSelectionModel().getSelectedItem());
+			message.setText("Dish added to the chosen dishes list");
+			message.setTextFill(Color.BLACK);
+		}
+		else {
+			message.setText("Please select at list 1 dish");
+			message.setTextFill(Color.RED);
+		}
 	}
+	
 
 	@FXML  //remove dish from selected dishes for order list view
 	private void removeDish(ActionEvent e) {
-		selected.getItems().remove(selected.getSelectionModel().getSelectedItem());
+		sounds.clickSound();
+		if(selected.getSelectionModel().getSelectedItem()!=null) {
+			message.setText("Dish removed from the chosen dishes list");
+			message.setTextFill(Color.BLACK);
+			selected.getItems().remove(selected.getSelectionModel().getSelectedItem());
+		}
+		else {
+			message.setText("Please select at list 1 dish");
+			message.setTextFill(Color.RED);
+		}
+		
 	}
-
+	
 }

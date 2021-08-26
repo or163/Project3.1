@@ -2,6 +2,7 @@ package application;
 
 import java.util.Optional;
 
+import Audio.sounds;
 import Model.Customer;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -22,16 +23,17 @@ public class addCustomerToBlackListController {
 
 	// Initiate the page and fill list view in all customers
 	public void initData() {
-
 		customerLV.getItems().clear();
 		for (Customer c : Main.restaurant.getCustomers().values()) {
 			customerLV.getItems().add(c);
 		}
-		customerLV.getItems().removeAll(Main.restaurant.getBlackList()); //remove irrelevant customers such as customers already in the blacklist
+		customerLV.getItems().removeAll(Main.restaurant.getBlackList()); // remove irrelevant customers such as
+																			// customers already in the blacklist
 	}
 
-	@FXML  // add selected customer to blacklist
+	@FXML // add selected customer to blacklist
 	void AddToBList(ActionEvent event) {
+		sounds.clickSound();
 		Customer c = null;
 		c = customerLV.getSelectionModel().getSelectedItem();
 
@@ -41,7 +43,7 @@ public class addCustomerToBlackListController {
 			message.setText("Please Select a customer to add");
 		else if (c != null) {
 
-			Alert alert = new Alert(AlertType.CONFIRMATION);  //make sure you want to add customer to blacklist
+			Alert alert = new Alert(AlertType.CONFIRMATION); // make sure you want to add customer to blacklist
 			alert.setTitle("Confirmation");
 			alert.setHeaderText(customerLV.getSelectionModel().getSelectedItem() + " has been chosen");
 			alert.setContentText("Are you sure you want to add this one?");
@@ -51,7 +53,6 @@ public class addCustomerToBlackListController {
 				initData();
 				message.setTextFill(Color.GREEN);
 				message.setText("Added successfully");
-				System.out.println(Main.restaurant.getBlackList());
 
 			}
 		}

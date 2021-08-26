@@ -2,6 +2,7 @@ package application;
 
 import java.time.LocalDate;
 
+import Audio.sounds;
 import Model.Cook;
 import Model.DeliveryArea;
 import Model.DeliveryPerson;
@@ -49,6 +50,7 @@ public class EditDPController {
 
     @FXML
     void DPselected(ActionEvent event) {
+    	sounds.clickSound();
     	gender.getItems().clear();
     	vehicle.getItems().clear();
     	da.getItems().clear();
@@ -70,6 +72,7 @@ public class EditDPController {
     
     @FXML
 	public void save(ActionEvent e) {
+    	sounds.clickSound();
 		Gender gend = gender.getSelectionModel().getSelectedItem();
 		Vehicle car = vehicle.getSelectionModel().getSelectedItem();
 		DeliveryArea d = da.getSelectionModel().getSelectedItem();

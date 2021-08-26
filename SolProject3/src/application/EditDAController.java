@@ -2,6 +2,7 @@ package application;
 
 import java.util.HashSet;
 
+import Audio.sounds;
 import Model.Delivery;
 import Model.DeliveryArea;
 import javafx.event.ActionEvent;
@@ -43,6 +44,7 @@ public class EditDAController {
 
 	 
 	public void save(ActionEvent e) {
+		sounds.clickSound();
 			if(txtAreaName.getText().isEmpty()|| txtAreaName.getText()== null || selected.getItems().isEmpty()|| selected.getItems() == null) 
 			{
 				lblStatus.setText("Please fill up all fields");
@@ -69,6 +71,7 @@ public class EditDAController {
 	}
 	
 	public void listviewButtonPushed() {
+		sounds.clickSound();
 		if(selected.getItems().contains(listNeigh.getSelectionModel().getSelectedItem())) {
 			lblStatus.setText("Can't contain duplications");
 			lblStatus.setTextFill(Color.RED);
@@ -88,6 +91,7 @@ public class EditDAController {
 	}
 	
 	public void listviewButtonPull() {
+		sounds.clickSound();
 		selected.getItems().remove(selected.getSelectionModel().getSelectedItem());
 		listNeigh.getItems().add(selected.getSelectionModel().getSelectedItem());
 		lblStatus.setText("Neighborhood removed from the delivery area list");

@@ -5,6 +5,7 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.Optional;
 
+import Audio.sounds;
 import Model.Component;
 import Model.Cook;
 import Model.Customer;
@@ -95,6 +96,7 @@ public class MakeOrderController {
 
 	@FXML
 	private void getDishes(ActionEvent event) {
+		sounds.clickSound();
 		dishesTV.getItems().clear();
 		DishType dt = type.getSelectionModel().getSelectedItem();
 		Collection<Dish> list = Main.restaurant.getDishes().values();
@@ -106,6 +108,7 @@ public class MakeOrderController {
 
 	@FXML
 	private void addDish(ActionEvent event) {
+		sounds.clickSound();
 		if (dishesTV.getSelectionModel().getSelectedItem() == null)
 			return;
 		selected.getItems().add(dishesTV.getSelectionModel().getSelectedItem());
@@ -116,12 +119,14 @@ public class MakeOrderController {
 
 	@FXML
 	private void removeDish(ActionEvent event) {
+		sounds.clickSound();
 		selected.getItems().remove(selected.getSelectionModel().getSelectedItem());
 		priceLabel.setText(getPrice(selected.getItems()));
 	}
 
 	@FXML
 	private void addToCart(ActionEvent event) {
+		sounds.clickSound();
 		if (selected.getItems().size() != 0) {
 			ArrayList<Dish> list = new ArrayList<>();
 			for (Dish d : selected.getItems())
@@ -143,6 +148,7 @@ public class MakeOrderController {
 
 	@FXML
 	private void makeOrder(ActionEvent event) {
+		sounds.clickSound();
 		if (selected.getItems().size() != 0) {
 			ArrayList<Dish >list = new ArrayList<>();
 			for (Dish d : selected.getItems())
@@ -158,6 +164,7 @@ public class MakeOrderController {
 				Main.restaurant.addOrder(o);
 				messageRight.setTextFill(Color.GREEN);
 				messageRight.setText("Ordered successfully");
+				sounds.bonapatiteSound();
 				priceLabel.setText("");
 				selected.getItems().clear();
 			}
@@ -171,6 +178,7 @@ public class MakeOrderController {
 
 	@FXML
 	private void goEdit(ActionEvent event) {
+		sounds.clickSound();
 		if (dishesTV.getSelectionModel().getSelectedItem() == null)
 			return;
 		allComps.getItems().clear();
@@ -184,6 +192,7 @@ public class MakeOrderController {
 	
 	@FXML
 	private void addComp(ActionEvent event) {
+		sounds.clickSound();
 		if (allComps.getSelectionModel().getSelectedItem() == null)
 			return;
 		compsInDish.getItems().add(allComps.getSelectionModel().getSelectedItem());
@@ -191,16 +200,19 @@ public class MakeOrderController {
 
 	@FXML
 	private void removeComp(ActionEvent event) {
+		sounds.clickSound();
 		compsInDish.getItems().remove(compsInDish.getSelectionModel().getSelectedItem());
 	}
 	
 	@FXML
 	private void closeEdit(ActionEvent event) {
+		sounds.clickSound();
 		editPane.setVisible(false);
 	}
 	
 	@FXML
 	public void saveButton(ActionEvent e) {
+		sounds.clickSound();
 		if(compsInDish.getItems().size() > 0) {
 			ArrayList<Component> components = new ArrayList<>(compsInDish.getItems());
 			Dish base = dishesTV.getSelectionModel().getSelectedItem();
@@ -216,7 +228,7 @@ public class MakeOrderController {
 		double sum = 0;
 		for (Dish d : dishes)
 			sum += d.getPrice();
-		s += sum + "¤";
+		s += sum + "ï¿½";
 		return s;
 	}
 }

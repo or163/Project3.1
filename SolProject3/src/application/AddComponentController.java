@@ -1,5 +1,6 @@
 package application;
 
+import Audio.sounds;
 import Exceptions.CantAddObjectException;
 import Model.Component;
 import javafx.event.ActionEvent;
@@ -41,6 +42,7 @@ public class AddComponentController {
 
 	@FXML    //save component to the restaurant
 	void save(ActionEvent event) {
+		sounds.clickSound();
 		boolean lact = false;
 		boolean glut = false;
 		if (lactoseYes.isSelected())

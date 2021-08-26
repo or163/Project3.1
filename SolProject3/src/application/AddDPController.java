@@ -2,6 +2,7 @@ package application;
 
 import java.time.LocalDate;
 
+import Audio.sounds;
 import Exceptions.CantAddObjectException;
 import Model.DeliveryArea;
 import Model.DeliveryPerson;
@@ -57,6 +58,7 @@ public class AddDPController {
 
 	@FXML   //save delivery person to the restaurant
 	public void save(ActionEvent e) {
+		sounds.clickSound();
 		Gender gend = gender.getSelectionModel().getSelectedItem();
 		Vehicle car = vehicle.getSelectionModel().getSelectedItem();
 		DeliveryArea d = da.getSelectionModel().getSelectedItem();

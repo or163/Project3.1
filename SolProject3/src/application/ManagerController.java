@@ -33,6 +33,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.ListView;
@@ -43,11 +45,15 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
+import javafx.scene.media.MediaView;
 import javafx.stage.Stage;
 
 public class ManagerController {
 
 	private static int counter = 0;
+	private static int counter2 = 0;
 	
 	@FXML
 	BorderPane pannelRoot;
@@ -91,9 +97,18 @@ public class ManagerController {
 	@FXML
 	private TableColumn<Order, String> delivery;
 	
+	@FXML
+    private ImageView Audio;
+	
+	@FXML
+    private MediaView mv;
+    private MediaPlayer mp;
+	private Media me;
+	
 
 	// Initiate table views of uncompleted deliveries and orders that not added yet to deliveries 
 	public void initData() {
+		sounds.clickSound();
 		//prepare table view to delivery fields
 		delId.setCellValueFactory(new PropertyValueFactory<>("id"));  
 		dp.setCellValueFactory(c-> new SimpleStringProperty(String.valueOf(
@@ -496,10 +511,11 @@ public class ManagerController {
 	
 	@FXML
 	private void exitButtonAction(ActionEvent event){
+		sounds.backgroundMusicMute();
 		sounds.flashBackSound();
 		try
 		{
-		    Thread.sleep(3000);
+		    Thread.sleep(2600);
 		}
 		catch(InterruptedException ex)
 		{
@@ -509,6 +525,17 @@ public class ManagerController {
 	    // do what you have to do
 	    stage.close();
 	}
+	
+	@FXML
+    void MuteOnOff(MouseEvent event) {
+		sounds.clickSound();
+		if(ManagerController.counter2  % 2 == 1)
+			Audio.setImage(new Image("Icons/audio_64px.png"));
+		else
+			Audio.setImage(new Image("Icons/no_audio_64px.png"));
+		counter2++;
+		sounds.backgroundMusic();
+    }
 	
 	@FXML
 	void SaveToSerelizebaleFile(ActionEvent event) {

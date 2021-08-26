@@ -3,6 +3,7 @@ package application;
 import java.io.File;
 import java.io.IOException;
 
+import Audio.sounds;
 import Model.Customer;
 import Utils.Gender;
 import Utils.Neighberhood;
@@ -114,6 +115,7 @@ public class EditUserController {
 
 	@FXML
 	void save(ActionEvent event) {
+		sounds.clickSound();
 		if (userName.getText() == null || userName.getText().isEmpty() || txtFName.getText() == null
 				|| txtFName.getText().isEmpty() || txtLName.getText() == null || txtLName.getText().isEmpty()
 				|| lactoseTG.getSelectedToggle() == null || glutenTG.getSelectedToggle() == null) {
@@ -149,6 +151,7 @@ public class EditUserController {
 
 	@FXML
 	public void chooseFile() throws IOException {
+		sounds.clickSound();
 		FileChooser fc = new FileChooser();
 		File tmp = fc.showOpenDialog(Main.stage);
 		if (tmp != null) {

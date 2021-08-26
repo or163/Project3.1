@@ -3,6 +3,7 @@ package application;
 import java.time.LocalDate;
 import java.util.Collection;
 
+import Audio.sounds;
 import Model.Customer;
 import Model.Dish;
 import Utils.Gender;
@@ -70,10 +71,11 @@ public class GRLDishListManagerController {
 
 	@FXML  // get relevant dish list according to customer selection from the table view
 	private void getDishList(ActionEvent event) {
+		sounds.clickSound();
 		dishesLV.getItems().clear();
 		Customer c = customersTV.getSelectionModel().getSelectedItem();
 		if (c == null)
-			message.setText("Please select a custoemr!");
+			message.setText("Please select a customer!");
 		else {
 			message.setText("");
 			dishesLV.setVisible(true);

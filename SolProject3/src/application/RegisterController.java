@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.IOException;
 import java.time.LocalDate;
 
+import Audio.sounds;
 import Model.Customer;
 import Utils.Gender;
 import Utils.Neighberhood;
@@ -101,6 +102,7 @@ public class RegisterController {
 
 	@FXML
 	private void save(ActionEvent event) {
+		sounds.clickSound();
 		Gender gend = gender.getSelectionModel().getSelectedItem();
 		Neighberhood neigh = neighborhood.getSelectionModel().getSelectedItem();
 		boolean lact = false;
@@ -161,6 +163,7 @@ public class RegisterController {
 	@FXML
 	private void goHome(ActionEvent event) {
 		try {
+			sounds.clickSound();
 			FXMLLoader fx = new FXMLLoader(getClass().getResource("/View/Login.fxml"));
 			Parent p = fx.load();
 			Scene s = new Scene(p, 700, 500);

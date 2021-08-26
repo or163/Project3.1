@@ -4,6 +4,8 @@ import java.time.LocalDate;
 import java.util.HashSet;
 import java.util.SortedSet;
 import java.util.TreeSet;
+
+import Audio.sounds;
 import Model.Customer;
 import Model.Delivery;
 import Model.DeliveryArea;
@@ -84,6 +86,7 @@ public class EditDeliveryController {
 
     @FXML
     void addOrder(ActionEvent event) {
+    	sounds.clickSound();
     	if(selected.getItems().contains(orders.getSelectionModel().getSelectedItem())) {
     		lblStatus.setText("Can't contain duplications");
 			lblStatus.setTextFill(Color.RED);
@@ -95,20 +98,28 @@ public class EditDeliveryController {
 		}
 		else {
 			selected.getItems().add(orders.getSelectionModel().getSelectedItem());
-			lblStatus.setText("Order added to the chosen order list");
+			lblStatus.setText("Order added to the chosen orders list");
 			lblStatus.setTextFill(Color.BLACK);
 		}
     }
 
     @FXML
     void removeOrder(ActionEvent event) {
+    	sounds.clickSound();
+    	if(orders.getSelectionModel().getSelectedItem()!=null) {
+    		lblStatus.setText("Order removed from the chosen order list");
+			lblStatus.setTextFill(Color.BLACK);
+    	}
+    	else {
+    		lblStatus.setText("Please select at list 1 order");
+			lblStatus.setTextFill(Color.RED);
+    	}
     	selected.getItems().remove(selected.getSelectionModel().getSelectedItem());
-		lblStatus.setText("Order removed from the chosen order list");
-		lblStatus.setTextFill(Color.BLACK);
     }
 
     @FXML
     void save(ActionEvent event) {
+    	sounds.clickSound();
     	LocalDate datte = date.getValue();
     	boolean isDel = false;
 		if (isDeliverdYes.isSelected())
@@ -121,7 +132,13 @@ public class EditDeliveryController {
     	if(delPer == null || delAre == null || selected.getItems().isEmpty()|| selected.getItems() == null 
     		|| datte == null || deliveyTG.getSelectedToggle() == null)
 		{
-			lblStatus.setText("Please fill all fields");//maybe we should put all as execptions?
+			lblStatus.setText("Please fill up all fields");
+			if(datte == null)
+				lblStatus.setText("Please choose a date ");
+			if(delPer == null)
+				lblStatus.setText("Please choose a delivery person ");
+			if(delPer == null)
+				lblStatus.setText("Please choose a delivery area ");
 			lblStatus.setTextFill(Color.RED);
 		}
     	else {

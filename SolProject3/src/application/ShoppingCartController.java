@@ -3,6 +3,7 @@ package application;
 import java.util.ArrayList;
 import java.util.Optional;
 
+import Audio.sounds;
 import Model.Customer;
 import Model.Dish;
 import Model.Order;
@@ -70,6 +71,7 @@ public class ShoppingCartController {
 
 	@FXML  // make the order, alert would pop if customer sure about this, ok selection will make the order 
 	private void makeOrder(ActionEvent event) {
+		sounds.clickSound();
 		if (dishesTV.getItems().size() != 0) {
 			Customer c = LoginController.getCustomer();
 			Order o = new Order(c, dishList, null);
@@ -82,6 +84,7 @@ public class ShoppingCartController {
 				Main.restaurant.addOrder(o);
 				message.setTextFill(Color.GREEN);
 				message.setText("Ordered successfully");
+				sounds.bonapatiteSound();
 				priceField.setText("");
 				dishesTV.getItems().clear(); //after order succeeds resetting the table view of items in cart 
 				dishList.clear();
@@ -96,6 +99,7 @@ public class ShoppingCartController {
 	
 	@FXML  // remove dish from current shopping cart
 	private void removeDish(ActionEvent event) {
+		sounds.clickSound();
 		dishesTV.getItems().remove(dishesTV.getSelectionModel().getSelectedItem());
 		priceField.setText(MakeOrderController.getPrice(dishesTV.getItems()));
 	}

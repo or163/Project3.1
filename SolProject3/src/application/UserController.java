@@ -42,12 +42,17 @@ public class UserController {
 	private AnchorPane anchor;
 	
 	@FXML
+	private ImageView Audio;
+	
+	@FXML
 	private Button exitButton;
 	
 	@FXML
     private ImageView profilePic;
 	
 	private static int counter = 0; // counter for show menu method, if even hide menu, else show
+	
+	private static int counter2 = 0;
 	
 	public ImageView getProfilePic() {
 		return profilePic;
@@ -69,6 +74,23 @@ public class UserController {
 			profilePic.setImage(new Image("/Icons/male_user_60px.png"));
 	}
 	
+	@FXML
+    void MuteOnOff(MouseEvent event) {
+		System.out.println("1");
+		sounds.clickSound();
+		if(UserController.counter2  % 2 == 1) {
+			Audio.setImage(new Image("Icons/audio_64px.png"));
+			System.out.println("2");
+		}
+		else
+		{
+			Audio.setImage(new Image("Icons/no_audio_64px.png"));
+			System.out.println("3");
+		}
+		counter2++;
+		sounds.backgroundMusic();
+    }
+	
 	@FXML  // go to main user ui screen
 	void goHome(ActionEvent event) throws IOException {
 		sounds.clickSound();
@@ -82,7 +104,8 @@ public class UserController {
 	
 	@FXML // log out and go to login page
     void GoLogin(ActionEvent event) throws IOException {
-		sounds.flashBackSound();
+		sounds.backgroundMusicMute();
+		sounds.bellSound();
 		FXMLLoader fx = new FXMLLoader(getClass().getResource("/View/Login.fxml"));
 		Parent p = fx.load();
 		Scene s = new Scene(p, 700, 500);
@@ -197,10 +220,11 @@ public class UserController {
 	@FXML  // exit program
 	private void exitButtonAction(ActionEvent event){
 	    // get a handle to the stage
+		sounds.backgroundMusicMute();
 		sounds.flashBackSound();
 		try
 		{
-		    Thread.sleep(3000);
+		    Thread.sleep(2600);
 		}
 		catch(InterruptedException ex)
 		{

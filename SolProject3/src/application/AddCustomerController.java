@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.IOException;
 import java.time.LocalDate;
 
+import Audio.sounds;
 import Exceptions.CantAddObjectException;
 import Model.Cook;
 import Model.Customer;
@@ -89,6 +90,7 @@ public class AddCustomerController {
 
 	@FXML     //save customer to the restaurant
 	public void save(ActionEvent e) {
+		sounds.clickSound();
 		Gender gend = gender.getSelectionModel().getSelectedItem();
 		Neighberhood neigh = neighborhood.getSelectionModel().getSelectedItem();
 		boolean lact = false;

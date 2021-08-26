@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.TreeSet;
 
+import Audio.sounds;
 import Model.Customer;
 import Model.Delivery;
 import Model.Dish;
@@ -54,6 +55,7 @@ public class UserHistoryController {
 
 	@FXML  // remove order from current customer orders history
 	private void remove(ActionEvent event) {
+		sounds.clickSound();
 		if (ordersTV.getSelectionModel().getSelectedItem() == null)
 			return;
 		Order o = ordersTV.getSelectionModel().getSelectedItem();
@@ -63,6 +65,7 @@ public class UserHistoryController {
 
 	@FXML   //go to make order page
 	void goMakeOrder(ActionEvent event) throws IOException {
+		sounds.clickSound();
 		FXMLLoader fx = new FXMLLoader(getClass().getResource("/View/MakeOrder.fxml"));
 		Pane p = fx.load();
 		AnchorPane pp = (AnchorPane) p;

@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
+import Audio.sounds;
 import Model.Component;
 import Model.Cook;
 import Model.DeliveryPerson;
@@ -45,6 +46,7 @@ public class EditDishController {
 
     @FXML
     void DishSelected(ActionEvent event) {
+    	sounds.clickSound();
 		name.clear();
 		time.clear();
 		type.getSelectionModel().clearSelection();
@@ -62,6 +64,7 @@ public class EditDishController {
     
     @FXML
 	public void save(ActionEvent e) {
+    	sounds.clickSound();
 		DishType dt = (DishType) type.getSelectionModel().getSelectedItem();
 		List<Component> list = selected.getItems();
 		int timeToMake = 0;
@@ -102,11 +105,29 @@ public class EditDishController {
 	
 	@FXML
 	private void addComp(ActionEvent e) {
-		selected.getItems().add(comps.getSelectionModel().getSelectedItem());
+		sounds.clickSound();
+		if (comps.getSelectionModel().getSelectedItem() != null) {
+			selected.getItems().add(comps.getSelectionModel().getSelectedItem());
+			message.setText("Component added to the chosen components list");
+			message.setTextFill(Color.BLACK);
+		}
+		else {
+			message.setText("Please select at list 1 Component");
+			message.setTextFill(Color.RED);
+		}
 	}
 	
 	@FXML
 	private void removeComp(ActionEvent e) {
+		sounds.clickSound();
+		if(selected.getSelectionModel().getSelectedItem()!=null) {
+			message.setText("Component removed from the chosen components list");
+			message.setTextFill(Color.BLACK);
+		}
+		else {
+			message.setText("Please select at list 1 component");
+    		message.setTextFill(Color.RED);
+		}
 		selected.getItems().remove(selected.getSelectionModel().getSelectedItem());
 	}
 

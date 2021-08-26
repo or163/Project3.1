@@ -1,23 +1,15 @@
 package application;
 
-import java.awt.TextArea;
-import java.net.URL;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.time.ZoneId;
-import java.util.Calendar;
 import java.util.HashSet;
-import java.util.ResourceBundle;
-import java.util.TimeZone;
-
+import Audio.sounds;
 import Exceptions.CantAddObjectException;
 import Model.Cook;
 import Model.DeliveryArea;
 import Model.Restaurant;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
-import Utils.Expertise;
-import Utils.Gender;
 import Utils.Neighberhood;
 import application.Main;
 import javafx.fxml.FXML;
@@ -63,6 +55,7 @@ public class AddDAController {
 	}
 	
 	public void save(ActionEvent e) {
+		sounds.clickSound();
 		if (Utils.Utils.isOnlyDigits(intDelTime.getText())) { //if input is in correct format - digits
 			int intDelTime2 = Integer.parseInt(intDelTime.getText());
 			try {

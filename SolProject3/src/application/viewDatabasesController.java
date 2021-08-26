@@ -1,5 +1,6 @@
 package application;
 
+import Audio.sounds;
 import Model.Component;
 import Model.Cook;
 import Model.Customer;
@@ -39,6 +40,7 @@ public class viewDatabasesController {
 
 	@FXML // fill the list view with relevant objects according to user selection
 	void GetData(ActionEvent event) {
+		sounds.clickSound();
 		String chosen = ChosenData.getSelectionModel().getSelectedItem();
 		LVdb.getItems().clear(); // clean former objects from list every selection
 		switch (chosen) {
@@ -80,6 +82,7 @@ public class viewDatabasesController {
 
 	@FXML // filter Objects and get relevant object by Id
 	private void getObject(ActionEvent event) {
+		sounds.clickSound();
 		if (!Utils.Utils.isOnlyDigits(id.getText()))
 			return;
 		String chosen = ChosenData.getSelectionModel().getSelectedItem();

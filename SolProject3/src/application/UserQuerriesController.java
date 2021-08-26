@@ -2,6 +2,7 @@ package application;
 
 import java.io.IOException;
 
+import Audio.sounds;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -26,6 +27,7 @@ public class UserQuerriesController {
     // this method determines which page would display according to user's choice
     @FXML
     void getPage(ActionEvent event) throws IOException {
+    	sounds.clickSound();
     	Pane p;
     	AnchorPane pp;
     	FXMLLoader fx;

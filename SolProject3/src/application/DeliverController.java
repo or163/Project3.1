@@ -1,5 +1,6 @@
 package application;
 
+import Audio.sounds;
 import Model.Delivery;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -26,6 +27,7 @@ public class DeliverController {
 
 	@FXML  //  mark this delivery as delivered
 	void deliver(ActionEvent event) {
+		sounds.clickSound();
 		if (!deliveries.getItems().isEmpty()) {
 			Delivery d = deliveries.getSelectionModel().getSelectedItem();
 			Main.restaurant.deliver(d);

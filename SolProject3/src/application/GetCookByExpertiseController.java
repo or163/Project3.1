@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Collection;
 
+import Audio.sounds;
 import Model.Cook;
 import Utils.Expertise;
 import Utils.Gender;
@@ -62,6 +63,7 @@ public class GetCookByExpertiseController {
 
 	@FXML // Populate the table view with relevant cook according to expertise selected
 	private void getCooksByExpertise(ActionEvent event) {
+		sounds.clickSound();
 		cooksTV.getItems().clear();
 		Expertise e = expChoice.getSelectionModel().getSelectedItem();
 		ArrayList<Cook> list = Main.restaurant.GetCooksByExpertise(e);
