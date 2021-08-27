@@ -6,6 +6,7 @@ import java.util.Collections;
 import java.util.Optional;
 
 import Audio.sounds;
+import Exceptions.CantAddObjectException;
 import Model.Component;
 import Model.Cook;
 import Model.Customer;
@@ -64,22 +65,22 @@ public class MakeOrderController {
 
 	@FXML
 	private Label messageLeft;
-	
+
 	@FXML
 	private Pane editPane;
-	
+
 	@FXML
-    private TableView<Component> allComps;
-	
+	private TableView<Component> allComps;
+
 	@FXML
-    private TableView<Component> compsInDish;
-	
+	private TableView<Component> compsInDish;
+
 	@FXML
 	private TableColumn<Component, String> compName1;
-	
+
 	@FXML
 	private TableColumn<Component, String> compName2;
-	
+
 	private static int first = 1;
 
 	public void initData() {
@@ -131,7 +132,7 @@ public class MakeOrderController {
 			ArrayList<Dish> list = new ArrayList<>();
 			for (Dish d : selected.getItems())
 				list.add(d);
-			if(MakeOrderController.first > 1)
+			if (MakeOrderController.first > 1)
 				ShoppingCartController.getDishList().addAll(list);
 			else
 				ShoppingCartController.setDishList(list);
@@ -150,30 +151,35 @@ public class MakeOrderController {
 	private void makeOrder(ActionEvent event) {
 		sounds.clickSound();
 		if (selected.getItems().size() != 0) {
-			ArrayList<Dish >list = new ArrayList<>();
+			ArrayList<Dish> list = new ArrayList<>();
 			for (Dish d : selected.getItems())
 				list.add(d);
-			Customer c = LoginController.getCustomer();
+			Customer c = LoginController.getCustomer();  //getting current user in system
 			Order o = new Order(c, list, null);
-			Alert alert = new Alert(AlertType.CONFIRMATION);
+			Alert alert = new Alert(AlertType.CONFIRMATION);  //confirmation alert regarding the order
 			alert.setTitle("Order");
 			alert.setHeaderText("Are you sure you want to make this order?");
 			alert.setContentText(o.toString());
 			Optional<ButtonType> result = alert.showAndWait();
-			if (result.get() == ButtonType.OK){
-				Main.restaurant.addOrder(o);
-				messageRight.setTextFill(Color.GREEN);
-				messageRight.setText("Ordered successfully");
-				sounds.bonapatiteSound();
-				priceLabel.setText("");
-				selected.getItems().clear();
+			if (result.get() == ButtonType.OK) {
+				try {
+					if (Main.restaurant.addOrder(o)) {
+						messageRight.setTextFill(Color.GREEN);
+						messageRight.setText("Ordered successfully");
+						sounds.bonapatiteSound();
+						priceLabel.setText("");
+						selected.getItems().clear();
+					} else
+						throw new CantAddObjectException("Order " + o.getId());
+				} catch (CantAddObjectException ex) {
+					ex.alertMessage();
+				}
 			}
-		}
-		else {
+		} else {
 			messageRight.setTextFill(Color.RED);
 			messageRight.setText("There is no item selected");
 		}
-		
+
 	}
 
 	@FXML
@@ -189,7 +195,7 @@ public class MakeOrderController {
 		compsInDish.getItems().addAll(dishesTV.getSelectionModel().getSelectedItem().getComponenets());
 		editPane.setVisible(true);
 	}
-	
+
 	@FXML
 	private void addComp(ActionEvent event) {
 		sounds.clickSound();
@@ -203,26 +209,26 @@ public class MakeOrderController {
 		sounds.clickSound();
 		compsInDish.getItems().remove(compsInDish.getSelectionModel().getSelectedItem());
 	}
-	
+
 	@FXML
 	private void closeEdit(ActionEvent event) {
 		sounds.clickSound();
 		editPane.setVisible(false);
 	}
-	
+
 	@FXML
 	public void saveButton(ActionEvent e) {
 		sounds.clickSound();
-		if(compsInDish.getItems().size() > 0) {
+		if (compsInDish.getItems().size() > 0) {
 			ArrayList<Component> components = new ArrayList<>(compsInDish.getItems());
 			Dish base = dishesTV.getSelectionModel().getSelectedItem();
 			Dish d = new Dish(base.getDishName(), base.getType(), components, base.getTimeToMake());
 			Main.restaurant.addDish(d);
 			dishesTV.getItems().add(d);
-			
+
 		}
 	}
-	
+
 	public static String getPrice(Collection<Dish> dishes) {
 		String s = "";
 		double sum = 0;

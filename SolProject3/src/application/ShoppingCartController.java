@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Optional;
 
 import Audio.sounds;
+import Exceptions.CantAddObjectException;
 import Model.Customer;
 import Model.Dish;
 import Model.Order;
@@ -23,28 +24,29 @@ import javafx.scene.paint.Color;
 
 public class ShoppingCartController {
 
-    @FXML
-    private TableView<Dish> dishesTV;
+	@FXML
+	private TableView<Dish> dishesTV;
 
-    @FXML
-    private TableColumn<Dish, String> name;
+	@FXML
+	private TableColumn<Dish, String> name;
 
-    @FXML
-    private TableColumn<Dish, Integer> time;
+	@FXML
+	private TableColumn<Dish, Integer> time;
 
-    @FXML
-    private TableColumn<Dish, Double> price;
+	@FXML
+	private TableColumn<Dish, Double> price;
 
-    @FXML
-    private TableColumn<Dish, String> comps;
-    
-    @FXML
+	@FXML
+	private TableColumn<Dish, String> comps;
+
+	@FXML
 	private Label message;
-    
-    @FXML
-    private TextField priceField;
-    
-    private static ArrayList<Dish> dishList;  //indicates if there has been changes in menu & order page and another dishes were added to cart
+
+	@FXML
+	private TextField priceField;
+
+	private static ArrayList<Dish> dishList; // indicates if there has been changes in menu & order page and another
+												// dishes were added to cart
 
 	public static ArrayList<Dish> getDishList() {
 		return dishList;
@@ -54,7 +56,8 @@ public class ShoppingCartController {
 		dishList = dishes;
 	}
 
-	// Initiate table view with dishes that have been sent to shopping cart through menu & order page
+	// Initiate table view with dishes that have been sent to shopping cart through
+	// menu & order page
 	public void initData() {
 		// TODO Auto-generated method stub
 		dishesTV.setPlaceholder(new Label("There are no items in cart"));
@@ -63,41 +66,46 @@ public class ShoppingCartController {
 		price.setCellValueFactory(new PropertyValueFactory<>("price"));
 		comps.setCellValueFactory(d -> new SimpleStringProperty(
 				String.valueOf(Utils.Utils.getProperComponents(d.getValue().getComponenets()))));
-		if(dishList != null) {
+		if (dishList != null) {
 			dishesTV.getItems().addAll(dishList);
-			priceField.setText(MakeOrderController.getPrice(dishList)); //sets price to the order
+			priceField.setText(MakeOrderController.getPrice(dishList)); // sets price to the order
 		}
 	}
 
-	@FXML  // make the order, alert would pop if customer sure about this, ok selection will make the order 
+	@FXML // make the order, alert would pop if customer sure about this, ok select will make the order
 	private void makeOrder(ActionEvent event) {
 		sounds.clickSound();
 		if (dishesTV.getItems().size() != 0) {
-			Customer c = LoginController.getCustomer();
+			Customer c = LoginController.getCustomer();  //getting current user in system
 			Order o = new Order(c, dishList, null);
-			Alert alert = new Alert(AlertType.CONFIRMATION);
+			Alert alert = new Alert(AlertType.CONFIRMATION);  //confirmation alert regarding the order
 			alert.setTitle("Order");
 			alert.setHeaderText("Are you sure you want to make this order?");
 			alert.setContentText(o.toString());
 			Optional<ButtonType> result = alert.showAndWait();
-			if (result.get() == ButtonType.OK){
-				Main.restaurant.addOrder(o);
-				message.setTextFill(Color.GREEN);
-				message.setText("Ordered successfully");
-				sounds.bonapatiteSound();
-				priceField.setText("");
-				dishesTV.getItems().clear(); //after order succeeds resetting the table view of items in cart 
-				dishList.clear();
+			if (result.get() == ButtonType.OK) {
+				try {
+					if (Main.restaurant.addOrder(o)) {
+						message.setTextFill(Color.GREEN);
+						message.setText("Ordered successfully");
+						sounds.bonapatiteSound();
+						priceField.setText("");
+						dishesTV.getItems().clear(); // after order succeeds resetting the table view of items in cart
+						dishList.clear();
+					} else
+						throw new CantAddObjectException("Order " + o.getId());
+				} catch (CantAddObjectException ex) {
+					ex.alertMessage();
+				}
 			} else
-			    ;
-		}
-		else {
+				;
+		} else {
 			message.setTextFill(Color.RED);
 			message.setText("There are no items in cart!");
 		}
 	}
-	
-	@FXML  // remove dish from current shopping cart
+
+	@FXML // remove dish from current shopping cart
 	private void removeDish(ActionEvent event) {
 		sounds.clickSound();
 		dishesTV.getItems().remove(dishesTV.getSelectionModel().getSelectedItem());
