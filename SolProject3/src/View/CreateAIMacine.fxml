@@ -21,11 +21,7 @@
       <ListView fx:id="selected" layoutX="392.0" layoutY="146.0" prefHeight="113.0" prefWidth="181.0" />
       <Button layoutX="100.0" layoutY="260.0" mnemonicParsing="false" onAction="#addOrder" prefHeight="25.0" prefWidth="101.0" text="add Order" />
       <Button layoutX="391.0" layoutY="260.0" mnemonicParsing="false" onAction="#removeOrder" text="remove Order" />
-      <Label fx:id="lblStatus" layoutX="238.0" layoutY="301.0" style="-fx-background-color: #ffffff80; -fx-background-radius: 12;" text="Please fill up the form" wrapText="true">
-         <font>
-            <Font name="System Bold" size="12.0" />
-         </font>
-      </Label>
+      <Label fx:id="lblStatus" layoutX="238.0" layoutY="301.0" style="-fx-background-color: #ffffff80; -fx-background-radius: 12;" text="Please fill up the form" wrapText="true" />
       <Button alignment="TOP_CENTER" layoutX="489.0" layoutY="294.0" mnemonicParsing="false" onAction="#save" prefHeight="29.0" prefWidth="101.0" text="run">
          <font>
             <Font size="14.0" />

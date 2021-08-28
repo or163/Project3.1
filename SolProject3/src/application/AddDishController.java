@@ -8,6 +8,7 @@ import Exceptions.CantAddObjectException;
 import Model.Component;
 import Model.Dish;
 import Utils.DishType;
+import Utils.Utils;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
@@ -52,24 +53,31 @@ public class AddDishController {
 		List<Component> list = selected.getItems();
 		ArrayList<Component> comp = new ArrayList<>(list);
 		int timeToMake = 0;
-		if (!(time.getText().isEmpty()))
-			timeToMake = Integer.parseInt(time.getText());
 		try {				//validates the are no empty fields
 			if (name.getText() == null || name.getText().isEmpty() || time.getText() == null || time.getText().isEmpty()
 					|| type == null || comps.getSelectionModel().getSelectedItems() == null || list == null) {
 				message.setText("you have fields that are empty");
+				message.setTextFill(Color.RED);
 			} else {  
-				Dish dish = new Dish(name.getText(), dt, comp, timeToMake);
-				if (Main.restaurant.addDish(dish)) {  //if add succeeds ,clear all fields for further adding
-					message.setTextFill(Color.GREEN);
-					message.setText("saved succesfully");
-					name.clear();
-					time.clear();
-					type.getSelectionModel().clearSelection();
-					comps.getSelectionModel().clearSelection();
-					selected.getItems().clear();
-				} else
-					throw new CantAddObjectException("Dish " + dish.getDishName());
+				if (!(time.getText().isEmpty())&Utils.isOnlyDigits(time.getText())) {
+					timeToMake = Integer.parseInt(time.getText());
+					Dish dish = new Dish(name.getText(), dt, comp, timeToMake);
+					if (Main.restaurant.addDish(dish)) {  //if add succeeds ,clear all fields for further adding
+						message.setTextFill(Color.GREEN);
+						message.setText("saved succesfully");
+						name.clear();
+						time.clear();
+						type.getSelectionModel().clearSelection();
+						comps.getSelectionModel().clearSelection();
+						selected.getItems().clear();
+					} else
+						throw new CantAddObjectException("Dish " + dish.getDishName());
+				}
+				else {
+					message.setText("the time is incorrect");
+					message.setTextFill(Color.RED);
+				}
+				
 			}
 		} catch (CantAddObjectException ex) {
 			ex.alertMessage();

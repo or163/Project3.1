@@ -28,14 +28,20 @@ public class DeliverController {
 	@FXML  //  mark this delivery as delivered
 	void deliver(ActionEvent event) {
 		sounds.clickSound();
-		if (!deliveries.getItems().isEmpty()) {
+		if (!deliveries.getItems().isEmpty()&&deliveries.getSelectionModel().getSelectedItem()!=null) {
 			Delivery d = deliveries.getSelectionModel().getSelectedItem();
 			Main.restaurant.deliver(d);
 			deliveries.getItems().remove(d);
+			message.setTextFill(Color.GREEN);
+			message.setText("Checked as delivered!");
+		}
+		else if(deliveries.getItems().isEmpty()){
+			message.setTextFill(Color.RED);
+			message.setText("There are no deliveris on the list!");
 		}
 		else {
 			message.setTextFill(Color.RED);
-			message.setText("There are no deliveris on the list!");
+			message.setText("Please select a delivery!");
 		}
 	}
 

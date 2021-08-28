@@ -1,5 +1,6 @@
 package application;
 
+import Audio.sounds;
 import javafx.fxml.FXML;
 import javafx.scene.chart.BarChart;
 import javafx.scene.chart.LineChart;
@@ -17,6 +18,7 @@ public class RevenueFromExpressDeliveriesController {
 
 	@FXML  // if button pressed on program, add graph indicates restaurant's revenue from express deliveries
     private void addGraph() {
+		sounds.cashSound();
 		chart.getData().clear();
     	double revenue = Main.restaurant.revenueFromExpressDeliveries();
     	Series<String, Double> series = new XYChart.Series<>();

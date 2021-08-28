@@ -1,5 +1,6 @@
 package application;
 
+import Audio.sounds;
 import Model.Order;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -24,7 +25,14 @@ public class CalcOrderRevenueController {
 	
 	@FXML  // calculate selected order revenue
 	private void calcOrderRevenue(ActionEvent event) {
-		double revenue = orders.getSelectionModel().getSelectedItem().calcOrderRevenue();
-		rev.setText(Double.toString(revenue));
+		
+		if(orders.getSelectionModel().getSelectedItem()!=null) {
+			double revenue = orders.getSelectionModel().getSelectedItem().calcOrderRevenue();
+			rev.setText(Double.toString(revenue));
+			sounds.cashSound();
+		}
+		else
+			sounds.clickSound();
+		
 	}
 }
