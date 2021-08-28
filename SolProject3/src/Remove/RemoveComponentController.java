@@ -34,8 +34,7 @@ public class RemoveComponentController {
 		}
 	}
 
-	// filter component by id
-	@FXML
+	@FXML  // filter component by id
 	private void getComponent(ActionEvent event) {
 		if (!Utils.Utils.isOnlyDigits(id.getText()))
 			return;

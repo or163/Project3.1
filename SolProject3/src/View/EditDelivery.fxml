@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="500.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.EditDeliveryController">
+<AnchorPane prefHeight="500.0" prefWidth="600.0" stylesheets="@/application/background.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.EditDeliveryController">
    <children>
       <Label alignment="CENTER" layoutX="206.0" layoutY="24.0" prefHeight="35.0" prefWidth="166.0" style="-fx-background-color: #ffffff80; -fx-background-radius: 12;" text="Edit Delivery">
          <font>
@@ -47,7 +47,7 @@
       <ChoiceBox fx:id="deliveryPersons" layoutX="129.0" layoutY="107.0" prefHeight="30.0" prefWidth="100.0" />
       <ChoiceBox fx:id="deliveryArea" layoutX="343.0" layoutY="107.0" prefHeight="30.0" prefWidth="100.0" />
       <Label alignment="CENTER" layoutX="31.0" layoutY="175.0" prefHeight="22.0" prefWidth="230.0" style="-fx-background-radius: 12; -fx-background-color: #ffffff80;" text="To add ExpressDelivery chose only 1 order:" />
-      <Label layoutX="31.0" layoutY="71.0" prefHeight="25.0" prefWidth="89.0" stylesheets="@../application/background.css" text="Choose Delivery:" />
+      <Label layoutX="31.0" layoutY="71.0" prefHeight="25.0" prefWidth="89.0" text="Choose Delivery:" />
       <ComboBox fx:id="WhichDel" layoutX="129.0" layoutY="71.0" onAction="#DelSelected" prefHeight="25.0" prefWidth="451.0" />
    </children>
 </AnchorPane>

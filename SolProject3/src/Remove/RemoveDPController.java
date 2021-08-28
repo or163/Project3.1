@@ -2,6 +2,7 @@ package Remove;
 
 import java.util.Optional;
 
+import Model.Customer;
 import Model.DeliveryPerson;
 import application.Main;
 import javafx.event.ActionEvent;
@@ -10,6 +11,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.paint.Color;
 
@@ -20,6 +22,9 @@ public class RemoveDPController {
 
 	@FXML
 	private Label message;
+	
+	@FXML
+	private TextField id;
 
 	// Initiate List View with all delivery persons inside
 	public void initData() {
@@ -30,6 +35,14 @@ public class RemoveDPController {
 		}
 	}
 
+	@FXML  // filter delivery person by id
+	private void getDP(ActionEvent event) {
+		if (!Utils.Utils.isOnlyDigits(id.getText()))
+			return;
+		DeliveryPerson dp = Main.restaurant.getRealDeliveryPerson(Integer.parseInt(id.getText()));
+		dpLV.getSelectionModel().select(dp);
+	}
+	
 	// this Method removes the selected delivery person from the restaurant
 	@FXML
 	private void remove(ActionEvent event) {

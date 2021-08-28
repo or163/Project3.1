@@ -5,9 +5,9 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="500.0" prefWidth="626.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.GetNumberOfDeliveriesPerTypeController">
+<AnchorPane prefHeight="500.0" prefWidth="600.0" stylesheets="@/application/background.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.GetNumberOfDeliveriesPerTypeController">
    <children>
-      <Label alignment="CENTER" layoutX="120.0" layoutY="14.0" prefHeight="35.0" prefWidth="405.0" style="-fx-background-color: #ffffff80; -fx-background-radius: 12;" text="Get Number Of Deliveries Per Type">
+      <Label alignment="CENTER" layoutX="115.0" layoutY="14.0" prefHeight="35.0" prefWidth="405.0" style="-fx-background-color: #ffffff80; -fx-background-radius: 12;" text="Get Number Of Deliveries Per Type">
          <font>
             <Font name="System Bold" size="24.0" />
          </font>

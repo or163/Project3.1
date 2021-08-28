@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="600.0" styleClass="label" stylesheets="@../application/background.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.EditComponentController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="600.0" stylesheets="@/application/background.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.EditComponentController">
    <children>
       <Label alignment="TOP_CENTER" layoutX="188.0" layoutY="14.0" prefHeight="35.0" prefWidth="224.0" style="-fx-background-radius: 12; -fx-background-color: #ffffff80;" text="Edit Component">
          <font>
@@ -21,7 +21,7 @@
             <Font size="14.0" />
          </font>
       </Button>
-      <Label fx:id="message" alignment="TOP_CENTER" layoutX="167.0" layoutY="460.0" prefHeight="17.0" prefWidth="272.0" stylesheets="@../application/background.css" textFill="#e22424" />
+      <Label fx:id="message" alignment="TOP_CENTER" layoutX="167.0" layoutY="460.0" prefHeight="17.0" prefWidth="272.0" textFill="#e22424" />
       <Label layoutX="20.0" layoutY="76.0" prefHeight="25.0" prefWidth="113.0" style="-fx-background-color: #ffffff80; -fx-background-radius: 12;" text="Choose Component:" />
       <ComboBox fx:id="WhichComponent" layoutX="139.0" layoutY="76.0" onAction="#ComponentSelected" prefHeight="25.0" prefWidth="439.0" />
       <Label layoutX="21.0" layoutY="132.0" prefHeight="25.0" prefWidth="57.0" text="Name :" />

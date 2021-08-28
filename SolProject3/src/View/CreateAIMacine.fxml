@@ -7,9 +7,9 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="500.0" prefWidth="626.0" stylesheets="@../application/background.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.CreateAIMacineController">
+<AnchorPane prefHeight="500.0" prefWidth="600.0" stylesheets="@/application/background.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.CreateAIMacineController">
    <children>
-      <Label alignment="CENTER" layoutX="216.0" layoutY="34.0" prefHeight="35.0" prefWidth="251.0" style="-fx-background-color: #ffffff80; -fx-background-radius: 12;" text="Create AI Machine ">
+      <Label alignment="CENTER" layoutX="184.0" layoutY="14.0" prefHeight="35.0" prefWidth="251.0" style="-fx-background-color: #ffffff80; -fx-background-radius: 12;" text="Create AI Machine ">
          <font>
             <Font name="System Bold" size="24.0" />
          </font>
@@ -31,8 +31,8 @@
             <Font size="14.0" />
          </font>
       </Button>
-      <ListView fx:id="outcome" layoutX="25.0" layoutY="331.0" prefHeight="146.0" prefWidth="579.0" />
+      <ListView fx:id="outcome" layoutX="12.0" layoutY="332.0" prefHeight="146.0" prefWidth="579.0" />
       <ComboBox fx:id="deliveryArea" layoutX="120.0" layoutY="79.0" onAction="#getDPS" prefHeight="25.0" prefWidth="453.0" />
-      <ComboBox fx:id="deliveryPersons" layoutX="120.0" layoutY="113.0" prefHeight="25.0" prefWidth="453.0" promptText="Choose Delivery Area first" stylesheets="@../application/background.css" />
+      <ComboBox fx:id="deliveryPersons" layoutX="120.0" layoutY="113.0" prefHeight="25.0" prefWidth="453.0" promptText="Choose Delivery Area first" />
    </children>
 </AnchorPane>

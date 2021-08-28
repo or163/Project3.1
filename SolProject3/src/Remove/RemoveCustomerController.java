@@ -10,6 +10,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -25,6 +26,9 @@ public class RemoveCustomerController {
 
 	@FXML
 	private ImageView custPicture;
+	
+	@FXML
+	private TextField id;
 
 	// Initiate List View with all customers inside
 	public void initData() {
@@ -32,6 +36,21 @@ public class RemoveCustomerController {
 		customerLV.getItems().clear();
 		for (Customer c : Main.restaurant.getCustomers().values()) {
 			customerLV.getItems().add(c);
+		}
+	}
+	
+	@FXML  // filter customer by id
+	private void getCustomer(ActionEvent event) {
+		if (!Utils.Utils.isOnlyDigits(id.getText()))
+			return;
+		Customer cust = Main.restaurant.getRealCustomer(Integer.parseInt(id.getText()));
+		customerLV.getSelectionModel().select(cust);
+		custPicture.setPreserveRatio(false);
+		if (cust != null) {
+			if (cust.getProfilePicturePath() != null) { // check if picture exists
+				custPicture.setImage(new Image(cust.getProfilePicturePath()));
+			} else
+				custPicture.setImage(new Image("/Icons/no_image_64px.png"));
 		}
 	}
 

@@ -432,7 +432,7 @@ public class ManagerController {
 	@FXML
 	void goDatabases (ActionEvent event) throws IOException {
 		sounds.clickSound();
-		FXMLLoader fx = new FXMLLoader(getClass().getResource("/View/viewDatabases.fxml"));
+		FXMLLoader fx = new FXMLLoader(getClass().getResource("/View/viewDataBases.fxml"));
 		Pane p = fx.load();
 		AnchorPane pp = (AnchorPane) p;
 		viewDatabasesController ctrl = (viewDatabasesController) fx.getController();

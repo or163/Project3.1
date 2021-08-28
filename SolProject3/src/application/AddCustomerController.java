@@ -144,6 +144,7 @@ public class AddCustomerController {
 			Image img = new Image("file:///" + tmp.getAbsolutePath());
 			this.imageUrl = "file:///" + tmp.getAbsolutePath();
 			profilePicture.setImage(img);
+			profilePicture.setPreserveRatio(false);
 		}
 	}
 

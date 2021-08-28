@@ -16,7 +16,7 @@ public class SerializableWiz {
 	public static final String SER_PATH="Rest.ser";
 
 	public static void save(Restaurant restaurant) throws DBManagerException {
-			restaurant.SaveAllCounters();
+			restaurant.SaveAllCounters();  //save all counters of id for further using
 		
 		try {
 	         FileOutputStream fileOut = new FileOutputStream(SER_PATH);
@@ -24,7 +24,7 @@ public class SerializableWiz {
 	         out.writeObject(restaurant);
 	         out.close();
 	         fileOut.close();
-	         System.out.printf("Serialized data is saved in "+SER_PATH);
+	         System.out.printf("Serialized data is saved in "+SER_PATH + "\n");
 	      } catch (IOException i) {
 	    	 throw new DBManagerException("Error in save - "+i.getLocalizedMessage());
 	      }

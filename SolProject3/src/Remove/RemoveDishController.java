@@ -2,6 +2,7 @@ package Remove;
 
 import java.util.Optional;
 
+import Model.Customer;
 import Model.Dish;
 import application.Main;
 import javafx.event.ActionEvent;
@@ -10,6 +11,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.paint.Color;
 
@@ -20,6 +22,9 @@ public class RemoveDishController {
 
 	@FXML
 	private Label message;
+	
+	@FXML
+	private TextField id;
 
 	// Initiate List View with all dishes inside
 	public void initData() {
@@ -30,6 +35,14 @@ public class RemoveDishController {
 		}
 	}
 
+	@FXML  // filter dish by id
+	private void getDish(ActionEvent event) {
+		if (!Utils.Utils.isOnlyDigits(id.getText()))
+			return;
+		Dish dish = Main.restaurant.getRealDish(Integer.parseInt(id.getText()));
+		dishLV.getSelectionModel().select(dish);
+	}
+	
 	// this Method removes the selected dish from the restaurant
 	@FXML
 	private void remove(ActionEvent event) {

@@ -1,13 +1,10 @@
 /* JavaFX CSS - Leave this comment until you have at least create one rule which uses -fx-Property */
 
-.label{
+Label{
      -fx-background-color:  #ffffff80;
      -fx-background-radius: 12;
      -fx-max-height: 25;
+	 -fx-font-family: "Berlin Sans FB";
      }
 
-.bodybgrest{
- -fx-background-image: url('/Icons/restaurant-management.jpg');
- -fx-background-size: stretch;	
-}
 

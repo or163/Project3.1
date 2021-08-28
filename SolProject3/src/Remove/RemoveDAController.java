@@ -24,7 +24,6 @@ public class RemoveDAController {
 	@FXML
 	private Label message;
 
-	// this Method removes the selected delivery area from the restaurant
 	public void initData() {
 		DALV.getItems().clear();
 		DALV2.getItems().clear();
@@ -34,7 +33,7 @@ public class RemoveDAController {
 		DALV2.getItems().addAll(Main.restaurant.getAreas().values());
 	}
 
-	@FXML
+	@FXML  // this Method removes the selected delivery area from the restaurant
 	void remove(ActionEvent event) {
 		DeliveryArea da = null;
 		DeliveryArea da2 = null;

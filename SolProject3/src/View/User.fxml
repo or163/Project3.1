@@ -14,11 +14,11 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane fx:id="pannelRoot" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="700.0" style="-fx-background-color: #c5c5c5;" styleClass="bodybg" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.UserController">
+<BorderPane fx:id="pannelRoot" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="700.0" style="-fx-background-color: #c5c5c5;" styleClass="bodybgrest" stylesheets="@/application/mainBackground.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.UserController">
    <center>
       <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
-            <Label fx:id="welcome" alignment="TOP_CENTER" layoutX="186.0" layoutY="14.0" prefHeight="35.0" prefWidth="227.0">
+            <Label fx:id="welcome" alignment="TOP_CENTER" layoutX="186.0" layoutY="14.0" prefHeight="35.0" prefWidth="227.0" stylesheets="@/application/background.css">
                <font>
                   <Font size="24.0" />
                </font>
@@ -27,7 +27,7 @@
       </AnchorPane>
    </center>
    <left>
-      <AnchorPane fx:id="anchor" prefWidth="100.0" style="-fx-background-color: #171717;" stylesheets="@../application/application.css" BorderPane.alignment="CENTER">
+      <AnchorPane fx:id="anchor" prefWidth="100.0" style="-fx-background-color: #171717;" stylesheets="@/application/application.css" BorderPane.alignment="CENTER">
          <children>
             <VBox fx:id="vbox" layoutY="50.0" prefHeight="450.0" prefWidth="100.0" style="-fx-background-color: #171717;">
                <children>

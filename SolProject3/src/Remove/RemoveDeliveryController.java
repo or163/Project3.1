@@ -2,6 +2,7 @@ package Remove;
 
 import java.util.Optional;
 
+import Model.Customer;
 import Model.Delivery;
 import application.Main;
 import javafx.event.ActionEvent;
@@ -10,6 +11,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.paint.Color;
 
@@ -20,12 +22,23 @@ public class RemoveDeliveryController {
 
 	@FXML
 	private Label message;
+	
+	@FXML
+	private TextField id;
 
 	// Initiate List View with all deliveries inside
 	public void initData() {
 
 		dellLV.getItems().clear();
 		dellLV.getItems().addAll(Main.restaurant.getDeliveries().values());
+	}
+	
+	@FXML  // filter delivery by id
+	private void getDelivery(ActionEvent event) {
+		if (!Utils.Utils.isOnlyDigits(id.getText()))
+			return;
+		Delivery del = Main.restaurant.getRealDelivery(Integer.parseInt(id.getText()));
+		dellLV.getSelectionModel().select(del);
 	}
 
 	// this Method removes the selected delivery from the restaurant

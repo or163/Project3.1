@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="600.0" styleClass="label" stylesheets="@../application/background.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.EditCookController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="600.0" stylesheets="@/application/background.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.EditCookController">
    <children>
       <Label alignment="TOP_CENTER" layoutX="107.0" layoutY="14.0" prefHeight="17.0" prefWidth="385.0" style="-fx-background-radius: 12; -fx-background-color: #ffffff80;" text="Edit Cook">
          <font>
@@ -27,7 +27,7 @@
       <Label layoutX="23.0" layoutY="138.0" prefHeight="25.0" prefWidth="84.0" style="-fx-background-color: #ffffff80; -fx-background-radius: 12;" text="Last Name :" />
       <Label layoutX="23.0" layoutY="178.0" prefHeight="25.0" prefWidth="84.0" style="-fx-background-color: #ffffff80; -fx-background-radius: 12;" text="Date of Birth :" />
       <Label layoutX="23.0" layoutY="218.0" prefHeight="25.0" prefWidth="84.0" style="-fx-background-color: #ffffff80; -fx-background-radius: 12;" text="Gender :" />
-      <Label layoutX="23.0" layoutY="258.0" prefHeight="25.0" prefWidth="84.0" style="-fx-background-color: #ffffff80; -fx-background-radius: 12;" stylesheets="@../application/background.css" text="Expertise :" />
+      <Label layoutX="23.0" layoutY="258.0" prefHeight="25.0" prefWidth="84.0" style="-fx-background-color: #ffffff80; -fx-background-radius: 12;" text="Expertise :" />
       <Label layoutX="23.0" layoutY="301.0" prefHeight="25.0" prefWidth="84.0" style="-fx-background-color: #ffffff80; -fx-background-radius: 12;" text="Is Chef? :" />
       <TextField fx:id="txtFName" layoutX="113.0" layoutY="96.0" prefHeight="30.0" prefWidth="100.0" />
       <TextField fx:id="txtLName" layoutX="113.0" layoutY="136.0" prefHeight="30.0" prefWidth="100.0" />

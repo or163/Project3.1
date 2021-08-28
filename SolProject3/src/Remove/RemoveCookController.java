@@ -10,6 +10,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
@@ -21,6 +22,9 @@ public class RemoveCookController {
 
 	@FXML
 	private Label message;
+	
+	@FXML
+	private TextField id;
 
 	// Initiate List View with all cooks inside
 	public void initData() {
@@ -31,6 +35,14 @@ public class RemoveCookController {
 		}
 	}
 
+		@FXML  // filter cook by id
+		private void getCook(ActionEvent event) {
+			if (!Utils.Utils.isOnlyDigits(id.getText()))
+				return;
+			Cook cook = Main.restaurant.getRealCook(Integer.parseInt(id.getText()));
+			cookLV.getSelectionModel().select(cook);
+		}
+	
 	// this Method removes the selected cook from the restaurant
 	@FXML
 	private void remove(ActionEvent event) {
@@ -40,7 +52,7 @@ public class RemoveCookController {
 		if (cookLV.getItems().size() == 0) //in case there are no cooks in the list
 			message.setText("There are no cooks to remove");
 		else if (cookLV.getSelectionModel().getSelectedItem() == null) //no cook selected
-			message.setText("Please Select a bird to Remove");
+			message.setText("Please Select a cook to Remove");
 		else if (c != null) {
 			
 			Alert alert = new Alert(AlertType.CONFIRMATION); //if returned ok from alert remove cook

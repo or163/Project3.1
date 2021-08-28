@@ -10,6 +10,8 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.paint.Color;
 
@@ -20,6 +22,9 @@ public class addCustomerToBlackListController {
 
 	@FXML
 	private Label message;
+	
+	 @FXML
+	 private ImageView custPicture;
 
 	// Initiate the page and fill list view in all customers
 	public void initData() {
@@ -56,6 +61,19 @@ public class addCustomerToBlackListController {
 
 			}
 		}
+	}
+	
+	@FXML  // show customer profile picture (if exists)
+	private void showCustomerImage() {
+		if (customerLV.getSelectionModel().getSelectedItem() != null) {
+			Customer c = (Customer) customerLV.getSelectionModel().getSelectedItem();
+			custPicture.setPreserveRatio(false);
+			if (c.getProfilePicturePath() != null) {  // check if picture exists
+				custPicture.setImage(new Image(c.getProfilePicturePath()));
+			} else
+				custPicture.setImage(new Image("/Icons/no_image_64px.png"));
+		}
+
 	}
 
 }

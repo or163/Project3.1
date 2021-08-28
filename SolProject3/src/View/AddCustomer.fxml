@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="600.0" styleClass="label" stylesheets="@../application/background.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.AddCustomerController">
+<AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="600.0" styleClass="label" stylesheets="@/application/background.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.AddCustomerController">
    <children>
       <Label alignment="TOP_CENTER" layoutX="117.0" layoutY="14.0" prefHeight="17.0" prefWidth="385.0" text="Add Customer">
          <font>
@@ -59,7 +59,7 @@
             <Image url="@/Icons/addProfileImage.png" />
          </image>
       </ImageView>
-      <Label layoutX="370.0" layoutY="181.0" prefHeight="17.0" prefWidth="162.0" text="Add Profile Image (Optional)" />
+      <Label layoutX="368.0" layoutY="181.0" prefHeight="17.0" prefWidth="156.0" text="Add Profile Image (Optional)" />
       <Button layoutX="367.0" layoutY="201.0" mnemonicParsing="false" onAction="#chooseFile" prefHeight="25.0" prefWidth="156.0" text="Upload Image" />
    </children>
 </AnchorPane>

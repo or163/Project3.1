@@ -17,13 +17,12 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-
-<BorderPane fx:id="pannelRoot" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="700.0" style="-fx-background-color: #c5c5c5;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ManagerController">
+<BorderPane fx:id="pannelRoot" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="700.0" style="-fx-background-color: #c5c5c5;" styleClass="bodybgrest" stylesheets="@/application/mainBackground.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ManagerController">
    <center>
-      <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="200.0" prefWidth="200.0" styleClass="bodybg" stylesheets="@../application/mainBackground.css" BorderPane.alignment="CENTER">
+      <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
             <MediaView fx:id="mv" fitHeight="200.0" fitWidth="200.0" layoutX="-59.0" layoutY="58.0" />
-            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="179.0" layoutY="14.0" maxHeight="35.0" prefHeight="35.0" prefWidth="224.0" stylesheets="@../application/background.css" text="Welcome manager!" textAlignment="CENTER">
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="179.0" layoutY="14.0" maxHeight="35.0" prefHeight="35.0" prefWidth="224.0" stylesheets="@/application/background.css" text="Welcome manager!" textAlignment="CENTER">
                <font>
                   <Font name="System Bold" size="24.0" />
                </font>
@@ -75,7 +74,7 @@
       </AnchorPane>
    </center>
    <left>
-      <AnchorPane fx:id="anchor" style="-fx-background-color: darkblue;" stylesheets="@../application/application.css" BorderPane.alignment="CENTER">
+      <AnchorPane fx:id="anchor" style="-fx-background-color: darkblue;" stylesheets="@/application/application.css" BorderPane.alignment="CENTER">
          <children>
             <VBox fx:id="vbox" layoutY="50.0" prefHeight="450.0" prefWidth="100.0" style="-fx-background-color: darkblue;">
                <children>

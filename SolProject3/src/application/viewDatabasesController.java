@@ -85,6 +85,8 @@ public class viewDatabasesController {
 		sounds.clickSound();
 		if (!Utils.Utils.isOnlyDigits(id.getText()))
 			return;
+		if(ChosenData.getSelectionModel().getSelectedItem() == null)
+			return;
 		String chosen = ChosenData.getSelectionModel().getSelectedItem();
 		switch (chosen) {
 		case "cooks":
