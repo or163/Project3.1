@@ -51,7 +51,8 @@ public class EditCookController {
     private ComboBox<Cook> WhichCook;
 
     
-    
+  
+  	//Saving the updated data or informs if there is any problem with the info
     @FXML
     void save(ActionEvent event) {
     	sounds.clickSound();
@@ -90,6 +91,7 @@ public class EditCookController {
 		}
 	}
     
+    //Fills up the page with current data according to the selected cook
     @FXML
     void CookSelected(ActionEvent event) {
     	gender.getItems().clear();
@@ -111,7 +113,7 @@ public class EditCookController {
     }
     
 	public void initData() {
-//		WhichCook.getItems().clear();
+
 		WhichCook.getItems().addAll(Main.restaurant.getCooks().values());
 		// TODO Auto-generated method stub
 		

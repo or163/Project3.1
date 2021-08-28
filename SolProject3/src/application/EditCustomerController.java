@@ -83,6 +83,7 @@ public class EditCustomerController {
 		WhichCustomer.getItems().addAll(Main.restaurant.getCustomers().values());
 	}
 
+	//Fills up the page with current data according to the selected customer
 	@FXML
 	void CustomerSelected(ActionEvent event) {
 		Customer cust = WhichCustomer.getSelectionModel().getSelectedItem();
@@ -116,6 +117,7 @@ public class EditCustomerController {
 
 	}
 	
+	//Saves the updated data or informs if there is any problem with the info
 	@FXML
 	void save(ActionEvent event) {
 		sounds.clickSound();

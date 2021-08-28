@@ -1,9 +1,6 @@
 package application;
 
-import java.util.HashSet;
-
 import Audio.sounds;
-import Model.Delivery;
 import Model.DeliveryArea;
 import javafx.event.ActionEvent;
 import Utils.Neighberhood;
@@ -31,6 +28,7 @@ public class EditDAController {
     @FXML
     private ComboBox<DeliveryArea> WhichDA;
 
+    //Fills up the page with current data according to the selected Delivery area
     @FXML
     void DASelected(ActionEvent event) {
     	DeliveryArea da = WhichDA.getSelectionModel().getSelectedItem();
@@ -42,7 +40,8 @@ public class EditDAController {
     	selected.getItems().addAll(da.getNeighberhoods());
     }
 
-	 
+  
+  	//Save the updated data or informs if there is any problem with the info
 	public void save(ActionEvent e) {
 		sounds.clickSound();
 			if(txtAreaName.getText().isEmpty()|| txtAreaName.getText()== null || selected.getItems().isEmpty()|| selected.getItems() == null) 
@@ -70,6 +69,7 @@ public class EditDAController {
 		selected.getItems().clear();
 	}
 	
+	//add neighborhood to the list view
 	public void listviewButtonPushed() {
 		sounds.clickSound();
 		if(selected.getItems().contains(listNeigh.getSelectionModel().getSelectedItem())) {
@@ -90,6 +90,7 @@ public class EditDAController {
 		
 	}
 	
+	//removes neighborhood from the listview
 	public void listviewButtonPull() {
 		sounds.clickSound();
 		if(selected.getSelectionModel().getSelectedItem()!=null) {

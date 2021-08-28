@@ -40,14 +40,16 @@ TableColumn.list-cell{
 	-fx-font-family: "Berlin Sans FB";
 }
 .list-view .list-cell:odd {
--fx-font-family: "Berlin Sans FB"
+	-fx-font-family: "Berlin Sans FB"
 }
 
 .list-view .list-cell:even {
--fx-font-family: "Berlin Sans FB";
+	-fx-font-family: "Berlin Sans FB";
 }
 
-.root{-fx-font-family:"Berlin Sans FB";}
+.root{
+	-fx-font-family:"Berlin Sans FB";
+}
 .text{
 	-fx-font-family: "Berlin Sans FB"
 }

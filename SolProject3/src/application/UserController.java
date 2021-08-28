@@ -222,6 +222,7 @@ public class UserController {
 	    // get a handle to the stage
 		sounds.backgroundMusicMute();
 		sounds.flashBackSound();
+		sounds.byebyeSound();
 		try
 		{
 		    Thread.sleep(2600);

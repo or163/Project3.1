@@ -1,17 +1,11 @@
 package application;
 
-import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.List;
 
 import Audio.sounds;
 import Model.Component;
-import Model.Cook;
-import Model.DeliveryPerson;
 import Model.Dish;
 import Utils.DishType;
-import Utils.Expertise;
-import Utils.Gender;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.ChoiceBox;
@@ -44,6 +38,7 @@ public class EditDishController {
     @FXML
     private ComboBox<Dish> WhichDish;
 
+  //Fills up the page with current data according to the selected dish
     @FXML
     void DishSelected(ActionEvent event) {
     	sounds.clickSound();
@@ -62,7 +57,7 @@ public class EditDishController {
     	
     }
     
-    @FXML
+    @FXML //saves the updated info of the dish to the restaurant
 	public void save(ActionEvent e) {
     	sounds.clickSound();
 		DishType dt = (DishType) type.getSelectionModel().getSelectedItem();
@@ -103,7 +98,7 @@ public class EditDishController {
 			comps.getItems().add(c);
 	}
 	
-	@FXML
+	@FXML  //add component to selected components for dish list view
 	private void addComp(ActionEvent e) {
 		sounds.clickSound();
 		if (comps.getSelectionModel().getSelectedItem() != null) {
@@ -117,7 +112,7 @@ public class EditDishController {
 		}
 	}
 	
-	@FXML
+	@FXML  //remove component from selected components for dish list view
 	private void removeComp(ActionEvent e) {
 		sounds.clickSound();
 		if(selected.getSelectionModel().getSelectedItem()!=null) {

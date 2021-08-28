@@ -44,6 +44,7 @@ public class EditComponentController {
 	@FXML
     private ComboBox<Component> WhichComponent;
 
+	//Fills up the page with current data according to the selected component
 	@FXML
     void ComponentSelected(ActionEvent event) {
 		Component theSelected = WhichComponent.getSelectionModel().getSelectedItem();
@@ -59,6 +60,7 @@ public class EditComponentController {
 			lactoseTG.selectToggle(lactoseNo);
     }
 	
+	//Saving the updated data or informs if there is any problem with the info
 	@FXML
 	void save(ActionEvent event) {
 		sounds.clickSound();
@@ -93,7 +95,7 @@ public class EditComponentController {
 	}
 
 	
-	
+	//fills up the combo box
 	public void initData() {
 		// TODO Auto-generated method stub
 		WhichComponent.getItems().addAll(Main.restaurant.getComponenets().values());

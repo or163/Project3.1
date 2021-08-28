@@ -106,20 +106,14 @@ public class LoginController implements Initializable{
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
-				try
-				{
-				    Thread.sleep(400);
-				}
-				catch(InterruptedException ex)
-				{
-				    Thread.currentThread().interrupt();
-				}
+				sounds.clickSound();
 				mp.setMute(true);
 				sounds.welcomeMSound();
 				sounds.backgroundMusic();
 			} else {
 				passwLine.setStroke(Color.RED);
 				message.setText("Incorrect Password");
+				sounds.clickSound();
 			}
 		} else {
 			

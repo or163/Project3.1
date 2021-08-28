@@ -20,6 +20,7 @@ import javafx.scene.paint.Color;
 
 public class Utils {
 
+	//a function that blocks future dates on date picker and sets as today as default 
 	public static void initDate(DatePicker date) {
 		Calendar c = Calendar.getInstance();
 		TimeZone tz = c.getTimeZone();
@@ -34,6 +35,7 @@ public class Utils {
 		date.setValue(ld);
 	}
 	
+	//a function that checks if the string contains only digits
 	public static boolean isOnlyDigits(String str) {
 		if(str.length()==0)
 			return false;
@@ -44,6 +46,7 @@ public class Utils {
         return true;
     }
 	
+	//a function that checks if the string is a double
 	public static boolean isDouble(String str) {
 		if(str.length()==0)
 			return false;
@@ -63,7 +66,7 @@ public class Utils {
     }
 	
 	
-	
+	//a function the string(password) is good enough and colors the label accordingly
     public static boolean isValidPassword(String password, Label message)
     {
             boolean isValid = true;
@@ -100,6 +103,7 @@ public class Utils {
             return isValid; 
     }
     
+    //checks if this user exists
     public static boolean userNameExists(String name) {
     	for(Customer c : Main.restaurant.getCustomers().values()) {
     		if(c.getUserName().equals(name))

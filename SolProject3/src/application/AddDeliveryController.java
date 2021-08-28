@@ -67,7 +67,7 @@ public class AddDeliveryController {
 		selected.getItems().clear();
 	}
 
-	@FXML   // after choosing delivery area ,deliveryperson combo-box filled with delivery persons from the selected area
+	@FXML   // after choosing delivery area ,delivery person combo-box filled with delivery persons from the selected area
 	void getDPS(ActionEvent event) {
 		sounds.clickSound();
 		deliveryPersons.getItems().clear();

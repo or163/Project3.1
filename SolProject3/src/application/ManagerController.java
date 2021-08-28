@@ -502,6 +502,7 @@ public class ManagerController {
 	private void exitButtonAction(ActionEvent event){
 		sounds.backgroundMusicMute();
 		sounds.flashBackSound();
+		sounds.byebyeSound();
 		try
 		{
 		    Thread.sleep(2600);
