@@ -39,9 +39,9 @@
             </LinearGradient>
          </fill>
       </Circle>
-      <Label layoutX="83.0" layoutY="113.0" onMouseClicked="#goRemoveCook" prefHeight="28.0" prefWidth="103.0" text="Remove Cook" textFill="WHITE">
+      <Label alignment="CENTER" layoutX="83.0" layoutY="113.0" onMouseClicked="#goRemoveCook" prefHeight="28.0" prefWidth="103.0" text="Remove Cook" textFill="WHITE">
          <font>
-            <Font name="Arial Bold" size="15.0" />
+            <Font name="Berlin Sans FB Demi Bold" size="15.0" />
          </font>
          <cursor>
             <Cursor fx:constant="HAND" />
@@ -76,9 +76,9 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </ImageView>
-      <Label layoutX="247.0" layoutY="113.0" onMouseClicked="#goRemoveComponent" prefHeight="40.0" prefWidth="124.0" text="       Remove&#10;    Component" textFill="WHITE">
+      <Label alignment="CENTER" layoutX="236.0" layoutY="113.0" onMouseClicked="#goRemoveComponent" prefHeight="40.0" prefWidth="124.0" text="       Remove&#10;    Component" textFill="WHITE">
          <font>
-            <Font name="Arial Bold" size="15.0" />
+            <Font name="Berlin Sans FB Demi Bold" size="15.0" />
          </font>
          <cursor>
             <Cursor fx:constant="HAND" />
@@ -113,9 +113,9 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </ImageView>
-      <Label layoutX="429.0" layoutY="115.0" onMouseClicked="#goRemoveCustomer" prefHeight="40.0" prefWidth="113.0" text="    Remove &#10;   Customer" textFill="WHITE">
+      <Label alignment="CENTER" layoutX="420.0" layoutY="115.0" onMouseClicked="#goRemoveCustomer" prefHeight="40.0" prefWidth="113.0" text="    Remove &#10;   Customer" textFill="WHITE">
          <font>
-            <Font name="Arial Bold" size="15.0" />
+            <Font name="Berlin Sans FB Demi Bold" size="15.0" />
          </font>
          <cursor>
             <Cursor fx:constant="HAND" />
@@ -234,9 +234,9 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </ImageView>
-      <Label layoutX="76.0" layoutY="272.0" onMouseClicked="#goRemoveDP" prefHeight="40.0" prefWidth="131.0" text="Remove Delivery&#10;         Person" textFill="WHITE">
+      <Label alignment="CENTER" layoutX="74.0" layoutY="272.0" onMouseClicked="#goRemoveDP" prefHeight="40.0" prefWidth="131.0" text="Remove Delivery&#10;         Person" textFill="WHITE">
          <font>
-            <Font name="Arial Bold" size="15.0" />
+            <Font name="Berlin Sans FB Demi Bold" size="15.0" />
          </font>
          <cursor>
             <Cursor fx:constant="HAND" />
@@ -250,9 +250,9 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </ImageView>
-      <Label layoutX="259.0" layoutY="278.0" onMouseClicked="#goRemoveDish" prefHeight="28.0" prefWidth="100.0" text="Remove Dish" textFill="WHITE">
+      <Label alignment="CENTER" layoutX="255.0" layoutY="278.0" onMouseClicked="#goRemoveDish" prefHeight="28.0" prefWidth="100.0" text="Remove Dish" textFill="WHITE">
          <font>
-            <Font name="Arial Bold" size="15.0" />
+            <Font name="Berlin Sans FB Demi Bold" size="15.0" />
          </font>
          <cursor>
             <Cursor fx:constant="HAND" />
@@ -266,9 +266,9 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </ImageView>
-      <Label layoutX="428.0" layoutY="278.0" onMouseClicked="#goRemoveOrder" prefHeight="28.0" prefWidth="113.0" text="Remove Order" textFill="WHITE">
+      <Label alignment="CENTER" layoutX="423.0" layoutY="278.0" onMouseClicked="#goRemoveOrder" prefHeight="28.0" prefWidth="113.0" text="Remove Order" textFill="WHITE">
          <font>
-            <Font name="Arial Bold" size="15.0" />
+            <Font name="Berlin Sans FB Demi Bold" size="15.0" />
          </font>
          <cursor>
             <Cursor fx:constant="HAND" />
@@ -282,9 +282,9 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </ImageView>
-      <Label layoutX="77.0" layoutY="435.0" onMouseClicked="#goRemoveDelivery" prefHeight="40.0" prefWidth="124.0" text="        Remove&#10;        Delivery" textFill="WHITE">
+      <Label alignment="CENTER" layoutX="66.0" layoutY="437.0" onMouseClicked="#goRemoveDelivery" prefHeight="40.0" prefWidth="100.0" text="        Remove&#10;        Delivery" textFill="WHITE">
          <font>
-            <Font name="Arial Bold" size="15.0" />
+            <Font name="Berlin Sans FB Demi Bold" size="15.0" />
          </font>
          <cursor>
             <Cursor fx:constant="HAND" />
@@ -298,9 +298,9 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </ImageView>
-      <Label layoutX="246.0" layoutY="435.0" onMouseClicked="#goRemoveDA" prefHeight="40.0" prefWidth="124.0" text="Remove Delivery&#10;          Area" textFill="WHITE">
+      <Label alignment="CENTER" layoutX="246.0" layoutY="435.0" onMouseClicked="#goRemoveDA" prefHeight="40.0" prefWidth="124.0" text="Remove Delivery&#10;          Area" textFill="WHITE">
          <font>
-            <Font name="Arial Bold" size="15.0" />
+            <Font name="Berlin Sans FB Demi Bold" size="15.0" />
          </font>
          <cursor>
             <Cursor fx:constant="HAND" />

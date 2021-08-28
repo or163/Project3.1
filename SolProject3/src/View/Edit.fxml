@@ -36,7 +36,7 @@
       </Circle>
       <Label layoutX="98.0" layoutY="113.0" onMouseClicked="#goEditCook" prefHeight="28.0" prefWidth="81.0" text="Edit Cook" textFill="WHITE">
          <font>
-            <Font name="Arial Bold" size="15.0" />
+            <Font name="Berlin Sans FB Demi Bold" size="15.0" />
          </font>
          <cursor>
             <Cursor fx:constant="HAND" />
@@ -71,9 +71,9 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </ImageView>
-      <Label layoutX="247.0" layoutY="113.0" onMouseClicked="#goEditComponent" prefHeight="28.0" prefWidth="124.0" text="Edit Component" textFill="WHITE">
+      <Label layoutX="249.0" layoutY="113.0" onMouseClicked="#goEditComponent" prefHeight="28.0" prefWidth="124.0" text="Edit Component" textFill="WHITE">
          <font>
-            <Font name="Arial Bold" size="15.0" />
+            <Font name="Berlin Sans FB Demi Bold" size="15.0" />
          </font>
          <cursor>
             <Cursor fx:constant="HAND" />
@@ -108,9 +108,9 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </ImageView>
-      <Label layoutX="429.0" layoutY="115.0" onMouseClicked="#goEditCustomer" prefHeight="28.0" prefWidth="113.0" text="Edit Customer" textFill="WHITE">
+      <Label layoutX="429.0" layoutY="115.0" onMouseClicked="#goEditCustomer" prefHeight="28.0" prefWidth="103.0" text="Edit Customer" textFill="WHITE">
          <font>
-            <Font name="Arial Bold" size="15.0" />
+            <Font name="Berlin Sans FB Demi Bold" size="15.0" />
          </font>
          <cursor>
             <Cursor fx:constant="HAND" />
@@ -223,7 +223,7 @@
       </Circle>
       <Label layoutX="92.0" layoutY="276.0" onMouseClicked="#goEditDP" prefHeight="40.0" prefWidth="103.0" text="Edit Delivery&#10;    Person" textFill="WHITE">
          <font>
-            <Font name="Arial Bold" size="15.0" />
+            <Font name="Berlin Sans FB Demi Bold" size="15.0" />
          </font>
          <cursor>
             <Cursor fx:constant="HAND" />
@@ -237,9 +237,9 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </ImageView>
-      <Label layoutX="270.0" layoutY="278.0" onMouseClicked="#goEditDish" prefHeight="28.0" prefWidth="73.0" text="Edit Dish" textFill="WHITE">
+      <Label layoutX="271.0" layoutY="278.0" onMouseClicked="#goEditDish" prefHeight="28.0" prefWidth="73.0" text="Edit Dish" textFill="WHITE">
          <font>
-            <Font name="Arial Bold" size="15.0" />
+            <Font name="Berlin Sans FB Demi Bold" size="15.0" />
          </font>
          <cursor>
             <Cursor fx:constant="HAND" />
@@ -255,7 +255,7 @@
       </ImageView>
       <Label layoutX="443.0" layoutY="278.0" onMouseClicked="#goEditOrder" prefHeight="28.0" prefWidth="81.0" text="Edit Order" textFill="WHITE">
          <font>
-            <Font name="Arial Bold" size="15.0" />
+            <Font name="Berlin Sans FB Demi Bold" size="15.0" />
          </font>
          <cursor>
             <Cursor fx:constant="HAND" />
@@ -269,9 +269,9 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </ImageView>
-      <Label layoutX="88.0" layoutY="438.0" onMouseClicked="#goEditDelivery" prefHeight="28.0" prefWidth="103.0" text="Edit Delivery" textFill="WHITE">
+      <Label layoutX="90.0" layoutY="438.0" onMouseClicked="#goEditDelivery" prefHeight="28.0" prefWidth="103.0" text="Edit Delivery" textFill="WHITE">
          <font>
-            <Font name="Arial Bold" size="15.0" />
+            <Font name="Berlin Sans FB Demi Bold" size="15.0" />
          </font>
          <cursor>
             <Cursor fx:constant="HAND" />
@@ -285,9 +285,9 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </ImageView>
-      <Label layoutX="259.0" layoutY="438.0" onMouseClicked="#goEditDA" prefHeight="40.0" prefWidth="103.0" text="Edit Delivery&#10;       Area" textFill="WHITE">
+      <Label layoutX="262.0" layoutY="438.0" onMouseClicked="#goEditDA" prefHeight="40.0" prefWidth="94.0" text="Edit Delivery&#10;       Area" textFill="WHITE">
          <font>
-            <Font name="Arial Bold" size="15.0" />
+            <Font name="Berlin Sans FB Demi Bold" size="15.0" />
          </font>
          <cursor>
             <Cursor fx:constant="HAND" />
