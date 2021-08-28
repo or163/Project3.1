@@ -37,8 +37,11 @@ public class RemoveCookController {
 
 		@FXML  // filter cook by id
 		private void getCook(ActionEvent event) {
-			if (!Utils.Utils.isOnlyDigits(id.getText()))
+			message.setText("");
+			if (!Utils.Utils.isOnlyDigits(id.getText())) {  //validates that only digits are enterd to the text field
+				message.setText("Wrong value! enter only numbers");
 				return;
+			}
 			Cook cook = Main.restaurant.getRealCook(Integer.parseInt(id.getText()));
 			cookLV.getSelectionModel().select(cook);
 		}

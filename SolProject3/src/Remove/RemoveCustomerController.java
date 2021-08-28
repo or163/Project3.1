@@ -41,8 +41,11 @@ public class RemoveCustomerController {
 	
 	@FXML  // filter customer by id
 	private void getCustomer(ActionEvent event) {
-		if (!Utils.Utils.isOnlyDigits(id.getText()))
+		message.setText("");
+		if (!Utils.Utils.isOnlyDigits(id.getText())) {  //validates that only digits are enterd to the text field
+			message.setText("Wrong value! enter only numbers");
 			return;
+		}
 		Customer cust = Main.restaurant.getRealCustomer(Integer.parseInt(id.getText()));
 		customerLV.getSelectionModel().select(cust);
 		custPicture.setPreserveRatio(false);

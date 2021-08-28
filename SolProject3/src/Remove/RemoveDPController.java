@@ -37,8 +37,11 @@ public class RemoveDPController {
 
 	@FXML  // filter delivery person by id
 	private void getDP(ActionEvent event) {
-		if (!Utils.Utils.isOnlyDigits(id.getText()))
+		message.setText("");
+		if (!Utils.Utils.isOnlyDigits(id.getText())) {  //validates that only digits are enterd to the text field
+			message.setText("Wrong value! enter only numbers");
 			return;
+		}
 		DeliveryPerson dp = Main.restaurant.getRealDeliveryPerson(Integer.parseInt(id.getText()));
 		dpLV.getSelectionModel().select(dp);
 	}

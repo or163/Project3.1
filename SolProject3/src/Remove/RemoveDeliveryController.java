@@ -35,8 +35,11 @@ public class RemoveDeliveryController {
 	
 	@FXML  // filter delivery by id
 	private void getDelivery(ActionEvent event) {
-		if (!Utils.Utils.isOnlyDigits(id.getText()))
+		message.setText("");
+		if (!Utils.Utils.isOnlyDigits(id.getText())) {  //validates that only digits are enterd to the text field
+			message.setText("Wrong value! enter only numbers");
 			return;
+		}
 		Delivery del = Main.restaurant.getRealDelivery(Integer.parseInt(id.getText()));
 		dellLV.getSelectionModel().select(del);
 	}

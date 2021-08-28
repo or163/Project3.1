@@ -37,8 +37,11 @@ public class RemoveOrderController {
 
 	@FXML  // filter order by id
 	private void getOrder(ActionEvent event) {
-		if (!Utils.Utils.isOnlyDigits(id.getText()))
+		message.setText("");
+		if (!Utils.Utils.isOnlyDigits(id.getText())) {  //validates that only digits are enterd to the text field
+			message.setText("Wrong value! enter only numbers");
 			return;
+		}
 		Order order = Main.restaurant.getRealOrder(Integer.parseInt(id.getText()));
 		orderLV.getSelectionModel().select(order);
 	}
