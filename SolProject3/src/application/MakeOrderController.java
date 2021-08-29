@@ -112,11 +112,7 @@ public class MakeOrderController {
 			messageLeft.setText("Please select a dish first");
 			return;
 		}
-<<<<<<< HEAD
-		
-=======
-			
->>>>>>> branch 'master' of https://github.com/or163/Project3.1.git
+
 		selected.getItems().add(dishesTV.getSelectionModel().getSelectedItem());
 		dishname.setCellValueFactory(new PropertyValueFactory<>("dishName"));
 		priceRight.setCellValueFactory(new PropertyValueFactory<>("price"));
@@ -197,10 +193,7 @@ public class MakeOrderController {
 			messageLeft.setText("Please select a dish first");
 			return;
 		}
-<<<<<<< HEAD
 		
-=======
->>>>>>> branch 'master' of https://github.com/or163/Project3.1.git
 		allComps.getItems().clear();
 		compsInDish.getItems().clear();
 		compName1.setCellValueFactory(new PropertyValueFactory<>("componentName"));
