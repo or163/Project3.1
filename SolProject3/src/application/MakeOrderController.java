@@ -2,18 +2,15 @@ package application;
 
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Collections;
 import java.util.Optional;
 
 import Audio.sounds;
 import Exceptions.CantAddObjectException;
 import Model.Component;
-import Model.Cook;
 import Model.Customer;
 import Model.Dish;
 import Model.Order;
 import Utils.DishType;
-import Utils.Expertise;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -110,12 +107,18 @@ public class MakeOrderController {
 	@FXML
 	private void addDish(ActionEvent event) {
 		sounds.clickSound();
-		if (dishesTV.getSelectionModel().getSelectedItem() == null)
+		if (dishesTV.getSelectionModel().getSelectedItem() == null) {
+			messageLeft.setTextFill(Color.RED);
+			messageLeft.setText("Please select a dish first");
 			return;
+		}
+		
 		selected.getItems().add(dishesTV.getSelectionModel().getSelectedItem());
 		dishname.setCellValueFactory(new PropertyValueFactory<>("dishName"));
 		priceRight.setCellValueFactory(new PropertyValueFactory<>("price"));
 		priceLabel.setText(getPrice(selected.getItems()));
+		messageLeft.setTextFill(Color.GREEN);
+		messageLeft.setText("Dish was added to the list");
 	}
 
 	@FXML
@@ -147,10 +150,10 @@ public class MakeOrderController {
 		}
 	}
 
-	@FXML
+	@FXML  //make order
 	private void makeOrder(ActionEvent event) {
 		sounds.clickSound();
-		if (selected.getItems().size() != 0) {
+		if (selected.getItems().size() != 0) {  //size of items in current order aren't 0
 			ArrayList<Dish> list = new ArrayList<>();
 			for (Dish d : selected.getItems())
 				list.add(d);
@@ -182,11 +185,15 @@ public class MakeOrderController {
 
 	}
 
-	@FXML
+	@FXML  //show edit dish components pane and initiate pane
 	private void goEdit(ActionEvent event) {
 		sounds.clickSound();
-		if (dishesTV.getSelectionModel().getSelectedItem() == null)
+		if (dishesTV.getSelectionModel().getSelectedItem() == null) {
+			messageLeft.setTextFill(Color.RED);
+			messageLeft.setText("Please select a dish first");
 			return;
+		}
+		
 		allComps.getItems().clear();
 		compsInDish.getItems().clear();
 		compName1.setCellValueFactory(new PropertyValueFactory<>("componentName"));
@@ -196,7 +203,7 @@ public class MakeOrderController {
 		editPane.setVisible(true);
 	}
 
-	@FXML
+	@FXML  //add component to new desired dish
 	private void addComp(ActionEvent event) {
 		sounds.clickSound();
 		if (allComps.getSelectionModel().getSelectedItem() == null)
@@ -204,19 +211,19 @@ public class MakeOrderController {
 		compsInDish.getItems().add(allComps.getSelectionModel().getSelectedItem());
 	}
 
-	@FXML
+	@FXML  //remove component from new desired dish
 	private void removeComp(ActionEvent event) {
 		sounds.clickSound();
 		compsInDish.getItems().remove(compsInDish.getSelectionModel().getSelectedItem());
 	}
 
-	@FXML
+	@FXML //close edit pane
 	private void closeEdit(ActionEvent event) {
 		sounds.clickSound();
 		editPane.setVisible(false);
 	}
 
-	@FXML
+	@FXML  //save new dish according to user selection
 	public void saveButton(ActionEvent e) {
 		sounds.clickSound();
 		if (compsInDish.getItems().size() > 0) {
@@ -225,10 +232,14 @@ public class MakeOrderController {
 			Dish d = new Dish(base.getDishName(), base.getType(), components, base.getTimeToMake());
 			Main.restaurant.addDish(d);
 			dishesTV.getItems().add(d);
+			messageLeft.setTextFill(Color.GREEN);
+			messageLeft.setText("Dish was added to the menu");
+			return;
 
 		}
 	}
 
+	//Calculate order price
 	public static String getPrice(Collection<Dish> dishes) {
 		String s = "";
 		double sum = 0;

@@ -57,7 +57,8 @@ public class LoginController implements Initializable{
     private MediaView mv;
     private MediaPlayer mp;
 	private Media me;
-    @Override
+    
+	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		// TODO Auto-generated method stub
     	String path = new File("src/Audio/Restaurant Ad Video2.mp4").getAbsolutePath();
@@ -93,7 +94,7 @@ public class LoginController implements Initializable{
 		// check user connection
 		if (un.equals("manager")) {
 			if (pass.equals("manager")) {
-				// start admin scene
+				// start manager scene
 				try {
 					FXMLLoader fx = new FXMLLoader(getClass().getResource("/View/Manager.fxml"));
 					Parent p = fx.load();
@@ -106,27 +107,22 @@ public class LoginController implements Initializable{
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
-				try
-				{
-				    Thread.sleep(400);
-				}
-				catch(InterruptedException ex)
-				{
-				    Thread.currentThread().interrupt();
-				}
+				sounds.clickSound();
 				mp.setMute(true);
 				sounds.welcomeMSound();
 				sounds.backgroundMusic();
-			} else {
+			} else {  //is manager but wrong password
+				userLine.setStroke(Color.LIGHTBLUE);
 				passwLine.setStroke(Color.RED);
 				message.setText("Incorrect Password");
+				sounds.clickSound();
 			}
-		} else {
+		} else {  //the current user isn't the manager
 			
 			for (Customer c : Main.restaurant.getCustomers().values()) {
 				if (c.getUserName().equals(un)) {
 					if (c.getPassword().equals(pass)) { // if the password match the user name
-						LoginController.customer = c;
+						LoginController.customer = c;  //setting this user as current user at system, from now on we can reach him by LoginCOntroller.getCustomer from everywhere in the project
 						try {
 							FXMLLoader fx = new FXMLLoader(getClass().getResource("/View/User.fxml"));
 							Parent p = fx.load();
@@ -145,7 +141,7 @@ public class LoginController implements Initializable{
 						mp.setMute(true);
 						sounds.welcomeSound();
 						sounds.backgroundMusic();
-					} else {
+					} else {  //password didn't match
 						passwLine.setStroke(Color.RED);
 						userLine.setStroke(Color.LIGHTBLUE);
 						message.setText("Incorrect Password");
@@ -153,7 +149,7 @@ public class LoginController implements Initializable{
 						return;
 					}
 				}
-			}
+			}  //user name doesn't exist
 			userLine.setStroke(Color.RED);
 			passwLine.setStroke(Color.LIGHTBLUE);
 			message.setText("User does not exist"); // user doesn't exist
@@ -165,7 +161,7 @@ public class LoginController implements Initializable{
 	public void signup(ActionEvent e) {
 		sounds.clickSound();
 		mp.setMute(true);
-		try {
+		try {  // start register scene
 			FXMLLoader fx = new FXMLLoader(getClass().getResource("/View/Register.fxml"));
 			Parent p = fx.load();
 			RegisterController ctrl = (RegisterController) fx.getController();

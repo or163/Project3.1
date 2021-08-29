@@ -92,6 +92,7 @@ public class RegisterController {
 		this.profilePath = profilePath;
 	}
 
+	// Initiate combo-boxes with proper data and date
 	public void initData() {
 		Utils.initDate(date);
 		for (Gender g : Gender.values())
@@ -100,7 +101,7 @@ public class RegisterController {
 			neighborhood.getItems().add(n);
 	}
 
-	@FXML
+	@FXML  // save new user into system
 	private void save(ActionEvent event) {
 		sounds.clickSound();
 		Gender gend = gender.getSelectionModel().getSelectedItem();
@@ -116,13 +117,13 @@ public class RegisterController {
 		if (userName.getText() == null || userName.getText().isEmpty() || txtFName.getText() == null
 				|| txtFName.getText().isEmpty() || txtLName.getText() == null || txtLName.getText().isEmpty()
 				|| gend == null || neigh == null || bday == null || lactoseTG.getSelectedToggle() == null
-				|| glutenTG.getSelectedToggle() == null) {
+				|| glutenTG.getSelectedToggle() == null) {  //validates all fields have been filled
 			message.setText("you have fields that are empty");
-		} else if (Utils.isValidPassword(passw.getText(), message) == false)
+		} else if (Utils.isValidPassword(passw.getText(), message) == false)  //validates password is in right format
 			;
-		else if (Utils.userNameExists(userName.getText()))
+		else if (Utils.userNameExists(userName.getText()))  //validates user name doesn't already exist
 			message.setText("User already exists, choose different user name");
-		else {
+		else {  //all data is legit, create new user
 			Customer cust = new Customer(txtFName.getText(), txtLName.getText(), bday, gend, neigh, lact, glut,
 					userName.getText(), passw.getText());
 			if (profilePath != null)
@@ -143,7 +144,7 @@ public class RegisterController {
 			gender.getSelectionModel().clearSelection();
 			neighborhood.getSelectionModel().clearSelection();
 			Utils.initDate(date);
-			try {
+			try {  //start user ui scene
 				FXMLLoader fx = new FXMLLoader(getClass().getResource("/View/User.fxml"));
 				Parent p;
 				p = fx.load();
@@ -158,11 +159,10 @@ public class RegisterController {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			System.out.println(Main.restaurant.getCustomers());
 		}
 	}
 
-	@FXML
+	@FXML  //return to main login scene
 	private void goHome(ActionEvent event) {
 		try {
 			sounds.clickSound();
@@ -176,7 +176,7 @@ public class RegisterController {
 		}
 	}
 
-	@FXML
+	@FXML  //select photo to upload as profile picture and also save the profile path for further using in the project
 	public void chooseFile() {
 		FileChooser fc = new FileChooser();
 		File tmp = fc.showOpenDialog(Main.stage);
