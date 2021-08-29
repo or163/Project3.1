@@ -25,8 +25,6 @@ public class GetNumberOfDeliveriesPerTypeController {
 	private void GetNumberOfDeliveriesPerType(ActionEvent event) {
 		String chosen = ChosenType.getSelectionModel().getSelectedItem();
 		int num= Main.restaurant.getNumberOfDeliveriesPerType().get(chosen);
-		System.out.println(num);
-		System.out.println(chosen);
 		resultt.setText(String.valueOf(num));
 		}
 	

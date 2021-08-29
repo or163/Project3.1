@@ -3,14 +3,8 @@ package application;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.util.Optional;
-import java.util.TreeSet;
-
 import Audio.sounds;
-import Model.Cook;
-import Model.Customer;
 import Model.Delivery;
-import Model.DeliveryArea;
-import Model.DeliveryPerson;
 import Model.Dish;
 import Model.Order;
 import Remove.RemoveComponentController;
@@ -21,8 +15,6 @@ import Remove.RemoveDPController;
 import Remove.RemoveDeliveryController;
 import Remove.RemoveDishController;
 import Remove.RemoveOrderController;
-import Utils.Expertise;
-import Utils.Gender;
 import Utils.SerializableWiz;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.event.ActionEvent;
@@ -37,7 +29,6 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
-import javafx.scene.control.ListView;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.input.MouseEvent;
@@ -45,8 +36,6 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
-import javafx.scene.media.Media;
-import javafx.scene.media.MediaPlayer;
 import javafx.scene.media.MediaView;
 import javafx.stage.Stage;
 
@@ -513,6 +502,7 @@ public class ManagerController {
 	private void exitButtonAction(ActionEvent event){
 		sounds.backgroundMusicMute();
 		sounds.flashBackSound();
+		sounds.byebyeSound();
 		try
 		{
 		    Thread.sleep(2600);

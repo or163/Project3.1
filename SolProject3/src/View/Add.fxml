@@ -34,9 +34,9 @@
             </LinearGradient>
          </fill>
       </Circle>
-      <Label layoutX="98.0" layoutY="113.0" onMouseClicked="#goAddCook" prefHeight="28.0" prefWidth="81.0" text="Add Cook" textFill="WHITE">
+      <Label alignment="CENTER" layoutX="98.0" layoutY="113.0" onMouseClicked="#goAddCook" prefHeight="28.0" prefWidth="81.0" text="Add Cook" textFill="WHITE">
          <font>
-            <Font name="Arial Bold" size="15.0" />
+            <Font name="Berlin Sans FB Demi Bold" size="15.0" />
          </font>
          <cursor>
             <Cursor fx:constant="HAND" />
@@ -71,9 +71,9 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </ImageView>
-      <Label layoutX="247.0" layoutY="113.0" onMouseClicked="#goAddComponent" prefHeight="28.0" prefWidth="124.0" text="Add Component" textFill="WHITE">
+      <Label alignment="CENTER" layoutX="247.0" layoutY="113.0" onMouseClicked="#goAddComponent" prefHeight="28.0" prefWidth="124.0" text="Add Component" textFill="WHITE">
          <font>
-            <Font name="Arial Bold" size="15.0" />
+            <Font name="Berlin Sans FB Demi Bold" size="15.0" />
          </font>
          <cursor>
             <Cursor fx:constant="HAND" />
@@ -108,9 +108,9 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </ImageView>
-      <Label layoutX="429.0" layoutY="115.0" onMouseClicked="#goAddCustomer" prefHeight="28.0" prefWidth="113.0" text="Add Customer" textFill="WHITE">
+      <Label alignment="CENTER" layoutX="429.0" layoutY="115.0" onMouseClicked="#goAddCustomer" prefHeight="28.0" prefWidth="113.0" text="Add Customer" textFill="WHITE">
          <font>
-            <Font name="Arial Bold" size="15.0" />
+            <Font name="Berlin Sans FB Demi Bold" size="15.0" />
          </font>
          <cursor>
             <Cursor fx:constant="HAND" />
@@ -221,9 +221,9 @@
             </LinearGradient>
          </fill>
       </Circle>
-      <Label layoutX="92.0" layoutY="276.0" onMouseClicked="#goAddDP" prefHeight="40.0" prefWidth="103.0" text="Add Delivery&#10;    Person" textFill="WHITE">
+      <Label alignment="CENTER" layoutX="92.0" layoutY="276.0" onMouseClicked="#goAddDP" prefHeight="40.0" prefWidth="103.0" text="Add Delivery&#10;    Person" textFill="WHITE">
          <font>
-            <Font name="Arial Bold" size="15.0" />
+            <Font name="Berlin Sans FB Demi Bold" size="15.0" />
          </font>
          <cursor>
             <Cursor fx:constant="HAND" />
@@ -237,9 +237,9 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </ImageView>
-      <Label layoutX="270.0" layoutY="278.0" onMouseClicked="#goAddDish" prefHeight="28.0" prefWidth="73.0" text="Add Dish" textFill="WHITE">
+      <Label alignment="CENTER" layoutX="270.0" layoutY="278.0" onMouseClicked="#goAddDish" prefHeight="28.0" prefWidth="73.0" text="Add Dish" textFill="WHITE">
          <font>
-            <Font name="Arial Bold" size="15.0" />
+            <Font name="Berlin Sans FB Demi Bold" size="15.0" />
          </font>
          <cursor>
             <Cursor fx:constant="HAND" />
@@ -253,9 +253,9 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </ImageView>
-      <Label layoutX="443.0" layoutY="278.0" onMouseClicked="#goAddOrder" prefHeight="28.0" prefWidth="81.0" text="Add Order" textFill="WHITE">
+      <Label alignment="CENTER" layoutX="443.0" layoutY="278.0" onMouseClicked="#goAddOrder" prefHeight="28.0" prefWidth="81.0" text="Add Order" textFill="WHITE">
          <font>
-            <Font name="Arial Bold" size="15.0" />
+            <Font name="Berlin Sans FB Demi Bold" size="15.0" />
          </font>
          <cursor>
             <Cursor fx:constant="HAND" />
@@ -269,9 +269,9 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </ImageView>
-      <Label layoutX="88.0" layoutY="438.0" onMouseClicked="#goAddDelivery" prefHeight="28.0" prefWidth="103.0" text="Add Delivery" textFill="WHITE">
+      <Label alignment="CENTER" layoutX="88.0" layoutY="438.0" onMouseClicked="#goAddDelivery" prefHeight="28.0" prefWidth="103.0" text="Add Delivery" textFill="WHITE">
          <font>
-            <Font name="Arial Bold" size="15.0" />
+            <Font name="Berlin Sans FB Demi Bold" size="15.0" />
          </font>
          <cursor>
             <Cursor fx:constant="HAND" />
@@ -285,9 +285,9 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </ImageView>
-      <Label layoutX="259.0" layoutY="438.0" onMouseClicked="#goAddDA" prefHeight="40.0" prefWidth="103.0" text="Add Delivery&#10;       Area" textFill="WHITE">
+      <Label alignment="CENTER" layoutX="259.0" layoutY="438.0" onMouseClicked="#goAddDA" prefHeight="40.0" prefWidth="103.0" text="Add Delivery&#10;       Area" textFill="WHITE">
          <font>
-            <Font name="Arial Bold" size="15.0" />
+            <Font name="Berlin Sans FB Demi Bold" size="15.0" />
          </font>
          <cursor>
             <Cursor fx:constant="HAND" />
@@ -338,9 +338,9 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </ImageView>
-      <Label layoutX="432.0" layoutY="438.0" onMouseClicked="#goaddCustomerToBlackList" prefHeight="40.0" prefWidth="113.0" text="Add Customer&#10; to Blacklist" textFill="WHITE">
+      <Label alignment="CENTER" layoutX="423.0" layoutY="438.0" onMouseClicked="#goaddCustomerToBlackList" prefHeight="40.0" prefWidth="113.0" text="Add Customer&#10; to Blacklist" textAlignment="CENTER" textFill="WHITE">
          <font>
-            <Font name="Arial Bold" size="15.0" />
+            <Font name="Berlin Sans FB Demi Bold" size="15.0" />
          </font>
          <cursor>
             <Cursor fx:constant="HAND" />

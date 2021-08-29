@@ -27,6 +27,13 @@ public class sounds {
 		click.play();
 	}
 	
+	public static void byebyeSound()
+	{
+		String path = new File("src/Audio/byebye.mp3").getAbsolutePath();
+		AudioClip click = new AudioClip(new File(path).toURI().toString());
+		click.play();
+	}
+	
 	public static void welcomeMSound()
 	{
 		String path = new File("src/Audio/WelcomeManager.mp3").getAbsolutePath();
@@ -72,34 +79,6 @@ public class sounds {
 	{
 		bgs.stop();
 	}
-	
-//	public static void background(Media me, MediaPlayer mp, MediaView mv) {
-//		String path = new File("src/Audio/Restaurant Ad Video3.mp4").getAbsolutePath();
-//    	me = new Media(new File(path).toURI().toString());
-//    	mp = new MediaPlayer(me);
-//    	mv.setMediaPlayer(mp);
-//    	mv.toBack();
-//    	mp.setAutoPlay(true);
-//    	mp.setVolume(0);
-//    	mp.setCycleCount(MediaPlayer.INDEFINITE);
-//    	DoubleProperty width = mv.fitWidthProperty();
-//    	DoubleProperty height = mv.fitHeightProperty();
-//    	width.bind(Bindings.selectDouble(mv.sceneProperty(), "width"));
-//    	height.bind(Bindings.selectDouble(mv.sceneProperty(), "height"));
-//	}
-	
-	
-//	private void clickSound() {
-//		String asrc = ".//MouseClick.wav";
-//		String src = getClass().getResource("MouseClick.wav").toString();
-//		System.out.println(src);
-//		click = new AudioClip(src);
-//		String bip = "MouseClick.wav";
-//		Media hit = new Media(new File(bip).toURI().toString());
-//		MediaPlayer mediaPlayer = new MediaPlayer(hit);
-//		mediaPlayer.play();
-//		System.out.println("/MouseClick.mp3");
-//		//click.play();
-//	}
 }
+	
 

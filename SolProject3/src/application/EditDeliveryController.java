@@ -1,21 +1,16 @@
 package application;
 
 import java.time.LocalDate;
-import java.util.HashSet;
 import java.util.SortedSet;
 import java.util.TreeSet;
 
 import Audio.sounds;
-import Model.Customer;
 import Model.Delivery;
 import Model.DeliveryArea;
 import Model.DeliveryPerson;
 import Model.ExpressDelivery;
 import Model.Order;
 import Model.RegularDelivery;
-import Utils.Expertise;
-import Utils.Gender;
-import Utils.Neighberhood;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.ChoiceBox;
@@ -59,6 +54,7 @@ public class EditDeliveryController {
     @FXML
     private ComboBox<Delivery> WhichDel;
 
+    //Fills up the page with current data according to the selected Delivery
     @FXML
     void DelSelected(ActionEvent event) {
 		deliveryPersons.getSelectionModel().clearSelection();
@@ -84,6 +80,7 @@ public class EditDeliveryController {
     	
     }
 
+    // add orders to the selected orders list view
     @FXML
     void addOrder(ActionEvent event) {
     	sounds.clickSound();
@@ -103,7 +100,7 @@ public class EditDeliveryController {
 		}
     }
 
-    @FXML
+    @FXML // remove orders from the selected orders list view
     void removeOrder(ActionEvent event) {
     	sounds.clickSound();
     	if(orders.getSelectionModel().getSelectedItem()!=null) {
@@ -117,7 +114,7 @@ public class EditDeliveryController {
     	selected.getItems().remove(selected.getSelectionModel().getSelectedItem());
     }
 
-    @FXML
+    @FXML //save delivery to the restaurant or alerts on missing info, if needed changes the type of delivery
     void save(ActionEvent event) {
     	sounds.clickSound();
     	LocalDate datte = date.getValue();
@@ -182,14 +179,6 @@ public class EditDeliveryController {
     	}
 		lblStatus.setText("Delivery was added successfully");
 		lblStatus.setTextFill(Color.GREEN);
-//		WhichDel.getItems().clear();
-//		WhichDel.getItems().addAll(Main.restaurant.getDeliveries().values());
-//		deliveryPersons.getSelectionModel().clearSelection();
-//		deliveryArea.getSelectionModel().clearSelection();
-//		orders.getSelectionModel().clearSelection();
-//		selected.getItems().clear();
-//		deliveyTG.getSelectedToggle().setSelected(false);
-//		Utils.Utils.initDate(date);
 		System.out.println(Main.restaurant.getDeliveries());
     	}
     }
@@ -201,8 +190,6 @@ public class EditDeliveryController {
 		deliveryArea.getItems().addAll(Main.restaurant.getAreas().values());
 		orders.getItems().addAll(Main.restaurant.getOrders().values());
 		WhichDel.getItems().addAll(Main.restaurant.getDeliveries().values());
-		//orders.getSelectionModel().clearSelection();
-//		deliveyTG.getSelectedToggle().setSelected(false);
 		selected.getItems().clear();
 	}
 }

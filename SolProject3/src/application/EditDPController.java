@@ -3,16 +3,13 @@ package application;
 import java.time.LocalDate;
 
 import Audio.sounds;
-import Model.Cook;
 import Model.DeliveryArea;
 import Model.DeliveryPerson;
 import Utils.Gender;
-import Utils.Neighberhood;
 import Utils.Vehicle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
-import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
@@ -48,6 +45,7 @@ public class EditDPController {
     @FXML
     private ComboBox<DeliveryPerson> WhichDP;
 
+  //Fills up the page with current data according to the selected Delivery person
     @FXML
     void DPselected(ActionEvent event) {
     	sounds.clickSound();
@@ -70,7 +68,7 @@ public class EditDPController {
     }
 
     
-    @FXML
+    @FXML //save delivery person to the restaurant
 	public void save(ActionEvent e) {
     	sounds.clickSound();
 		Gender gend = gender.getSelectionModel().getSelectedItem();

@@ -1,10 +1,7 @@
 package application;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.TreeSet;
-
 import Audio.sounds;
 import Model.Customer;
 import Model.Dish;
@@ -33,16 +30,7 @@ public class EditOrderController {
 	@FXML
     private ComboBox<Customer> WhichCust;
 
-//	@FXML
-//    void CustSelected(ActionEvent event) {
-//		Customer cust = custV.getSelectionModel().getSelectedItem();
-//		HashMap<Customer,TreeSet<Order>>ordersByCustomer = Main.restaurant.getOrderByCustomer();
-//		System.out.println(ordersByCustomer.get(cust));
-//		TreeSet<Order> al = new TreeSet<Order>(Main.restaurant.getOrderByCustomer().get(cust));
-//		System.out.println(al);
-//		WhichOrder.getItems().addAll(al);
-//    }
-	
+	//Fills up the page with current data according to the selected order
     @FXML
     void OrderSelected(ActionEvent event) {
     	sounds.clickSound();
@@ -52,7 +40,7 @@ public class EditOrderController {
     	selected.getItems().addAll(theSelected.getDishes());
     }
 
-	@FXML
+	@FXML //save order to the restaurant
     void save(ActionEvent event) {
 		sounds.clickSound();
     	List<Dish> list = selected.getItems();
@@ -73,7 +61,7 @@ public class EditOrderController {
 		}
     }
 		
-
+	//Initiate the page with current date and fill the combo-boxes with proper options
 	public void initData() {
 		// TODO Auto-generated method stub
 		WhichOrder.getItems().addAll(Main.restaurant.getOrders().values());
@@ -82,7 +70,7 @@ public class EditOrderController {
 			dishV.getItems().add(d);
 	}
 
-	@FXML
+	@FXML  //add dish to selected dishes for order list view
 	private void addDish(ActionEvent e) {
 		sounds.clickSound();
 		if (dishV.getSelectionModel().getSelectedItem() != null) {

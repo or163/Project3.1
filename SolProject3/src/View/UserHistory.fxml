@@ -28,5 +28,10 @@
             <Font size="16.0" />
          </font>
       </Label>
+      <Label layoutX="18.0" layoutY="472.0" text="*Showing only orders that connected to a delivery (orderByCustomer hashmap)">
+         <font>
+            <Font size="11.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>
