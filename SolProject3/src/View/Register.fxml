@@ -28,26 +28,29 @@
          <font>
             <Font size="14.0" />
          </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
       </Button>
-      <RadioButton fx:id="lactoseYes" layoutX="156.0" layoutY="346.0" mnemonicParsing="false" text="Yes">
+      <RadioButton fx:id="lactoseYes" layoutX="156.0" layoutY="346.0" mnemonicParsing="false" style="-fx-background-color: #ffffff80; -fx-background-radius: 12;" text="Yes">
          <toggleGroup>
             <ToggleGroup fx:id="lactoseTG" />
          </toggleGroup>
          <font>
             <Font name="System Bold" size="12.0" />
          </font></RadioButton>
-      <RadioButton fx:id="lactoseNo" layoutX="206.0" layoutY="346.0" mnemonicParsing="false" text="No" toggleGroup="$lactoseTG">
+      <RadioButton fx:id="lactoseNo" layoutX="206.0" layoutY="346.0" mnemonicParsing="false" style="-fx-background-color: #ffffff80; -fx-background-radius: 12;" text="No" toggleGroup="$lactoseTG">
          <font>
             <Font name="System Bold" size="12.0" />
          </font></RadioButton>
-      <RadioButton fx:id="glutenYes" layoutX="156.0" layoutY="383.0" mnemonicParsing="false" text="Yes">
+      <RadioButton fx:id="glutenYes" layoutX="156.0" layoutY="383.0" mnemonicParsing="false" style="-fx-background-color: #ffffff80; -fx-background-radius: 12;" text="Yes">
          <toggleGroup>
             <ToggleGroup fx:id="glutenTG" />
          </toggleGroup>
          <font>
             <Font name="System Bold" size="12.0" />
          </font></RadioButton>
-      <RadioButton fx:id="glutenNo" layoutX="206.0" layoutY="383.0" mnemonicParsing="false" text="No" toggleGroup="$glutenTG">
+      <RadioButton fx:id="glutenNo" layoutX="206.0" layoutY="383.0" mnemonicParsing="false" style="-fx-background-color: #ffffff80; -fx-background-radius: 12;" text="No" toggleGroup="$glutenTG">
          <font>
             <Font name="System Bold" size="12.0" />
          </font></RadioButton>

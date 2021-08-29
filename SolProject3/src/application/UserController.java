@@ -1,7 +1,5 @@
 package application;
 
-import java.awt.image.BufferedImage;
-import java.io.File;
 import java.io.IOException;
 import java.util.Optional;
 
@@ -30,7 +28,7 @@ import javafx.stage.Stage;
 public class UserController {
 
 	@FXML
-	private BorderPane pannelRoot; // pannelRoot is the main pannel of user ui and all other screens in user ui would display via pannelRoot
+	private BorderPane pannelRoot; // pannelRoot is the main pannel of user UI and all other screens in user ui would display via pannelRoot
 
 	@FXML
 	private Label welcome;
@@ -74,7 +72,7 @@ public class UserController {
 			profilePic.setImage(new Image("/Icons/male_user_60px.png"));
 	}
 	
-	@FXML
+	@FXML  //Controls the background music and changes the icon accordingly 
     void MuteOnOff(MouseEvent event) {
 		System.out.println("1");
 		sounds.clickSound();
@@ -180,7 +178,7 @@ public class UserController {
 		pannelRoot.setCenter(pp);
 	}
 	
-	@FXML  // go to querries page
+	@FXML  // go to queries page
 	void goQuerries (ActionEvent event) throws IOException {
 		sounds.clickSound();
 		FXMLLoader fx = new FXMLLoader(getClass().getResource("/View/UserQuerries.fxml"));
