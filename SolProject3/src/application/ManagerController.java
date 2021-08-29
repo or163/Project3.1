@@ -95,7 +95,6 @@ public class ManagerController {
 
 	// Initiate table views of uncompleted deliveries and orders that not added yet to deliveries 
 	public void initData() {
-		//sounds.clickSound();
 		//prepare table view to delivery fields
 		delId.setCellValueFactory(new PropertyValueFactory<>("id"));  
 		dp.setCellValueFactory(c-> new SimpleStringProperty(String.valueOf(
@@ -118,7 +117,7 @@ public class ManagerController {
 		}
 	}
 	
-	@FXML
+	@FXML  //Initiate and go to home page
 	void goHome(ActionEvent event) throws IOException {
 		sounds.clickSound();
 		FXMLLoader fx = new FXMLLoader(getClass().getResource("/View/Manager.fxml"));
@@ -129,7 +128,7 @@ public class ManagerController {
 		Main.stage.setScene(s);
 	}
 	
-	@FXML
+	@FXML  //Initiate and go to login page
     void GoLogin(ActionEvent event) throws IOException {
 		sounds.backgroundMusicMute();
 		sounds.bellSound();
@@ -139,7 +138,7 @@ public class ManagerController {
 		Main.stage.setScene(s);
     }
 	
-	@FXML
+	@FXML  //Initiate and go to data bases page
 	void goDatabases (ActionEvent event) throws IOException {
 		sounds.clickSound();
 		FXMLLoader fx = new FXMLLoader(getClass().getResource("/View/viewDataBases.fxml"));
@@ -151,7 +150,7 @@ public class ManagerController {
 	}
 
 	
-	@FXML
+	@FXML  //Initiate and go to add page
 	void goAdd (ActionEvent event) throws IOException {
 		sounds.clickSound();
 		FXMLLoader fx = new FXMLLoader(getClass().getResource("/View/Add.fxml"));
@@ -162,7 +161,7 @@ public class ManagerController {
 		pannelRoot.setCenter(pp);
 	}
 
-	@FXML
+	@FXML  //Initiate and go to remove page
 	void goRemove (ActionEvent event) throws IOException {
 		sounds.clickSound();
 		FXMLLoader fx = new FXMLLoader(getClass().getResource("/View/Remove.fxml"));

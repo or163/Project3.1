@@ -162,6 +162,7 @@ public class EditCustomerController {
 				Image img = new Image("file:///" + tmp.getAbsolutePath());
 				imageUrl = "file:///" + tmp.getAbsolutePath();
 				profilePic.setImage(img);
+				profilePic.setPreserveRatio(false);
 			}
 		}
 		else

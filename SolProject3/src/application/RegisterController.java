@@ -185,6 +185,7 @@ public class RegisterController {
 			String imageUrl = "file:///" + tmp.getAbsolutePath();
 			profileImage.setImage(img);
 			this.profilePath = imageUrl;
+			profileImage.setPreserveRatio(false);
 		}
 	}
 
