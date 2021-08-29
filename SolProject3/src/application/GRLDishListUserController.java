@@ -34,7 +34,7 @@ public class GRLDishListUserController {
     private TableColumn<Dish, Component> comps;
 
     // Initiate table view with relevant dish list for current user on system according to his sensitivities
-    // LoginController.getCustomer() reffers to current user in system
+    // LoginController.getCustomer() refers to current user in system
     public void initData() {
     	id.setCellValueFactory(new PropertyValueFactory<>("id"));
     	name.setCellValueFactory(new PropertyValueFactory<>("dishName"));

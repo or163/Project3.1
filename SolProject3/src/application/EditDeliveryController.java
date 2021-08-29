@@ -63,8 +63,6 @@ public class EditDeliveryController {
 		
 		selected.getItems().clear();
     	Delivery del = WhichDel.getSelectionModel().getSelectedItem();
-    	System.out.println(del);
-    	System.out.println(del.getDeliveredDate());
     	date.setValue(del.getDeliveredDate());
     	if (del.isDelivered())
     		deliveyTG.selectToggle(isDeliverdYes);
@@ -179,7 +177,6 @@ public class EditDeliveryController {
     	}
 		lblStatus.setText("Delivery was added successfully");
 		lblStatus.setTextFill(Color.GREEN);
-		System.out.println(Main.restaurant.getDeliveries());
     	}
     }
 	

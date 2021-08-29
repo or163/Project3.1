@@ -10,9 +10,6 @@ import Utils.Neighberhood;
 import Utils.Utils;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.ComboBox;
@@ -24,9 +21,6 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.stage.FileChooser;
 
@@ -81,10 +75,12 @@ public class EditUserController {
 	private ImageView profilePic;
 
 	private String imageUrl; //holds the url given in choose file, in order to finally set as user picture path in save method
-	private ImageView image;
+	private ImageView image;  //pointer to top left profile image at user ui
 
 	Customer cust = LoginController.getCustomer();
 
+	
+	// Initiates page with relevant user data, ready to set
 	public void initData() {
 		gender.getItems().clear();
 		neighborhood.getItems().clear();
@@ -113,7 +109,7 @@ public class EditUserController {
 		}
 	}
 
-	@FXML
+	@FXML  //save edited data of user
 	void save(ActionEvent event) {
 		sounds.clickSound();
 		if (userName.getText() == null || userName.getText().isEmpty() || txtFName.getText() == null
@@ -140,8 +136,8 @@ public class EditUserController {
 			else
 				cust.setSensitiveToGluten(false);
 			if (imageUrl != null) {
-				cust.setProfilePicturePath(imageUrl);
-				image.setImage(new Image(imageUrl));
+				cust.setProfilePicturePath(imageUrl);  //set customer profile picture
+				image.setImage(new Image(imageUrl)); //set profile picture in user controller ui top left
 				image.setPreserveRatio(false);
 			}
 			message.setTextFill(Color.GREEN);
@@ -149,7 +145,7 @@ public class EditUserController {
 		}
 	}
 
-	@FXML
+	@FXML  //upload profile picture
 	public void chooseFile() throws IOException {
 		sounds.clickSound();
 		FileChooser fc = new FileChooser();

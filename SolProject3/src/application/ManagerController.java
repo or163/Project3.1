@@ -7,14 +7,6 @@ import Audio.sounds;
 import Model.Delivery;
 import Model.Dish;
 import Model.Order;
-import Remove.RemoveComponentController;
-import Remove.RemoveCookController;
-import Remove.RemoveCustomerController;
-import Remove.RemoveDAController;
-import Remove.RemoveDPController;
-import Remove.RemoveDeliveryController;
-import Remove.RemoveDishController;
-import Remove.RemoveOrderController;
 import Utils.SerializableWiz;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.event.ActionEvent;
@@ -172,7 +164,7 @@ public class ManagerController {
 		pannelRoot.setCenter(pp);
 	}
 	
-	@FXML
+	@FXML  //Initiate and go to edit page
 	void goEdit (ActionEvent event) throws IOException {
 		sounds.clickSound();
 		FXMLLoader fx = new FXMLLoader(getClass().getResource("/View/Edit.fxml"));
@@ -183,7 +175,7 @@ public class ManagerController {
 		pannelRoot.setCenter(pp);
 	}
 	
-	@FXML
+	@FXML  //Initiate and go to querries page
 	void goQuerries (ActionEvent event) throws IOException {
 		sounds.clickSound();
 		FXMLLoader fx = new FXMLLoader(getClass().getResource("/View/Querries.fxml"));
@@ -194,31 +186,7 @@ public class ManagerController {
 		pannelRoot.setCenter(pp);
 	}
 	
-	@FXML
-	void goOut(ActionEvent event) throws IOException {
-		sounds.backgroundMusicMute();
-		sounds.flashBackSound();
-		FXMLLoader fx = new FXMLLoader(getClass().getResource("/View/Login.fxml"));
-		Pane p = fx.load();
-		AnchorPane pp = (AnchorPane) p;
-		pannelRoot.setCenter(pp);
-	}
-	
-	@FXML
-	void showMenu(MouseEvent event) {
-		sounds.clickSound();
-		if(ManagerController.counter % 2 == 0) {
-			vbox.setVisible(false);
-			anchor.setStyle("-fx-background-color: transparent");
-		}
-		else {
-			vbox.setVisible(true);
-			anchor.setStyle("-fx-background-color: darkblue");
-			}
-		ManagerController.counter++;
-	}
-	
-	@FXML
+	@FXML  //exit program
 	private void exitButtonAction(ActionEvent event){
 		sounds.backgroundMusicMute();
 		sounds.flashBackSound();
@@ -232,11 +200,25 @@ public class ManagerController {
 		    Thread.currentThread().interrupt();
 		}
 		Stage stage = (Stage) exitButton.getScene().getWindow();
-	    // do what you have to do
 	    stage.close();
 	}
 	
-	@FXML
+	@FXML  //show or hide menu according to counter, if even hide, else show
+	void showMenu(MouseEvent event) {
+		sounds.clickSound();
+		if(ManagerController.counter % 2 == 0) {
+			vbox.setVisible(false);
+			anchor.setStyle("-fx-background-color: transparent");
+		}
+		else {
+			vbox.setVisible(true);
+			anchor.setStyle("-fx-background-color: darkblue");
+			}
+		ManagerController.counter++;
+	}
+	
+	
+	@FXML  //turn sound on and off according to counter, if even mute, else turn on
     void MuteOnOff(MouseEvent event) {
 		sounds.clickSound();
 		if(ManagerController.counter2  % 2 == 1)
@@ -247,7 +229,7 @@ public class ManagerController {
 		sounds.backgroundMusic();
     }
 	
-	@FXML
+	@FXML  //save all current data and serialize it
 	void SaveToSerelizebaleFile(ActionEvent event) {
 		try {
 			Alert a = new Alert(AlertType.CONFIRMATION);

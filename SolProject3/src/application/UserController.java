@@ -74,22 +74,7 @@ public class UserController {
 			profilePic.setImage(new Image("/Icons/male_user_60px.png"));
 	}
 	
-	@FXML
-    void MuteOnOff(MouseEvent event) {
-		System.out.println("1");
-		sounds.clickSound();
-		if(UserController.counter2  % 2 == 1) {
-			Audio.setImage(new Image("Icons/audio_64px.png"));
-			System.out.println("2");
-		}
-		else
-		{
-			Audio.setImage(new Image("Icons/no_audio_64px.png"));
-			System.out.println("3");
-		}
-		counter2++;
-		sounds.backgroundMusic();
-    }
+	
 	
 	@FXML  // go to main user ui screen
 	void goHome(ActionEvent event) throws IOException {
@@ -136,39 +121,6 @@ public class UserController {
 	}
 	
 
-	@FXML  //go to get relevant dish list for specific user
-	void goGRLDList(ActionEvent event) throws IOException {
-		sounds.clickSound();
-		FXMLLoader fx = new FXMLLoader(getClass().getResource("/View/GRLDishListUser.fxml"));
-		Pane p = fx.load();
-		AnchorPane pp = (AnchorPane) p;
-		GRLDishListUserController ctrl = (GRLDishListUserController) fx.getController();
-		ctrl.initData();
-		pannelRoot.setCenter(pp);
-	}
-	
-	@FXML  // go to get cook by expertise page
-	void goGetCooksByExpertise (ActionEvent event) throws IOException {
-		sounds.clickSound();
-		FXMLLoader fx = new FXMLLoader(getClass().getResource("/View/GetCookByExpertise.fxml"));
-		Pane p = fx.load();
-		AnchorPane pp = (AnchorPane) p;
-		GetCookByExpertiseController ctrl = (GetCookByExpertiseController) fx.getController();
-		ctrl.initData();
-		pannelRoot.setCenter(pp);
-	}
-	
-	@FXML  // go to get popular components page
-	void goGetPopularComponents (ActionEvent event) throws IOException {
-		sounds.clickSound();
-		FXMLLoader fx = new FXMLLoader(getClass().getResource("/View/GetPopularComponents.fxml"));
-		Pane p = fx.load();
-		AnchorPane pp = (AnchorPane) p;
-		GetPopularComponentsController ctrl = (GetPopularComponentsController) fx.getController();
-		ctrl.initData();
-		pannelRoot.setCenter(pp);
-	}
-	
 	@FXML   // go to shopping cart page
 	void goShoppingCart (ActionEvent event) throws IOException {
 		sounds.clickSound();
@@ -203,20 +155,6 @@ public class UserController {
 		pannelRoot.setCenter(pp);
 	}
 	
-	@FXML  // show or hide menu according to counter, if even hide, else show
-	void showMenu(MouseEvent event) {
-		sounds.clickSound();
-		if(UserController.counter % 2 == 0) {
-			vbox.setVisible(false);
-			anchor.setStyle("-fx-background-color: transparent");
-		}
-		else {
-			vbox.setVisible(true);
-			anchor.setStyle("-fx-background-color: #171717");
-			}
-		UserController.counter++;
-	}
-	
 	@FXML  // exit program
 	private void exitButtonAction(ActionEvent event){
 	    // get a handle to the stage
@@ -234,6 +172,37 @@ public class UserController {
 	    Stage stage = (Stage) exitButton.getScene().getWindow();
 	    stage.close();
 	}
+	
+	@FXML  // show or hide menu according to counter, if even hide, else show
+	void showMenu(MouseEvent event) {
+		sounds.clickSound();
+		if(UserController.counter % 2 == 0) {
+			vbox.setVisible(false);
+			anchor.setStyle("-fx-background-color: transparent");
+		}
+		else {
+			vbox.setVisible(true);
+			anchor.setStyle("-fx-background-color: #171717");
+			}
+		UserController.counter++;
+	}
+	
+	@FXML  //turn sound on and off according to counter, if even mute, else turn on
+    void MuteOnOff(MouseEvent event) {
+		System.out.println("1");
+		sounds.clickSound();
+		if(UserController.counter2  % 2 == 1) {
+			Audio.setImage(new Image("Icons/audio_64px.png"));
+			System.out.println("2");
+		}
+		else
+		{
+			Audio.setImage(new Image("Icons/no_audio_64px.png"));
+			System.out.println("3");
+		}
+		counter2++;
+		sounds.backgroundMusic();
+    }
 	
 	@FXML  // save all current data and serialize it
 	void SaveToSerelizebaleFile(ActionEvent event) {

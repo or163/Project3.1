@@ -9,15 +9,12 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 
-//import static application.Utils.Utils.LoadFXML;
-
-
 public class Main extends Application {
 
 	public static Restaurant restaurant;
 	public static Stage stage;
 
-	@Override
+	@Override //start main stage
 	public void start(Stage primaryStage) {
 		try {
 			Parent p = FXMLLoader.load(getClass().getResource("/View/Login.fxml"));
@@ -34,13 +31,12 @@ public class Main extends Application {
 
 	public static void main(String[] args) {
 
-		//Restaurant restaurant;
 		try {
 			restaurant = SerializableWiz.read();
-			if (restaurant == null) {
+			if (restaurant == null) {  //sign that there is no ser file
 				restaurant = Restaurant.getInstance();
 			}
-			restaurant.SetAllCounters();
+			restaurant.SetAllCounters();  //set all id counter from previous launch
 			launch(args);
 		} catch (Exception e) {
 			System.err.println(e.getLocalizedMessage());

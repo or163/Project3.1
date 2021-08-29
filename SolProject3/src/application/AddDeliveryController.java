@@ -1,7 +1,6 @@
 package application;
 
 import java.time.LocalDate;
-import java.util.HashSet;
 import java.util.TreeSet;
 
 import Audio.sounds;
@@ -12,19 +11,14 @@ import Model.DeliveryPerson;
 import Model.ExpressDelivery;
 import Model.Order;
 import Model.RegularDelivery;
-import Utils.Expertise;
-import Utils.Gender;
-import Utils.Neighberhood;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.ToggleGroup;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 
 public class AddDeliveryController {

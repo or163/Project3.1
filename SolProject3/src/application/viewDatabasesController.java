@@ -128,12 +128,24 @@ public class viewDatabasesController {
 			DeliveryArea da = Main.restaurant.getRealDeliveryArea(Integer.parseInt(id.getText()));
 			LVdb.getSelectionModel().select(da);
 			break;
+		case "blackList": // also show customer picture (if exists)
+			Customer customer = Main.restaurant.getRealCustomer(Integer.parseInt(id.getText()));
+			LVdb.getSelectionModel().select(customer);
+			custPicture.setPreserveRatio(false);
+			if (customer != null) {
+				if (customer.getProfilePicturePath() != null) { // check if picture exists
+					custPicture.setImage(new Image(customer.getProfilePicturePath()));
+				} else
+					custPicture.setImage(new Image("/Icons/no_image_64px.png"));
+			}
+			break;
 		}
+		
 	}
 
 	@FXML // show customer profile picture (if exists)
 	private void showCustomerImage() {
-		if (ChosenData.getSelectionModel().getSelectedItem() == "customers") { // validates we are on right property,
+		if (ChosenData.getSelectionModel().getSelectedItem() == "customers" || ChosenData.getSelectionModel().getSelectedItem() == "blackList") { // validates we are on right property,
 																				// customers
 			if (LVdb.getSelectionModel().getSelectedItem() != null) {
 				Customer c = (Customer) LVdb.getSelectionModel().getSelectedItem();

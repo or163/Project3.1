@@ -32,7 +32,4 @@ public class GetProfitRelationController {
 		dishesTV.getItems().addAll(Main.restaurant.getProfitRelation());
 		sounds.cashSound();
     }
-    
-
-
 }

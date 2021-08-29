@@ -2,7 +2,6 @@ package application;
 
 import Audio.sounds;
 import Model.Component;
-import Model.Cook;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
@@ -85,7 +84,6 @@ public class EditComponentController {
 				theSelected.setPrice(cost);
 				message.setText("saved succesfully");
 				message.setTextFill(Color.GREEN);
-				System.out.println(Main.restaurant.getComponenets());
 			}
 			else {
 				message.setText("the price is incorrect");

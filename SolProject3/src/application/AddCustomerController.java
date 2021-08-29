@@ -6,7 +6,6 @@ import java.time.LocalDate;
 
 import Audio.sounds;
 import Exceptions.CantAddObjectException;
-import Model.Cook;
 import Model.Customer;
 import Utils.Gender;
 import Utils.Neighberhood;
@@ -14,7 +13,6 @@ import Utils.Utils;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
-import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;

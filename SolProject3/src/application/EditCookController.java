@@ -6,7 +6,6 @@ import Audio.sounds;
 import Model.Cook;
 import Utils.Expertise;
 import Utils.Gender;
-import Utils.Neighberhood;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.ChoiceBox;
@@ -87,7 +86,6 @@ public class EditCookController {
 			message.setTextFill(Color.GREEN);
 			gender.getSelectionModel().clearSelection();
 			expertise.getSelectionModel().clearSelection();
-//			initData();
 		}
 	}
     

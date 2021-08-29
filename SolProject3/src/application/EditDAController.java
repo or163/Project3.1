@@ -58,10 +58,10 @@ public class EditDAController {
 					da.addNeighberhood(n);
 				lblStatus.setText("Delivery Area was saved successfully");
 				lblStatus.setTextFill(Color.GREEN);
-				System.out.println(Main.restaurant.getAreas());
 			}
 		}
 
+	// Initiate page
 	public void initData() {
 		WhichDA.getItems().addAll(Main.restaurant.getAreas().values());
 		txtAreaName.clear();

@@ -89,10 +89,10 @@ public class EditDPController {
 			theSelected.setVehicle(car);
 			message.setTextFill(Color.GREEN);
 			message.setText("saved succesfully");
-			System.out.println(Main.restaurant.getDeliveryPersons());
 		}
 	}
 
+    //Initiate page
 	public void initData() {
 		// TODO Auto-generated method stub
 		WhichDP.getItems().addAll(Main.restaurant.getDeliveryPersons().values());

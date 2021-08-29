@@ -152,7 +152,7 @@ public class EditCustomerController {
 		}
 	}
 
-	@FXML
+	@FXML  // edit profile picture
 	public void chooseFile() throws IOException {
 		sounds.clickSound();
 		if (WhichCustomer.getSelectionModel().getSelectedItem() != null) {

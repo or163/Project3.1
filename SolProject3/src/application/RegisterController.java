@@ -135,15 +135,6 @@ public class RegisterController {
 				System.err.println(e.getLocalizedMessage());
 			}
 			message.setText("saved succesfully");
-			lactoseTG.getSelectedToggle().setSelected(false);
-			glutenTG.getSelectedToggle().setSelected(false);
-			userName.clear();
-			passw.clear();
-			txtLName.clear();
-			txtFName.clear();
-			gender.getSelectionModel().clearSelection();
-			neighborhood.getSelectionModel().clearSelection();
-			Utils.initDate(date);
 			try {  //start user ui scene
 				FXMLLoader fx = new FXMLLoader(getClass().getResource("/View/User.fxml"));
 				Parent p;

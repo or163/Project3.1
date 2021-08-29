@@ -1,15 +1,12 @@
 package application;
 
-import java.util.ArrayList;
 import java.util.LinkedList;
 
 import Model.Component;
-import Model.Cook;
-import Utils.Expertise;
+
 import javafx.beans.binding.Bindings;
 import javafx.beans.binding.ObjectBinding;
 import javafx.beans.property.ReadOnlyObjectProperty;
-import javafx.beans.property.SimpleStringProperty;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;

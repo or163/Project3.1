@@ -20,7 +20,6 @@ import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import javafx.scene.media.AudioClip;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.media.MediaView;
@@ -78,12 +77,6 @@ public class LoginController implements Initializable{
 	
 	@FXML
 	void login(ActionEvent event) {
-//		String path = new File("src/sounds/MouseClick.mp3").getAbsolutePath();
-//		AudioClip click = new AudioClip(new File(path).toURI().toString());
-//		click.play();
-		
-		
-		//sounds.sounds.clickSound();
 		String un = user.getText();
 		String pass = passw.getText();
 		if (un == null || un.isEmpty())

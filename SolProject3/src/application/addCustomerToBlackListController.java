@@ -32,8 +32,7 @@ public class addCustomerToBlackListController {
 		for (Customer c : Main.restaurant.getCustomers().values()) {
 			customerLV.getItems().add(c);
 		}
-		customerLV.getItems().removeAll(Main.restaurant.getBlackList()); // remove irrelevant customers such as
-																			// customers already in the blacklist
+		customerLV.getItems().removeAll(Main.restaurant.getBlackList()); // remove irrelevant customers such as customers already in the blacklist
 	}
 
 	@FXML // add selected customer to blacklist

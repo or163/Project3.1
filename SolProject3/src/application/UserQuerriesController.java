@@ -33,7 +33,7 @@ public class UserQuerriesController {
     	FXMLLoader fx;
     	String chosen = querries.getSelectionModel().getSelectedItem();
     	switch(chosen) {
-    	case "Get Cook By Expert":
+    	case "Get Cook By Expert":  //go to get cook by expertise page
     		fx = new FXMLLoader(getClass().getResource("/View/GetCookByExpertise.fxml"));
     		p = fx.load();
     		pp = (AnchorPane) p;
@@ -41,7 +41,7 @@ public class UserQuerriesController {
     		ctrl1.initData();
     		border.setCenter(pp);
     		break;
-    	case "Get Relevant Dish List":
+    	case "Get Relevant Dish List":  //go to get relevant dish list for specific user
     		fx = new FXMLLoader(getClass().getResource("/View/GRLDishListUser.fxml"));
     		p = fx.load();
     		pp = (AnchorPane) p;
@@ -49,7 +49,7 @@ public class UserQuerriesController {
     		ctrl2.initData();
     		border.setCenter(pp);
     		break;
-    	case "Get Popular Component":
+    	case "Get Popular Component":  //go to get popular components page
     		fx = new FXMLLoader(getClass().getResource("/View/GetPopularComponents.fxml"));
     		p = fx.load();
     		pp = (AnchorPane) p;
