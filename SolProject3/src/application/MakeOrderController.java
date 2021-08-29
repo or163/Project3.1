@@ -79,7 +79,8 @@ public class MakeOrderController {
 	private TableColumn<Component, String> compName2;
 
 	private static int first = 1;
-
+	
+	// Initiate page
 	public void initData() {
 		editPane.setVisible(false);
 		dishesTV.setPlaceholder(new Label(""));
@@ -92,7 +93,7 @@ public class MakeOrderController {
 				String.valueOf(Utils.Utils.getProperComponents(d.getValue().getComponenets()))));
 	}
 
-	@FXML
+	@FXML  //get dihes according to dishType selection in the combo-box
 	private void getDishes(ActionEvent event) {
 		sounds.clickSound();
 		dishesTV.getItems().clear();
@@ -104,7 +105,7 @@ public class MakeOrderController {
 		}
 	}
 
-	@FXML
+	@FXML  //add dish to selected dishes
 	private void addDish(ActionEvent event) {
 		sounds.clickSound();
 		if (dishesTV.getSelectionModel().getSelectedItem() == null) {
@@ -121,14 +122,14 @@ public class MakeOrderController {
 		messageLeft.setText("Dish was added to the list");
 	}
 
-	@FXML
+	@FXML  //remove dish from selected dishes
 	private void removeDish(ActionEvent event) {
 		sounds.clickSound();
 		selected.getItems().remove(selected.getSelectionModel().getSelectedItem());
 		priceLabel.setText(getPrice(selected.getItems()));
 	}
 
-	@FXML
+	@FXML  //add current selected dishes to shopping cart
 	private void addToCart(ActionEvent event) {
 		sounds.clickSound();
 		if (selected.getItems().size() != 0) {
