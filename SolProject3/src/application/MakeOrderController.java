@@ -94,7 +94,7 @@ public class MakeOrderController {
 				String.valueOf(Utils.Utils.getProperComponents(d.getValue().getComponenets()))));
 	}
 
-	@FXML  //get dihes according to dishType selection in the combo-box
+	@FXML  //get dishes according to dishType selection in the combo-box
 	private void getDishes(ActionEvent event) {
 		sounds.clickSound();
 		dishesTV.getItems().clear();
