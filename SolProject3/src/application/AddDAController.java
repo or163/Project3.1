@@ -1,33 +1,16 @@
 package application;
 
-import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.HashSet;
 import Audio.sounds;
 import Exceptions.CantAddObjectException;
-import Model.Cook;
 import Model.DeliveryArea;
-import Model.Restaurant;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import Utils.Neighberhood;
-import application.Main;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.DateCell;
-import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
-import javafx.scene.control.RadioButton;
-import javafx.scene.control.SelectionMode;
 import javafx.scene.control.TextField;
-import javafx.scene.control.ToggleGroup;
 import javafx.scene.paint.Color;
-import javafx.stage.Stage;
 
 public class AddDAController {
 
@@ -46,6 +29,7 @@ public class AddDAController {
 	@FXML
 	private ListView<Neighberhood> selected;
 
+	//Initiate page add neighborhoods to list
 	public void initData() {
 		txtAreaName.clear();
 		intDelTime.clear();
@@ -54,6 +38,7 @@ public class AddDAController {
 		selected.getItems().clear();
 	}
 	
+	//save Delivery Area to the restaurant
 	public void save(ActionEvent e) {
 		sounds.clickSound();
 		if (Utils.Utils.isOnlyDigits(intDelTime.getText())) { //if input is in correct format - digits

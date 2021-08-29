@@ -12,12 +12,12 @@ import javafx.scene.layout.Pane;
 
 public class EditController {
 
-	private BorderPane pannelRoot;
+	private BorderPane pannelRoot;  // this pannel root is a pointer to ManagerController.pannelRoot our main pannel in manager ui
 	
 	public void setPannelRoot(BorderPane pannelRoot) {
 		this.pannelRoot = pannelRoot;
 	}
-	@FXML
+	@FXML  //Initiate and go to edit cook page
 	void goEditCook(MouseEvent event) throws IOException {
 		sounds.clickSound();
 		FXMLLoader fx = new FXMLLoader(getClass().getResource("/View/EditCook.fxml"));
@@ -28,7 +28,7 @@ public class EditController {
 		pannelRoot.setCenter(pp);
 	}
 
-	@FXML
+	@FXML  //initiate and go to edit customer page
 	void goEditCustomer(MouseEvent event) throws IOException {
 		sounds.clickSound();
 		FXMLLoader fx = new FXMLLoader(getClass().getResource("/View/EditCustomer.fxml"));
@@ -39,7 +39,7 @@ public class EditController {
 		pannelRoot.setCenter(pp);
 	}
 
-	@FXML
+	@FXML  //initiate and go to edit delivery person page
 	void goEditDP(MouseEvent event) throws IOException {
 		sounds.clickSound();
 		FXMLLoader fx = new FXMLLoader(getClass().getResource("/View/EditDeliveryPerson.fxml"));
@@ -50,7 +50,7 @@ public class EditController {
 		pannelRoot.setCenter(pp);
 	}
 
-	@FXML
+	@FXML  //initiate and go to edit component page
 	void goEditComponent(MouseEvent event) throws IOException {
 		sounds.clickSound();
 		FXMLLoader fx = new FXMLLoader(getClass().getResource("/View/EditComponent.fxml"));
@@ -61,7 +61,7 @@ public class EditController {
 		pannelRoot.setCenter(pp);
 	}
 	
-	@FXML
+	@FXML  //initiate and go to edit dish page
 	void goEditDish(MouseEvent event) throws IOException {
 		sounds.clickSound();
 		FXMLLoader fx = new FXMLLoader(getClass().getResource("/View/EditDish.fxml"));
@@ -72,7 +72,7 @@ public class EditController {
 		pannelRoot.setCenter(pp);
 	}
 	
-	@FXML
+	@FXML  //initiate and go to edit order page
 	void goEditOrder(MouseEvent event) throws IOException {
 		sounds.clickSound();
 		FXMLLoader fx = new FXMLLoader(getClass().getResource("/View/EditOrder.fxml"));
@@ -83,7 +83,7 @@ public class EditController {
 		pannelRoot.setCenter(pp);
 	}
 	
-	@FXML
+	@FXML  //initiate and go to edit delivery area page
 	void goEditDA(MouseEvent event) throws IOException {
 		sounds.clickSound();
 		FXMLLoader fx = new FXMLLoader(getClass().getResource("/View/EditDA.fxml"));
@@ -94,7 +94,7 @@ public class EditController {
 		pannelRoot.setCenter(pp);
 	}
 	
-	@FXML
+	@FXML  //initiate and go to edit delivery page
 	void goEditDelivery(MouseEvent event) throws IOException {
 		sounds.clickSound();
 		FXMLLoader fx = new FXMLLoader(getClass().getResource("/View/EditDelivery.fxml"));
