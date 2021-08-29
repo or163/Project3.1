@@ -1,5 +1,6 @@
 package application;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Optional;
@@ -93,7 +94,7 @@ public class MakeOrderController {
 				String.valueOf(Utils.Utils.getProperComponents(d.getValue().getComponenets()))));
 	}
 
-	@FXML  //get dihes according to dishType selection in the combo-box
+	@FXML  //get dishes according to dishType selection in the combo-box
 	private void getDishes(ActionEvent event) {
 		sounds.clickSound();
 		dishesTV.getItems().clear();
@@ -246,7 +247,9 @@ public class MakeOrderController {
 		double sum = 0;
 		for (Dish d : dishes)
 			sum += d.getPrice();
+		sum=Double.parseDouble(new DecimalFormat("##.##").format(sum)); //makes it look as price
 		s += sum + "₪";
+		
 		return s;
 	}
 }

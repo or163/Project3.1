@@ -1,8 +1,5 @@
 package application;
 
-import java.util.LinkedList;
-
-import Model.Component;
 import Model.DeliveryArea;
 import Model.Order;
 import javafx.fxml.FXML;

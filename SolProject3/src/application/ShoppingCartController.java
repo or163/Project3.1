@@ -8,7 +8,6 @@ import Exceptions.CantAddObjectException;
 import Model.Customer;
 import Model.Dish;
 import Model.Order;
-import Utils.SerializableWiz;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;

@@ -9,7 +9,6 @@ import Model.Customer;
 import Model.Delivery;
 import Model.Dish;
 import Model.Order;
-import Utils.DishType;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;

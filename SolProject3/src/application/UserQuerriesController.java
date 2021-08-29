@@ -19,7 +19,7 @@ public class UserQuerriesController {
     @FXML
     private BorderPane border;
 
-    // Initiate combo box with querries names
+    // Initiate combo box with queries names
     public void initData() {
     	querries.getItems().addAll("Get Cook By Expert", "Get Relevant Dish List", "Get Popular Component");
     }

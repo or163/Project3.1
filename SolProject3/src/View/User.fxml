@@ -18,9 +18,9 @@
    <center>
       <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
-            <Label fx:id="welcome" alignment="TOP_CENTER" layoutX="186.0" layoutY="14.0" prefHeight="35.0" prefWidth="227.0" stylesheets="@/application/background.css">
+            <Label fx:id="welcome" alignment="TOP_CENTER" layoutX="11.0" layoutY="14.0" prefHeight="169.0" prefWidth="571.0" stylesheets="@/application/background.css">
                <font>
-                  <Font size="24.0" />
+                  <Font size="46.0" />
                </font>
             </Label>
          </children>

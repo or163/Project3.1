@@ -187,7 +187,7 @@ public class UserController {
 		UserController.counter++;
 	}
 	
-	@FXML  //turn sound on and off according to counter, if even mute, else turn on
+	@FXML  //Controls the background music and changes the icon accordingly
     void MuteOnOff(MouseEvent event) {
 		System.out.println("1");
 		sounds.clickSound();
