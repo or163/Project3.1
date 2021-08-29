@@ -7,6 +7,11 @@ import java.util.Optional;
 
 import Audio.sounds;
 import Model.Customer;
+import UserUI.EditUserController;
+import UserUI.MakeOrderController;
+import UserUI.ShoppingCartController;
+import UserUI.UserHistoryController;
+import UserUI.UserQuerriesController;
 import Utils.SerializableWiz;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
