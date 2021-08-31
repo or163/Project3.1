@@ -40,11 +40,15 @@ public class RemoveDAController {
 		da = DALV.getSelectionModel().getSelectedItem();
 		da2 = DALV2.getSelectionModel().getSelectedItem();
 
-		if (DALV.getItems().size() == 0) //in case there are no delivery areas in the list
+		if (DALV.getItems().size() == 0) { //in case there are no delivery areas in the list
 			message.setText("There are no areas to remove");
+			message.setTextFill(Color.RED);
+		}
 		else if (DALV.getSelectionModel().getSelectedItem() == null
-				|| DALV2.getSelectionModel().getSelectedItem() == null) //no delivery areas selected
+				|| DALV2.getSelectionModel().getSelectedItem() == null) {  //no delivery areas selected
 			message.setText("Please Select areas");
+			message.setTextFill(Color.RED);
+		}
 		else {
 			Alert alert = new Alert(AlertType.CONFIRMATION); //if returned ok from alert remove delivery area
 			alert.setTitle("Confirmation");

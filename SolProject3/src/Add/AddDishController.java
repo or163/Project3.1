@@ -75,7 +75,7 @@ public class AddDishController {
 						throw new CantAddObjectException("Dish " + dish.getDishName());
 				}
 				else {
-					message.setText("the time is incorrect");
+					message.setText("the time is incorrect(int)");
 					message.setTextFill(Color.RED);
 				}
 				

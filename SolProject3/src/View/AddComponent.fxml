@@ -15,11 +15,6 @@
             <Font name="System Bold" size="24.0" />
          </font>
       </Label>
-      <Button alignment="TOP_CENTER" layoutX="249.0" layoutY="420.0" mnemonicParsing="false" onAction="#save" prefHeight="29.0" prefWidth="101.0" text="save">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </Button>
       <Label layoutX="29.0" layoutY="86.0" prefHeight="25.0" prefWidth="57.0" text="Name :" />
       <Label layoutX="29.0" layoutY="138.0" prefHeight="25.0" prefWidth="73.0" text="with lactose?" />
       <Label layoutX="29.0" layoutY="188.0" prefHeight="25.0" prefWidth="73.0" text="with gluten?" />
@@ -36,6 +31,11 @@
          </toggleGroup></RadioButton>
       <RadioButton fx:id="glutenNo" layoutX="175.0" layoutY="192.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="57.0" text="No" toggleGroup="$glutenTG" />
       <TextField fx:id="price" layoutX="112.0" layoutY="226.0" prefHeight="30.0" prefWidth="101.0" promptText="Enter a number" />
+      <Button alignment="TOP_CENTER" layoutX="249.0" layoutY="420.0" mnemonicParsing="false" onAction="#save" prefHeight="29.0" prefWidth="101.0" text="save">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
       <Label fx:id="message" alignment="TOP_CENTER" layoutX="188.0" layoutY="460.0" prefHeight="17.0" prefWidth="219.0" textFill="#e22424" />
    </children>
 </AnchorPane>

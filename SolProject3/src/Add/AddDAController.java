@@ -34,6 +34,7 @@ public class AddDAController {
 	public void initData() {
 		txtAreaName.clear();
 		intDelTime.clear();
+		listNeigh.getItems().clear();
 		listNeigh.getSelectionModel().clearSelection();
 		listNeigh.getItems().addAll(Neighberhood.values());
 		selected.getItems().clear();

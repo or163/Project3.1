@@ -10,7 +10,7 @@ import Utils.Expertise;
 import Utils.Gender;
 import application.Main;
 import javafx.fxml.FXML;
-import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
@@ -30,10 +30,10 @@ public class AddCookController {
 	private DatePicker date;
 
 	@FXML
-	private ChoiceBox<Gender> gender;
+	private ComboBox<Gender> gender;
 
 	@FXML
-	private ChoiceBox<Expertise> expertise;
+	private ComboBox<Expertise> expertise;
 
 	@FXML
 	private RadioButton isChefYes;

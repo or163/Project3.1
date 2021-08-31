@@ -32,6 +32,22 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
+      <Label layoutX="24.0" layoutY="106.0" prefHeight="25.0" prefWidth="90.0" style="-fx-background-color: #ffffff80; -fx-background-radius: 12;" text="Password :" />
+      <Label layoutX="24.0" layoutY="67.0" prefHeight="25.0" prefWidth="90.0" style="-fx-background-color: #ffffff80; -fx-background-radius: 12;" text="User Name :" />
+      <Label layoutX="25.0" layoutY="145.0" prefHeight="25.0" prefWidth="90.0" style="-fx-background-color: #ffffff80; -fx-background-radius: 12;" text="First Name :" />
+      <Label layoutX="24.0" layoutY="180.0" prefHeight="25.0" prefWidth="90.0" style="-fx-background-color: #ffffff80; -fx-background-radius: 12;" text="Last Name :" />
+      <Label layoutX="24.0" layoutY="218.0" prefHeight="25.0" prefWidth="90.0" style="-fx-background-color: #ffffff80; -fx-background-radius: 12;" text="Date of Birth :" />
+      <Label layoutX="24.0" layoutY="260.0" prefHeight="25.0" prefWidth="90.0" style="-fx-background-color: #ffffff80; -fx-background-radius: 12;" text="Gender :" />
+      <Label layoutX="25.0" layoutY="299.0" prefHeight="25.0" prefWidth="90.0" style="-fx-background-color: #ffffff80; -fx-background-radius: 12;" text="Neighborhood :" />
+      <Label layoutX="25.0" layoutY="342.0" prefHeight="25.0" prefWidth="123.0" style="-fx-background-color: #ffffff80; -fx-background-radius: 12;" text="Senstitive to Lactose?" />
+      <Label layoutX="25.0" layoutY="375.0" prefHeight="25.0" prefWidth="123.0" style="-fx-background-color: #ffffff80; -fx-background-radius: 12;" text="Sensitive to Gluten?" />
+      <TextField fx:id="userName" layoutX="122.0" layoutY="64.0" prefHeight="30.0" prefWidth="100.0" />
+      <PasswordField fx:id="passw" layoutX="122.0" layoutY="104.0" prefHeight="30.0" prefWidth="100.0" />
+      <TextField fx:id="txtFName" layoutX="122.0" layoutY="143.0" prefHeight="30.0" prefWidth="100.0" />
+      <TextField fx:id="txtLName" layoutX="122.0" layoutY="178.0" prefHeight="30.0" prefWidth="100.0" />
+      <DatePicker fx:id="date" layoutX="121.0" layoutY="215.0" prefHeight="32.0" prefWidth="101.0" />
+      <ChoiceBox fx:id="gender" layoutX="121.0" layoutY="260.0" prefHeight="25.0" prefWidth="101.0" />
+      <ComboBox fx:id="neighborhood" layoutX="121.0" layoutY="299.0" prefHeight="25.0" prefWidth="101.0" />
       <RadioButton fx:id="lactoseYes" layoutX="156.0" layoutY="346.0" mnemonicParsing="false" style="-fx-background-color: #ffffff80; -fx-background-radius: 12;" text="Yes">
          <toggleGroup>
             <ToggleGroup fx:id="lactoseTG" />
@@ -54,53 +70,10 @@
          <font>
             <Font name="System Bold" size="12.0" />
          </font></RadioButton>
-      <Label layoutX="24.0" layoutY="106.0" prefHeight="25.0" prefWidth="90.0" style="-fx-background-color: #ffffff80; -fx-background-radius: 12;" text="Password :">
-         <font>
-            <Font name="System Bold" size="12.0" />
-         </font></Label>
-      <Label layoutX="24.0" layoutY="66.0" prefHeight="25.0" prefWidth="90.0" style="-fx-background-color: #ffffff80; -fx-background-radius: 12;" text="User Name :">
-         <font>
-            <Font name="System Bold" size="12.0" />
-         </font></Label>
-      <Label layoutX="25.0" layoutY="145.0" prefHeight="25.0" prefWidth="90.0" style="-fx-background-color: #ffffff80; -fx-background-radius: 12;" text="First Name :">
-         <font>
-            <Font name="System Bold" size="12.0" />
-         </font></Label>
-      <Label layoutX="24.0" layoutY="180.0" prefHeight="25.0" prefWidth="90.0" style="-fx-background-color: #ffffff80; -fx-background-radius: 12;" text="Last Name :">
-         <font>
-            <Font name="System Bold" size="12.0" />
-         </font></Label>
-      <Label layoutX="24.0" layoutY="218.0" prefHeight="25.0" prefWidth="90.0" style="-fx-background-color: #ffffff80; -fx-background-radius: 12;" text="Date of Birth :">
-         <font>
-            <Font name="System Bold" size="12.0" />
-         </font></Label>
-      <Label layoutX="24.0" layoutY="260.0" prefHeight="25.0" prefWidth="90.0" style="-fx-background-color: #ffffff80; -fx-background-radius: 12;" text="Gender :">
-         <font>
-            <Font name="System Bold" size="12.0" />
-         </font></Label>
-      <Label layoutX="25.0" layoutY="299.0" prefHeight="25.0" prefWidth="90.0" style="-fx-background-color: #ffffff80; -fx-background-radius: 12;" text="Neighborhood :">
-         <font>
-            <Font name="System Bold" size="12.0" />
-         </font></Label>
-      <Label layoutX="25.0" layoutY="342.0" prefHeight="25.0" prefWidth="123.0" style="-fx-background-color: #ffffff80; -fx-background-radius: 12;" text="Senstitive to Lactose?">
-         <font>
-            <Font name="System Bold" size="12.0" />
-         </font></Label>
-      <Label layoutX="25.0" layoutY="375.0" prefHeight="25.0" prefWidth="123.0" style="-fx-background-color: #ffffff80; -fx-background-radius: 12;" text="Sensitive to Gluten?">
-         <font>
-            <Font name="System Bold" size="12.0" />
-         </font></Label>
-      <TextField fx:id="userName" layoutX="122.0" layoutY="64.0" prefHeight="30.0" prefWidth="100.0" />
-      <TextField fx:id="txtFName" layoutX="122.0" layoutY="143.0" prefHeight="30.0" prefWidth="100.0" />
-      <TextField fx:id="txtLName" layoutX="122.0" layoutY="178.0" prefHeight="30.0" prefWidth="100.0" />
-      <DatePicker fx:id="date" layoutX="121.0" layoutY="215.0" prefHeight="32.0" prefWidth="101.0" />
-      <ChoiceBox fx:id="gender" layoutX="121.0" layoutY="260.0" prefHeight="25.0" prefWidth="101.0" />
-      <PasswordField fx:id="passw" layoutX="122.0" layoutY="104.0" prefHeight="30.0" prefWidth="100.0" />
       <Label fx:id="message" layoutX="216.0" layoutY="410.0" prefHeight="17.0" prefWidth="375.0" textFill="#ef1414">
          <font>
             <Font name="System Bold" size="12.0" />
          </font></Label>
-      <ComboBox fx:id="neighborhood" layoutX="121.0" layoutY="299.0" prefHeight="25.0" prefWidth="101.0" />
       <Hyperlink layoutX="271.0" layoutY="441.0" onAction="#goHome" prefHeight="29.0" prefWidth="180.0" text="Already a member? sign-in">
          <font>
             <Font name="Berlin Sans FB Bold" size="12.0" />

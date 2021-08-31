@@ -40,6 +40,7 @@ public class RemoveCookController {
 			message.setText("");
 			if (!Utils.Utils.isOnlyDigits(id.getText())) {  //validates that only digits are enterd to the text field
 				message.setText("Wrong value! enter only numbers");
+				message.setTextFill(Color.RED);
 				return;
 			}
 			Cook cook = Main.restaurant.getRealCook(Integer.parseInt(id.getText()));
@@ -52,10 +53,14 @@ public class RemoveCookController {
 		Cook c = null;
 		c = cookLV.getSelectionModel().getSelectedItem();
 
-		if (cookLV.getItems().size() == 0) //in case there are no cooks in the list
+		if (cookLV.getItems().size() == 0) { //in case there are no cooks in the list
 			message.setText("There are no cooks to remove");
-		else if (cookLV.getSelectionModel().getSelectedItem() == null) //no cook selected
+			message.setTextFill(Color.RED);
+		}
+		else if (cookLV.getSelectionModel().getSelectedItem() == null) { //no cook selected
 			message.setText("Please Select a cook to Remove");
+			message.setTextFill(Color.RED);
+		}
 		else if (c != null) {
 			
 			Alert alert = new Alert(AlertType.CONFIRMATION); //if returned ok from alert remove cook

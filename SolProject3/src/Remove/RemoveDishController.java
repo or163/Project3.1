@@ -2,7 +2,6 @@ package Remove;
 
 import java.util.Optional;
 
-import Model.Customer;
 import Model.Dish;
 import application.Main;
 import javafx.event.ActionEvent;
@@ -40,6 +39,7 @@ public class RemoveDishController {
 		message.setText("");
 		if (!Utils.Utils.isOnlyDigits(id.getText())) {  //validates that only digits are enterd to the text field
 			message.setText("Wrong value! enter only numbers");
+			message.setTextFill(Color.RED);
 			return;
 		}
 		Dish dish = Main.restaurant.getRealDish(Integer.parseInt(id.getText()));
@@ -52,10 +52,14 @@ public class RemoveDishController {
 		Dish d = null;
 		d = dishLV.getSelectionModel().getSelectedItem();
 
-		if (dishLV.getItems().size() == 0) //in case there are no dishes in the list
+		if (dishLV.getItems().size() == 0) { //in case there are no dishes in the list
 			message.setText("There are no dishes to remove");
-		else if (dishLV.getSelectionModel().getSelectedItem() == null) //no dish selected
+			message.setTextFill(Color.RED);
+		}
+		else if (dishLV.getSelectionModel().getSelectedItem() == null) { //no dish selected
 			message.setText("Please Select a dish to Remove");
+			message.setTextFill(Color.RED);
+		}
 		else if (d != null) {
 
 			Alert alert = new Alert(AlertType.CONFIRMATION); //if returned ok from alert remove dish

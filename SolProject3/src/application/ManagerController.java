@@ -138,10 +138,10 @@ public class ManagerController {
 	@FXML  //Initiate and go to data bases page
 	void goDatabases (ActionEvent event) throws IOException {
 		sounds.clickSound();
-		FXMLLoader fx = new FXMLLoader(getClass().getResource("/View/viewDataBases.fxml"));
+		FXMLLoader fx = new FXMLLoader(getClass().getResource("/View/ViewDataBases.fxml"));
 		Pane p = fx.load();
 		AnchorPane pp = (AnchorPane) p;
-		viewDatabasesController ctrl = (viewDatabasesController) fx.getController();
+		ViewDatabasesController ctrl = (ViewDatabasesController) fx.getController();
 		ctrl.initData();
 		pannelRoot.setCenter(pp);
 	}

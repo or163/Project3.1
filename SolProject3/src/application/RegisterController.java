@@ -165,6 +165,7 @@ public class RegisterController {
 
 	@FXML  //select photo to upload as profile picture and also save the profile path for further using in the project
 	public void chooseFile() {
+		sounds.clickSound();
 		FileChooser fc = new FileChooser();
 		File tmp = fc.showOpenDialog(Main.stage);
 		if (tmp != null) {

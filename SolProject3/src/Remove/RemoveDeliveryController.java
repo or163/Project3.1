@@ -2,7 +2,6 @@ package Remove;
 
 import java.util.Optional;
 
-import Model.Customer;
 import Model.Delivery;
 import application.Main;
 import javafx.event.ActionEvent;
@@ -38,6 +37,7 @@ public class RemoveDeliveryController {
 		message.setText("");
 		if (!Utils.Utils.isOnlyDigits(id.getText())) {  //validates that only digits are enterd to the text field
 			message.setText("Wrong value! enter only numbers");
+			message.setTextFill(Color.RED);
 			return;
 		}
 		Delivery del = Main.restaurant.getRealDelivery(Integer.parseInt(id.getText()));
@@ -50,10 +50,14 @@ public class RemoveDeliveryController {
 		Delivery d = null;
 		d = dellLV.getSelectionModel().getSelectedItem();
 
-		if (dellLV.getItems().size() == 0) //in case there are no deliveries in the list
+		if (dellLV.getItems().size() == 0) { //in case there are no deliveries in the list
 			message.setText("There are no deliveries to remove");
-		else if (dellLV.getSelectionModel().getSelectedItem() == null) //no delivery selected
+			message.setTextFill(Color.RED);
+		}
+		else if (dellLV.getSelectionModel().getSelectedItem() == null) { //no delivery selected
 			message.setText("Please Select a delivery to Remove");
+			message.setTextFill(Color.RED);
+		}
 		else if (d != null) {
 
 			Alert alert = new Alert(AlertType.CONFIRMATION); //if returned ok from alert remove delivery

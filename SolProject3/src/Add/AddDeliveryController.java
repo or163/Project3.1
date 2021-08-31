@@ -54,6 +54,8 @@ public class AddDeliveryController {
 	//Initiate the page and fill the delivery area combo-box with proper options
 	public void initData() {
 		// TODO Auto-generated method stub
+		deliveryArea.getItems().clear();
+		orders.getItems().clear();
 		deliveryArea.getItems().addAll(Main.restaurant.getAreas().values());
 		for (Order o : Main.restaurant.getOrders().values()) {  //Populate orders list view with orders that has no delivery
 			if (o.getDelivery() == null)
@@ -135,7 +137,7 @@ public class AddDeliveryController {
 					orders.getSelectionModel().clearSelection();
 					selected.getItems().clear();
 					deliveyTG.getSelectedToggle().setSelected(false);
-					Utils.Utils.initDate(date);
+					initData();
 				} else
 					throw new CantAddObjectException("Delivery " + d.getId());
 			} else {
@@ -150,7 +152,7 @@ public class AddDeliveryController {
 					orders.getSelectionModel().clearSelection();
 					selected.getItems().clear();
 					deliveyTG.getSelectedToggle().setSelected(false);
-					Utils.Utils.initDate(date);
+					initData();
 				} else
 					throw new CantAddObjectException("Delivery " + d.getId());
 			}

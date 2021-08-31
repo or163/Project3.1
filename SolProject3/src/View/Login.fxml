@@ -31,7 +31,7 @@
                <font>
                   <Font name="Berlin Sans FB" size="12.0" />
                </font></PasswordField>
-            <Button fx:id="signIn" layoutX="130.0" layoutY="145.0" mnemonicParsing="false" onAction="#login" prefHeight="25.0" prefWidth="66.0" style="-fx-background-radius: 0; -fx-background-color: #c5c5c5;" text="sign-in" textFill="#000000ec">
+            <Button fx:id="signIn" defaultButton="true" layoutX="130.0" layoutY="145.0" mnemonicParsing="false" onAction="#login" prefHeight="25.0" prefWidth="66.0" style="-fx-background-radius: 0; -fx-background-color: #c5c5c5;" text="sign-in" textFill="#000000ec">
                <effect>
                   <Glow />
                </effect>
@@ -39,12 +39,12 @@
                   <Font name="Berlin Sans FB Demi Bold" size="12.0" />
                </font>
             </Button>
-            <Line fx:id="userLine" endX="100.0" layoutX="147.0" layoutY="64.0" startX="-100.0" stroke="#94c5ef" />
-            <Line fx:id="passwLine" endX="100.0" layoutX="147.0" layoutY="110.0" startX="-100.0" stroke="#94c5ef" />
             <Hyperlink fx:id="register" layoutX="83.0" layoutY="181.0" onAction="#signup" text="Not a member? register here">
                <font>
                   <Font name="Berlin Sans FB" size="12.0" />
                </font></Hyperlink>
+            <Line fx:id="userLine" endX="100.0" layoutX="147.0" layoutY="64.0" startX="-100.0" stroke="#94c5ef" />
+            <Line fx:id="passwLine" endX="100.0" layoutX="147.0" layoutY="110.0" startX="-100.0" stroke="#94c5ef" />
             <Label fx:id="message" alignment="TOP_CENTER" layoutX="61.0" layoutY="212.0" prefHeight="17.0" prefWidth="201.0" textFill="#ef2727" />
             <ImageView fitHeight="33.0" fitWidth="40.0" layoutX="247.0" layoutY="29.0">
                <image>

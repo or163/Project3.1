@@ -44,6 +44,7 @@ public class RemoveCustomerController {
 		message.setText("");
 		if (!Utils.Utils.isOnlyDigits(id.getText())) {  //validates that only digits are enterd to the text field
 			message.setText("Wrong value! enter only numbers");
+			message.setTextFill(Color.RED);
 			return;
 		}
 		Customer cust = Main.restaurant.getRealCustomer(Integer.parseInt(id.getText()));
@@ -63,10 +64,14 @@ public class RemoveCustomerController {
 		Customer c = null;
 		c = customerLV.getSelectionModel().getSelectedItem();
 
-		if (customerLV.getItems().size() == 0) // in case there are no customers in the list
+		if (customerLV.getItems().size() == 0) { // in case there are no customers in the list
 			message.setText("There are no customers to remove");
-		else if (customerLV.getSelectionModel().getSelectedItem() == null) // no customer selected
+			message.setTextFill(Color.RED);
+		}
+		else if (customerLV.getSelectionModel().getSelectedItem() == null) { // no customer selected
 			message.setText("Please Select a customer to Remove");
+			message.setTextFill(Color.RED);
+		}
 		else if (c != null) {
 
 			Alert alert = new Alert(AlertType.CONFIRMATION); // if returned ok from alert remove customer

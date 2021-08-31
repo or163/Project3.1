@@ -21,6 +21,22 @@
       </Label>
       <Label layoutX="25.0" layoutY="49.0" prefHeight="25.0" prefWidth="100.0" style="-fx-background-color: #ffffff80; -fx-background-radius: 12;" text="Choose Customer:" />
       <ComboBox fx:id="WhichCustomer" layoutX="129.0" layoutY="49.0" onAction="#CustomerSelected" prefHeight="25.0" prefWidth="460.0" />
+      <Label layoutX="25.0" layoutY="125.0" prefHeight="30.0" prefWidth="81.0" text="Password :" />
+      <Label layoutX="25.0" layoutY="84.0" prefHeight="32.0" prefWidth="81.0" text="User Name :" />
+      <Label layoutX="25.0" layoutY="164.0" prefHeight="30.0" prefWidth="81.0" text="First Name :" />
+      <Label layoutX="25.0" layoutY="201.0" prefHeight="30.0" prefWidth="81.0" text="Last Name :" />
+      <Label layoutX="25.0" layoutY="240.0" prefHeight="30.0" prefWidth="81.0" text="Date of Birth :" />
+      <Label layoutX="25.0" layoutY="279.0" prefHeight="30.0" prefWidth="81.0" text="Gender :" />
+      <Label layoutX="25.0" layoutY="318.0" prefHeight="30.0" prefWidth="88.0" text="Neighborhood :" />
+      <Label layoutX="25.0" layoutY="353.0" prefHeight="32.0" prefWidth="118.0" text="Senstitive to Lactose?" />
+      <Label layoutX="26.0" layoutY="391.0" prefHeight="30.0" prefWidth="118.0" text="Sensitive to Gluten?" />
+      <TextField fx:id="userName" layoutX="128.0" layoutY="85.0" prefHeight="30.0" prefWidth="153.0" />
+      <PasswordField fx:id="passw" layoutX="128.0" layoutY="125.0" prefHeight="30.0" prefWidth="153.0" />
+      <TextField fx:id="txtFName" layoutX="128.0" layoutY="164.0" prefHeight="30.0" prefWidth="153.0" />
+      <TextField fx:id="txtLName" layoutX="128.0" layoutY="202.0" prefHeight="30.0" prefWidth="153.0" />
+      <DatePicker fx:id="date" layoutX="127.0" layoutY="241.0" prefHeight="32.0" prefWidth="153.0" />
+      <ComboBox fx:id="gender" layoutX="126.0" layoutY="282.0" prefHeight="25.0" prefWidth="153.0" />
+      <ComboBox fx:id="neighborhood" layoutX="126.0" layoutY="320.0" prefHeight="25.0" prefWidth="153.0" />
       <RadioButton fx:id="lactoseYes" layoutX="153.0" layoutY="361.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="54.0" styleClass="label" text="Yes">
          <toggleGroup>
             <ToggleGroup fx:id="lactoseTG" />
@@ -33,30 +49,14 @@
          </toggleGroup>
       </RadioButton>
       <RadioButton fx:id="glutenNo" layoutX="210.0" layoutY="399.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="54.0" styleClass="label" text="No" toggleGroup="$glutenTG" />
-      <Label layoutX="25.0" layoutY="125.0" prefHeight="30.0" prefWidth="81.0" text="Password :" />
-      <Label layoutX="25.0" layoutY="84.0" prefHeight="32.0" prefWidth="81.0" text="User Name :" />
-      <Label layoutX="25.0" layoutY="164.0" prefHeight="30.0" prefWidth="81.0" text="First Name :" />
-      <Label layoutX="25.0" layoutY="201.0" prefHeight="30.0" prefWidth="81.0" text="Last Name :" />
-      <Label layoutX="25.0" layoutY="240.0" prefHeight="30.0" prefWidth="81.0" text="Date of Birth :" />
-      <Label layoutX="25.0" layoutY="279.0" prefHeight="30.0" prefWidth="81.0" text="Gender :" />
-      <Label layoutX="25.0" layoutY="318.0" prefHeight="30.0" prefWidth="88.0" text="Neighborhood :" />
-      <Label layoutX="25.0" layoutY="353.0" prefHeight="32.0" prefWidth="118.0" text="Senstitive to Lactose?" />
-      <Label layoutX="26.0" layoutY="391.0" prefHeight="30.0" prefWidth="118.0" text="Sensitive to Gluten?" />
-      <TextField fx:id="userName" layoutX="128.0" layoutY="85.0" prefHeight="30.0" prefWidth="153.0" />
-      <TextField fx:id="txtFName" layoutX="128.0" layoutY="164.0" prefHeight="30.0" prefWidth="153.0" />
-      <TextField fx:id="txtLName" layoutX="128.0" layoutY="202.0" prefHeight="30.0" prefWidth="153.0" />
-      <DatePicker fx:id="date" layoutX="127.0" layoutY="241.0" prefHeight="32.0" prefWidth="153.0" />
-      <PasswordField fx:id="passw" layoutX="128.0" layoutY="125.0" prefHeight="30.0" prefWidth="153.0" />
-      <ComboBox fx:id="neighborhood" layoutX="126.0" layoutY="320.0" prefHeight="25.0" prefWidth="153.0" />
+      <Button layoutX="424.0" layoutY="218.0" mnemonicParsing="false" onAction="#chooseFile" prefHeight="25.0" prefWidth="156.0" text="Upload Image" />
       <Button fx:id="saveButton1" alignment="TOP_CENTER" layoutX="250.0" layoutY="438.0" mnemonicParsing="false" onAction="#save" prefHeight="29.0" prefWidth="100.0" text="save">
          <font>
             <Font size="14.0" />
          </font>
       </Button>
-      <ComboBox fx:id="gender" layoutX="126.0" layoutY="282.0" prefHeight="25.0" prefWidth="153.0" />
       <Label fx:id="message" alignment="TOP_CENTER" layoutX="42.0" layoutY="470.0" prefHeight="17.0" prefWidth="541.0" textFill="#ef1414" />
       <Label layoutX="427.0" layoutY="198.0" prefHeight="17.0" prefWidth="153.0" text="Add Profile Picture(optional)" />
-      <Button layoutX="424.0" layoutY="218.0" mnemonicParsing="false" onAction="#chooseFile" prefHeight="25.0" prefWidth="156.0" text="Upload Image" />
       <ImageView fx:id="profilePic" fitHeight="110.0" fitWidth="143.0" layoutX="433.0" layoutY="85.0" pickOnBounds="true" preserveRatio="true" />
    </children>
 </AnchorPane>

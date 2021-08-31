@@ -23,6 +23,11 @@
                   <Font size="46.0" />
                </font>
             </Label>
+            <Label fx:id="TimeMessage" alignment="CENTER" contentDisplay="CENTER" layoutX="54.0" layoutY="206.0" prefHeight="114.0" prefWidth="491.0" style="-fx-background-color: #ffffff80; -fx-background-radius: 12;" textAlignment="CENTER">
+               <font>
+                  <Font name="Berlin Sans FB" size="34.0" />
+               </font>
+            </Label>
          </children>
       </AnchorPane>
    </center>

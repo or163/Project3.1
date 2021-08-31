@@ -3,6 +3,7 @@ package application;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.util.Calendar;
 import java.util.Optional;
 
 import Audio.sounds;
@@ -35,10 +36,13 @@ import javafx.stage.Stage;
 public class UserController {
 
 	@FXML
-	private BorderPane pannelRoot; // pannelRoot is the main pannel of user ui and all other screens in user ui would display via pannelRoot
+	private BorderPane pannelRoot; // pannelRoot is the main pannel of user UI and all other screens in user ui would display via pannelRoot
 
 	@FXML
 	private Label welcome;
+	
+	@FXML
+    private Label TimeMessage;
 	
 	@FXML
 	private VBox vbox;
@@ -77,9 +81,28 @@ public class UserController {
 		}
 		else
 			profilePic.setImage(new Image("/Icons/male_user_60px.png"));
+		Calendar ca = Calendar.getInstance();
+		int timeOfDay = ca.get(Calendar.HOUR_OF_DAY);
+		TimeMessage.setWrapText(true);
+		if(timeOfDay >= 0 && timeOfDay < 12){ //shows a message according to the current time
+			TimeMessage.setText("Good Morning,"
+					+ "\n enjoy your wonderful day");        
+		}else if(timeOfDay >= 12 && timeOfDay < 16){
+			TimeMessage.setText("Good Afternoon,\n"
+					+ " we hope you are hungry");
+		}else if(timeOfDay >= 16 && timeOfDay < 21){
+			TimeMessage.setText("Good Evening,\n "
+					+ "enjoy your wonderful evening");
+		}else if(timeOfDay >= 21 && timeOfDay < 24){
+			TimeMessage.setText("Good Night,\n "
+					+ "are you up for a night snack");
+		}
+		else
+			TimeMessage.setText("");
+		TimeMessage.autosize();
+		
+		
 	}
-	
-	
 	
 	@FXML  // go to main user ui screen
 	void goHome(ActionEvent event) throws IOException {
@@ -125,7 +148,6 @@ public class UserController {
 		pannelRoot.setCenter(pp);
 	}
 	
-
 	@FXML   // go to shopping cart page
 	void goShoppingCart (ActionEvent event) throws IOException {
 		sounds.clickSound();
@@ -137,7 +159,7 @@ public class UserController {
 		pannelRoot.setCenter(pp);
 	}
 	
-	@FXML  // go to querries page
+	@FXML  // go to queries page
 	void goQuerries (ActionEvent event) throws IOException {
 		sounds.clickSound();
 		FXMLLoader fx = new FXMLLoader(getClass().getResource("/View/UserQuerries.fxml"));
@@ -160,6 +182,20 @@ public class UserController {
 		pannelRoot.setCenter(pp);
 	}
 	
+	@FXML  // show or hide menu according to counter, if even hide, else show
+	void showMenu(MouseEvent event) {
+		sounds.clickSound();
+		if(UserController.counter % 2 == 0) {
+			vbox.setVisible(false);
+			anchor.setStyle("-fx-background-color: transparent");
+		}
+		else {
+			vbox.setVisible(true);
+			anchor.setStyle("-fx-background-color: #171717");
+			}
+		UserController.counter++;
+	}
+	
 	@FXML  // exit program
 	private void exitButtonAction(ActionEvent event){
 	    // get a handle to the stage
@@ -178,32 +214,15 @@ public class UserController {
 	    stage.close();
 	}
 	
-	@FXML  // show or hide menu according to counter, if even hide, else show
-	void showMenu(MouseEvent event) {
-		sounds.clickSound();
-		if(UserController.counter % 2 == 0) {
-			vbox.setVisible(false);
-			anchor.setStyle("-fx-background-color: transparent");
-		}
-		else {
-			vbox.setVisible(true);
-			anchor.setStyle("-fx-background-color: #171717");
-			}
-		UserController.counter++;
-	}
-	
-	@FXML  //Controls the background music and changes the icon accordingly
+	@FXML  //Controls the background music and changes the icon accordingly 
     void MuteOnOff(MouseEvent event) {
-		System.out.println("1");
 		sounds.clickSound();
 		if(UserController.counter2  % 2 == 1) {
 			Audio.setImage(new Image("Icons/audio_64px.png"));
-			System.out.println("2");
 		}
 		else
 		{
 			Audio.setImage(new Image("Icons/no_audio_64px.png"));
-			System.out.println("3");
 		}
 		counter2++;
 		sounds.backgroundMusic();

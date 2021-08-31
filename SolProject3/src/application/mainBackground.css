@@ -4,3 +4,8 @@
  -fx-background-size: stretch;
 	
 }
+
+.table-row-cell:selected{
+	-fx-background-color: #c5a65b;
+}
+

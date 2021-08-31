@@ -15,22 +15,22 @@
             <Font name="System Bold" size="24.0" />
          </font>
       </Label>
-      <Button alignment="TOP_CENTER" layoutX="250.0" layoutY="420.0" mnemonicParsing="false" onAction="#save" prefHeight="29.0" prefWidth="101.0" text="save">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </Button>
       <Label layoutX="23.0" layoutY="75.0" prefHeight="25.0" prefWidth="84.0" text="Name :" />
       <Label layoutX="23.0" layoutY="115.0" prefHeight="25.0" prefWidth="84.0" text="Type :" />
       <Label layoutX="23.0" layoutY="155.0" prefHeight="25.0" prefWidth="84.0" text="Time to make :" />
       <Label layoutX="23.0" layoutY="192.0" prefHeight="25.0" prefWidth="84.0" text="Components :" />
       <Label fx:id="message" alignment="TOP_CENTER" layoutX="167.0" layoutY="457.0" prefHeight="22.0" prefWidth="263.0" textFill="#d22828" />
       <TextField fx:id="name" layoutX="114.0" layoutY="73.0" prefHeight="30.0" prefWidth="113.0" />
-      <ListView fx:id="comps" layoutX="114.0" layoutY="191.0" prefHeight="163.0" prefWidth="263.0" />
-      <TextField fx:id="time" layoutX="114.0" layoutY="153.0" prefHeight="30.0" prefWidth="113.0" promptText="Enter a number" />
-      <ListView fx:id="selected" layoutX="393.0" layoutY="191.0" prefHeight="163.0" prefWidth="181.0" />
-      <Button layoutX="114.0" layoutY="363.0" mnemonicParsing="false" onAction="#addComp" prefHeight="25.0" prefWidth="101.0" text="add component" />
-      <Button layoutX="393.0" layoutY="363.0" mnemonicParsing="false" onAction="#removeComp" text="remove component" />
       <ComboBox fx:id="type" layoutX="114.0" layoutY="113.0" prefHeight="30.0" prefWidth="113.0" />
+      <TextField fx:id="time" layoutX="114.0" layoutY="153.0" prefHeight="30.0" prefWidth="113.0" promptText="Enter a number" />
+      <ListView fx:id="comps" layoutX="114.0" layoutY="191.0" prefHeight="163.0" prefWidth="263.0" />
+      <Button layoutX="114.0" layoutY="363.0" mnemonicParsing="false" onAction="#addComp" prefHeight="25.0" prefWidth="101.0" text="add component" />
+      <ListView fx:id="selected" layoutX="393.0" layoutY="191.0" prefHeight="163.0" prefWidth="181.0" />
+      <Button layoutX="393.0" layoutY="363.0" mnemonicParsing="false" onAction="#removeComp" text="remove component" />
+      <Button alignment="TOP_CENTER" layoutX="250.0" layoutY="420.0" mnemonicParsing="false" onAction="#save" prefHeight="29.0" prefWidth="101.0" text="save">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

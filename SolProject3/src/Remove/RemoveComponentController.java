@@ -39,6 +39,7 @@ public class RemoveComponentController {
 		message.setText("");
 		if (!Utils.Utils.isOnlyDigits(id.getText())) {  //validates that only digits are enterd to the text field
 			message.setText("Wrong value! enter only numbers");
+			message.setTextFill(Color.RED);
 			return;
 		}
 		Component comp = Main.restaurant.getRealComponent(Integer.parseInt(id.getText()));
@@ -51,10 +52,14 @@ public class RemoveComponentController {
 		Component c = null;
 		c = compLV.getSelectionModel().getSelectedItem();
 
-		if (compLV.getItems().size() == 0)   //in case there are no components in the list
+		if (compLV.getItems().size() == 0) {   //in case there are no components in the list
 			message.setText("There are no components to remove");
-		else if (compLV.getSelectionModel().getSelectedItem() == null) //no component selected
+			message.setTextFill(Color.RED);
+		}
+		else if (compLV.getSelectionModel().getSelectedItem() == null) { //no component selected
 			message.setText("Please Select a component to Remove");
+			message.setTextFill(Color.RED);
+		}
 		else if (c != null) {
 			
 			Alert alert = new Alert(AlertType.CONFIRMATION); //if returned ok from alert remove component

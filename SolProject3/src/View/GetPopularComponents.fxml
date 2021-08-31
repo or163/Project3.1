@@ -15,12 +15,11 @@
       </Label>
       <TableView fx:id="compsTV" layoutX="20.0" layoutY="87.0" prefHeight="373.0" prefWidth="559.0">
          <columns>
-            <TableColumn fx:id="pop" prefWidth="104.0" text="Popularity" />
             <TableColumn fx:id="id" prefWidth="40.0" text="Id" />
-            <TableColumn fx:id="name" prefWidth="104.0" text="Name" />
-            <TableColumn fx:id="lactose" minWidth="8.66668701171875" prefWidth="104.0" text="Lactose" />
-            <TableColumn fx:id="gluten" prefWidth="104.0" text="Gluten" />
-            <TableColumn fx:id="price" minWidth="0.0" prefWidth="102.0" text="Price" />
+            <TableColumn fx:id="name" prefWidth="135.0" text="Name" />
+            <TableColumn fx:id="lactose" minWidth="8.66668701171875" prefWidth="135.0" text="Lactose" />
+            <TableColumn fx:id="gluten" prefWidth="120.0" text="Gluten" />
+            <TableColumn fx:id="price" minWidth="0.0" prefWidth="112.0" text="Price" />
          </columns>
       </TableView>
    </children>

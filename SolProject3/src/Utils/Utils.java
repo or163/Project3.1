@@ -94,10 +94,10 @@ public class Utils {
             		message.setText("Password must have atleast one number");
                     isValid = false;
             }
-            String specialChars = "(.*[@,#,$,%].*$)";
+            String specialChars = "(.*[!,@,#,$,%,^,&,*,(,),+,=,_,-,<,>,?].*$)";
             if (!password.matches(specialChars ))
             {
-            		message.setText("Password must have atleast one special character among @#$%");
+            		message.setText("Password must have atleast one special character");
                     isValid = false;
             }
             return isValid; 
@@ -112,6 +112,7 @@ public class Utils {
     	return false;		
     }
     
+    // shows only components name
     public static String getProperComponents(List<Component> comps) {
     	Iterator<Component> iterator = comps.iterator();
     	String s = "";

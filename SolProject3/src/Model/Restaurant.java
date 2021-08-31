@@ -458,7 +458,8 @@ public class Restaurant implements Serializable {
 				return rd.removeOrder(order);
 			} else {
 				ExpressDelivery ed = (ExpressDelivery) order.getDelivery();
-				ed.setOrder(null);
+				if(ed != null)
+					ed.setOrder(null);
 				return true;
 			}
 		}
@@ -475,7 +476,8 @@ public class Restaurant implements Serializable {
 			}
 		} else {
 			ExpressDelivery ed = (ExpressDelivery) delivery;
-			ed.getOrder().setDelivery(null);
+			if(ed.getOrder() != null)
+				ed.getOrder().setDelivery(null);
 		}
 		return getDeliveries().remove(delivery.getId()) != null && delivery.getArea().removeDelivery(delivery);
 	}

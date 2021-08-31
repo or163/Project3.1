@@ -104,11 +104,14 @@ public class AddCustomerController {
 					|| txtFName.getText().isEmpty() || txtLName.getText() == null || txtLName.getText().isEmpty()
 					|| gend == null || neigh == null || bday == null || lactoseTG.getSelectedToggle() == null
 					|| glutenTG.getSelectedToggle() == null) {
+				message.setTextFill(Color.RED);
 				message.setText("you have fields that are empty");
 			} else if (Utils.isValidPassword(passw.getText(), message) == false)
 				; //if password is not legit
-			else if (Utils.userNameExists(userName.getText()))  //user name already exists
+			else if (Utils.userNameExists(userName.getText())) {  //user name already exists
+				message.setTextFill(Color.RED);
 				message.setText("User already exists, choose different user name");
+			}
 			else {  //if add succeeds than clear all fields for further adding
 				Customer cust = new Customer(txtFName.getText(), txtLName.getText(), bday, gend, neigh, lact, glut,
 						userName.getText(), passw.getText());

@@ -69,7 +69,6 @@
                </effect>
             </Line>
             <Label layoutX="251.0" layoutY="270.0" prefHeight="17.0" prefWidth="107.0" text="Pending Orders" textFill="WHITE" />
-            <Label alignment="CENTER" layoutX="84.0" layoutY="474.0" prefHeight="17.0" prefWidth="327.0" />
          </children>
       </AnchorPane>
    </center>

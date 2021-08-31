@@ -107,10 +107,10 @@ public class AddController {
 	@FXML  // go to add customer to black list page
 	void goaddCustomerToBlackList (MouseEvent event) throws IOException {
 		sounds.clickSound();
-		FXMLLoader fx = new FXMLLoader(getClass().getResource("/View/addCustomerToBlackList.fxml"));
+		FXMLLoader fx = new FXMLLoader(getClass().getResource("/View/AddCustomerToBlackList.fxml"));
 		Pane p = fx.load();
 		AnchorPane pp = (AnchorPane) p;
-		addCustomerToBlackListController ctrl = (addCustomerToBlackListController) fx.getController();
+		AddCustomerToBlackListController ctrl = (AddCustomerToBlackListController) fx.getController();
 		ctrl.initData();
 		pannelRoot.setCenter(pp);
 	}
