@@ -2,6 +2,7 @@ package Remove;
 
 import java.util.Optional;
 
+import Audio.sounds;
 import Model.Cook;
 import application.Main;
 import javafx.event.ActionEvent;
@@ -37,6 +38,7 @@ public class RemoveCookController {
 
 		@FXML  // filter cook by id
 		private void getCook(ActionEvent event) {
+			sounds.clickSound();
 			message.setText("");
 			if (!Utils.Utils.isOnlyDigits(id.getText())) {  //validates that only digits are enterd to the text field
 				message.setText("Wrong value! enter only numbers");
@@ -50,6 +52,7 @@ public class RemoveCookController {
 	// this Method removes the selected cook from the restaurant
 	@FXML
 	private void remove(ActionEvent event) {
+		sounds.clickSound();
 		Cook c = null;
 		c = cookLV.getSelectionModel().getSelectedItem();
 

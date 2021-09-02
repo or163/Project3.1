@@ -2,6 +2,7 @@ package Remove;
 
 import java.util.Optional;
 
+import Audio.sounds;
 import Model.Delivery;
 import application.Main;
 import javafx.event.ActionEvent;
@@ -34,6 +35,7 @@ public class RemoveDeliveryController {
 	
 	@FXML  // filter delivery by id
 	private void getDelivery(ActionEvent event) {
+		sounds.clickSound();
 		message.setText("");
 		if (!Utils.Utils.isOnlyDigits(id.getText())) {  //validates that only digits are enterd to the text field
 			message.setText("Wrong value! enter only numbers");
@@ -47,6 +49,7 @@ public class RemoveDeliveryController {
 	// this Method removes the selected delivery from the restaurant
 	@FXML
 	private void remove(ActionEvent event) {
+		sounds.clickSound();
 		Delivery d = null;
 		d = dellLV.getSelectionModel().getSelectedItem();
 

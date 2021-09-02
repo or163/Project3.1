@@ -2,6 +2,7 @@ package Remove;
 
 import java.util.Optional;
 
+import Audio.sounds;
 import Model.Order;
 import application.Main;
 import javafx.event.ActionEvent;
@@ -36,6 +37,7 @@ public class RemoveOrderController {
 
 	@FXML  // filter order by id
 	private void getOrder(ActionEvent event) {
+		sounds.clickSound();
 		message.setText("");
 		if (!Utils.Utils.isOnlyDigits(id.getText())) {  //validates that only digits are enterd to the text field
 			message.setText("Wrong value! enter only numbers");
@@ -49,6 +51,7 @@ public class RemoveOrderController {
 	// this Method removes the selected order from the restaurant
 	@FXML
 	private void remove(ActionEvent event) {
+		sounds.clickSound();
 		Order o = null;
 		o = orderLV.getSelectionModel().getSelectedItem();
 

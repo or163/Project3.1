@@ -2,6 +2,7 @@ package Remove;
 
 import java.util.Optional;
 
+import Audio.sounds;
 import Model.DeliveryArea;
 import application.Main;
 import javafx.event.ActionEvent;
@@ -35,6 +36,7 @@ public class RemoveDAController {
 
 	@FXML  // this Method removes the selected delivery area from the restaurant
 	void remove(ActionEvent event) {
+		sounds.clickSound();
 		DeliveryArea da = null;
 		DeliveryArea da2 = null;
 		da = DALV.getSelectionModel().getSelectedItem();
