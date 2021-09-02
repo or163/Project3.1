@@ -64,5 +64,6 @@
             </ImageView>
          </children>
       </Pane>
+      <Label fx:id="message" alignment="CENTER" layoutX="242.0" layoutY="466.0" prefHeight="17.0" prefWidth="123.0" />
 	</children>
 </AnchorPane>

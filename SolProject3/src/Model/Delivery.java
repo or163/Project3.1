@@ -100,7 +100,7 @@ public abstract class Delivery implements Serializable {
 
 	@Override
 	public String toString() {
-		return "Delivery [id=" + id + ", deliveryPerson=" + deliveryPerson + ", area=" + area + ", isDelivered="
+		return "Delivery [id=" + id + ", deliveryPerson=" + deliveryPerson + ", area=" + area.getAreaName() + ", isDelivered="
 				+ isDelivered + "]";
 	}
 

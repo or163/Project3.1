@@ -1,4 +1,4 @@
-package application;
+package UserUI;
 
 import java.io.IOException;
 import java.util.Calendar;
@@ -6,12 +6,9 @@ import java.util.Optional;
 
 import Audio.sounds;
 import Model.Customer;
-import UserUI.EditUserController;
-import UserUI.MakeOrderController;
-import UserUI.ShoppingCartController;
-import UserUI.UserHistoryController;
-import UserUI.UserQuerriesController;
 import Utils.SerializableWiz;
+import application.LoginController;
+import application.Main;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;

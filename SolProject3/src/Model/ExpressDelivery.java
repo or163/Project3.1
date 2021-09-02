@@ -46,7 +46,7 @@ public class ExpressDelivery extends Delivery {
 	
 	@Override
 	public String toString() {
-		return "Express delivery [id=" + this.getId() + ", deliveryPerson=" + this.getDeliveryPerson() + ", area=" + this.getArea() + ", isDelivered="
+		return "Express delivery [id=" + this.getId() + ", deliveryPerson=" + this.getDeliveryPerson() + ", area=" + this.getArea().getAreaName() + ", isDelivered="
 				+ this.isDelivered()  + " postage=" + postage + "]";
 	}	
 }

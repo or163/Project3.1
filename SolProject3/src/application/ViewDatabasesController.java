@@ -1,7 +1,5 @@
 package application;
 
-import java.util.Iterator;
-
 import Audio.sounds;
 import Model.Component;
 import Model.Cook;
@@ -14,6 +12,7 @@ import Model.Order;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
@@ -56,6 +55,9 @@ public class ViewDatabasesController {
 
 	@FXML
 	private Text prevText;
+	
+	 @FXML
+	 private Label message;
 
 	// Initiate combo box with all object options
 	public void initData() {
@@ -63,6 +65,7 @@ public class ViewDatabasesController {
 		ChosenData.getItems().addAll("Cooks", "Components", "Customers", "Delivery Persons", "Dishes", "Orders",
 				"Deliveries", "Delivery Areas", "Black List", "Order by Customer");
 		pane.setVisible(false);
+		message.setVisible(false);
 	}
 
 	@FXML // fill the list view with relevant objects according to user selection
@@ -70,6 +73,7 @@ public class ViewDatabasesController {
 		sounds.clickSound();
 		pane.setVisible(false);
 		custPicture.setImage(null);
+		message.setVisible(false);
 
 		String chosen = ChosenData.getSelectionModel().getSelectedItem();
 		LVdb.getItems().clear(); // clean former objects from list every selection
@@ -103,6 +107,8 @@ public class ViewDatabasesController {
 			break;
 		case "Order by Customer":
 			LVdb.getItems().addAll(Main.restaurant.getCustomers().values());
+			message.setVisible(true);
+			message.setText("Please select customer");
 			break;
 		}
 	}
@@ -175,6 +181,7 @@ public class ViewDatabasesController {
 
 	@FXML // show customer profile picture (if exists)
 	private void showCustomerImage() {
+		message.setVisible(false);
 		orderByCustomerLV.getItems().clear();
 		if (ChosenData.getSelectionModel().getSelectedItem() == "Customers"
 				|| ChosenData.getSelectionModel().getSelectedItem() == "Black List"
@@ -250,5 +257,6 @@ public class ViewDatabasesController {
 	private void closePane(ActionEvent event) {
 		sounds.clickSound();
 		pane.setVisible(false);
+		message.setVisible(true);
 	}
 }

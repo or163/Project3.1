@@ -12,6 +12,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.media.MediaView?>
 <?import javafx.scene.shape.Line?>
@@ -212,14 +213,21 @@
                         <Font name="Berlin Sans FB" size="12.0" />
                      </font>
                   </Button>
-                  <ImageView fx:id="Audio" fitHeight="32.0" fitWidth="36.0" onMouseClicked="#MuteOnOff">
-                     <image>
-                        <Image url="@/Icons/audio_64px.png" />
-                     </image>
+                  <Pane maxHeight="-Infinity" maxWidth="-Infinity" onMouseClicked="#MuteOnOff" prefHeight="32.0" prefWidth="36.0" style="-fx-background-color: darkblue;">
+                     <children>
+                        <ImageView fx:id="Audio" fitHeight="32.0" fitWidth="36.0">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                           <image>
+                              <Image url="@/Icons/audio_64px.png" />
+                           </image>
+                        </ImageView>
+                     </children>
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>
-                  </ImageView>
+                  </Pane>
                </children>
             </VBox>
             <ImageView fitHeight="67.0" fitWidth="50.0" onMouseClicked="#showMenu" y="-7.0">
