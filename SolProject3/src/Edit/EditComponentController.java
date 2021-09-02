@@ -72,7 +72,8 @@ public class EditComponentController {
 			glut = true;
 		double cost = 0;
 		if (name.getText() == null || name.getText().isEmpty() || price.getText() == null || price.getText().isEmpty()
-				|| lactoseTG.getSelectedToggle() == null || glutenTG.getSelectedToggle() == null) {
+				|| lactoseTG.getSelectedToggle() == null || glutenTG.getSelectedToggle() == null
+				|| WhichComponent.getSelectionModel().getSelectedItem() == null) {
 			message.setText("you have fields that are empty");
 			message.setTextFill(Color.RED);
 		} else {

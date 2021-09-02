@@ -72,7 +72,8 @@ public class EditDishController {
 		}
 		
 		if (name.getText() == null || name.getText().isEmpty() || time.getText() == null || time.getText().isEmpty() ||
-				type == null || comps.getSelectionModel().getSelectedItems() == null || list == null || list.isEmpty()) {
+				type == null || comps.getSelectionModel().getSelectedItems() == null || list == null || list.isEmpty()
+				|| WhichDish.getSelectionModel().getSelectedItem() == null) {
 			message.setText("you have fields that are empty");
 			message.setTextFill(Color.RED);
 		} else {
