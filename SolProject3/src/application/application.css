@@ -9,10 +9,15 @@
 	-fx-font-family: "Berlin Sans FB";
 	
 }
-.root{
- -fx-background-image: url('/Icons/restaurant-management.jpg');
- -fx-background-size: stretch;
- -fx-font-size: 100%;
--fx-font-family: "Berlin Sans FB";	
+.list-view .list-cell:even {
+-fx-background-color: darkblue;
+-fx-text-fill: lightblue;
+}
+.list-view .list-cell:odd {
+-fx-background-color: lightblue;
+-fx-text-fill: darkblue;
+}
+.list-view .list-cell:hover {
+-fx-border-style: solid;
 }
 

@@ -1,5 +1,7 @@
 package application;
 
+import java.util.Iterator;
+
 import Audio.sounds;
 import Model.Component;
 import Model.Cook;
@@ -16,6 +18,9 @@ import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.Pane;
+import javafx.scene.text.Text;
 
 public class ViewDatabasesController {
 
@@ -31,23 +36,48 @@ public class ViewDatabasesController {
 	@FXML
 	private ImageView custPicture;
 
+	@FXML
+	private ListView<Order> orderByCustomerLV;
+
+	@FXML
+	private Pane pane;
+
+	@FXML
+	private Text text;
+
+	@FXML
+	private ImageView next;
+
+	@FXML
+	private ImageView prev;
+
+	@FXML
+	private Text nextText;
+
+	@FXML
+	private Text prevText;
+
 	// Initiate combo box with all object options
 	public void initData() {
 		// TODO Auto-generated method stub
-		ChosenData.getItems().addAll("Cooks", "Componenets", "Customers", "Delivery Persons", "Dishes", "Orders",
-				"Deliveries", "Delivery Areas", "Black List");
+		ChosenData.getItems().addAll("Cooks", "Components", "Customers", "Delivery Persons", "Dishes", "Orders",
+				"Deliveries", "Delivery Areas", "Black List", "Order by Customer");
+		pane.setVisible(false);
 	}
 
 	@FXML // fill the list view with relevant objects according to user selection
 	void GetData(ActionEvent event) {
 		sounds.clickSound();
+		pane.setVisible(false);
+		custPicture.setImage(null);
+
 		String chosen = ChosenData.getSelectionModel().getSelectedItem();
 		LVdb.getItems().clear(); // clean former objects from list every selection
 		switch (chosen) {
 		case "Cooks":
 			LVdb.getItems().addAll(Main.restaurant.getCooks().values());
 			break;
-		case "Componenets":
+		case "Components":
 			LVdb.getItems().addAll(Main.restaurant.getComponenets().values());
 			break;
 		case "Customers":
@@ -71,6 +101,9 @@ public class ViewDatabasesController {
 		case "Black List":
 			LVdb.getItems().addAll(Main.restaurant.getBlackList());
 			break;
+		case "Order by Customer":
+			LVdb.getItems().addAll(Main.restaurant.getCustomers().values());
+			break;
 		}
 	}
 
@@ -79,7 +112,7 @@ public class ViewDatabasesController {
 		sounds.clickSound();
 		if (!Utils.Utils.isOnlyDigits(id.getText()))
 			return;
-		if(ChosenData.getSelectionModel().getSelectedItem() == null)
+		if (ChosenData.getSelectionModel().getSelectedItem() == null)
 			return;
 		String chosen = ChosenData.getSelectionModel().getSelectedItem();
 		switch (chosen) {
@@ -87,7 +120,7 @@ public class ViewDatabasesController {
 			Cook cook = Main.restaurant.getRealCook(Integer.parseInt(id.getText()));
 			LVdb.getSelectionModel().select(cook);
 			break;
-		case "Componenets":
+		case "Components":
 			Component comp = Main.restaurant.getRealComponent(Integer.parseInt(id.getText()));
 			LVdb.getSelectionModel().select(comp);
 			break;
@@ -122,7 +155,7 @@ public class ViewDatabasesController {
 			DeliveryArea da = Main.restaurant.getRealDeliveryArea(Integer.parseInt(id.getText()));
 			LVdb.getSelectionModel().select(da);
 			break;
-		case "Black List": // also show customer picture (if exists)
+		case "Order by Customer": // also show customer picture (if exists)
 			Customer customer = Main.restaurant.getRealCustomer(Integer.parseInt(id.getText()));
 			LVdb.getSelectionModel().select(customer);
 			custPicture.setPreserveRatio(false);
@@ -131,16 +164,23 @@ public class ViewDatabasesController {
 					custPicture.setImage(new Image(customer.getProfilePicturePath()));
 				} else
 					custPicture.setImage(new Image("/Icons/no_image_64px.png"));
+				pane.setVisible(true);
+				text.setText(customer.getFirstName() + " Orders");
+				orderByCustomerLV.getItems().addAll(Main.restaurant.getOrderByCustomer().get(customer));
 			}
 			break;
 		}
-		
+
 	}
 
 	@FXML // show customer profile picture (if exists)
 	private void showCustomerImage() {
-		if (ChosenData.getSelectionModel().getSelectedItem() == "customers" || ChosenData.getSelectionModel().getSelectedItem() == "blackList") { // validates we are on right property,
-																				// customers
+		orderByCustomerLV.getItems().clear();
+		if (ChosenData.getSelectionModel().getSelectedItem() == "Customers"
+				|| ChosenData.getSelectionModel().getSelectedItem() == "Black List"
+				|| ChosenData.getSelectionModel().getSelectedItem() == "Order by Customer") { // validates we are on
+																								// right property,
+			// customers
 			if (LVdb.getSelectionModel().getSelectedItem() != null) {
 				Customer c = (Customer) LVdb.getSelectionModel().getSelectedItem();
 				custPicture.setPreserveRatio(false);
@@ -148,9 +188,67 @@ public class ViewDatabasesController {
 					custPicture.setImage(new Image(c.getProfilePicturePath()));
 				} else
 					custPicture.setImage(new Image("/Icons/no_image_64px.png"));
+				if (ChosenData.getSelectionModel().getSelectedItem() == "Order by Customer") {
+					pane.setVisible(true);
+					next.setVisible(true); //make icons seen in case they are hidden
+					nextText.setVisible(true);
+					prev.setVisible(true);
+					prevText.setVisible(true);
+					text.setText(c.getFirstName() + " Orders");
+					orderByCustomerLV.getItems().addAll(Main.restaurant.getOrderByCustomer().get(c));
+				}
 			}
 		} else
 			custPicture.setImage(null); // in case we are not in customers property, reset picture
 
+	}
+
+	@FXML
+	private void navigateOrderByCustomer(MouseEvent event) {
+		sounds.clickSound();
+		next.setVisible(true); //make icons seen in case they are hidden
+		nextText.setVisible(true);
+		prev.setVisible(true);
+		prevText.setVisible(true);
+		Customer c = (Customer) LVdb.getSelectionModel().getSelectedItem();
+		ImageView img = (ImageView) event.getSource();
+		int index = -1;
+		if(img.getId().equals("next")) {
+			index = LVdb.getItems().indexOf(c);
+			if(index == LVdb.getItems().size() - 1) { //sign there is no next item on list
+				next.setVisible(false);
+				nextText.setVisible(false);
+				return;
+			}  //get next customer in list orders 
+			c = (Customer) LVdb.getItems().get(index + 1);
+			LVdb.getSelectionModel().select(c);
+			orderByCustomerLV.getItems().clear();
+			orderByCustomerLV.getItems().addAll(Main.restaurant.getOrderByCustomer().get(LVdb.getItems().get(index+1)));
+			text.setText(c.getFirstName() + " Orders");
+		}
+		else {
+			index = LVdb.getItems().indexOf(c);
+			if(index == 0) { //sign there is no previous item on list
+				prev.setVisible(false);
+				prevText.setVisible(false);
+				return;
+			}  //get previous customer in list orders
+			c = (Customer) LVdb.getItems().get(index - 1);
+			LVdb.getSelectionModel().select(c);
+			orderByCustomerLV.getItems().clear();
+			orderByCustomerLV.getItems().addAll(Main.restaurant.getOrderByCustomer().get(LVdb.getItems().get(index - 1)));
+			text.setText(c.getFirstName() + " Orders");
+			}
+		custPicture.setPreserveRatio(false); //profile picture change
+		if (c.getProfilePicturePath() != null) { // check if picture exists
+			custPicture.setImage(new Image(c.getProfilePicturePath()));
+		} else
+			custPicture.setImage(new Image("/Icons/no_image_64px.png"));
+	}
+
+	@FXML
+	private void closePane(ActionEvent event) {
+		sounds.clickSound();
+		pane.setVisible(false);
 	}
 }

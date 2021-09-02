@@ -10,7 +10,10 @@ public class OrderComparator implements Comparator<Order>, Serializable {
 	@Override
 	public int compare(Order o1, Order o2) {
 		// TODO Auto-generated method stub
-		return o1.getDelivery().getDeliveredDate().compareTo(o2.getDelivery().getDeliveredDate());
+		int result = o1.getDelivery().getDeliveredDate().compareTo(o2.getDelivery().getDeliveredDate());
+		if(result != 0)
+			return result;
+		return o1.getId() - o2.getId();
 	}
 
 }

@@ -1,6 +1,7 @@
 package Edit;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.SortedSet;
 import java.util.TreeSet;
 
@@ -55,6 +56,9 @@ public class EditDeliveryController {
 	@FXML
 	private ComboBox<Delivery> WhichDel;
 
+	private ArrayList<Order> removedOrders = new ArrayList<>(); // holds all removed orders from specific delivery for
+																// further adding to orders choice after saving
+
 	// Fills up the page with current data according to the selected Delivery
 	@FXML
 	void DelSelected(ActionEvent event) {
@@ -62,20 +66,29 @@ public class EditDeliveryController {
 		deliveryArea.getSelectionModel().clearSelection();
 		orders.getSelectionModel().clearSelection();
 
+		orders.getItems().clear();
 		selected.getItems().clear();
 		Delivery del = WhichDel.getSelectionModel().getSelectedItem();
-		date.setValue(del.getDeliveredDate());
-		if (del.isDelivered())
-			deliveyTG.selectToggle(isDeliverdYes);
-		else
-			deliveyTG.selectToggle(isDeliverdNo);
-		deliveryArea.setValue(del.getArea());
-		deliveryPersons.setValue(del.getDeliveryPerson());
-		if (del instanceof ExpressDelivery)
-			selected.getItems().addAll(((ExpressDelivery) del).getOrder());
-		if (del instanceof RegularDelivery)
-			selected.getItems().addAll(((RegularDelivery) del).getOrders());
-
+		if (del != null) {
+			date.setValue(del.getDeliveredDate());
+			if (del.isDelivered())
+				deliveyTG.selectToggle(isDeliverdYes);
+			else
+				deliveyTG.selectToggle(isDeliverdNo);
+			deliveryArea.setValue(del.getArea());
+			deliveryPersons.setValue(del.getDeliveryPerson());
+			if (del instanceof ExpressDelivery)
+				selected.getItems().addAll(((ExpressDelivery) del).getOrder());
+			if (del instanceof RegularDelivery)
+				selected.getItems().addAll(((RegularDelivery) del).getOrders());
+			orders.getItems().addAll(selected.getItems()); // add selected delivery orders
+			for (Order o : Main.restaurant.getOrders().values()) { // Populate orders list view with orders that has no
+																	// delivery
+				if (o.getDelivery() == null)
+					orders.getItems().add(o);
+			}
+		}
+		removedOrders.clear(); // if changing delivery without save
 	}
 
 	// add orders to the selected orders list view
@@ -89,6 +102,7 @@ public class EditDeliveryController {
 			lblStatus.setText("Please select at list 1 order");
 			lblStatus.setTextFill(Color.RED);
 		} else {
+			removedOrders.remove(orders.getSelectionModel().getSelectedItem());
 			selected.getItems().add(orders.getSelectionModel().getSelectedItem());
 			lblStatus.setText("Order added to the chosen orders list");
 			lblStatus.setTextFill(Color.BLACK);
@@ -101,6 +115,7 @@ public class EditDeliveryController {
 		if (selected.getSelectionModel().getSelectedItem() != null) {
 			lblStatus.setText("Order removed from the chosen order list");
 			lblStatus.setTextFill(Color.BLACK);
+			removedOrders.add(selected.getSelectionModel().getSelectedItem());
 			selected.getItems().remove(selected.getSelectionModel().getSelectedItem());
 		} else {
 			lblStatus.setText("Please select at least 1 order");
@@ -136,12 +151,15 @@ public class EditDeliveryController {
 				lblStatus.setText("Please choose a delivery area ");
 			lblStatus.setTextFill(Color.RED);
 		} else {
+			for (Order o : removedOrders)
+				o.setDelivery(null);
 			if (selected.getItems().size() == 1 && del instanceof ExpressDelivery) {
 				del.setArea(delAre);
 				del.setDelivered(isDel);
 				del.setDeliveredDate(datte);
 				del.setDeliveryPerson(delPer);
 				((ExpressDelivery) del).setOrder(selected.getItems().get(0));
+				selected.getItems().get(0).setDelivery(del);
 			} else if (selected.getItems().size() == 1 && del instanceof RegularDelivery) {
 				int id = del.getId();
 				Main.restaurant.getDeliveries().values().remove(del);
@@ -168,9 +186,12 @@ public class EditDeliveryController {
 				del.setDeliveryPerson(delPer);
 				while (!ss.isEmpty())
 					((RegularDelivery) del).removeOrder(ss.first());
-				for (Order o : selected.getItems())
+				for (Order o : selected.getItems()) {
 					((RegularDelivery) del).addOrder(o);
+					o.setDelivery(del);
+				}
 			}
+			initData();
 			lblStatus.setText("Delivery was added successfully");
 			lblStatus.setTextFill(Color.GREEN);
 		}
@@ -178,9 +199,14 @@ public class EditDeliveryController {
 
 	public void initData() {
 		// TODO Auto-generated method stub
+		deliveryPersons.getItems().clear();
+		deliveryArea.getItems().clear();
+		date.setValue(null);
+		orders.getItems().clear();
+		WhichDel.getItems().clear();
+		WhichDel.getSelectionModel().clearSelection();
 		deliveryPersons.getItems().addAll(Main.restaurant.getDeliveryPersons().values());
 		deliveryArea.getItems().addAll(Main.restaurant.getAreas().values());
-		orders.getItems().addAll(Main.restaurant.getOrders().values());
 		WhichDel.getItems().addAll(Main.restaurant.getDeliveries().values());
 		selected.getItems().clear();
 	}

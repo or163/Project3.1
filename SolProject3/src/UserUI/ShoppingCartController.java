@@ -78,7 +78,9 @@ public class ShoppingCartController {
 		sounds.clickSound();
 		if (dishesTV.getItems().size() != 0) {
 			Customer c = LoginController.getCustomer();  //getting current user in system
-			Order o = new Order(c, dishList, null);
+			ArrayList<Dish> list = new ArrayList<>();
+			list.addAll(dishesTV.getItems());
+			Order o = new Order(c, list, null);
 			Alert alert = new Alert(AlertType.CONFIRMATION);  //confirmation alert regarding the order
 			alert.setTitle("Order");
 			alert.setHeaderText("Are you sure you want to make this order?");
@@ -109,6 +111,7 @@ public class ShoppingCartController {
 	@FXML // remove dish from current shopping cart
 	private void removeDish(ActionEvent event) {
 		sounds.clickSound();
+		dishList.remove(dishesTV.getSelectionModel().getSelectedItem());
 		dishesTV.getItems().remove(dishesTV.getSelectionModel().getSelectedItem());
 		priceField.setText(MakeOrderController.getPrice(dishesTV.getItems()));
 	}

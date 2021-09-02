@@ -46,7 +46,11 @@ public class EditOrderController {
 		sounds.clickSound();
     	List<Dish> list = selected.getItems();
 		ArrayList<Dish> dishes = new ArrayList<>(list);
-		if (list == null ||list.isEmpty()) {
+		if(WhichOrder.getSelectionModel().getSelectedItem() == null) {
+			message.setText("Please select order");
+			message.setTextFill(Color.RED);
+		}
+		else if (list == null ||list.isEmpty()) {
 			message.setText("Please add at list 1 dish");
 			message.setTextFill(Color.RED);
 		} else {

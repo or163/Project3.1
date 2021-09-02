@@ -15,7 +15,7 @@
             <Font name="System Bold" size="24.0" />
          </font>
       </Label>
-      <ListView fx:id="customerLV" layoutX="16.0" layoutY="105.0" onMouseClicked="#showCustomerImage" prefHeight="320.0" prefWidth="568.0" />
+      <ListView fx:id="customerLV" layoutX="16.0" layoutY="105.0" onKeyPressed="#showCustomerImage" onMouseClicked="#showCustomerImage" prefHeight="320.0" prefWidth="568.0" />
       <Button layoutX="261.0" layoutY="441.0" mnemonicParsing="false" onAction="#remove" text="remove" />
       <Label layoutX="17.0" layoutY="80.0" prefHeight="17.0" prefWidth="219.0" text="Please select which customer to remove :" />
       <Label fx:id="message" alignment="CENTER" layoutX="142.0" layoutY="468.0" prefHeight="17.0" prefWidth="300.0" textFill="#ce2020" />

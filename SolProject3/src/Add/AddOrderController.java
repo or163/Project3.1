@@ -45,7 +45,7 @@ public class AddOrderController {
 		List<Dish> list = selected.getItems();
 		ArrayList<Dish> dishes = new ArrayList<>(list);
 		try {		//validates fields are not null
-			if (cust == null || list == null) {
+			if (cust == null || list == null || list.isEmpty()) {
 				message.setTextFill(Color.RED);
 				message.setText("you have fields that are empty");
 			} else {

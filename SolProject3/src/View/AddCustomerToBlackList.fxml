@@ -14,7 +14,7 @@
             <Font name="System Bold" size="24.0" />
          </font>
       </Label>
-      <ListView fx:id="customerLV" layoutX="16.0" layoutY="102.0" onMouseClicked="#showCustomerImage" prefHeight="325.0" prefWidth="568.0" />
+      <ListView fx:id="customerLV" layoutX="16.0" layoutY="102.0" onKeyPressed="#showCustomerImage" onMouseClicked="#showCustomerImage" prefHeight="325.0" prefWidth="568.0" />
       <Button layoutX="274.0" layoutY="436.0" mnemonicParsing="false" onAction="#AddToBList" text="Add" />
       <Label layoutX="18.0" layoutY="81.0" prefHeight="17.0" prefWidth="206.0" style="-fx-background-color: #ffffff80; -fx-background-radius: 12;" text="Please select which customer to add:" />
       <Label fx:id="message" alignment="CENTER" layoutX="150.0" layoutY="468.0" prefHeight="17.0" prefWidth="299.0" style="-fx-background-color: #ffffff80;" textFill="#ce2020" />

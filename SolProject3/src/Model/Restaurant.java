@@ -355,7 +355,7 @@ public class Restaurant implements Serializable {
 				OrderComparator ordComparator = new OrderComparator();
 				RegularDelivery rg = (RegularDelivery) delivery;
 				for (Order o : rg.getOrders()) {
-					TreeSet<Order> orders = orderByCustomer.get(o);
+					TreeSet<Order> orders = orderByCustomer.get(o.getCustomer());
 					if (orders == null)
 						orders = new TreeSet<>(ordComparator);
 					orders.add(o);
@@ -364,7 +364,7 @@ public class Restaurant implements Serializable {
 			} else {
 				OrderComparator ordComparator = new OrderComparator();
 				ExpressDelivery ex = (ExpressDelivery) delivery;
-				TreeSet<Order> orders = orderByCustomer.get(ex.getOrder());
+				TreeSet<Order> orders = orderByCustomer.get(ex.getOrder().getCustomer());
 				if (orders == null)
 					orders = new TreeSet<>(ordComparator);
 				orders.add(ex.getOrder());

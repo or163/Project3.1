@@ -236,6 +236,7 @@ public class ManagerController {
 	
 	@FXML  //save all current data and serialize it
 	void SaveToSerelizebaleFile(ActionEvent event) {
+		sounds.clickSound();
 		try {
 			Alert a = new Alert(AlertType.CONFIRMATION);
 			a.setTitle("Save");

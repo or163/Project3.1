@@ -8,6 +8,7 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 
 public class Main extends Application {
 
@@ -20,7 +21,8 @@ public class Main extends Application {
 			Parent p = FXMLLoader.load(getClass().getResource("/View/Login.fxml"));
 			Scene scene = new Scene(p, 700, 500);
 			primaryStage.setScene(scene);
-			primaryStage.setTitle("Restaurant");
+			primaryStage.setTitle("JavaEat");
+			primaryStage.getIcons().add(new Image("/Icons/restaurant.png"));
 			primaryStage.show();
 			stage = primaryStage;
 			

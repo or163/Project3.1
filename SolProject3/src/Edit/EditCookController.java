@@ -85,8 +85,6 @@ public class EditCookController {
 			theSelectedCook.setGender(gend);
 			message.setText("saved succesfully");
 			message.setTextFill(Color.GREEN);
-			gender.getSelectionModel().clearSelection();
-			expertise.getSelectionModel().clearSelection();
 		}
 	}
     

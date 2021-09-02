@@ -9,3 +9,11 @@
 	-fx-background-color: #c5a65b;
 }
 
+.list-view .list-cell:selected {
+-fx-background-color: #c5a65b;
+}
+
+.table-row-cell:hover{
+	-fx-border-style: dashed;
+	
+}
