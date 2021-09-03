@@ -64,6 +64,6 @@
             <Image url="@/Icons/invisible_100px.png" />
          </image>
       </ImageView>
-      <TextField fx:id="showPassw" editable="false" layoutX="127.0" layoutY="125.0" prefHeight="30.0" prefWidth="153.0" />
+      <TextField fx:id="showPassw" editable="false" layoutX="128.0" layoutY="125.0" prefHeight="30.0" prefWidth="153.0" />
    </children>
 </AnchorPane>
