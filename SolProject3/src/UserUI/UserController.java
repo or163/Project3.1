@@ -193,20 +193,7 @@ public class UserController {
 	
 	@FXML  // exit program
 	private void exitButtonAction(ActionEvent event){
-	    // get a handle to the stage
-		sounds.backgroundMusicMute();
-		sounds.flashBackSound();
-		sounds.byebyeSound();
-		try
-		{
-		    Thread.sleep(2600);
-		}
-		catch(InterruptedException ex)
-		{
-		    Thread.currentThread().interrupt();
-		}
-	    Stage stage = (Stage) exitButton.getScene().getWindow();
-	    stage.close();
+		Utils.Utils.exitButtonAction();
 	}
 	
 	@FXML  //Controls the background music and changes the icon accordingly 

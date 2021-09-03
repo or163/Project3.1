@@ -25,6 +25,7 @@ public class Main extends Application {
 			primaryStage.getIcons().add(new Image("/Icons/restaurant.png"));
 			primaryStage.show();
 			stage = primaryStage;
+			stage.setOnCloseRequest(e -> Utils.Utils.exitButtonAction());
 			
 		} catch (Exception e) {
 			e.printStackTrace();

@@ -10,13 +10,17 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.TimeZone;
 
+import Audio.sounds;
 import Model.Component;
 import Model.Customer;
 import application.Main;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.scene.control.DateCell;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.paint.Color;
+import javafx.stage.Stage;
 
 public class Utils {
 
@@ -120,4 +124,21 @@ public class Utils {
     		s += iterator.next().getComponentName() + ". ";
     	return s;
     }
+    
+    //exit program
+	public static void exitButtonAction(){
+		sounds.backgroundMusicMute();
+		sounds.flashBackSound();
+		sounds.byebyeSound();
+		try
+		{
+		    Thread.sleep(2600);
+		}
+		catch(InterruptedException ex)
+		{
+		    Thread.currentThread().interrupt();
+		}
+		Stage stage = Main.stage;
+	    stage.close();
+	}
 }

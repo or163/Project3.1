@@ -193,19 +193,7 @@ public class ManagerController {
 	
 	@FXML  //exit program
 	private void exitButtonAction(ActionEvent event){
-		sounds.backgroundMusicMute();
-		sounds.flashBackSound();
-		sounds.byebyeSound();
-		try
-		{
-		    Thread.sleep(2600);
-		}
-		catch(InterruptedException ex)
-		{
-		    Thread.currentThread().interrupt();
-		}
-		Stage stage = (Stage) exitButton.getScene().getWindow();
-	    stage.close();
+		Utils.Utils.exitButtonAction();
 	}
 	
 	@FXML  //show or hide menu according to counter, if even hide, else show
