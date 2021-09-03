@@ -153,7 +153,6 @@ public class Utils {
 		}
 		else {
 			showPassw.setVisible(false);
-			passw.setText(showPassw.getText());
 			passw.setVisible(true);
 		}
 	}
