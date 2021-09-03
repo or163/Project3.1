@@ -61,5 +61,11 @@
          </image>
       </ImageView>
       <Label layoutX="368.0" layoutY="181.0" prefHeight="17.0" prefWidth="156.0" text="Add Profile Image (Optional)" />
+      <ImageView fitHeight="23.0" fitWidth="23.0" layoutX="289.0" layoutY="118.0" onMouseEntered="#showHidePassword" onMouseExited="#showHidePassword" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@/Icons/invisible_100px.png" />
+         </image>
+      </ImageView>
+      <TextField fx:id="showPassw" editable="false" layoutX="127.0" layoutY="115.0" prefHeight="30.0" prefWidth="153.0" />
    </children>
 </AnchorPane>

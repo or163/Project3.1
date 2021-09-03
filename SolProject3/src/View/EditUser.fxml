@@ -31,6 +31,11 @@
       <Label layoutX="25.0" layoutY="376.0" prefHeight="37.0" prefWidth="118.0" text="Sensitive to Gluten?" />
       <TextField fx:id="userName" layoutX="122.0" layoutY="68.0" prefHeight="30.0" prefWidth="100.0" />
       <PasswordField fx:id="passw" layoutX="122.0" layoutY="106.0" prefHeight="30.0" prefWidth="100.0" />
+      <ImageView fitHeight="23.0" fitWidth="23.0" layoutX="234.0" layoutY="109.0" onMouseEntered="#showHidePassword" onMouseExited="#showHidePassword" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@/Icons/invisible_100px.png" />
+         </image>
+      </ImageView>
       <TextField fx:id="txtFName" layoutX="122.0" layoutY="143.0" prefHeight="30.0" prefWidth="100.0" />
       <TextField fx:id="txtLName" layoutX="122.0" layoutY="180.0" prefHeight="30.0" prefWidth="100.0" />
       <DatePicker fx:id="date" layoutX="121.0" layoutY="217.0" prefHeight="32.0" prefWidth="101.0" />
@@ -54,6 +59,7 @@
             <Font size="14.0" />
          </font>
       </Button>
+      <TextField fx:id="showPassw" editable="false" layoutX="122.0" layoutY="106.0" prefHeight="30.0" prefWidth="100.0" />
       <ImageView fx:id="profilePic" fitHeight="114.0" fitWidth="143.0" layoutX="376.0" layoutY="68.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@/Icons/addProfileImage.png" />

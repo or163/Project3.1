@@ -23,6 +23,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 import javafx.stage.FileChooser;
 
@@ -69,6 +70,9 @@ public class AddCustomerController {
 
 	@FXML
 	private PasswordField passw;
+	
+	@FXML
+	private TextField showPassw;
 
 	@FXML
 	private Label message;
@@ -80,6 +84,7 @@ public class AddCustomerController {
 
 	//Initiate the page with current date and fill the combo-boxes with proper options
 	public void initData() {
+		showPassw.setVisible(false);
 		Utils.initDate(date);
 		for (Gender g : Gender.values())
 			gender.getItems().add(g);
@@ -136,9 +141,14 @@ public class AddCustomerController {
 			ex.alertMessage();
 		}
 	}
+	
+	@FXML  //show or hide password on mouse enter and exit icon area
+	private void showHidePassword(MouseEvent event) {
+		Utils.showHidePassword(passw, showPassw);
+	}
 
 	@FXML  //upload an image to be customer profile picture
-	public void chooseFile() throws IOException {
+	public void chooseFile(ActionEvent event) throws IOException {
 		sounds.clickSound();
 		FileChooser fc = new FileChooser();
 		File tmp = fc.showOpenDialog(Main.stage);

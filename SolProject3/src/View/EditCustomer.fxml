@@ -8,6 +8,7 @@
 <?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
@@ -58,5 +59,11 @@
       <Label fx:id="message" alignment="TOP_CENTER" layoutX="42.0" layoutY="470.0" prefHeight="17.0" prefWidth="541.0" textFill="#ef1414" />
       <Label layoutX="427.0" layoutY="198.0" prefHeight="17.0" prefWidth="153.0" text="Add Profile Picture(optional)" />
       <ImageView fx:id="profilePic" fitHeight="110.0" fitWidth="143.0" layoutX="433.0" layoutY="85.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fitHeight="23.0" fitWidth="23.0" layoutX="289.0" layoutY="129.0" onMouseEntered="#showHidePassword" onMouseExited="#showHidePassword" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@/Icons/invisible_100px.png" />
+         </image>
+      </ImageView>
+      <TextField fx:id="showPassw" editable="false" layoutX="127.0" layoutY="125.0" prefHeight="30.0" prefWidth="153.0" />
    </children>
 </AnchorPane>

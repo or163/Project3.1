@@ -27,6 +27,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.FileChooser;
 
 public class RegisterController {
@@ -69,6 +70,9 @@ public class RegisterController {
 
 	@FXML
 	private PasswordField passw;
+	
+	@FXML
+	private TextField showPassw;
 
 	@FXML
 	private Label message;
@@ -91,6 +95,7 @@ public class RegisterController {
 
 	// Initiate combo-boxes with proper data and date
 	public void initData() {
+		showPassw.setVisible(false);
 		Utils.initDate(date);
 		for (Gender g : Gender.values())
 			gender.getItems().add(g);
@@ -164,8 +169,13 @@ public class RegisterController {
 		}
 	}
 
+	@FXML  //show or hide password on mouse enter and exit icon area
+	private void showHidePassword(MouseEvent event) {
+		Utils.showHidePassword(passw, showPassw);
+	}
+	
 	@FXML  //select photo to upload as profile picture and also save the profile path for further using in the project
-	public void chooseFile() {
+	public void chooseFile(ActionEvent event) {
 		sounds.clickSound();
 		FileChooser fc = new FileChooser();
 		File tmp = fc.showOpenDialog(Main.stage);

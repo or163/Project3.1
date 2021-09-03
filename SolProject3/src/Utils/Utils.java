@@ -19,6 +19,9 @@ import javafx.fxml.FXML;
 import javafx.scene.control.DateCell;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
@@ -140,5 +143,18 @@ public class Utils {
 		}
 		Stage stage = Main.stage;
 	    stage.close();
+	}
+	
+	//show or hide password on mouse enter and exit icon area
+	public static void showHidePassword(PasswordField passw, TextField showPassw) {
+		if(!showPassw.isVisible()) {
+			showPassw.setText(passw.getText());
+			showPassw.setVisible(true);
+		}
+		else {
+			showPassw.setVisible(false);
+			passw.setText(showPassw.getText());
+			passw.setVisible(true);
+		}
 	}
 }

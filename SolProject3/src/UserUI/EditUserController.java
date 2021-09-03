@@ -22,6 +22,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 import javafx.stage.FileChooser;
 
@@ -65,6 +66,9 @@ public class EditUserController {
 
 	@FXML
 	private PasswordField passw;
+	
+	@FXML
+	private TextField showPassw;
 
 	@FXML
 	private Label message;
@@ -83,6 +87,7 @@ public class EditUserController {
 	
 	// Initiates page with relevant user data, ready to set
 	public void initData() {
+		showPassw.setVisible(false);
 		gender.getItems().clear();
 		neighborhood.getItems().clear();
 		for (Gender g : Gender.values())
@@ -146,8 +151,13 @@ public class EditUserController {
 		}
 	}
 
+	@FXML  //show or hide password on mouse enter and exit icon area
+	private void showHidePassword(MouseEvent event) {
+		Utils.showHidePassword(passw, showPassw);
+	}
+	
 	@FXML  //upload profile picture
-	public void chooseFile() throws IOException {
+	public void chooseFile(ActionEvent event) throws IOException {
 		sounds.clickSound();
 		FileChooser fc = new FileChooser();
 		File tmp = fc.showOpenDialog(Main.stage);
@@ -158,6 +168,7 @@ public class EditUserController {
 			profilePic.setPreserveRatio(false);
 		}
 	}
+	
 
 	public ImageView getImage() {
 		return image;
