@@ -11,6 +11,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Text?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="600.0" stylesheets="@/application/background.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UserUI.MakeOrderController">
    <children>
@@ -68,6 +69,7 @@
             <Button layoutX="312.0" layoutY="198.0" mnemonicParsing="false" onAction="#removeComp" text="Remove" />
             <Button layoutX="514.0" layoutY="257.0" mnemonicParsing="false" onAction="#closeEdit" prefHeight="25.0" prefWidth="51.0" text="Close" />
             <Button layoutX="451.0" layoutY="257.0" mnemonicParsing="false" onAction="#saveButton" prefHeight="25.0" prefWidth="51.0" text="Save" />
+            <Text fx:id="noChanges" layoutX="160.0" layoutY="274.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="223.0" />
          </children>
       </Pane>
    </children>
