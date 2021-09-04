@@ -235,12 +235,12 @@ public class MakeOrderController {
 			ArrayList<Component> components = new ArrayList<>(compsInDish.getItems());
 			Dish base = dishesTV.getSelectionModel().getSelectedItem();
 			Dish d = new Dish(base.getDishName(), base.getType(), components, base.getTimeToMake());
-			Main.restaurant.addDish(d);
+			d.setId(base.getId());
 			dishesTV.getItems().add(d);
 			messageLeft.setTextFill(Color.GREEN);
 			messageLeft.setText("Dish was added to the menu");
+			editPane.setVisible(false);
 			return;
-
 		}
 	}
 

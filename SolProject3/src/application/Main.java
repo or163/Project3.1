@@ -14,7 +14,7 @@ public class Main extends Application {
 
 	public static Restaurant restaurant;
 	public static Stage stage;
-	public static Boolean changeHaveBeenMade = false;
+	public static Boolean changeHaveBeenMade = false;  //if any changes made will turn to true, if saved during program stay will turn to false
 
 	@Override //start main stage
 	public void start(Stage primaryStage) {
