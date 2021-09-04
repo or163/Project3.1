@@ -194,6 +194,7 @@ public class EditDeliveryController {
 			initData();
 			lblStatus.setText("Delivery was added successfully");
 			lblStatus.setTextFill(Color.GREEN);
+			Main.changeHaveBeenMade = true;
 		}
 	}
 

@@ -56,6 +56,7 @@ public class AddDAController {
 					DeliveryArea da = new DeliveryArea(txtAreaName.getText(), hs, intDelTime2);
 					lblStatus.setText("Delivery Area was added successfully");
 					lblStatus.setTextFill(Color.GREEN);
+					Main.changeHaveBeenMade = true;
 					if (Main.restaurant.addDeliveryArea(da)) {  //if add succeeds ,clear all fields for further adding
 						initData();
 					} else

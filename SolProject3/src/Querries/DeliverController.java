@@ -35,6 +35,7 @@ public class DeliverController {
 			deliveries.getItems().remove(d);
 			message.setTextFill(Color.GREEN);
 			message.setText("Checked as delivered!");
+			Main.changeHaveBeenMade = true;
 		}
 		else if(deliveries.getItems().isEmpty()){
 			message.setTextFill(Color.RED);

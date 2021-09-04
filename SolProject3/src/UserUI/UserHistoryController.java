@@ -62,6 +62,7 @@ public class UserHistoryController {
 		Order o = ordersTV.getSelectionModel().getSelectedItem();
 		Main.restaurant.getOrderByCustomer().get(LoginController.getCustomer()).remove(o);
 		ordersTV.getItems().remove(ordersTV.getSelectionModel().getSelectedItem());
+		Main.changeHaveBeenMade = true;
 	}
 
 	@FXML   //go to make order page

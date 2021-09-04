@@ -59,6 +59,7 @@ public class EditDAController {
 					da.addNeighberhood(n);
 				lblStatus.setText("Delivery Area was saved successfully");
 				lblStatus.setTextFill(Color.GREEN);
+				Main.changeHaveBeenMade = true;
 			}
 		}
 

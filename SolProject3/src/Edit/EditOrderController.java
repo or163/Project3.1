@@ -62,6 +62,7 @@ public class EditOrderController {
 				theSelected.addDish(d);
 			message.setText("saved succesfully");
 			message.setTextFill(Color.GREEN);
+			Main.changeHaveBeenMade = true;
 			dishV.getSelectionModel().clearSelection();
 		}
     }

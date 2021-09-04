@@ -51,8 +51,9 @@ public class AddOrderController {
 			} else {
 				Order order = new Order(cust, dishes, null);
 				if (Main.restaurant.addOrder(order)) { //if add succeeds ,clear all fields for further adding
-					message.setTextFill(Color.GREEN);
 					message.setText("saved succesfully");
+					message.setTextFill(Color.GREEN);
+					Main.changeHaveBeenMade = true;
 					custV.getSelectionModel().clearSelection();
 					dishV.getSelectionModel().clearSelection();
 					selected.getItems().clear();

@@ -132,6 +132,7 @@ public class AddDeliveryController {
 				if (Main.restaurant.addDelivery(d)) {  //if add succeeds ,clear all fields for further adding
 					lblStatus.setText("Delivery was added successfully");
 					lblStatus.setTextFill(Color.GREEN);
+					Main.changeHaveBeenMade = true;
 					deliveryPersons.getSelectionModel().clearSelection();
 					deliveryArea.getSelectionModel().clearSelection();
 					orders.getSelectionModel().clearSelection();
@@ -147,6 +148,7 @@ public class AddDeliveryController {
 				if (Main.restaurant.addDelivery(d)) {  //if add succeeds ,clear all fields for further adding
 					lblStatus.setText("Delivery was added successfully");
 					lblStatus.setTextFill(Color.GREEN);
+					Main.changeHaveBeenMade = true;
 					deliveryPersons.getSelectionModel().clearSelection();
 					deliveryArea.getSelectionModel().clearSelection();
 					orders.getSelectionModel().clearSelection();

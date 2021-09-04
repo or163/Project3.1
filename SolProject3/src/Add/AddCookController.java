@@ -83,6 +83,7 @@ public class AddCookController {
 				if (Main.restaurant.addCook(cook)) {
 					message.setText("saved succesfully");
 					message.setTextFill(Color.GREEN);
+					Main.changeHaveBeenMade = true;
 					chefTG.getSelectedToggle().setSelected(false);
 					txtLName.clear();
 					txtFName.clear();

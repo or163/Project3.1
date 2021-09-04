@@ -90,6 +90,7 @@ public class EditDPController {
 			theSelected.setVehicle(car);
 			message.setTextFill(Color.GREEN);
 			message.setText("saved succesfully");
+			Main.changeHaveBeenMade = true;
 		}
 	}
 

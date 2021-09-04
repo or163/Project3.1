@@ -14,6 +14,7 @@ public class Main extends Application {
 
 	public static Restaurant restaurant;
 	public static Stage stage;
+	public static Boolean changeHaveBeenMade = false;
 
 	@Override //start main stage
 	public void start(Stage primaryStage) {
@@ -24,7 +25,11 @@ public class Main extends Application {
 			primaryStage.setTitle("JavaEat");
 			primaryStage.getIcons().add(new Image("/Icons/restaurant.png"));
 			primaryStage.show();
-			primaryStage.setOnCloseRequest(e -> Utils.Utils.exitButtonAction());
+			primaryStage.setOnCloseRequest(e -> {
+				e.consume();
+				Utils.Utils.exitButtonAction();
+				
+			});
 			stage = primaryStage;
 			
 		} catch (Exception e) {

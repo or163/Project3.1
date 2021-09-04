@@ -91,6 +91,7 @@ public class ShoppingCartController {
 					if (Main.restaurant.addOrder(o)) {
 						message.setTextFill(Color.GREEN);
 						message.setText("Ordered successfully");
+						Main.changeHaveBeenMade = true;
 						sounds.bonapatiteSound();
 						priceField.setText("");
 						dishesTV.getItems().clear(); // after order succeeds resetting the table view of items in cart

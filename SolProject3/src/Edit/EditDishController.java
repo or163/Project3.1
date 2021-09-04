@@ -88,6 +88,7 @@ public class EditDishController {
 			}
 			message.setText("saved succesfully");
 			message.setTextFill(Color.GREEN);
+			Main.changeHaveBeenMade = true;
 		}
 	}
 

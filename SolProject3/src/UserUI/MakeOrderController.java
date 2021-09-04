@@ -173,6 +173,7 @@ public class MakeOrderController {
 					if (Main.restaurant.addOrder(o)) {
 						messageRight.setTextFill(Color.GREEN);
 						messageRight.setText("Ordered successfully");
+						Main.changeHaveBeenMade = true;
 						sounds.bonapatiteSound();
 						priceLabel.setText("");
 						selected.getItems().clear();

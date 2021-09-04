@@ -87,6 +87,7 @@ public class RemoveCustomerController {
 				initData();
 				message.setTextFill(Color.GREEN);
 				message.setText("Removed successfully");
+				Main.changeHaveBeenMade = true;
 
 			} // else { // user chose CANCEL or closed the dialog
 		}

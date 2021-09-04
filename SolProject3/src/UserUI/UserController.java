@@ -220,6 +220,7 @@ public class UserController {
 			Optional<ButtonType> result = a.showAndWait();
 			if (result.get() == ButtonType.OK){
 				SerializableWiz.save(Main.restaurant);
+				Main.changeHaveBeenMade = false;
 			} else
 			    ;
 		}catch (Exception e) {

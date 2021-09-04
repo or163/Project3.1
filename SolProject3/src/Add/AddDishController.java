@@ -66,6 +66,7 @@ public class AddDishController {
 					if (Main.restaurant.addDish(dish)) {  //if add succeeds ,clear all fields for further adding
 						message.setTextFill(Color.GREEN);
 						message.setText("saved succesfully");
+						Main.changeHaveBeenMade = true;
 						name.clear();
 						time.clear();
 						type.getSelectionModel().clearSelection();

@@ -86,6 +86,7 @@ public class EditComponentController {
 				theSelected.setPrice(cost);
 				message.setText("saved succesfully");
 				message.setTextFill(Color.GREEN);
+				Main.changeHaveBeenMade = true;
 			}
 			else {
 				message.setText("the price is incorrect");

@@ -74,6 +74,7 @@ public class AddDPController {
 				if (Main.restaurant.addDeliveryPerson(dp, d)) {
 					message.setText("saved succesfully");
 					message.setTextFill(Color.GREEN);
+					Main.changeHaveBeenMade = true;
 					Utils.Utils.initDate(date);
 					txtLName.clear();
 					txtFName.clear();

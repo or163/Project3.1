@@ -125,6 +125,7 @@ public class AddCustomerController {
 				if (Main.restaurant.addCustomer(cust)) {  //if add succeeds ,clear all fields for further adding
 					message.setTextFill(Color.GREEN);
 					message.setText("saved succesfully");
+					Main.changeHaveBeenMade = true;
 					lactoseTG.getSelectedToggle().setSelected(false);
 					glutenTG.getSelectedToggle().setSelected(false);
 					userName.clear();

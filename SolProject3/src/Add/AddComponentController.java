@@ -64,6 +64,7 @@ public class AddComponentController {
 					if (Main.restaurant.addComponent(comp)) { //if add succeeds ,clear all fields for further adding
 						message.setText("saved succesfully");
 						message.setTextFill(Color.GREEN);
+						Main.changeHaveBeenMade = true;
 						lactoseTG.getSelectedToggle().setSelected(false);
 						glutenTG.getSelectedToggle().setSelected(false);
 						name.clear();

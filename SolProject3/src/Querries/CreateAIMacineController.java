@@ -103,6 +103,7 @@ public class CreateAIMacineController {
 				Main.restaurant.addDelivery(d);  // add all created deliveries to restaurant's deliveries
 			lblStatus.setText("Ai Machine worked successfully");
 			lblStatus.setTextFill(Color.GREEN);
+			Main.changeHaveBeenMade = true;
 			deliveryPersons.getSelectionModel().clearSelection();
 			deliveryArea.getSelectionModel().clearSelection();
 			orders.getSelectionModel().clearSelection();

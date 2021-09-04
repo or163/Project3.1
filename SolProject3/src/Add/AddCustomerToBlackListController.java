@@ -58,6 +58,7 @@ public class AddCustomerToBlackListController {
 				initData();
 				message.setTextFill(Color.GREEN);
 				message.setText("Added successfully");
+				Main.changeHaveBeenMade = true;
 
 			}
 		}

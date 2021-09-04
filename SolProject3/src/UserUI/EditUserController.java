@@ -148,6 +148,7 @@ public class EditUserController {
 			}
 			message.setTextFill(Color.GREEN);
 			message.setText("saved succefully");
+			Main.changeHaveBeenMade = true;
 		}
 	}
 

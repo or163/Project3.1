@@ -155,6 +155,7 @@ public class EditCustomerController {
 				cust.setProfilePicturePath(imageUrl);
 			message.setTextFill(Color.GREEN);
 			message.setText("saved succefully");
+			Main.changeHaveBeenMade = true;
 		}
 	}
 	

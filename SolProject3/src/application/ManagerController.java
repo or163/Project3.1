@@ -34,7 +34,6 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.media.MediaView;
-import javafx.stage.Stage;
 
 public class ManagerController {
 
@@ -232,6 +231,7 @@ public class ManagerController {
 			Optional<ButtonType> result = a.showAndWait();
 			if (result.get() == ButtonType.OK){
 				SerializableWiz.save(Main.restaurant);
+				Main.changeHaveBeenMade = false;
 			} else
 			    ;
 		}catch (Exception e) {
